@@ -4,16 +4,13 @@ import { useLocale } from "@/hooks/useLocale";
 import { useTranslations } from "next-intl";
 import { apiPost } from "@/lib/api/client";
 
-type TicketType = "suggestion" | "biz";
 type TicketPayload = {
-	type: TicketType;
-	subject?: string;
+	email: string;
+	subject: string;
 	message: string;
-	email?: string;
-	phone?: string;
-	locale?: string;
+	kind?: string;
 	source?: string | null;
-	sessionId?: string | null;
+	locale?: string;
 };
 
 export function ContactForm() {
@@ -23,48 +20,62 @@ export function ContactForm() {
 	const [loading, setLoading] = useState(false);
 	const [ok, setOk] = useState<null | { id?: string; status?: string }>(null);
 	const [err, setErr] = useState<string | null>(null);
-	const [form, setForm] = useState<TicketPayload>({ type: "suggestion", message: "", email: "", phone: "", subject: "", locale });
+	const [fieldErr, setFieldErr] = useState<{ email?: string; message?: string }>({});
+			const [form, setForm] = useState<TicketPayload & { phone?: string }>({ message: "", email: "", subject: "", locale, phone: "" });
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
 		const { name, value } = e.target;
 		setForm((p) => ({ ...p, [name]: value }));
+		// clear field error when user types something
+		if (name === "email" && value.trim()) {
+			setFieldErr((fe) => ({ ...fe, email: undefined }));
+		}
+		if (name === "message" && value.trim()) {
+			setFieldErr((fe) => ({ ...fe, message: undefined }));
+		}
 	};
 
-	const validate = (): string | null => {
-		if (!form.type || (form.type !== "suggestion" && form.type !== "biz")) return t("required");
-		if (!form.email || !form.email.trim()) return t("required");
-		if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return t("invalidEmail");
-		if (!form.message || !form.message.trim()) return t("required");
-		if (form.phone && form.phone.length > 0 && !/^[0-9+\-()\s]{5,}$/.test(form.phone)) return t("invalidPhone");
-		return null;
+	// minimal validation: required fields only
+	const validate = (): { ok: boolean } => {
+		const errors: { email?: string; message?: string } = {};
+		if (!form.email || !form.email.trim()) {
+			errors.email = t("required");
+		}
+		if (!form.message || !form.message.trim()) {
+			errors.message = t("required");
+		}
+		setFieldErr(errors);
+		return { ok: Object.keys(errors).length === 0 };
 	};
+
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setErr(null);
-		const msg = validate();
-		if (msg) { setErr(msg); return; }
+		const v = validate();
+		if (!v.ok) return; // stop here; avoid HTTP 400 by not calling API
 		setLoading(true);
 		try {
-			const source = (typeof window !== 'undefined') ? (window.location.pathname + (window.location.search || '')) : null;
-			const sessionId = (typeof window !== 'undefined' && (window as any).__WEB_SESSION_ID__) ? (window as any).__WEB_SESSION_ID__ : null;
-			
-			if (process.env.NODE_ENV !== 'production') {
-				console.log('[ContactForm] source:', source);
-				console.log('[ContactForm] sessionId:', sessionId);
-				console.log('[ContactForm] window location:', typeof window !== 'undefined' ? window.location.href : 'undefined');
-			}
-			
-			const payload: TicketPayload = {
-				...form,
-				locale,
-				source,
-				sessionId,
-			};
-			const res = await apiPost<{ id?: string; status?: string; ok?: boolean; message?: string }>("/api/contact", payload);
-			setOk({ id: res?.id, status: res?.status ?? (res?.ok ? "open" : undefined) });
+					const source = (typeof window !== 'undefined') ? 'web' : undefined;
+							// Append phone into message body to keep strict DTO while preserving info
+							const messageWithPhone = (() => {
+								const base = (form.message || '').trim();
+								const ph = (form.phone || '').trim();
+								if (ph) return `${base}\n\nPhone: ${ph}`;
+								return base;
+							})();
+							const payload: TicketPayload = {
+								email: (form.email || '').trim(),
+								subject: (form.subject || '').trim(),
+								message: messageWithPhone,
+								kind: form.kind?.trim() || undefined,
+								source,
+								locale,
+							};
+					const res = await apiPost<{ id?: number; message?: string }>("/api/contact", payload);
+							setOk({ id: String(res?.id ?? ""), status: "created" });
 			// reset minimal
-			setForm((p) => ({ ...p, subject: "", message: "" }));
+							setForm((p) => ({ ...p, subject: "", message: "", phone: "" }));
 		} catch (e: any) {
 			setErr(e?.payload?.message || e?.message || te("generic"));
 		} finally {
@@ -74,76 +85,86 @@ export function ContactForm() {
 
 	return (
 		<form className="space-y-5" onSubmit={onSubmit} noValidate>
-			{ok && (
-				<div className="rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-2 text-sm">
-					{t("success")} {ok.id ? `(ID: ${ok.id})` : ""}
-				</div>
-			)}
+					{ok && (
+						<div className="rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-2 text-sm">
+							{t("success")}
+						</div>
+					)}
 			{err && (
 				<div className="rounded-md bg-rose-50 border border-rose-200 text-rose-800 px-3 py-2 text-sm">
 					{err}
 				</div>
 			)}
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-				<label className="block">
-					<span className="text-sm text-slate-700">{t("type")}</span>
-							<select
-								name="type"
-								value={form.type}
-								onChange={onChange}
-								className="mt-1 h-11 w-full rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
-							>
-						<option value="suggestion">{t("typeSuggestion")}</option>
-						<option value="biz">{t("typeBiz")}</option>
-					</select>
-				</label>
-				<label className="block">
-					<span className="text-sm text-slate-700">{t("subject")}</span>
-									<input
-								name="subject"
-								value={form.subject}
-								onChange={onChange}
+								{/* Kind (種別) moved to top */}
+								<label className="block">
+									<span className="text-sm text-slate-700">{t("type")}</span>
+									<select
+										name="kind"
+										value={form.kind || ""}
+										onChange={onChange}
 										className="mt-1 h-11 w-full rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
-							/>
-				</label>
-			</div>
+									>
+										<option value="">{t("typeSuggestion")}</option>
+										<option value="biz">{t("typeBiz")}</option>
+									</select>
+								</label>
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-				<label className="block">
-					<span className="text-sm text-slate-700">{t("email")}</span>
+								{/* Subject placed between Kind and Email */}
+								<label className="block">
+									<span className="text-sm text-slate-700">{t("subject")}</span>
 									<input
-								name="email"
-								type="email"
+										name="subject"
+										value={form.subject}
+										onChange={onChange}
+										className="mt-1 h-11 w-full rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
+									/>
+								</label>
+
+								{/* Email, then Phone (under email) */}
+								<label className="block">
+									<span className="text-sm text-slate-700">{t("email")} <span className="text-rose-600">*</span></span>
+									<input
+										name="email"
+										type="email"
 										required
-						value={form.email}
-								onChange={onChange}
-										className="mt-1 h-11 w-full rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
-							/>
-				</label>
-				<label className="block">
-					<span className="text-sm text-slate-700">{t("phone")}</span>
+										value={form.email}
+										onChange={onChange}
+										aria-invalid={!!fieldErr.email}
+										className={`mt-1 h-11 w-full rounded-lg border bg-white px-3 text-[15px] outline-none focus:ring-2 ${fieldErr.email ? "border-rose-400 focus:ring-rose-400" : "border-slate-200/60 focus:ring-slate-400"}`}
+									/>
+									{fieldErr.email && (
+										<p className="mt-1 text-sm text-rose-600">{fieldErr.email}</p>
+									)}
+								</label>
+								<label className="block">
+									<span className="text-sm text-slate-700">{t("phone")}</span>
 									<input
-								name="phone"
-								value={form.phone}
-								onChange={onChange}
+										name="phone"
+										value={form.phone}
+										onChange={onChange}
 										className="mt-1 h-11 w-full rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
-							/>
-				</label>
-			</div>
+									/>
+								</label>
+
+								{/* removed previous email+kind grid; now vertical order as above */}
 
 					<label className="block">
-						<span className="text-sm text-slate-700">{t("message")}</span>
+							<span className="text-sm text-slate-700">{t("message")} <span className="text-rose-600">*</span></span>
 						<textarea
 							name="message"
 							value={form.message}
 							onChange={onChange}
 							required
-							className="mt-1 w-full min-h-[120px] rounded-lg border border-slate-200/60 bg-white px-3 py-2 text-[15px] outline-none focus:ring-2 focus:ring-slate-400"
+								aria-invalid={!!fieldErr.message}
+								className={`mt-1 w-full min-h-[120px] rounded-lg border bg-white px-3 py-2 text-[15px] outline-none focus:ring-2 ${fieldErr.message ? "border-rose-400 focus:ring-rose-400" : "border-slate-200/60 focus:ring-slate-400"}`}
 						/>
+							{fieldErr.message && (
+								<p className="mt-1 text-sm text-rose-600">{fieldErr.message}</p>
+							)}
 					</label>
 
-	      {/* source removed per request */}
+	{/* source 固定为 web，在 BFF 中只映射允许的字段 */}
 
 			<div className="pt-2 flex justify-center">
 						<button

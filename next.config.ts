@@ -64,6 +64,7 @@ const nextConfig: NextConfig = {
         // Optional: allow extra dev origins from env (comma-separated hostnames)
         ...(process.env.DEV_ALLOWED_ORIGINS ? process.env.DEV_ALLOWED_ORIGINS.split(',') : []),
         // LAN IPs
+        '192.168.1.2',
         '192.168.1.4',
         '192.168.1.9',
         '192.168.1.8',

@@ -129,3 +129,24 @@ Security headers (CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Polic
 ### Static visa catalog
 
 Stable visa slugs and localized names live in `src/data/visaCatalog.ts`. Pages under `/[locale]/visa/[slug]` and `/[locale]/visa/[slug]/documents` are statically generated with `generateStaticParams`, `dynamicParams=false`, and ISR via `revalidate`.
+
+### Tracking API (/api/track)
+
+A minimal same-origin tracking API is implemented for dev/BFF usage:
+
+- POST `/api/track/anon/ensure` -> `{ aid, createdAt, lastSeenAt }`
+- POST `/api/track/device` -> `{ deviceId, aid, firstSeenAt, lastSeenAt }`
+- POST `/api/track/session` -> `{ sessionId, aid, startedAt, isBot }`
+- POST `/api/track/session/{id}/end` -> `{ sessionId, endedAt, duration }`
+
+Client wrapper and hook:
+
+- `src/lib/track/client.ts` exports `initTracking`, `ensureAnon`, `upsertDevice`, `startSession`, `endSession`
+- `src/hooks/useTracking.ts` exposes a React hook; `src/components/analytics/TrackBootstrapClient.tsx` wires it in layout
+
+Notes:
+
+- Anonymous id `aid` is stored in `localStorage`
+- `sendBeacon` is preferred for session end with fetch fallback
+- Timestamps are ISO 8601 UTC (with Z); render as Asia/Tokyo as needed
+- Implementation uses in-memory store (non-persistent)

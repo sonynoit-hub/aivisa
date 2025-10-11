@@ -4,9 +4,10 @@ import {locales, defaultLocale, type Locale} from "@/i18n/locales";
 import {loadMessages} from "@/i18n/request";
 import ChatDockClient from "@/features/ask-ai/components/ChatDockClient";
 import FooterGateClient from "@/components/layout/FooterGateClient";
-import AnalyticsBootstrapClient from "@/components/analytics/AnalyticsBootstrapClient";
-import RouteTrackerClient from "@/components/analytics/RouteTrackerClient";
-import ClickTrackerClient from "@/components/analytics/ClickTrackerClient";
+// legacy analytics removed; using versionless tracking only
+// TrackBootstrapClient removed; using AnalyticsInitClient to connect backend
+import AnalyticsEventsClient from "@/components/analytics/AnalyticsEventsClient";
+import AnalyticsInitClient from "@/components/analytics/AnalyticsInitClient";
 
 // 可提到 config 里统一管理
 const DEFAULT_TIME_ZONE = "Asia/Tokyo";
@@ -14,18 +15,11 @@ const DEFAULT_TIME_ZONE = "Asia/Tokyo";
 // 避免预渲染阶段因 useSearchParams 等导致的 CSR bailout 报错
 export const dynamic = 'force-dynamic'
 
-type ParamsLike =
-  | Record<string, string>
-  | PromiseLike<Record<string, string>>
-  | undefined;
-
-type Props = { params: ParamsLike; children: ReactNode };
+type Props = { params: Promise<Record<string, string>> | undefined; children: ReactNode };
 
 export default async function LocaleLayout({children, params}: Props) {
   // 解析动态路由里的 locale
-  const resolvedParams = (await Promise.resolve(params)) as
-    | Record<string, string>
-    | undefined;
+  const resolvedParams = (params ? await params : undefined) as Record<string, string> | undefined;
 
   const candidate = resolvedParams?.locale as string | undefined;
   const locale: Locale =
@@ -44,9 +38,8 @@ export default async function LocaleLayout({children, params}: Props) {
       timeZone={DEFAULT_TIME_ZONE} // ✅ 显式传入，避免 ENVIRONMENT_FALLBACK
     >
       {children}
-  <AnalyticsBootstrapClient />
-  <RouteTrackerClient />
-  <ClickTrackerClient />
+  <AnalyticsInitClient />
+  <AnalyticsEventsClient />
       <ChatDockClient />
       {/* 确保 Footer 处于 next-intl Provider 下 */}
       <FooterGateClient />

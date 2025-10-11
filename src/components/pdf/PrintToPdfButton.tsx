@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { logEventReliable } from "@/lib/analytics/events";
 
 export type PrintToPdfButtonProps = {
   targetRef: React.RefObject<HTMLElement>;
@@ -25,6 +26,20 @@ export function PrintToPdfButton({
 
   const handleClick = async () => {
     if (!targetRef.current || printingRef.current) return;
+
+    // Fire analytics 'pdf' event early with readiness deferral
+    try {
+      const label = (typeof children === 'string' ? children : (filename ? `PrintPDF:${filename}` : 'PrintPDF')) as string;
+      const getSid = () => (window as any).__ANALYTICS_SESSION_ID__ || (window as any).__WEB_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId;
+  const send = () => logEventReliable("pdf", { path: location.pathname }, { category: "interaction", label: String(label) });
+      if (getSid()) send();
+      else {
+        const onReady = () => send();
+        window.addEventListener("analytics:ready", onReady as any, { once: true } as any);
+        const poll = setInterval(() => { if (getSid()) { clearInterval(poll); try { window.removeEventListener("analytics:ready", onReady as any); } catch {}; send(); } }, 500);
+        setTimeout(() => clearInterval(poll), 15000);
+      }
+    } catch {}
 
     printingRef.current = true;
     const root = targetRef.current;
@@ -66,6 +81,7 @@ export function PrintToPdfButton({
       disabled={disabled}
       aria-label="导出为 PDF"
       data-analytics="click"
+      data-analytics-direct
       data-analytics-name={typeof children === 'string' ? children : (filename ? `PrintPDF:${filename}` : 'PrintPDF')}
       data-hide-print
     >

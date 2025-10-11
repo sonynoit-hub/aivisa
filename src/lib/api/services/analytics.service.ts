@@ -33,28 +33,37 @@ export async function getOrCreateDeviceToken(): Promise<string> {
   }
 }
 
-export async function registerDevice(anonId: string, tokenHash: string, uaHash?: string) {
-  return apiPostWithMeta(EP.analytics.devices, { anonId, tokenHash, uaHash });
+// /devices expects: { anonUserId, token?, fingerprint?, uaRaw }
+export async function registerDevice(anonUserId: string, token?: string, fingerprint?: string) {
+  return apiPostWithMeta(EP.analytics.devices, {
+    anonUserId,
+    token: token || undefined,
+    fingerprint: fingerprint || undefined,
+    uaRaw: typeof navigator !== "undefined" ? navigator.userAgent : "",
+  });
 }
 
-export async function createWebSession(payload: { anonId: string; deviceId: string; locale: string; tz: string; }) {
+// /web-sessions expects: { anonUserId, deviceId, locale?, ipAddr?, referrer?, utmJson?, landingPath, isBot? }
+export async function createWebSession(payload: { anonUserId: string; deviceId: number; locale?: string; ipAddr?: string; referrer?: string; utmJson?: string; landingPath: string; isBot?: boolean; }) {
   return apiPostWithMeta(EP.analytics.webSessions, payload);
 }
 
+// /sessions (Analytics Session) expects flattened DTO. sessionId here is Web Session ID
 export async function upsertAnalyticsSession(payload: {
-  anonId: string; sessionId: string; deviceId: string; deviceTokenHash: string;
+  anonUserId: string; sessionId: number; deviceId: number; deviceTokenHash?: string;
   userAgent: string; deviceType: "desktop" | "mobile" | "tablet";
   screenWidth: number; screenHeight: number; screenDpr: number;
-  lang: string; timezone: string; geoCountry?: string;
+  lang: string; timezone: string; geoCountry?: string; lastSeenAt?: string;
 }) {
   return apiPostWithMeta(EP.analytics.sessions, payload);
 }
 
+// /events expects: { eventType, payload(JSON string), anonUserId, sessionId(Analytics), deviceId?, deviceTokenHash?, route?, referrer?, isBot?, receivedAt? }
 export async function sendEvent(payload: {
-  type: string;
-  payload: Record<string, any>;
-  anonId: string; sessionId: string; deviceId: string; deviceTokenHash: string;
-  route: string; referrer?: string; isBot?: boolean;
+  eventType: string;
+  payload: string;
+  anonUserId: string; sessionId: number; deviceId?: number; deviceTokenHash?: string;
+  route?: string; referrer?: string; isBot?: boolean; receivedAt?: string;
 }) {
   return apiPostWithMeta(EP.analytics.events, payload);
 }

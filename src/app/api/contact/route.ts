@@ -1,34 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireBackendUrl } from "@/lib/api/backend";
-import { TicketPayload } from "@/types/visa";
 import { buildBackendHeaders, passthrough } from "@/server/bff/http";
 
 export async function POST(req: NextRequest) {
-	const backendUrl = new URL(
-		"/api/v1/contact",
-		requireBackendUrl(),
-	).toString();
+	const base = requireBackendUrl();
+	const urlObj = new URL(base);
+	const localhostBase = `http://localhost:${urlObj.port || 80}`;
+	const loopbackBase = `http://127.0.0.1:${urlObj.port || 80}`;
+	const candidates = [
+		new URL("/api/contact", base).toString(),
+		new URL("/api/v1/contact", base).toString(),
+		new URL("/api/contact", localhostBase).toString(),
+		new URL("/api/v1/contact", localhostBase).toString(),
+		new URL("/api/contact", loopbackBase).toString(),
+		new URL("/api/v1/contact", loopbackBase).toString(),
+	];
 
 	try {
-		const originalPayload = await req.json();
-
-		const payload: TicketPayload = {
-			type: originalPayload.type || null,
-			id: originalPayload.id || null,
-			source: originalPayload.source || null,
-			name: originalPayload.name || null,
-			email: originalPayload.email || null,
-			phone: originalPayload.phone || null,
-			subject: originalPayload.subject || "General Inquiry",
-			message: originalPayload.message || "",
-			status: originalPayload.status || "NEW",
-			priority: originalPayload.priority || "NORMAL",
-			locale: originalPayload.locale || null,
-			sessionId: originalPayload.sessionId || null,
-			userId: originalPayload.userId || null,
-			assigneeUserId: originalPayload.assigneeUserId || null,
-			createdAt: originalPayload.createdAt || new Date().toISOString(),
-			updatedAt: originalPayload.updatedAt || new Date().toISOString(),
+		const original = await req.json().catch(() => ({}));
+		// Map to strict DTO expected by backend
+		const payload: {
+			email: string;
+			subject: string;
+			message: string;
+			kind?: string;
+			source?: string;
+			locale?: string;
+		} = {
+			email: String(original.email ?? ""),
+			subject: String(original.subject ?? ""),
+			message: String(original.message ?? ""),
+			kind: original.kind ? String(original.kind) : undefined,
+			source: original.source ? String(original.source) : undefined,
+			locale: original.locale ? String(original.locale) : undefined,
 		};
 
 		const headers = buildBackendHeaders(req, {
@@ -38,28 +42,31 @@ export async function POST(req: NextRequest) {
 		});
 
 		if (process.env.NODE_ENV === "development") {
-			console.log("▲ [BFF] Contact POST to Backend:", backendUrl);
-			console.log("▲ [BFF] Headers:", headers);
-			console.log("▲ [BFF] Body:", JSON.stringify(payload, null, 2));
+			console.log("▲ [BFF] Contact POST candidates:", candidates);
+			console.log("▲ [BFF] Body:", JSON.stringify(payload));
 		}
 
-		const response = await fetch(backendUrl, {
-			method: "POST",
-			headers: headers,
-			body: JSON.stringify(payload),
-		});
-
-		if (process.env.NODE_ENV === "development") {
-			console.log(
-				"▼ [BFF] Backend Response Status:",
-				response.status,
-				response.statusText,
-			);
-			const responseBody = await response.text();
-			console.log("▼ [BFF] Backend Response Body:", responseBody);
-			return new NextResponse(responseBody, { status: response.status, statusText: response.statusText, headers: response.headers });
+		// Try multiple candidates (path + host) to maximize connectivity in dev
+		const doPost = async (url: string) => fetch(url, { method: "POST", headers, body: JSON.stringify(payload) });
+		let response: Response | null = null;
+		let lastErr: any = null;
+		for (const url of candidates) {
+			try {
+				const r = await doPost(url);
+				if (!r.ok && (r.status === 404 || r.status === 405)) {
+					// try next candidate
+					continue;
+				}
+				response = r;
+				break;
+			} catch (e) {
+				lastErr = e;
+				continue;
+			}
 		}
-
+		if (!response) {
+			throw new Error(`Contact upstream unreachable: ${lastErr ? String(lastErr) : 'no candidates succeeded'}`);
+		}
 		return passthrough(response, { forceJson: true });
 	} catch (error) {
 		console.error("[BFF] Error in POST /api/contact:", error);
@@ -84,15 +91,9 @@ export async function GET(request: NextRequest) {
 
 	let backendUrl;
 	if (id) {
-		backendUrl = new URL(
-			`/api/v1/contact/${id}`,
-			requireBackendUrl(),
-		).toString();
+		backendUrl = new URL(`/api/contact/${id}`, requireBackendUrl()).toString();
 	} else {
-		backendUrl = new URL(
-			`/api/v1/contact?${searchParams.toString()}`,
-			requireBackendUrl(),
-		).toString();
+		backendUrl = new URL(`/api/contact?${searchParams.toString()}`, requireBackendUrl()).toString();
 	}
 
 	try {

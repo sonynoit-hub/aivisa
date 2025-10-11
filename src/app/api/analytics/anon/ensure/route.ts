@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAnalyticsBase, buildAnalyticsHeaders } from "@/server/analytics/http";
+import { serverDbg } from "@/server/analytics/debug";
 
 export const dynamic = "force-dynamic";
 
@@ -19,8 +20,10 @@ export async function POST(req: NextRequest) {
 	}
 	const url = `${getAnalyticsBase()}/api/analytics/anon/ensure`;
 	try {
+		serverDbg('POST', url);
 		const upstream = await fetch(url, { method: "POST", headers: buildAnalyticsHeaders(req, { contentType: "application/json" }) });
 		const data = await upstream.json().catch(() => ({}));
+		serverDbg('RES', url, upstream.status, data);
 		// 无论上游是否返回 Set-Cookie，这里都用 Next 的 cookies API 稳定写入 aid，避免 dev 环境 http + Secure 导致丢失
 		const res = NextResponse.json(data, { status: upstream.status });
 		const anonId = (data as any)?.anonId || (data as any)?.id;
