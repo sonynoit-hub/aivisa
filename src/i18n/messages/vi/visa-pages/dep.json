@@ -1,0 +1,85 @@
+{
+	"title": "Đoàn tụ gia đình",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Đoàn tụ gia đình",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Làm thủ tục tại Nhật", "change": "Đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Người phụ thuộc/Gia đình", "optional": "Tuỳ chọn/Bổ sung" },
+	"tips": "・Visa phụ thuộc dành cho **thành viên gia đình của cư dân** có tư cách lưu trú hợp lệ ở Nhật Bản\n\n・Cho phép **vợ/chồng và con chưa kết hôn** dưới 20 tuổi sống ở Nhật Bản với chủ visa chính\n\n・**Yêu cầu tài liệu thay đổi** tùy theo loại mối quan hệ (vợ/chồng hoặc con) và tình trạng của chủ visa chính\n\n・Người có tư cách phụ thuộc có thể xin **giấy phép làm việc bán thời gian** bằng đơn riêng\n\n・Kiểm tra các yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Quan trọng:** Tư cách phụ thuộc gắn liền với tình trạng của chủ visa chính - nếu tình trạng của họ thay đổi hoặc hết hạn, tư cách phụ thuộc cũng bị ảnh hưởng",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Sổ hộ tịch",
+				"Giấy chứng nhận kết hôn"
+			],
+			"dependents": [
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy chứng nhận cư trú",
+				"Chứng nhận thuế cư trú",
+				"Chứng nhận nộp thuế",
+				"Chứng nhận số dư ngân hàng"
+			],
+			"optional": ["Các giấy tờ khác"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp tư cách lưu trú tại Nhật",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Sổ hộ tịch",
+				"Giấy chứng nhận kết hôn",
+				"Phiếu câu hỏi"
+			],
+			"dependents": [
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy chứng nhận cư trú",
+				"Chứng nhận thuế cư trú",
+				"Chứng nhận nộp thuế",
+				"Chứng nhận số dư ngân hàng"
+			],
+			"optional": ["Các giấy tờ khác"]
+		},
+		"change": {
+			"applicant": [
+				"Đơn thay đổi tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận kết hôn",
+				"Sổ hộ tịch"
+			],
+			"dependents": [
+				"Giấy chứng nhận cư trú",
+				"Chứng nhận thuế cư trú",
+				"Chứng nhận nộp thuế",
+				"Chứng nhận số dư ngân hàng"
+			],
+			"optional": ["Các giấy tờ khác"]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận kết hôn",
+				"Sổ hộ tịch"
+			],
+			"dependents": [
+				"Giấy chứng nhận cư trú",
+				"Chứng nhận thuế cư trú",
+				"Chứng nhận nộp thuế",
+				"Chứng nhận số dư ngân hàng"
+			],
+			"optional": ["Các giấy tờ khác"]
+		}
+	}
+}

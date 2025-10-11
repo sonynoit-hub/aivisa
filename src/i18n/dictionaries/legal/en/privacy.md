@@ -1,0 +1,41 @@
+# Privacy Policy
+
+Last updated: 2025-09-24
+
+This policy describes how AIVISA ("we", "us") collects, uses, and safeguards personal data when you use our services.
+
+## 1. Information We Collect
+- Contact details provided via forms (name, email, message)
+- Usage data and logs (timestamps, IP address, device information, cookies)
+- AI chat inputs (used in aggregated/anonymous form for quality improvement)
+
+## 2. How We Use Information
+- Respond to inquiries and provide support
+- Provide, maintain, improve, and develop services
+- Prevent fraud and ensure security
+- Comply with legal obligations
+
+## 3. Third-party Services
+We may use third-party services for analytics, error monitoring, and communication. Each provider processes data under its own privacy policy.
+
+## 4. Sharing of Information
+We do not share personal data with third parties without consent, unless required by law.
+
+## 5. Data Security
+We implement appropriate technical and organizational measures to protect personal data from unauthorized access, loss, or disclosure.
+
+## 6. Cookies
+We may use cookies to improve usability and analyze usage. You may disable cookies in your browser, which may affect certain features.
+
+## 7. Your Rights
+You may request access, correction, or deletion of your personal data in accordance with applicable laws.
+
+## 8. Children’s Privacy
+Parental consent may be required where applicable. We take appropriate steps to obtain consent when necessary.
+
+## 9. Changes to this Policy
+We may update this policy from time to time. Material changes will be announced appropriately.
+
+## 10. Contact
+If you have questions about this policy, please contact us via the contact form.
+

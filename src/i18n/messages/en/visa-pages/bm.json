@@ -1,0 +1,116 @@
+{
+	"title": "Business Manager",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Business Manager",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+	"tips": "・Business Manager visa is for **business management or operation**\n\n・Requires either **investment of 5 million yen or more** or **employment of 2 or more Japanese nationals**\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Key documents include business plan, funding proof, business registration certificate, etc.\n\n・Must demonstrate management capability through education, business experience, or qualifications",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility Application Form",
+				"Passport",
+				"Photo (4×3cm)",
+				"Work experience certificate",
+				"Educational certificates"
+			],
+			"company": [
+				"Employment contract",
+				"Business description",
+				"Corporate registration certificate",
+				"Real estate registry OR lease agreement",
+				"Business plan (copy)",
+				"Financial statements (latest fiscal year) (copy)",
+				"Return envelope"
+			],
+			"optional": [
+				"Capital investment proof",
+				"Japanese language proficiency certificate (JLPT, etc.)",
+				"Company brochure",
+				"Business contracts",
+				"Transaction records",
+				"Organization chart",
+				"Statement of reasons"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Status of Residence Acquisition Application Form",
+				"Passport",
+				"Photo (4×3cm)",
+				"Statement of reasons",
+				"Work experience document",
+				"Educational certificates",
+				"Return envelope"
+			],
+			"company": [
+				"Employment contract",
+				"Business description",
+				"Corporate registration certificate",
+				"Real estate registry OR lease agreement",
+				"Business plan (copy)",
+				"Financial statements (latest fiscal year) (copy)",
+				"Withholding tax OR business establishment notification (copy)"
+			],
+			"optional": [
+				"Capital investment proof",
+				"Japanese language proficiency certificate (JLPT, etc.)",
+				"Company brochure",
+				"Business contracts",
+				"Transaction records",
+				"Organization chart"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Change of Status of Residence Permission Application Form",
+				"Photo (4×3cm)",
+				"Passport",
+				"Residence card",
+				"Statement of reasons",
+				"Work experience document",
+				"Educational certificates"
+			],
+			"company": [
+				"Business description",
+				"Corporate registration certificate",
+				"Real estate registry OR lease agreement",
+				"Business plan (copy)",
+				"Financial statements (latest fiscal year) (copy)",
+				"Withholding tax OR business establishment notification (copy)"
+			],
+			"optional": [
+				"Capital investment proof",
+				"Japanese language proficiency certificate (JLPT, etc.)",
+				"Company brochure",
+				"Business contracts",
+				"Transaction records",
+				"Organization chart"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Extension of Period of Stay Application Form",
+				"Photo (4×3cm)",
+				"Passport",
+				"Residence card"
+			],
+			"company": [
+				"Business description",
+				"Business plan (copy)",
+				"Financial statements (latest fiscal year) (copy)",
+				"Tax payment certificate",
+				"Withholding tax OR business establishment notification (copy)"
+			],
+			"optional": [
+				"Statement of reasons",
+				"Company brochure",
+				"Transaction records"
+			]
+		}
+	}
+}

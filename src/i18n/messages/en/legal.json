@@ -1,0 +1,14 @@
+{
+  "legal": {
+    "privacy": {
+      "seoTitle": "Privacy Policy",
+      "seoDescription": "Our policy for protecting and handling your personal data.",
+      "seoKeywords": ["Privacy", "Personal data", "Data protection"]
+    },
+    "terms": {
+      "seoTitle": "Terms of Service",
+      "seoDescription": "The terms and conditions for using this service.",
+      "seoKeywords": ["Terms", "Conditions", "Policy"]
+    }
+  }
+}

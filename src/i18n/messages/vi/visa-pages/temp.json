@@ -1,0 +1,51 @@
+{
+	"title": "Lưu trú ngắn hạn",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Lưu trú ngắn hạn",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "optional": "Tùy chọn", "company": "Công ty" },
+	"tips": "・Tư cách lưu trú tạm thời cho phép lưu trú **tối đa 90 ngày** về nguyên tắc\n\n・Được sử dụng cho du lịch, kinh doanh, thăm thân nhân và các mục đích ngắn hạn khác\n\n・Kiểm tra các yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Có thể nộp đơn **từ 3 tháng trước** ngày dự kiến lưu trú\n\n・Các giấy tờ cần thiết có thể khác nhau tùy theo mục đích lưu trú",
+	"studyDocs": {
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp tư cách lưu trú tại Nhật",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
+				"Giấy chứng nhận dự định xuất cảnh"
+			],
+			"optional": ["Các giấy tờ khác"],
+			"company": []
+		},
+		"change": {
+			"applicant": [
+				"Đơn thay đổi tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
+				"Giấy chứng nhận nguồn tài chính",
+				"Giấy chứng nhận dự định xuất cảnh"
+			],
+			"optional": ["Các giấy tờ khác"],
+			"company": []
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
+				"Giấy chứng nhận dự định xuất cảnh"
+			],
+			"optional": ["Các giấy tờ khác"],
+			"company": []
+		}
+	}
+}

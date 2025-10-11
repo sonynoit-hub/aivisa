@@ -1,0 +1,74 @@
+{
+	"title": "Care Worker",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Care Worker",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+	"tips": "・Care Worker visa is for **care work at care facilities**\n\n・Requires **national qualification as a Certified Care Worker**. EPA care worker experience is also valid\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・The employing care facility must meet **appropriate facility standards**\n\n・Japanese language proficiency is crucial due to the nature of care work",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility (COE) Application",
+				"Passport",
+				"Photo (4×3cm)",
+				"Certified Care Worker Registration Certificate"
+			],
+			"company": [
+				"Self-addressed Return Envelope",
+				"Notice of Working Conditions",
+				"Employment Contract",
+				"Letter of Invitation"
+			],
+			"optional": ["Others"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Acquisition of Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Certified Care Worker Registration Certificate",
+				"Statement of Reason"
+			],
+			"company": [
+				"Notice of Working Conditions",
+				"Employment Contract",
+				"Letter of Invitation"
+			],
+			"optional": ["Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Certified Care Worker Registration Certificate"
+			],
+			"company": [
+				"Notice of Working Conditions",
+				"Employment Contract",
+				"Letter of Invitation"
+			],
+			"optional": ["Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate"
+			],
+			"company": [
+				"Notice of Working Conditions",
+				"Letter of Invitation"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

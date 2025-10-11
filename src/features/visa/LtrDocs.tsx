@@ -1,0 +1,30 @@
+"use client";
+
+import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import { useMemo } from "react";
+
+type CategoryKey = "applicant" | "guarantor" | "optional";
+
+const CAT_COLORS: Record<CategoryKey, ColorConfig> = {
+  applicant: { titleDot: "bg-teal-500", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-700" },
+  guarantor: { titleDot: "bg-teal-500", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-700" },
+  optional: { titleDot: "bg-amber-400", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-700" },
+};
+
+type StudyDocsData = Record<"stepchildren" | "divorce-residence", Record<CategoryKey, string[]>>;
+
+type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaDocsMeta<CategoryKey> };
+
+export default function LtrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
+  const categoryOrder = useMemo(() => ["applicant", "guarantor", "optional"] as const, []);
+  return (
+    <VisaDocs
+      locale={locale}
+      storageKey="ltrDocs:checks"
+      categoryOrder={categoryOrder}
+      colors={CAT_COLORS}
+      studyDocs={studyDocs as any}
+      meta={studyDocsMeta}
+    />
+  );
+}

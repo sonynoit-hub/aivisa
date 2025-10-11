@@ -1,0 +1,61 @@
+{
+  "tools": {
+  "hspPoints": {
+    "seoTitle": "高度人材积分计算器",
+    "seoDescription": "快速估算日本高度人材（HSP）签证积分。按类别选择条件，自动累计。",
+    "seoKeywords": ["高度人材", "HSP", "积分", "签证", "日本"],
+  "title": "高度人材积分计算",
+  "subtitle": "请选择条件，计算高度人材签证积分（示意）。",
+      "points": "分",
+      "totalPoints": "总分",
+  "categories": {"research": "研究(イ)", "tech": "技术(ロ)", "business": "经营・管理(ハ)"},
+      "sections": {
+        "academic": "学历",
+        "workExperience": "工作经验",
+        "age": "年龄",
+        "salary": "薪资",
+        "position": "职位",
+        "researchAchievements": "研究",
+        "license": "许可证",
+        "organizations": "组织",
+        "japaneseLanguage": "日语能力",
+        "bonusPoints": "额外成就"
+      },
+      "academic": {
+        "shared": {"doctoral": "博士", "professional": "专业学位", "master": "硕士", "bachelor": "学士"},
+        "business": {"professional": "专业学位", "master": "硕士", "bachelor": "学士"}
+      },
+      "workExperience": {
+        "research": {"moreThan7": "7年以上", "moreThan5": "5年以上", "moreThan3": "3年以上"},
+        "tech": {"moreThan10": "10年以上", "moreThan7": "7年以上", "moreThan5": "5年以上", "moreThan3": "3年以上"},
+        "business": {"moreThan10": "10年以上", "moreThan7": "7年以上", "moreThan5": "5年以上", "moreThan3": "3年以上"}
+      },
+      "age": {"under30": "30岁以下", "30to34": "30–34", "35to39": "35–39", "over40": "40+"},
+      "salary": {
+        "shared": {"over10M": "≥ 1000万日元", "over9M": "≥ 900万", "over8M": "≥ 800万", "over7M": "≥ 700万", "over6M": "≥ 600万", "over5M": "≥ 500万", "over4M": "≥ 400万"},
+        "business": {"over30M": "≥ 3000万日元", "over25M": "≥ 2500万", "over20M": "≥ 2000万", "over15M": "≥ 1500万", "over10M": "≥ 1000万"}
+      },
+  "position": {"business": {"repDirector": "代表董事/高管", "director": "董事/役员", "invested100M": "自投 ≥1000万日元"}},
+      "researchAchievements": {
+        "research": {"patented": "专利发明1项以上", "fundedProjects": "入日前获得公共机构资助的研究项目3项以上", "published3plus": "在日本国家机构使用的数据库中登记的学术期刊上发表论文3篇以上（作为通讯作者）", "otherAchievements": "经相关当局意见后由法务大臣认定的同等记录", "if2Apply": "符合上述2项以上条件"},
+        "tech": {"patented": "专利发明1项以上", "fundedProjects": "入日前获得公共机构资助的研究项目3项以上", "published3plus": "在日本国家机构使用的数据库中登记的学术期刊上发表论文3篇以上（作为通讯作者）", "otherAchievements": "经相关当局意见后由法务大臣认定的同等记录"}
+      },
+  "license": {"tech": {"national": "国家资格", "itExam": "IT考试／资格", "multiple": "多个资格证书"}},
+  "organization": {"innovation": "创新支持机构", "localGov": "地方政府支持的机构", "smeR&D": "研发占比超过3%的中小企业"},
+      "japaneseLanguage": {"jlptN1": "JLPT N1", "jlptN2": "JLPT N2", "graduatedJapan": "日本院校毕业"},
+      "bonus": {
+        "research": {"topUnis": "法务省指定大学毕业者", "supportedOrg": "支持机构业务", "foreignQual": "持有业务相关外国资格者", "multipleDegrees": "多个学位", "innovation": "在接受创新支持的机构工作", "jlptN1": "JLPT N1 / 日语专业", "japaneseGraduated": "日本大学毕业", "invManage": "从事投资管理业务相关工作", "jicaTrain": "完成法务省指定培训"},
+        "tech": {"topUnis": "法务省指定大学毕业者", "investment": "从事投资管理业务相关工作", "supportedOrg": "支持机构业务", "foreignQual": "持有业务相关外国资格者", "multipleDegrees": "多个学位", "jica": "完成法务省指定培训", "innovation": "在接受创新支持的机构工作", "jlptN1": "JLPT N1 / 日语专业", "jlptN2": "JLPT N2", "japaneseGraduated": "日本大学毕业"},
+        "business": {"topUnis": "法务省指定大学毕业者", "investment": "从事投资管理业务相关工作", "supportedOrg": "支持机构业务", "foreignQual": "持有业务相关外国资格者", "jica": "完成法务省指定培训", "multipleDegrees": "多个学位", "innovation": "在接受创新支持的机构工作", "jlptN1": "JLPT N1 / 日语专业", "jlptN2": "JLPT N2", "japaneseGraduated": "日本大学毕业"}
+      },
+      "references": {
+        "agency": "Immigration Services Agency of Japan",
+        "heading": "Points calculation reference format",
+        "description": "The links below point to official reference templates. For the latest and authoritative requirements, always consult the agency's publications.",
+        "disclaimer": "The calculator is for reference only. Actual screening and points are determined by the Immigration Services Agency of Japan.",
+        "jpExcel": "Excel (Japanese)",
+        "enExcel": "Excel (English)"
+      }
+    }
+  }
+}

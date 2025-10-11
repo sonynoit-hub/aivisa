@@ -1,0 +1,83 @@
+{
+	"title": "Highly Skilled Professional I",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Highly Skilled Professional I",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": {
+		"abroad": "Apply from abroad",
+		"inJapan": "Obtain in Japan",
+		"change": "Change status",
+		"extend": "Extend period"
+	},
+	"categoryLabels": {
+		"applicant": "Applicant",
+		"company": "Company",
+		"optional": "Optional"
+	},
+	"tips": "・HSP (i) visa is for **highly skilled professionals** in research, specialized/technical services, or business management\n\n・Offers **preferential treatment** including multiple entry, spouse work permission, and faster PR eligibility\n\n・Requires **minimum 70 points** based on education, experience, salary, age, and other factors\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> 📊 **Use the Points Calculator Tool**\n> \n> 🔗 **[Highly Skilled Professional Points Calculator](/en/tools/hsp-points)** → Check your current points\n> \n> ⚠️ **Important:** The points calculation table is a mandatory document for your application.",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility (COE) Application",
+				"Passport",
+				"Photo (4×3cm)",
+				"Self-addressed Return Envelope",
+				"Points Calculation Table",
+				"Supporting Documents for Each Item in Points Calculation"
+			],
+			"optional": [
+				"Employment Contract",
+				"Company Business Description",
+				"Others"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Acquisition of Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Points Calculation Table",
+				"Supporting Documents for Each Item in Points Calculation",
+				"Self-addressed Return Envelope"
+			],
+			"optional": [
+				"Employment Contract",
+				"Company Business Description",
+				"Others"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Points Calculation Table",
+				"Supporting Documents for Each Item in Points Calculation"
+			],
+			"optional": [
+				"Employment Contract",
+				"Company Business Description",
+				"Others"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Points Calculation Table",
+				"Supporting Documents for Each Item in Points Calculation"
+			],
+			"optional": [
+				"Employment Contract",
+				"Company Business Description",
+				"Others"
+			]
+		}
+	}
+}

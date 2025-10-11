@@ -1,0 +1,64 @@
+{
+	"title": "Hoạt động được chỉ định",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Hoạt động được chỉ định",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "university": "Đại học", "vocational": "Trường chuyên môn", "japSchool": "Trường tiếng Nhật" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "school": "Nhà trường", "optional": "Tùy chọn" },
+	"tips": "・Visa Hoạt động được chỉ định dành cho **các hoạt động được Bộ trưởng Tư pháp chỉ định riêng lẻ**\n\n・Bao gồm **nhiều danh mục khác nhau** như Working Holiday, thực tập, điều dưỡng viên EPA, v.v.\n\n・Kiểm tra các danh mục Hoảt động được chỉ định mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・**Các điều kiện và tài liệu cần thiết khác nhau** được thiết lập theo từng hoạt động chỉ định\n\n・Thời gian hoạt động và điều kiện làm việc khác nhau theo từng danh mục Hoạt động được chỉ định",
+	"studyDocs": {
+		"university": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng minh tài chính",
+				"Giấy chứng nhận học lực",
+				"Giấy chứng nhận tìm việc"
+			],
+			"school": [
+				"Thư giới thiệu cho việc tiếp tục tìm việc"
+			],
+			"optional": ["Khác"]
+		},
+		"vocational": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận tìm việc",
+				"Giấy chứng minh tài chính"
+			],
+			"school": [
+				"Thư giới thiệu cho việc tiếp tục tìm việc",
+				"Giấy chứng nhận học vị \"Chuyên môn\"",
+				"Bằng tốt nghiệp trường chuyên môn",
+				"Tài liệu nội dung đã hoàn thành khóa chuyên môn"
+			],
+			"optional": ["Khác"]
+		},
+		"japSchool": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Sơ yếu lý lịch",
+				"Giấy chứng nhận tìm việc"
+			],
+			"school": [
+				"Thư giới thiệu cho việc tiếp tục tìm việc",
+				"Giấy chứng nhận tốt nghiệp trường tiếng Nhật",
+				"Giấy chứng nhận chuyên cần",
+				"Giấy xác nhận buổi phỏng vấn",
+				"Tài liệu xác nhận đủ điều kiện"
+			],
+			"optional": ["Khác"]
+		}
+	}
+}

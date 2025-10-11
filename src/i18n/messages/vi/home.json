@@ -1,0 +1,59 @@
+{
+  "home": {
+    "seoTitle": "Đơn giản hóa thủ tục visa Nhật với AI",
+    "seoDescription": "Hỗ trợ 5 ngôn ngữ với trả lời AI tức thì. Trình bày rõ yêu cầu, hồ sơ và quy trình; được hỗ trợ bởi chuyên gia gyoseishoshi.",
+    "seoKeywords": ["visa Nhật Bản", "tư cách lưu trú", "yêu cầu", "hồ sơ", "cục xuất nhập cảnh", "HSP", "vĩnh trú", "visa vợ/chồng", "du học", "lao động"],
+    "hero": {
+      "title": "Đơn giản hóa thủ tục visa với AI và chuyên gia",
+      "subtitle": "Hỗ trợ 5 ngôn ngữ · Tư vấn AI tức thì · Được giám sát bởi chuyên viên hành chính",
+      "placeholder": "vd: Thu nhập cần cho visa Vợ/Chồng?",
+      "cta": "Hỏi AI",
+  "chips": ["# Điều kiện PR", "# Hồ sơ mẫu Engineer・Humanities", "# Du học lộ trình nhanh nhất"]
+    },
+    "visas": {
+      "title": "Chọn tư cách lưu trú",
+      "subtitle": "AI tóm tắt điều kiện và giấy tờ. Mở thẻ để xem chi tiết.",
+      "items": [
+        {"title": "Kỹ sư / Nhân văn / Quốc tế", "badge": "Lao động", "desc": "Bằng cấp hoặc kinh nghiệm + thu nhập mục tiêu từ ¥3M. Thường 1–3 tháng."},
+        {"title": "Du học", "badge": "Học tập", "desc": "Giấy xác nhận nhập học + chứng minh tài chính. Thường 1–2 tháng."},
+        {"title": "Vợ/Chồng người Nhật", "badge": "Gia đình", "desc": "Quan hệ thực + điều kiện sinh kế. Thường 1–3 tháng."},
+        {"title": "Vĩnh trú", "badge": "PR", "desc": "Hạnh kiểm, thu nhập ổn định và tuân thủ thuế."}
+      ]
+    },
+    "process": {
+      "title": "Lộ trình thủ tục",
+      "steps": [
+        {"title": "1. Thủ tục nội bộ & ký hợp đồng", "duration": "~14 ngày", "desc": "Ký hợp đồng lao động, kiểm tra giấy tờ cần thiết."},
+        {"title": "2. Nộp hồ sơ lên Cục Xuất nhập cảnh", "duration": "1–3 tháng", "desc": "Nộp xin cấp Giấy chứng nhận tư cách lưu trú (COE)."},
+        {"title": "3. Cấp COE · xin visa · nhập cảnh", "duration": "~14 ngày", "desc": "Sau khi cấp, xin visa tại cơ quan đại diện ở nước ngoài và nhập cảnh."}
+      ]
+    },
+    "advisors": {
+      "title": "Luật sư hành chính đề xuất bởi AI",
+      "note": "Dữ liệu minh họa",
+      "score": "điểm",
+      "items": [
+        {
+          "name": "Văn phòng Pháp lý Tanaka",
+          "score": "4.9/5",
+          "desc": "Xử lý đa dạng: lao động, gia đình, vĩnh trú. Hỗ trợ EN/ZH/JA.",
+          "tags": ["30’ đầu miễn phí", "Tiếng Anh OK", "Tư vấn online"]
+        },
+        {
+          "name": "Hành chính luật Sato",
+          "score": "4.8/5",
+          "desc": "Mạnh về Engineer・Humanities・Intl và Business Manager. Linh hoạt lịch gấp.",
+          "tags": ["Phản hồi nhanh", "Tập trung visa lao động", "Cuối tuần làm việc"]
+        },
+        {
+          "name": "Hỗ trợ Visa Yamamoto",
+          "score": "4.7/5",
+          "desc": "Nhiều hồ sơ Spouse/Dependent/Student. Có gói xử lý từ xa.",
+          "tags": ["Chuyên gia hồ sơ gia đình", "Đa ngôn ngữ", "Làm việc từ xa"]
+        }
+      ],
+      "actions": {"book": "Đặt lịch", "details": "Chi tiết"},
+      "pagination": {"prev": "Trước", "next": "Sau", "page": "1 / 8"}
+    }
+  }
+}

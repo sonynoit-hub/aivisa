@@ -1,0 +1,19 @@
+{
+  "about": {
+    "index": {
+      "seoTitle": "About AIVisa",
+      "seoDescription": "Our mission and product: making Japan visa guidance clear in multiple languages.",
+      "seoKeywords": ["AIVisa", "About", "Vision", "Mission", "Services"]
+    },
+    "company": {
+      "seoTitle": "Company",
+      "seoDescription": "Corporate information, business overview, and contact.",
+      "seoKeywords": ["Company", "Corporate", "Profile"]
+    },
+    "faq": {
+      "seoTitle": "FAQ",
+      "seoDescription": "Answers to common questions about usage, support, and security.",
+      "seoKeywords": ["FAQ", "Help", "Support"]
+    }
+  }
+}

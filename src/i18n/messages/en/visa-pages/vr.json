@@ -1,0 +1,66 @@
+{
+	"title": "Visiting Relatives",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Visiting Relatives",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "vietnam": "Apply in Vietnam", "china": "Apply in China" },
+	"categoryLabels": { "applicant": "Applicant", "sponsor": "Sponsor", "guarantee": "Guarantor" },
+	"tips": "・Visiting Relatives status allows **family visits and short-term stays** with Japanese nationals or residents\n\n・Typically granted for **90 days or less** depending on relationship and circumstances\n\n・Application requires documents from both the applicant and sponsor (Japanese relative)\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)",
+	"stageTips": {
+		"vietnam": "・Visiting Relatives status allows **family visits and short-term stays** with Japanese nationals or residents\n\n・Typically granted for **90 days or less** depending on relationship and circumstances\n\n・Application requires documents from both the applicant and sponsor (Japanese relative)\n\n・See the latest requirements at the [Embassy of Japan in Vietnam](https://www.vn.emb-japan.go.jp/itpr_ja/VN_SVisaFAM.html)",
+		"china": "・Visiting Relatives status allows **family visits and short-term stays** with Japanese nationals or residents\n\n・Typically granted for **90 days or less** depending on relationship and circumstances\n\n・Application requires documents from both the applicant and sponsor (Japanese relative)\n\n・See the latest requirements at the [Embassy of Japan in China](https://www.cn.emb-japan.go.jp/itpr_zh/visa_shinzoku.html)"
+	},
+	"studyDocs": {
+		"vietnam": {
+			"applicant": [
+				"Certificate of Eligibility Application",
+				"Passport",
+				"Photo (4×3 cm)",
+				"Documents proving relationship with relatives or friends in Japan"
+			],
+			"guarantee": [
+				"Letter of Guarantee",
+				"Resident Record",
+				"Tax Payment Certificate",
+				"Certificate of Resident Tax Payment (or Non-Taxation)",
+				"Residence Card",
+				"Bank Balance Certificate"
+			],
+			"sponsor": [
+				"Statement of Purpose of Invitation",
+				"Stay Schedule / Itinerary",
+				"Resident Record",
+				"Certificate of Employment / Enrollment",
+				"Residence Card"
+			]
+		},
+		"china": {
+			"applicant": [
+				"Certificate of Eligibility Application",
+				"Passport",
+				"Photo (4×3 cm)",
+				"Copy of Household Register",
+				"Proof of Residence",
+				"Documents proving relationship with relatives or friends in Japan"
+			],
+			"guarantee": [
+				"Letter of Guarantee",
+				"Resident Record",
+				"Tax Payment Certificate",
+				"Certificate of Resident Tax Payment (or Non-Taxation)",
+				"Residence Card",
+				"Bank Balance Certificate"
+			],
+			"sponsor": [
+				"Statement of Purpose of Invitation",
+				"Stay Schedule / Itinerary",
+				"Resident Record",
+				"Certificate of Employment / Enrollment",
+				"Residence Card"
+			]
+		}
+	}
+}

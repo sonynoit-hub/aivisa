@@ -1,0 +1,26 @@
+{
+  "title": "高度人材2号",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "高度人材2号 所需材料",
+  "actions": { "pdf": "PDF", "pdfAria": "导出PDF" },
+  "ui": { "expand": "展开", "collapse": "收起", "progress": "进度", "none": "无", "hint": "提示" },
+  "stageLabels": { "change": "在留资格变更", "extend": "在留期间更新" },
+  "categoryLabels": { "applicant": "申请人", "optional": "可选" },
+  "tips": "・高技能专业人才（ii）签证面向**经验丰富的高技能专业人才**，需持有HSP (i)身份3年以上\n\n・提供**最大灵活性**，包括无活动限制、无需积分更新、延长居留期限\n\n・允许**多样化的工作活动**跨多个领域，不受原始类别限制\n\n・在转换前的HSP (i)期间必须维持**最低70分**\n\n・请在[出入国在留管理厅](https://www.moj.go.jp/isa/)查看转换要求\n\n> 📊 **使用积分计算工具**\n> \n> 🔗 **[高技能专业人才积分计算器](/zh/tools/hsp-points)** → 验证您的积分历史\n> \n> ⚠️ **重要：** 必须证明3年以上HSP (i)经验和维持70+积分。",
+  "studyDocs": {
+    "change": {
+      "applicant": [
+        "在留资格变更申请书",
+        "护照",
+  "高度人材1号在留卡",
+        "照片（4×3cm）",
+        "积分计算表",
+        "积分计算表各项目的证明资料"
+      ],
+      "optional": ["其他"]
+  
+    }
+  }
+}

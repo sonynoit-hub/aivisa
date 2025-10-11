@@ -1,0 +1,138 @@
+{
+  "tools": {
+    "hspPoints": {
+      "seoTitle": "高度専門職 ポイント計算ツール",
+      "seoDescription": "日本の高度専門職ビザ（HSP）のポイントを簡単に試算。カテゴリー別に条件を選んで自動集計。",
+      "seoKeywords": ["高度専門職", "HSP", "ポイント", "ビザ", "在留資格"],
+      "title": "高度専門職ポイント計算",
+      "subtitle": "高度専門職ビザ申請のためのポイントを計算",
+      "points": "pt",
+      "totalPoints": "合計ポイント",
+      "categories": {
+        "research": "研究(イ)",
+        "tech": "技術(ロ)",
+        "business": "経営・管理(ハ)"
+      },
+      "sections": {
+        "academic": "学歴",
+        "workExperience": "職歴",
+        "age": "年齢",
+        "salary": "年収",
+        "position": "役職",
+        "researchAchievements": "研究",
+        "license": "資格",
+        "organizations": "組織",
+        "japaneseLanguage": "日本語能力",
+        "bonusPoints": "実績・加点"
+      },
+      "academic": {
+        "shared": {
+          "doctoral": "博士号",
+          "professional": "専門職学位（MBA/MOT）",
+          "master": "修士号",
+          "bachelor": "学士号"
+        },
+        "business": {
+          "professional": "専門職学位（MBA/MOT）",
+          "master": "修士号",
+          "bachelor": "学士号"
+        }
+      },
+      "workExperience": {
+        "research": {
+          "moreThan7": "7年以上",
+          "moreThan5": "5年以上",
+          "moreThan3": "3年以上"
+        },
+        "tech": {
+          "moreThan10": "10年以上",
+          "moreThan7": "7年以上",
+          "moreThan5": "5年以上",
+          "moreThan3": "3年以上"
+        },
+        "business": {
+          "moreThan10": "10年以上",
+          "moreThan7": "7年以上",
+          "moreThan5": "5年以上",
+          "moreThan3": "3年以上"
+        }
+      },
+      "age": {
+        "under30": "30歳未満",
+        "30to34": "30〜34歳",
+        "35to39": "35〜39歳",
+        "over40": "40歳以上"
+      },
+      "salary": {
+        "shared": {
+          "over10M": "1000万円以上",
+          "over9M": "900万円以上",
+          "over8M": "800万円以上",
+          "over7M": "700万円以上",
+          "over6M": "600万円以上",
+          "over5M": "500万円以上",
+          "over4M": "400万円以上"
+        },
+        "business": {
+          "over30M": "3000万円以上",
+          "over25M": "2500万円以上",
+          "over20M": "2000万円以上",
+          "over15M": "1500万円以上",
+          "over10M": "1000万円以上"
+        }
+      },
+      "position": {
+        "business": {
+          "repDirector": "代表取締役",
+          "director": "取締役",
+          "invested100M": "1億円以上投資"
+        }
+      },
+      "researchAchievements": {
+        "research": {
+          "patented": "特許発明1件以上",
+          "fundedProjects": "来日前に公的機関から資金提供を受けた研究助成3件以上",
+          "published3plus": "日本の国家機関が使用するデータベースに登録された学術誌での論文3本以上（責任著者として）",
+          "otherAchievements": "関係当局の意見を踏まえ法務大臣が認める同等の記録",
+          "if2Apply": "上記2つ以上に該当する場合"
+        },
+        "tech": {
+          "patented": "特許発明1件以上",
+          "fundedProjects": "来日前に公的機関から資金提供を受けた研究助成3件以上",
+          "published3plus": "日本の国家機関が使用するデータベースに登録された学術誌での論文3本以上（責任著者として）",
+          "otherAchievements": "関係当局の意見を踏まえ法務大臣が認める同等の記録"
+        }
+      },
+      "license": {
+        "tech": {
+          "national": "国家資格",
+          "itExam": "IT試験／資格",
+          "multiple": "複数資格"
+        }
+      },
+      "organization": {
+        "innovation": "イノベーション支援機関",
+        "localGov": "地方自治体支援の機関",
+        "smeR&D": "R&D比率3%以上の中小企業"
+      },
+      "japaneseLanguage": {
+        "jlptN1": "JLPT N1／日本語専攻",
+        "jlptN2": "JLPT N2",
+        "graduatedJapan": "日本の大学卒業"
+      },
+      "bonus": {
+        "research": {"topUnis": "法務省が告示で定める大学の卒業者", "supportedOrg": "支援機関での業務", "foreignQual": "業務に関連する外国の資格を有する者", "multipleDegrees": "複数学位", "innovation": "イノベーション創出の促進に関する施策を受けている機関での業務", "jlptN1": "JLPT N1／日本語専攻", "japaneseGraduated": "日本の大学を卒業", "invManage": "投資運用業務に関連する業務に従事", "jicaTrain": "法務省が告示で定める研修を修了"},
+        "tech": {"topUnis": "法務省が告示で定める大学の卒業者", "investment": "投資運用業務に関連する業務に従事", "supportedOrg": "支援機関での業務", "foreignQual": "業務に関連する外国の資格を有する者", "multipleDegrees": "複数学位", "jica": "法務省が告示で定める研修を修了", "innovation": "イノベーション創出の促進に関する施策を受けている機関での業務", "jlptN1": "JLPT N1／日本語専攻", "jlptN2": "JLPT N2", "japaneseGraduated": "日本の大学を卒業"},
+        "business": {"topUnis": "法務省が告示で定める大学の卒業者", "investment": "投資運用業務に関連する業務に従事", "supportedOrg": "支援機関での業務", "foreignQual": "業務に関連する外国の資格を有する者", "jica": "法務省が告示で定める研修を修了", "multipleDegrees": "複数学位", "innovation": "イノベーション創出の促進に関する施策を受けている機関での業務", "jlptN1": "JLPT N1／日本語専攻", "jlptN2": "JLPT N2", "japaneseGraduated": "日本の大学を卒業"}
+      },
+      "references": {
+        "agency": "出入国在留管理庁 (Immigration Services Agency of Japan)",
+        "heading": "ポイント計算表参考書式",
+        "description": "以下は公式の参考様式へのリンクです。最新かつ正確な要件・配点は、必ず当庁の公表資料をご確認ください。",
+        "disclaimer": "当サイトの計算結果は参考情報です。実際の審査・配点は出入国在留管理庁の判断によります。",
+        "jpExcel": "Excel（日本語）",
+        "enExcel": "Excel（English）"
+      }
+    }
+  }
+}

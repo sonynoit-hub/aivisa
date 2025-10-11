@@ -1,0 +1,85 @@
+{
+	"title": "Dependent",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Dependent",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from abroad", "inJapan": "Apply in Japan", "change": "Change status", "extend": "Extension of stay" },
+	"categoryLabels": { "applicant": "Applicant", "dependents": "Dependents/Family", "optional": "Optional" },
+	"tips": "・Dependent visa is for **family members of residents** with valid Japanese residence status\n\n・Allows **spouse and unmarried children** under 20 to live in Japan with the main visa holder\n\n・**Document requirements vary** by relationship type (spouse vs. child) and main visa holder's status\n\n・Dependent status holders can apply for **part-time work permission** with separate application\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Important:** Dependent status is tied to the main visa holder's status - if their status changes or expires, dependent status is also affected",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Photo (4×3cm)",
+				"Family Register (Koseki Tohon)",
+				"Marriage Certificate"
+			],
+			"dependents": [
+				"Passport",
+				"Residence Card",
+				"Certificate of Residence",
+				"Resident Tax Certificate",
+				"Tax Certificate",
+				"Bank Balance Certificate"
+			],
+			"optional": ["Others"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Photo (4×3cm)",
+				"Family Register (Koseki Tohon)",
+				"Marriage Certificate",
+				"Questionnaire"
+			],
+			"dependents": [
+				"Passport",
+				"Residence Card",
+				"Certificate of Residence",
+				"Resident Tax Certificate",
+				"Tax Certificate",
+				"Bank Balance Certificate"
+			],
+			"optional": ["Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Permission to Acquire Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Family Register (Koseki Tohon)"
+			],
+			"dependents": [
+				"Certificate of Residence",
+				"Resident Tax Certificate",
+				"Tax Certificate",
+				"Bank Balance Certificate"
+			],
+			"optional": ["Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Family Register (Koseki Tohon)"
+			],
+			"dependents": [
+				"Certificate of Residence",
+				"Resident Tax Certificate",
+				"Tax Certificate",
+				"Bank Balance Certificate"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

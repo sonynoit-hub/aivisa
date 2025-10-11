@@ -1,0 +1,95 @@
+{
+	"title": "Thường trú",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Vĩnh trú",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+	"stageLabels": {
+		"spouse": "Visa vợ/chồng",
+		"settler": "Visa định trú",
+		"work": "Visa lao động",
+		"highlySkilled": "Visa chuyên gia cao cấp"
+	},
+	"categoryLabels": {
+		"applicant": "Người nộp đơn",
+		"company": "Công ty",
+		"optional": "Tùy chọn"
+	},
+	"tips": "・Tư cách Cư trú vĩnh viễn cho phép **cư trú vô thời hạn tại Nhật Bản** với hầu hết quyền của công dân Nhật trừ quyền bầu cử\n\n・Yêu cầu **cư trú liên tục 10 năm trở lên** (vợ/chồng, con của người Nhật/người cư trú vĩnh viễn có thể rút ngắn)\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Phải chứng minh **phẩm hạnh tốt, ổn định tài chính và đóng góp cho Nhật Bản**\n\n・Người làm việc chuyên môn cao có thể dùng **hệ thống điểm số** để giảm thời gian chờ",
+	"studyDocs": {
+		"spouse": {
+			"applicant": [
+				"Đơn xin vĩnh trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Chọn một trong các giấy tờ sau: Bản sao hộ tịch hoặc Giấy chứng nhận kết hôn hoặc Giấy khai sinh",
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận đang làm việc hoặc giấy phép kinh doanh (bản sao)",
+				"Giấy chứng nhận tình trạng nộp thuế cư trú",
+				"Giấy xác nhận tình trạng nộp thuế quốc gia",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Giấy chứng nhận tình trạng đóng bảo hiểm",
+				"Danh sách thân nhân",
+				"Thư bảo lãnh nhân thân",
+				"Giấy đồng ý"
+			],
+			"optional": ["Khác"]
+		},
+		"settler": {
+			"applicant": [
+				"Đơn xin vĩnh trú",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bản giải trình",
+				"Chọn một trong các giấy tờ sau: Bản sao hộ tịch hoặc Giấy chứng nhận kết hôn hoặc Giấy khai sinh",
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận đang làm việc hoặc giấy phép kinh doanh (bản sao)",
+				"Giấy chứng nhận tình trạng nộp thuế cư trú",
+				"Giấy xác nhận tình trạng nộp thuế quốc gia",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Giấy chứng nhận tình trạng đóng bảo hiểm",
+				"Danh sách thân nhân",
+				"Thư bảo lãnh nhân thân",
+				"Giấy đồng ý"
+			],
+			"optional": ["Khác"]
+		},
+		"work": {
+			"applicant": [
+				"Đơn xin vĩnh trú",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bản giải trình",
+				"Chọn một trong các giấy tờ sau: Bản sao hộ tịch hoặc Giấy chứng nhận kết hôn hoặc Giấy khai sinh",
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận đang làm việc hoặc giấy phép kinh doanh (bản sao)",
+				"Giấy chứng nhận tình trạng nộp thuế cư trú",
+				"Giấy xác nhận tình trạng nộp thuế quốc gia",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Giấy chứng nhận tình trạng đóng bảo hiểm",
+				"Danh sách thân nhân"
+			],
+			"optional": ["Khác"]
+		},
+		"highlySkilled": {
+			"applicant": [
+				"Đơn xin vĩnh trú",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bản giải trình",
+				"Giấy chứng nhận tình trạng nộp thuế cư trú",
+				"Giấy xác nhận tình trạng nộp thuế quốc gia",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Giấy chứng nhận tình trạng đóng bảo hiểm",
+				"Bảng tính điểm",
+				"Tài liệu chứng minh cho từng mục trong bảng tính điểm",
+				"Thư bảo lãnh nhân thân",
+				"Giấy đồng ý"
+			],
+			"optional": ["Khác"]
+		}
+	}
+}

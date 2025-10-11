@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VisaSense — Neo AI Layout (Full Suite)</title>
+    <!-- Tailwind CSS CDN (play CDN good for prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              mono: ['JetBrains Mono','ui-monospace','SFMono-Regular']
+            },
+            container: { center: true, padding: { DEFAULT: '1rem', md: '1.5rem' } },
+            colors: {
+              brand: {
+                50: '#F5FAFF', 100: '#E6F0FF', 200: '#CCE1FF', 300: '#99C3FF', 400: '#66A5FF',
+                500: '#3B82F6', 600: '#2563EB', 700: '#1D4ED8', 800: '#1E40AF', 900: '#1E3A8A'
+              },
+              neon: {
+                blue: '#60A5FA',
+                cyan: '#22D3EE',
+                violet: '#A78BFA'
+              }
+            },
+            boxShadow: {
+              soft: '0 6px 24px -8px rgba(15, 23, 42, 0.18)',
+              glow: '0 0 0 1px rgba(99,102,241,0.15), 0 8px 40px -8px rgba(59,130,246,0.45)'
+            },
+            borderRadius: { '2xl': '1rem' },
+            backgroundImage: {
+              grid: "linear-gradient(rgba(148,163,184,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.25) 1px, transparent 1px)",
+              glow: 'radial-gradient(600px 200px at 50% -20%, rgba(99,102,241,.20), rgba(99,102,241,0))',
+              mesh: 'radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.15), transparent 40%), radial-gradient(1000px 500px at 90% -20%, rgba(167,139,250,.18), transparent 40%)'
+            },
+            animation: {
+              shimmer: 'shimmer 2.2s linear infinite',
+              float: 'float 6s ease-in-out infinite',
+              pulseGlow: 'pulseGlow 3s ease-in-out infinite'
+            },
+            keyframes: {
+              shimmer: { '0%': { backgroundPosition: '-1000px 0' }, '100%': { backgroundPosition: '1000px 0' } },
+              float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-6px)' } },
+              pulseGlow: { '0%,100%': { boxShadow: '0 0 0 0 rgba(99,102,241,0.25)' }, '50%': { boxShadow: '0 0 0 8px rgba(99,102,241,0.0)' } }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html{scroll-behavior:smooth}
+      .no-scrollbar::-webkit-scrollbar{display:none}
+      .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+      .active-tab{color:#22D3EE;border-color:rgba(34,211,238,.35);background:rgba(34,211,238,.08)}
+      .glass{backdrop-filter: blur(10px); background: rgba(255,255,255,.7)}
+      .glass-dark{backdrop-filter: blur(12px); background: rgba(2,6,23,.5)}
+      .code-badge{font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular;}
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 bg-mesh">
+    <!-- ======= Header (sticky, glass) ======= -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-200/70">
+      <div class="container flex items-center justify-between h-14">
+        <a href="#home" class="flex items-center gap-2 font-semibold">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 text-white shadow-glow">V</span>
+          <span class="tracking-tight">VisaSense</span>
+          <span class="ml-2 code-badge text-[11px] rounded border px-1.5 py-0.5 text-slate-600">AI Copilot</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#home" class="hover:text-brand-700">ホーム</a>
+          <a href="#visas" class="hover:text-brand-700">在留資格</a>
+          <a href="#advisors" class="hover:text-brand-700">行政書士</a>
+          <a href="#realestate" class="hover:text-brand-700">不動産</a>
+          <a href="#jobs" class="hover:text-brand-700">求人</a>
+          <a href="#faq" class="hover:text-brand-700">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <select aria-label="Language" class="h-9 rounded-lg border border-slate-300 bg-white px-2 text-sm">
+            <option value="ja">日本語</option><option value="zh">中文</option><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="ko">한국어</option>
+          </select>
+          <button class="hidden md:inline-flex h-9 items-center rounded-lg border border-slate-300 px-3 text-sm hover:bg-slate-100">ログイン</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======= Hero with AI feel ======= -->
+    <section id="home" class="relative border-b border-slate-200/70">
+      <div class="pointer-events-none absolute inset-0 bg-grid bg-[length:20px_20px] [mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
+      <div class="container relative py-10 md:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+              <span class="bg-gradient-to-r from-cyan-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">AIで、ビザ手続きを設計する。</span>
+            </h1>
+            <p class="mt-3 text-slate-600 text-[15px]">要件抽出・ルート提案・PDF出力を、5言語で。情報サイトではなく、<span class="font-semibold">AIガイド</span>です。</p>
+            <div class="mt-5 glass rounded-xl border border-slate-200 shadow-soft p-2 flex items-center gap-2">
+              <span class="code-badge text-xs text-slate-500">/ask</span>
+              <input type="search" placeholder="例：配偶者ビザで必要な年収はいくら？"
+                     class="w-full h-11 rounded-lg border border-slate-200/60 bg-white px-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+              <button class="h-11 whitespace-nowrap rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 text-white shadow-glow">AIに聞く</button>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <a class="rounded-full border border-slate-200/80 px-3 py-1 hover:bg-white" href="#"># 永住の要件</a>
+              <a class="rounded-full border border-slate-200/80 px-3 py-1 hover:bg-white" href="#"># 技・人・国 サンプル書類</a>
+              <a class="rounded-full border border-slate-200/80 px-3 py-1 hover:bg-white" href="#"># 留学 最短ルート</a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="glass rounded-2xl border border-slate-200 p-5 shadow-glow animate-float">
+              <div class="text-xs text-slate-500">AI Copilot — Preview</div>
+              <div class="mt-3 rounded-xl bg-slate-900 text-slate-100 p-4 font-mono text-[12px] leading-6">
+                <div class="text-neon-cyan">$ suggest-route --visa spouse --lang ja</div>
+                <div>✔ required_docs: marriage_certificate, resident_record</div>
+                <div>✔ risk: low | time: 1–3 months</div>
+                <div>→ next: <span class="text-neon-violet">apply-status-certificate</span></div>
+              </div>
+              <div class="mt-3 flex gap-2">
+                <button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">ルートを生成</button>
+                <button class="h-9 rounded-lg border px-3">PDF プレビュー</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Visa Cards with neon hover ======= -->
+    <section id="visas" class="container py-10 md:py-14">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">在留資格を選ぶ</h2>
+      <p class="mt-2 text-slate-600">AI が条件比較と必要書類をサマリ表示。カードを開いて詳細へ。</p>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <a href="#detail" class="group relative rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:shadow-glow">
+          <div class="absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-cyan-100/40 via-indigo-100/30 to-violet-100/20"></div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">技術・人文知識・国際業務</h3>
+            <span class="text-xs rounded-full bg-cyan-100 text-cyan-800 px-2 py-0.5">就労</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-600 line-clamp-2">AI 推定：学歴 or 実務 + 年収目安 300万円〜。所要 1–3 ヶ月。</p>
+          <div class="mt-3 text-sm text-cyan-700 group-hover:underline">AI でルートを作る →</div>
+        </a>
+        <a href="#detail" class="group relative rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:shadow-glow"><div class="flex items-center justify-between"><h3 class="font-semibold">留学</h3><span class="text-xs rounded-full bg-indigo-100 text-indigo-800 px-2 py-0.5">在学</span></div><p class="mt-2 text-sm text-slate-600 line-clamp-2">AI 推定：在籍証明 + 資金証明。所要 1–2 ヶ月。</p><div class="mt-3 text-sm text-cyan-700 group-hover:underline">AI でルートを作る →</div></a>
+        <a href="#detail" class="group relative rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:shadow-glow"><div class="flex items-center justify-between"><h3 class="font-semibold">日本人の配偶者等</h3><span class="text-xs rounded-full bg-violet-100 text-violet-800 px-2 py-0.5">家族</span></div><p class="mt-2 text-sm text-slate-600 line-clamp-2">AI 推定：実体性 + 生計要件。所要 1–3 ヶ月。</p><div class="mt-3 text-sm text-cyan-700 group-hover:underline">AI でルートを作る →</div></a>
+        <a href="#detail" class="group relative rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:shadow-glow"><div class="flex items-center justify-between"><h3 class="font-semibold">永住者</h3><span class="text-xs rounded-full bg-slate-100 text-slate-700 px-2 py-0.5">永住</span></div><p class="mt-2 text-sm text-slate-600 line-clamp-2">AI 推定：素行・独立生計・納税の総合評価。</p><div class="mt-3 text-sm text-cyan-700 group-hover:underline">AI でルートを作る →</div></a>
+      </div>
+    </section>
+
+    <!-- ======= Partner Hubs (Gyoseishoshi / Real Estate / Jobs) ======= -->
+    <section id="partners" class="relative border-y border-slate-200/70 bg-white/60">
+      <div class="pointer-events-none absolute inset-x-0 -top-10 h-24 bg-glow"></div>
+      <div class="container py-10 md:py-14">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">AIおすすめパートナー</h2>
+          <div class="text-sm flex gap-4">
+            <a href="#advisors" class="text-cyan-700 hover:underline">行政書士 →</a>
+            <a href="#realestate" class="text-cyan-700 hover:underline">不動産 →</a>
+            <a href="#jobs" class="text-cyan-700 hover:underline">求人 →</a>
+          </div>
+        </div>
+        <p class="mt-2 text-slate-600 text-[15px]">行政書士・不動産・採用の専門家と連携。ビザ種別・地域・言語に合わせて最適化。</p>
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft hover:shadow-glow transition">
+            <div class="flex items-center justify-between"><div class="font-semibold">行政書士ネットワーク</div><span class="text-xs rounded-full bg-emerald-100 text-emerald-800 px-2 py-0.5">法務</span></div>
+            <p class="mt-2 text-sm text-slate-600">配偶・永住・就労ビザの申請代行。日本語/中国語/英語対応。</p>
+            <ul class="mt-3 space-y-2 text-sm"><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-emerald-400"></span>初回相談 30分 無料</li><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-emerald-400"></span>見積り即時発行</li></ul>
+            <div class="mt-4 flex gap-2"><a href="#advisors" class="h-9 inline-flex items-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">AIでマッチング</a><a href="#advisors" class="h-9 inline-flex items-center rounded-lg border px-3">事務所一覧</a></div>
+          </div>
+          <div class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft hover:shadow-glow transition">
+            <div class="flex items-center justify-between"><div class="font-semibold">住まい（不動産）</div><span class="text-xs rounded-full bg-indigo-100 text-indigo-800 px-2 py-0.5">生活</span></div>
+            <p class="mt-2 text-sm text-slate-600">在留カード・保証人なしプランも。英語/中国語スタッフ在籍。</p>
+            <ul class="mt-3 space-y-2 text-sm"><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-indigo-400"></span>短中期OK（マンスリー）</li><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-indigo-400"></span>家賃の目安をAI試算</li></ul>
+            <div class="mt-4 flex gap-2"><a href="#realestate" class="h-9 inline-flex items-center rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">条件入力で提案</a><a href="#realestate" class="h-9 inline-flex items-center rounded-lg border px-3">物件を見る</a></div>
+          </div>
+          <div class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft hover:shadow-glow transition">
+            <div class="flex items-center justify-between"><div class="font-semibold">採用・求人</div><span class="text-xs rounded-full bg-violet-100 text-violet-800 px-2 py-0.5">キャリア</span></div>
+            <p class="mt-2 text-sm text-slate-600">就労ビザに合う職種だけを抽出。日本語レベル別に求人を提示。</p>
+            <ul class="mt-3 space-y-2 text-sm"><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-violet-400"></span>ビザ適合フィルター</li><li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-violet-400"></span>リファラル・企業紹介</li></ul>
+            <div class="mt-4 flex gap-2"><a href="#jobs" class="h-9 inline-flex items-center rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">AI求人を見る</a><a href="#jobs" class="h-9 inline-flex items-center rounded-lg border px-3">エージェント一覧</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Advisors Hub ======= -->
+    <section id="advisors" class="container py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">行政書士 — マッチング</h2>
+          <p class="mt-2 text-slate-600 text-[15px]">ビザ種別・地域・対応言語で絞り込み。AI スコア順に表示。※ 以下はプレースホルダ（ダミー）です。</p>
+        </div>
+        <form class="grid grid-cols-2 md:flex md:items-center gap-2">
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>東京</option><option>神奈川</option><option>大阪</option><option>名古屋</option><option>福岡</option></select>
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>日本語</option><option>中文</option><option>English</option><option>Tiếng Việt</option><option>한국어</option></select>
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>配偶</option><option>技・人・国</option><option>永住</option><option>留学</option><option>経営管理</option></select>
+          <button class="h-10 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-4 text-white">AIで提案</button>
+        </form>
+      </div>
+      <!-- partner cards grid -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- card x 6 (placeholders) -->
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">東京行政法務オフィス</h3><span class="code-badge text-xs">score 0.91</span></div>
+          <p class="mt-1 text-sm text-slate-600">配偶/永住に強み。中国語/英語対応。初回30分無料。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">中文</span><span class="rounded-full border px-2 py-0.5">EN</span><span class="rounded-full border px-2 py-0.5">オンライン</span><span class="rounded-full border px-2 py-0.5">見積即時</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">横浜ビザサポート</h3><span class="code-badge text-xs">score 0.86</span></div>
+          <p class="mt-1 text-sm text-slate-600">技・人・国/企業内転勤を高速対応。英語OK。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">EN</span><span class="rounded-full border px-2 py-0.5">即見積</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">大阪インターナショナル法務</h3><span class="code-badge text-xs">score 0.83</span></div>
+          <p class="mt-1 text-sm text-slate-600">永住/高度人材。N1 通訳スタッフ在籍。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">日本語</span><span class="rounded-full border px-2 py-0.5">N1</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">名古屋グローバル法務</h3><span class="code-badge text-xs">score 0.81</span></div>
+          <p class="mt-1 text-sm text-slate-600">経営管理ビザ/会社設立支援。中国語対応。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">中文</span><span class="rounded-full border px-2 py-0.5">会社設立</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">福岡クロスボーダー法務</h3><span class="code-badge text-xs">score 0.79</span></div>
+          <p class="mt-1 text-sm text-slate-600">留学/特定技能。ベトナム語OK。オンライン全国対応。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">VI</span><span class="rounded-full border px-2 py-0.5">オンライン</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">札幌リーガルリンク</h3><span class="code-badge text-xs">score 0.77</span></div>
+          <p class="mt-1 text-sm text-slate-600">配偶・永住。英語/韓国語対応。初回相談無料。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">EN</span><span class="rounded-full border px-2 py-0.5">KO</span><span class="rounded-full border px-2 py-0.5">初回無料</span></div>
+          <div class="mt-4 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-400 px-3 text-white">相談予約</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+      </div>
+      <!-- pagination placeholder -->
+      <div class="mt-6 flex items-center justify-center gap-2"><button class="h-9 rounded-lg border px-3 text-sm">前へ</button><div class="text-sm text-slate-500">1 / 8</div><button class="h-9 rounded-lg border px-3 text-sm">次へ</button></div>
+    </section>
+
+    <!-- ======= Real Estate Hub ======= -->
+    <section id="realestate" class="container py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">不動産 — 住まい提案</h2>
+          <p class="mt-2 text-slate-600 text-[15px]">在留カードの有無・予算・短期可で最適化。AI が目安家賃も試算。※ ダミーの物件サンプルを配置中。</p>
+        </div>
+        <form class="grid grid-cols-2 md:flex md:items-center gap-2">
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>東京</option><option>神奈川</option><option>大阪</option><option>名古屋</option><option>福岡</option></select>
+          <input class="h-10 rounded-lg border px-2 text-sm" type="number" placeholder="予算（¥）" />
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>短期OK</option><option>長期</option></select>
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>家具付き</option><option>家具なし</option></select>
+          <button class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 text-white">AIで提案</button>
+        </form>
+      </div>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- listing x 6 (placeholders with images) -->
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d45?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">新宿・1K・25㎡</h3><span class="code-badge text-xs">¥120,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">保証人なしプラン / 家具付き / 短期可</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">英語対応</span><span class="rounded-full border px-2 py-0.5">駅徒歩5分</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">池袋・1DK・30㎡</h3><span class="code-badge text-xs">¥135,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">英語スタッフ / 家具なし / 長期</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">ペット可</span><span class="rounded-full border px-2 py-0.5">2人入居可</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1502003148287-a82ef80a6abc?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">川崎・1R・20㎡</h3><span class="code-badge text-xs">¥85,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">短期OK / 家具付き / 駅近</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">保証人不要</span><span class="rounded-full border px-2 py-0.5">光回線</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">渋谷・1LDK・40㎡</h3><span class="code-badge text-xs">¥220,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">築浅 / 角部屋 / 家具付き</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">日当たり良好</span><span class="rounded-full border px-2 py-0.5">オートロック</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">横浜・2DK・50㎡</h3><span class="code-badge text-xs">¥180,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">ファミリー向け / 家具なし / 駐車場あり</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">英語対応</span><span class="rounded-full border px-2 py-0.5">駅徒歩8分</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <img class="aspect-video w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?q=80&w=1200&auto=format&fit=crop" alt="room" />
+          <div class="mt-3 flex items-center justify-between"><h3 class="font-semibold">名古屋・1LDK・38㎡</h3><span class="code-badge text-xs">¥130,000/月</span></div>
+          <p class="mt-1 text-sm text-slate-600">短期OK / 家具付き / 即入居可</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">保証会社可</span><span class="rounded-full border px-2 py-0.5">バルコニー</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">問い合わせ</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+      </div>
+      <div class="mt-6 flex items-center justify-center gap-2"><button class="h-9 rounded-lg border px-3 text-sm">前へ</button><div class="text-sm text-slate-500">1 / 12</div><button class="h-9 rounded-lg border px-3 text-sm">次へ</button></div>
+    </section>
+
+    <!-- ======= Jobs Hub ======= -->
+    <section id="jobs" class="container py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">求人 — ビザ適合</h2>
+          <p class="mt-2 text-slate-600 text-[15px]">ビザ適合度・日本語レベル・都市でフィルター。AI レコメンド順。※ 掲載はダミーデータです。</p>
+        </div>
+        <form class="grid grid-cols-2 md:flex md:items-center gap-2">
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>技・人・国</option><option>特定技能</option><option>高度人材</option><option>経営管理</option></select>
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>JP N2</option><option>JP N3</option><option>JP None</option></select>
+          <select class="h-10 rounded-lg border px-2 text-sm"><option>東京</option><option>神奈川</option><option>大阪</option><option>名古屋</option></select>
+          <button class="h-10 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-4 text-white">AIで提案</button>
+        </form>
+      </div>
+      <!-- job cards grid -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">フロントエンドエンジニア</h3><span class="code-badge text-xs">¥5M–8M</span></div>
+          <p class="mt-1 text-sm text-slate-600">React/Next.js｜東京｜JP N2｜就労ビザ支援あり</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: engineer</span><span class="rounded-full border px-2 py-0.5">remote</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">バックエンドエンジニア</h3><span class="code-badge text-xs">¥6M–9M</span></div>
+          <p class="mt-1 text-sm text-slate-600">Java/Spring｜横浜｜JP N3｜リモート可</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: engineer</span><span class="rounded-full border px-2 py-0.5">english ok</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">カスタマーサクセス</h3><span class="code-badge text-xs">¥4M–6M</span></div>
+          <p class="mt-1 text-sm text-slate-600">英語必須｜東京/大阪｜JP None〜N3｜就労支援あり</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: engineer</span><span class="rounded-full border px-2 py-0.5">bilingual</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">飲食（特定技能）</h3><span class="code-badge text-xs">¥3M–4.2M</span></div>
+          <p class="mt-1 text-sm text-slate-600">ホール/キッチン｜横浜｜JP None〜N4｜寮あり</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: spec_skill</span><span class="rounded-full border px-2 py-0.5">housing</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">介護（特定技能）</h3><span class="code-badge text-xs">¥3.2M–4.5M</span></div>
+          <p class="mt-1 text-sm text-slate-600">介護施設｜名古屋｜JP N3〜N2｜資格講座あり</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: spec_skill</span><span class="rounded-full border px-2 py-0.5">training</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <div class="flex items-center justify-between"><h3 class="font-semibold">販売スタッフ</h3><span class="code-badge text-xs">¥3M–4M</span></div>
+          <p class="mt-1 text-sm text-slate-600">小売｜関東一円｜JP N3〜N2｜シフト制</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs"><span class="rounded-full border px-2 py-0.5">visa: engineer/others</span><span class="rounded-full border px-2 py-0.5">referral</span></div>
+          <div class="mt-3 flex gap-2"><button class="h-9 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 text-white">応募</button><button class="h-9 rounded-lg border px-3">詳細</button></div>
+        </article>
+      </div>
+      <div class="mt-6 flex items-center justify-center gap-2"><button class="h-9 rounded-lg border px-3 text-sm">前へ</button><div class="text-sm text-slate-500">1 / 20</div><button class="h-9 rounded-lg border px-3 text-sm">次へ</button></div>
+    </section>
+
+    <!-- ======= Guides / Content Hub (SEO) ======= -->
+    <section id="guides" class="container py-10 md:py-14">
+      <div class="flex items-end justify-between">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">ガイド／記事（SEO）</h2>
+          <p class="mt-2 text-slate-600 text-[15px]">各ビザの最新要件・必要書類・よくある落とし穴。※ 全文は後で差し替え。</p>
+        </div>
+        <a href="#" class="text-sm text-cyan-700 hover:underline">すべての記事 →</a>
+      </div>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <h3 class="font-semibold">配偶者ビザ：実体性の証明チェックリスト</h3>
+          <p class="mt-2 text-sm text-slate-600">同居実績、収入、家族関係の裏付け……失敗しやすいポイントを整理。</p>
+          <a class="mt-3 inline-flex text-cyan-700 hover:underline text-sm" href="#">続きを読む →</a>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <h3 class="font-semibold">技・人・国：学歴なしでも可？実務年数の扱い</h3>
+          <p class="mt-2 text-sm text-slate-600">学歴代替の実務年数と職務内容の関連性の判断プロセス。</p>
+          <a class="mt-3 inline-flex text-cyan-700 hover:underline text-sm" href="#">続きを読む →</a>
+        </article>
+        <article class="rounded-2xl border bg-white p-5 shadow-soft">
+          <h3 class="font-semibold">永住許可：独立生計・納税・素行のまとめ</h3>
+          <p class="mt-2 text-sm text-slate-600">最短ルート、高度人材ポイント、課税証明の取り方まで。</p>
+          <a class="mt-3 inline-flex text-cyan-700 hover:underline text-sm" href="#">続きを読む →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======= Testimonials / Trust (Conversion) ======= -->
+    <section id="social-proof" class="relative border-y border-slate-200/70 bg-white/60">
+      <div class="container py-10 md:py-14">
+        <div class="flex items-end justify-between">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">ユーザーの声</h2>
+          <div class="text-sm text-slate-500">※ ダミーの証言を配置</div>
+        </div>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <figure class="rounded-2xl border bg-white p-5 shadow-soft">
+            <blockquote class="text-slate-700 text-sm">「AIが不足書類を先に指摘してくれたので、1回で通りました。」</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">S.R. / エンジニア（東京）</figcaption>
+          </figure>
+          <figure class="rounded-2xl border bg-white p-5 shadow-soft">
+            <blockquote class="text-slate-700 text-sm">「行政書士のマッチングが早い。中国語での面談が助かった。」</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">L.W. / 配偶者ビザ（横浜）</figcaption>
+          </figure>
+          <figure class="rounded-2xl border bg-white p-5 shadow-soft">
+            <blockquote class="text-slate-700 text-sm">「賃貸と求人まで一緒に整って、入国後の生活が安心でした。」</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">N.P. / 永住申請（大阪）</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Sticky Sub-Nav (Detail) ======= -->
+    <nav class="sticky top-14 z-40 border-y border-slate-200/70 glass">
+      <div class="container overflow-x-auto no-scrollbar">
+        <ul class="flex gap-2 md:gap-3 py-2 text-xs md:text-sm">
+          <li><a href="#overview" class="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-slate-700 hover:bg-white">概要</a></li>
+          <li><a href="#requirements" class="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-slate-700 hover:bg-white">必要書類</a></li>
+          <li><a href="#eligibility" class="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-slate-700 hover:bg-white">セルフチェック</a></li>
+          <li><a href="#route" class="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-slate-700 hover:bg-white">手続きルート</a></li>
+          <li><a href="#faq" class="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-slate-700 hover:bg-white">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ======= Detail with AI side panel ======= -->
+    <section id="detail" class="relative border-b border-slate-200/70">
+      <div class="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-glow"></div>
+      <div class="container py-10 md:py-14">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 lg:gap-8">
+          <div class="space-y-6">
+            <article id="overview" class="scroll-mt-32 rounded-2xl border border-slate-200 bg-white shadow-soft">
+              <header class="p-5 md:p-6">
+                <h1 class="text-2xl md:text-4xl font-bold tracking-tight">技術・人文知識・国際業務</h1>
+                <p class="mt-1 text-xs md:text-sm text-slate-500">最終更新：2025-08-20</p>
+              </header>
+              <div class="px-5 md:px-6 pb-5 md:pb-6">
+                <p class="text-slate-700 leading-7 text-[15px] md:text-base">大学卒業または同等の学歴/実務経験に基づき、専門的・技術的分野で就労するための在留資格です。</p>
+                <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs">在留期間：1/3/5年</span><span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs">就労可</span><span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs">家族帯同可</span></div>
+              </div>
+            </article>
+
+            <section id="requirements" class="scroll-mt-32 rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-soft">
+              <h2 class="text-lg md:text-2xl font-semibold">必要書類</h2>
+              <ul class="mt-3 md:mt-4 space-y-3"><li class="flex gap-3"><span class="mt-1">✅</span><div><div class="font-medium">在留資格認定証明書交付申請書</div><p class="text-sm text-slate-600">所定様式、最新のものを使用。</p></div></li><li class="flex gap-3"><span class="mt-1">✅</span><div><div class="font-medium">卒業証明書または職務経歴書</div><p class="text-sm text-slate-600">原本/公的写し。</p></div></li><li class="flex gap-3"><span class="mt-1">✅</span><div><div class="font-medium">雇用契約書</div><p class="text-sm text-slate-600">労働条件、勤務地、報酬が記載されたもの。</p></div></li></ul>
+            </section>
+
+            <section id="eligibility" class="scroll-mt-32 rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-soft">
+              <div class="flex items-center justify-between gap-3"><h2 class="text-lg md:text-2xl font-semibold">資格セルフチェック</h2><div class="hidden md:flex items-center gap-2 text-xs text-slate-600"><span class="code-badge">AI suitability</span><div class="h-2 w-28 rounded-full bg-slate-200 overflow-hidden"><div class="h-full w-4/5 bg-gradient-to-r from-cyan-400 via-indigo-400 to-violet-400 animate-pulse"></div></div><span class="code-badge">0.80</span></div></div>
+              <form class="mt-3 md:mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                <label class="block"><span class="block text-sm text-slate-600">最終学歴</span><select class="mt-1 w-full h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm"><option>大学卒</option><option>短大/専門</option><option>その他</option></select></label>
+                <label class="block"><span class="block text-sm text-slate-600">年収（見込み）</span><input type="number" class="mt-1 w-full h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm" placeholder="3000000" /></label>
+                <label class="block md:col-span-2"><span class="block text-sm text-slate-600">職種</span><input type="text" class="mt-1 w-full h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm" placeholder="例：ソフトウェアエンジニア" /></label>
+                <div class="md:col-span-2 flex justify-end gap-2"><button type="reset" class="h-10 rounded-lg border border-slate-300 px-4 text-sm hover:bg-slate-100">リセット</button><button type="button" class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 text-sm text-white">AIに判定させる</button></div>
+              </form>
+              <div class="mt-3 md:mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3 md:p-4 text-sm text-slate-700">※ 判定結果がここに表示されます（合否・不足点・推奨ルート）。</div>
+            </section>
+
+            <section id="route" class="scroll-mt-32 rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-soft">
+              <h2 class="text-lg md:text-2xl font-semibold">手続きルート</h2>
+              <ol class="relative mt-3 md:mt-4 space-y-6 border-s border-slate-200 pl-6"><li><div class="absolute -left-1.5 mt-1 h-3 w-3 rounded-full border border-slate-300 bg-white"></div><div class="flex items-center justify-between"><div class="font-medium">1. 企業内手続き・契約締結</div><span class="text-xs text-slate-500">~14日</span></div><p class="mt-1 text-sm text-slate-600">雇用契約書の取り交わし、必要書類の確認。</p></li><li><div class="absolute -left-1.5 mt-1 h-3 w-3 rounded-full border border-slate-300 bg-white"></div><div class="flex items-center justify-between"><div class="font-medium">2. 入管へ申請</div><span class="text-xs text-slate-500">1–3か月</span></div><p class="mt-1 text-sm text-slate-600">在留資格認定証明書の交付申請。</p></li><li><div class="absolute -left-1.5 mt-1 h-3 w-3 rounded-full border border-slate-300 bg-white"></div><div class="flex items-center justify-between"><div class="font-medium">3. 交付・査証申請・入国</div><span class="text-xs text-slate-500">~14日</span></div><p class="mt-1 text-sm text-slate-600">交付後、在外公館で査証申請、入国。</p></li></ol>
+            </section>
+
+            <section id="faq" class="scroll-mt-32 rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-soft">
+              <h2 class="text-lg md:text-2xl font-semibold">よくある質問</h2>
+              <div class="mt-3 md:mt-4 space-y-3"><details class="rounded-xl border p-3"><summary class="cursor-pointer font-medium">処理期間はどのくらい？</summary><p class="mt-2 text-sm text-slate-600">通常は1–3か月ですが、地域や時期により変動します。</p></details><details class="rounded-xl border p-3"><summary class="cursor-pointer font-medium">家族帯同は可能？</summary><p class="mt-2 text-sm text-slate-600">条件を満たせば可能です。配偶者・子を対象とします。</p></details></div>
+            </section>
+          </div>
+
+          <!-- AI Copilot Side + Contextual Partner widgets -->
+          <aside class="hidden lg:block">
+            <div class="sticky top-24 space-y-4">
+              <div class="glass rounded-2xl border border-slate-200 p-4 shadow-glow">
+                <div class="text-sm font-semibold">AI Copilot</div>
+                <p class="mt-1 text-xs text-slate-600">質問を入力すると、このビザに合わせて必要書類やルートを提案します。</p>
+                <div class="mt-3 flex gap-2"><input class="h-10 flex-1 rounded-lg border px-3 text-sm" placeholder="例：必要年収は？" /><button class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 px-3 text-white">送信</button></div>
+                <div class="mt-3 rounded-lg bg-slate-900 text-slate-100 p-3 font-mono text-[12px] leading-6">&gt; suggest-docs --visa engineer --lang ja<div class="text-neon-blue">- 卒業証明書</div><div class="text-neon-blue">- 雇用契約書</div><div class="text-neon-blue">- 在留資格認定証明書 申請書</div></div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 p-4 bg-white shadow-soft"><div class="text-sm font-semibold">行政書士とつながる</div><p class="mt-1 text-xs text-slate-600">このビザに強い事務所を AI が抽出。</p><ul class="mt-2 text-xs space-y-1"><li>・東京都 | 中国語OK | 初回30分無料</li><li>・神奈川 | 英語OK | オンライン可</li></ul><button class="mt-3 w-full h-9 rounded-lg border px-3 text-sm hover:bg-slate-50">マッチングを開始</button></div>
+              <div class="rounded-2xl border border-slate-200 p-4 bg-white shadow-soft"><div class="text-sm font-semibold">住まいの提案</div><p class="mt-1 text-xs text-slate-600">在留カードの有無・予算からAIが候補を提示。</p><button class="mt-3 w-full h-9 rounded-lg border px-3 text-sm hover:bg-slate-50">条件入力</button></div>
+              <div class="rounded-2xl border border-slate-200 p-4 bg-white shadow-soft"><div class="text-sm font-semibold">ビザ適合求人</div><p class="mt-1 text-xs text-slate-600">職種・日本語レベルでフィルター。</p><button class="mt-3 w-full h-9 rounded-lg border px-3 text-sm hover:bg-slate-50">求人を見る</button></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Mobile Bottom Quick Nav (glass) ======= -->
+    <nav class="fixed bottom-0 inset-x-0 z-50 glass border-t border-slate-200/70 md:hidden">
+      <div class="flex justify-between px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] text-xs">
+        <a href="#requirements" class="flex-1 text-center py-1 rounded hover:bg-white">書類</a>
+        <a href="#eligibility" class="flex-1 text-center py-1 rounded hover:bg-white">判定</a>
+        <a href="#route" class="flex-1 text-center py-1 rounded hover:bg-white">ルート</a>
+        <a href="#faq" class="flex-1 text-center py-1 rounded hover:bg-white">FAQ</a>
+        <a href="#home" class="flex-1 text-center py-1 rounded hover:bg-white">TOP</a>
+      </div>
+    </nav>
+
+    <!-- Back-to-top Button -->
+    <button id="toTop" title="Top" class="fixed bottom-24 right-4 hidden rounded-full border bg-white px-3 py-2 text-sm shadow-soft md:flex">↑ TOP</button>
+
+    <!-- ======= Footer ======= -->
+    <footer class="border-t border-slate-200 bg-white pt-6 pb-24 md:pb-8">
+      <div class="container text-sm text-slate-600">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="font-semibold text-slate-900">VisaSense</div>
+            <p class="mt-1">情報提供ではなく、AIが伴走する手続き体験を。</p>
+          </div>
+          <nav class="flex gap-4"><a href="#" class="hover:underline">利用規約</a><a href="#" class="hover:underline">プライバシー</a><a href="#" class="hover:underline">Cookie</a></nav>
+        </div>
+        <p class="mt-4">© 2025 DCNET Co., Ltd.</p>
+      </div>
+    </footer>
+
+    <!-- ======= JS: active section, drawer, back-to-top ======= -->
+    <script>
+      const tabs = Array.from(document.querySelectorAll('nav.sticky a'));
+      const toTop = document.getElementById('toTop');
+      const sections = ['overview','requirements','eligibility','route','faq'].map(id => document.getElementById(id));
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { const id = e.target.id; tabs.forEach(a => a.classList.toggle('active-tab', a.getAttribute('href') === '#' + id)); } });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+      sections.forEach(s => s && io.observe(s));
+      const onScroll = () => { if (window.scrollY > 400) toTop.classList.remove('hidden'); else toTop.classList.add('hidden'); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      setTimeout(()=>{ document.getElementById('leadDrawer')?.classList.remove('hidden') }, 2500);
+    </script>
+  </body>
+</html>

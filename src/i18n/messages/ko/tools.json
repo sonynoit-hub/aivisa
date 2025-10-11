@@ -1,0 +1,65 @@
+{
+  "tools": {
+    "hspPoints": {
+      "seoTitle": "HSP 포인트 계산기",
+      "seoDescription": "일본 고도전문직(HSP) 비자 포인트를 빠르게 산출합니다. 카테고리별 조건을 선택하면 자동으로 합산됩니다.",
+      "seoKeywords": ["HSP", "고도전문직", "포인트", "비자", "일본"],
+      "title": "고도전문직 점수 계산기",
+      "subtitle": "조건을 선택해 총점을 확인하세요 (데모).",
+      "points": "점",
+      "totalPoints": "합계",
+      "categories": {
+        "research": "연구 (イ)",
+        "tech": "기술 (ロ)",
+        "business": "경영·관리 (ハ)"
+      },
+      "sections": {
+        "academic": "학력",
+        "workExperience": "경력",
+        "age": "나이",
+        "salary": "연봉",
+        "position": "직위",
+        "researchAchievements": "연구",
+        "license": "자격증",
+        "organizations": "조",
+        "japaneseLanguage": "일본어",
+        "bonusPoints": "추가 업적"
+      },
+      "academic": {
+        "shared": {"doctoral": "박사", "professional": "전문직 학위", "master": "석사", "bachelor": "학사"},
+        "business": {"professional": "전문직 학위", "master": "석사", "bachelor": "학사"}
+      },
+      "workExperience": {
+        "research": {"moreThan7": "7년 이상", "moreThan5": "5년 이상", "moreThan3": "3년 이상"},
+        "tech": {"moreThan10": "10년 이상", "moreThan7": "7년 이상", "moreThan5": "5년 이상", "moreThan3": "3년 이상"},
+        "business": {"moreThan10": "10년 이상", "moreThan7": "7년 이상", "moreThan5": "5년 이상", "moreThan3": "3년 이상"}
+      },
+      "age": {"under30": "30세 미만", "30to34": "30–34", "35to39": "35–39", "over40": "40+"},
+      "salary": {
+        "shared": {"over10M": ">= 1000만엔", "over9M": ">= 900만", "over8M": ">= 800만", "over7M": ">= 700만", "over6M": ">= 600만", "over5M": ">= 500만", "over4M": ">= 400만"},
+        "business": {"over30M": ">= 3000만엔", "over25M": ">= 2500만", "over20M": ">= 2000만", "over15M": ">= 1500만", "over10M": ">= 1000만"}
+      },
+      "position": {"business": {"repDirector": "대표이사 / 임원", "director": "이사 / 임원", "invested100M": "1억 엔 이상 투자"}},
+      "researchAchievements": {
+        "research": {"patented": "특허 발명 1건 이상", "fundedProjects": "일본 입국 전 공적 기관으로부터 자금을 지원받은 연구 조성금 3건 이상", "published3plus": "일본 국가기관이 사용하는 데이터베이스에 등록된 학술지에서 논문 3편 이상 (교신저자로서)", "otherAchievements": "관계 당국의 의견을 토대로 법무대신이 인정하는 동등한 기록", "if2Apply": "위의 2가지 이상을 충족하는 경우"},
+        "tech": {"patented": "특허 발명 1건 이상", "fundedProjects": "일본 입국 전 공적 기관으로부터 자금을 지원받은 연구 조성금 3건 이상", "published3plus": "일본 국가기관이 사용하는 데이터베이스에 등록된 학술지에서 논문 3편 이상 (교신저자로서)", "otherAchievements": "관계 당국의 의견을 토대로 법무대신이 인정하는 동등한 기록"}
+      },
+      "license": {"tech": {"national": "국가 자격", "itExam": "IT 시험/자격", "multiple": "복수 자격증"}},
+      "organization": {"innovation": "혁신 지원을 받는 기관에서 근무", "localGov":  "지방자치단체의 고도외국인재 지원을 위한 법무성 인정 기관에서 근무", "smeR&D": "매출 대비 R&D 비용이 3%를 초과하는 중소기업에 고용"},
+      "japaneseLanguage": {"jlptN1": "JLPT N1 / 일본어 전공", "jlptN2": "JLPT N2", "graduatedJapan": "일본 대학교 졸업"},
+      "bonus": {
+        "research": {"topUnis": "법무성 지정 대학교의 졸업생", "supportedOrg": "지원 기관 업무", "foreignQual": "업무에 관련된 외국 자격 보유자", "multipleDegrees": "복수 학위", "innovation": "혁신 지원을 받는 기관에서 근무", "jlptN1": "JLPT N1 / 일본어 전공", "japaneseGraduated": "일본 대학교 졸업", "invManage": "투자운용업에 관련된 업무에 종사", "jicaTrain": "법무성 지정의 연수를 수료"},
+        "tech": {"topUnis": "법무성 지정 대학교의 졸업생", "investment": "투자운용업에 관련된 업무에 종사", "supportedOrg": "지원 기관 업무", "foreignQual": "업무에 관련된 외국 자격 보유자", "multipleDegrees": "복수 학위", "jica": "법무성 지정의 연수를 수료", "innovation": "혁신 지원을 받는 기관에서 근무", "jlptN1": "JLPT N1 / 일본어 전공", "jlptN2": "JLPT N2", "japaneseGraduated": "일본 대학교 졸업"},
+        "business": {"topUnis": "법무성 지정 대학교의 졸업생", "investment": "투자운용업에 관련된 업무에 종사", "supportedOrg": "지원 기관 업무", "foreignQual": "업무에 관련된 외국 자격 보유자", "jica": "법무성 지정의 연수를 수료", "multipleDegrees": "복수 학위", "innovation": "혁신 지원을 받는 기관에서 근무", "jlptN1": "JLPT N1 / 일본어 전공", "jlptN2": "JLPT N2", "japaneseGraduated": "일본 대학교 졸업"}
+      },
+      "references": {
+        "agency": "일본 출입국재류관리청",
+        "heading": "포인트 계산표 참고 서식",
+        "description": "아래 링크는 공식 참고 서식입니다. 최신 요건과 배점은 반드시 해당 기관의 공표 자료를 확인하세요.",
+        "disclaimer": "본 계산 결과는 참고용입니다. 실제 심사와 배점은 일본 출입국재류관리청의 판단에 따릅니다.",
+        "jpExcel": "Excel(일본어)",
+        "enExcel": "Excel(영어)"
+      }
+    }
+  }
+}

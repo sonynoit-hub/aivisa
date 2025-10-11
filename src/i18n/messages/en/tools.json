@@ -1,0 +1,61 @@
+{
+  "tools": {
+  "hspPoints": {
+    "seoTitle": "HSP Points Calculator",
+    "seoDescription": "Quickly estimate points for Japan's Highly Skilled Professional (HSP) visa. Choose conditions by category and see totals instantly.",
+    "seoKeywords": ["HSP", "Highly Skilled Professional", "Points", "Visa", "Japan"],
+  "title": "HSP Points Calculator",
+  "subtitle": "Select your conditions to calculate points (demo).",
+      "points": "pts",
+      "totalPoints": "Total",
+  "categories": {"research": "Research (イ)", "tech": "Technical (ロ)", "business": "Business / Management (ハ)"},
+      "sections": {
+        "academic": "Academic",
+        "workExperience": "Work experience",
+        "age": "Age",
+        "salary": "Salary",
+        "position": "Position",
+        "researchAchievements": "Research",
+        "license": "License",
+        "organizations": "Organization",
+        "japaneseLanguage": "Japanese language",
+        "bonusPoints": "Extra achievements"
+      },
+      "academic": {
+        "shared": {"doctoral": "Doctoral", "professional": "Professional Degree", "master": "Master", "bachelor": "Bachelor"},
+        "business": {"professional": "Professional Degree", "master": "Master", "bachelor": "Bachelor"}
+      },
+      "workExperience": {
+        "research": {"moreThan7": ">= 7 years", "moreThan5": ">= 5 years", "moreThan3": ">= 3 years"},
+        "tech": {"moreThan10": ">= 10 years", "moreThan7": ">= 7 years", "moreThan5": ">= 5 years", "moreThan3": ">= 3 years"},
+        "business": {"moreThan10": ">= 10 years", "moreThan7": ">= 7 years", "moreThan5": ">= 5 years", "moreThan3": ">= 3 years"}
+      },
+      "age": {"under30": "Under 30", "30to34": "30–34", "35to39": "35–39", "over40": "40+"},
+      "salary": {
+        "shared": {"over10M": ">= 10M JPY", "over9M": ">= 9M", "over8M": ">= 8M", "over7M": ">= 7M", "over6M": ">= 6M", "over5M": ">= 5M", "over4M": ">= 4M"},
+        "business": {"over30M": ">= 30M JPY", "over25M": ">= 25M", "over20M": ">= 20M", "over15M": ">= 15M", "over10M": ">= 10M"}
+      },
+  "position": {"business": {"repDirector": "Representative Director / Exec", "director": "Director / Exec", "invested100M": "Invested 100M JPY+"}},
+      "researchAchievements": {
+        "research": {"patented": "Patent invention 1 item or more", "fundedProjects": "At least 3 grants funded by public agencies before entry to Japan", "published3plus": "At least 3 papers (as corresponding author) in academic journals registered in databases used by Japanese national organizations", "otherAchievements": "Equivalent records may be evaluated by the Minister of Justice with input from relevant authorities", "if2Apply": "If meeting 2 or more of the above"},
+        "tech": {"patented": "Patent invention 1 item or more", "fundedProjects": "At least 3 grants funded by public agencies before entry to Japan", "published3plus": "At least 3 papers (as corresponding author) in academic journals registered in databases used by Japanese national organizations", "otherAchievements": "Equivalent records may be evaluated by the Minister of Justice with input from relevant authorities"}
+      },
+  "license": {"tech": {"national": "National qualification", "itExam": "IT exam / license", "multiple": "Multiple licenses"}},
+  "organization": {"innovation": "Work for an organization receiving innovation support", "localGov": "Work for an MOJ-approved organization supporting highly skilled foreign workers in local governments", "smeR&D": "Employed by SME with R&D expenses >3% of revenue"},
+      "japaneseLanguage": {"jlptN1": "JLPT N1 / Japanese major", "jlptN2": "JLPT N2", "graduatedJapan": "Graduated from Japan university"},
+      "bonus": {
+        "research": {"topUnis": "Graduate of a university designated by MOJ", "supportedOrg": "Supported organization work", "foreignQual": "Holder of foreign qualification related to work", "multipleDegrees": "Multiple degrees", "innovation": "Work for an organization receiving innovation support", "jlptN1": "JLPT N1 / Japanese major", "japaneseGraduated": "Graduated from Japan university", "invManage": "Engaged in work related to Investment Management Business", "jicaTrain": "Completed MOJ-specified training"},
+        "tech": {"topUnis": "Graduate of a university designated by MOJ", "investment": "Engaged in work related to Investment Management Business", "supportedOrg": "Supported organization work", "foreignQual": "Holder of foreign qualification related to work", "multipleDegrees": "Multiple degrees", "jica": "Completed MOJ-specified training", "innovation": "Work for an organization receiving innovation support", "jlptN1": "JLPT N1 / Japanese major", "jlptN2": "JLPT N2", "japaneseGraduated": "Graduated from Japan university"},
+        "business": {"topUnis": "Graduate of a university designated by MOJ", "investment": "Engaged in work related to Investment Management Business", "supportedOrg": "Supported organization work", "foreignQual": "Holder of foreign qualification related to work", "jica": "Completed MOJ-specified training", "multipleDegrees": "Multiple degrees", "innovation": "Work for an organization receiving innovation support", "jlptN1": "JLPT N1 / Japanese major", "jlptN2": "JLPT N2", "japaneseGraduated": "Graduated from Japan university"}
+      },
+      "references": {
+        "agency": "Immigration Services Agency of Japan",
+        "heading": "Points calculation reference format",
+        "description": "The links below point to official reference templates. For the latest and authoritative requirements, always consult the agency's publications.",
+        "disclaimer": "The calculator is for reference only. Actual screening and points are determined by the Immigration Services Agency of Japan.",
+        "jpExcel": "Excel (Japanese)",
+        "enExcel": "Excel (English)"
+      }
+    }
+  }
+}

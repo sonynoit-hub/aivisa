@@ -1,0 +1,19 @@
+{
+  "about": {
+    "index": {
+      "seoTitle": "AIVisa 소개",
+      "seoDescription": "다국어로 일본 비자 정보를 더 명확하게 제공하는 우리의 미션과 제품.",
+      "seoKeywords": ["AIVisa", "소개", "비전", "미션", "서비스"]
+    },
+    "company": {
+      "seoTitle": "운영 회사",
+      "seoDescription": "회사 기본 정보, 사업 내용 및 연락처.",
+      "seoKeywords": ["회사 정보", "법인 정보", "회사 소개"]
+    },
+    "faq": {
+      "seoTitle": "자주 묻는 질문 (FAQ)",
+      "seoDescription": "사용 방법, 지원 및 보안에 대한 자주 묻는 질문.",
+      "seoKeywords": ["FAQ", "도움말", "지원"]
+    }
+  }
+}

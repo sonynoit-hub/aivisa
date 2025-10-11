@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "title": "Xin chào! Hãy hỏi về visa 😊"
+  },
+  "seoTitle": "Hỏi AI về visa Nhật Bản | AIVISA",
+  "seoDescription": "Trao đổi với AIVISA để biết nhanh loại visa, hồ sơ và thủ tục tại Nhật. Hỗ trợ đa ngôn ngữ.",
+  "placeholder": "Hãy đặt câu hỏi",
+  "helperLine": "Câu trả lời của AIVISA có thể không hoàn toàn chính xác. Hãy kiểm tra thông tin quan trọng và làm theo hướng dẫn chính thức.",
+  "suggestions": {
+    "hspPoints": "Đánh giá điểm HSP",
+    "whichWorkVisa": "Loại visa lao động nào phù hợp?",
+    "permanentResidency": "Điều kiện thường trú",
+    "familyStay": "Thủ tục lưu trú gia đình",
+    "updateChangeDocs": "Hồ sơ cần thiết khi gia hạn/đổi"
+  },
+  "actions": {
+    "copy": "Sao chép",
+    "scrollToBottom": "Cuộn xuống cuối",
+    "sendTitle": "Gửi (Enter / ⌘↵ / Ctrl+Enter)"
+  },
+  "errors": {
+    "generic": "Lỗi"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "hero": {"title": "Hello! Ask your visa questions 😊"},
+  "seoTitle": "Ask AI about Japan visas | AIVISA",
+  "seoDescription": "Chat with AIVISA to learn visa types, requirements, and procedures in Japan. Multilingual support.",
+  "placeholder": "Ask a question",
+  "helperLine": "AIVISA responses may be inaccurate. Verify critical information and follow official guidance.",
+  "suggestions": {
+    "hspPoints": "HSP points check",
+    "whichWorkVisa": "Which work visa fits me?",
+    "permanentResidency": "Permanent residency requirements",
+    "familyStay": "Family stay procedure",
+    "updateChangeDocs": "Docs for renewal/change"
+  },
+  "actions": {
+    "copy": "Copy",
+    "scrollToBottom": "Scroll to bottom",
+    "sendTitle": "Send (Enter / ⌘↵ / Ctrl+Enter)"
+  },
+  "errors": {"generic": "Error"}
+}

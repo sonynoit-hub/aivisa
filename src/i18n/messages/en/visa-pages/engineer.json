@@ -1,0 +1,117 @@
+{
+	"title": "Engineer ・ Humanities ・ International",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Engineer ・ Humanities ・ International",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": {
+		"abroad": "Apply from abroad",
+		"inJapan": "Obtain in Japan",
+		"change": "Change status",
+		"extend": "Extend period"
+	},
+	"categoryLabels": {
+		"applicant": "Applicant",
+		"company": "Company",
+		"optional": "Optional"
+	},
+	"tips": "・Engineer・Humanities・International visa is for **professional and technical work** requiring university-level education or expertise\n\n・Covers **engineering, IT, finance, marketing, translation, design** and other professional fields\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Requires **bachelor's degree or equivalent experience** in the relevant field of work\n\n・Employing company must meet specific **business scale and financial requirements** based on category classification",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility (COE) Application",
+				"Passport",
+				"Photo (4×3cm)",
+				"Academic Certificate",
+				"Work History / Career Resume",
+				"Japanese Language Proficiency Certificate (JLPT, etc.)"
+			],
+			"company": [
+				"Self-addressed Return Envelope",
+				"Employment Contract",
+				"Certificate of Registered Matters",
+				"Company Business Description",
+				"Most Recent Financial Statements (Copy)",
+				"Withholding Tax or Notification of Establishment of Payroll Office (Copy)"
+			],
+			"optional": [
+				"Letter of Guarantee",
+				"Letter of Invitation",
+				"Statement of Reason",
+				"Others"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Acquisition of Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Academic Certificate",
+				"Work History / Career Resume",
+				"Japanese Language Proficiency Certificate (JLPT, etc.)",
+				"Statement of Reason"
+			],
+			"company": [
+				"Employment Contract",
+				"Certificate of Registered Matters",
+				"Company Business Description",
+				"Most Recent Financial Statements (Copy)",
+				"Withholding Tax or Notification of Establishment of Payroll Office (Copy)"
+			],
+			"optional": [
+				"Letter of Guarantee",
+				"Letter of Invitation",
+				"Others"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Academic Certificate",
+				"Work History / Career Resume",
+				"Japanese Language Proficiency Certificate (JLPT, etc.)"
+			],
+			"company": [
+				"Employment Contract",
+				"Certificate of Registered Matters",
+				"Company Business Description",
+				"Most Recent Financial Statements (Copy)",
+				"Withholding Tax or Notification of Establishment of Payroll Office (Copy)"
+			],
+			"optional": [
+				"Letter of Guarantee",
+				"Letter of Invitation",
+				"Statement of Reason",
+				"Others"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate"
+			],
+			"company": [
+				"Employment Contract",
+				"Certificate of Registered Matters",
+				"Company Business Description",
+				"Most Recent Financial Statements (Copy)",
+				"Withholding Tax or Notification of Establishment of Payroll Office (Copy)"
+			],
+			"optional": [
+				"Letter of Guarantee",
+				"Letter of Invitation",
+				"Statement of Reason",
+				"Others"
+			]
+		}
+	}
+}

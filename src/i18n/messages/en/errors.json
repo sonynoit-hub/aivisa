@@ -1,0 +1,8 @@
+{
+  "errors": {
+    "rateLimited": "Daily chat limit reached. Please try again tomorrow.",
+    "serverBusy": "The server is busy. Please try again later.",
+    "network": "Network error. Please check your connection and try again.",
+    "generic": "Something went wrong. Please try again later."
+  }
+}

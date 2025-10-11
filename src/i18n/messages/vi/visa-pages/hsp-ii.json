@@ -1,0 +1,26 @@
+{
+  "title": "Chuyên môn cao loại 2",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "Hồ sơ visa Chuyên gia có tay nghề cao loại 2",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+  "stageLabels": { "change": "Thay đổi tư cách", "extend": "Gia hạn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "optional": "Tùy chọn" },
+  "tips": "・Visa Chuyên môn cao (số 2) dành cho **các chuyên gia giàu kinh nghiệm** đã có tư cách HSP (i) từ 3+ năm\n\n・Cung cấp **tính linh hoạt tối đa** với hoạt động không hạn chế, không cần gia hạn điểm số, và thời hạn lưu trú mở rộng\n\n・Cho phép **các hoạt động làm việc đa dạng** trên nhiều lĩnh vực mà không bị hạn chế bởi danh mục ban đầu\n\n・Phải duy trì **tối thiểu 70 điểm** trong suốt thời kỳ HSP (i) trước khi chuyển đổi\n\n・Kiểm tra yêu cầu chuyển đổi tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> 📊 **Sử dụng công cụ tính điểm**\n> \n> 🔗 **[Công cụ tính điểm chuyên môn cao](/vi/tools/hsp-points)** → Xác minh lịch sử điểm\n> \n> ⚠️ **Quan trọng:** Phải chứng minh kinh nghiệm HSP (i) từ 3+ năm và duy trì 70+ điểm.",
+  "studyDocs": {
+    "change": {
+      "applicant": [
+        "Đơn xin thay đổi Tư cách lưu trú",
+        "Hộ chiếu",
+        "Thẻ lưu trú Chuyên gia có tay nghề cao loại 1",
+        "Ảnh (4×3cm)",
+        "Bảng tính điểm",
+        "Tài liệu chứng minh cho từng mục trong bảng tính điểm"
+      ],
+      "optional": ["Khác"]
+  
+    }
+  }
+}

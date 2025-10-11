@@ -1,0 +1,117 @@
+{
+	"title": "Kỹ thuật / Nhân văn / Quốc tế",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Kỹ thuật / Nhân văn / Quốc tế",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+	"stageLabels": {
+		"abroad": "Nộp đơn từ nước ngoài",
+		"inJapan": "Lấy tư cách tại Nhật",
+		"change": "Thay đổi tư cách lưu trú",
+		"extend": "Gia hạn thời gian lưu trú"
+	},
+	"categoryLabels": {
+		"applicant": "Người nộp đơn",
+		"company": "Công ty",
+		"optional": "Tùy chọn/Bổ sung"
+	},
+	"tips": "・Visa Kỹ thuật/Nhân văn/Quốc tế dành cho **công việc chuyên môn và kỹ thuật đòi hỏi trình độ đại học hoặc chuyên môn**\n\n・Bao gồm **kỹ thuật, CNTT, tài chính, tiếp thị, dịch thuật, thiết kế** và các lĩnh vực chuyên môn khác\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Yêu cầu **bằng cử nhân hoặc kinh nghiệm tương đương** trong lĩnh vực liên quan\n\n・Công ty tuyển dụng phải đáp ứng **quy mô kinh doanh và yêu cầu tài chính cụ thể** dựa trên phân loại danh mục",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận học lực",
+				"Bản lý lịch công tác",
+				"Giấy chứng nhận năng lực tiếng Nhật (JLPT, v.v.)"
+			],
+			"company": [
+				"Phong bì hồi đáp",
+				"Hợp đồng lao động",
+				"Giấy chứng nhận đăng ký công ty",
+				"Bản mô tả nội dung kinh doanh",
+				"Báo cáo tài chính năm gần nhất (bản sao)",
+				"Giấy nộp thuế khấu trừ tại nguồn hoặc Thông báo thành lập Văn phòng chi trả lương (Bản sao)"
+			],
+			"optional": [
+				"Thư bảo lãnh nhân thân",
+				"Thư mời",
+				"Bản giải trình",
+				"Khác"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú khi ở Nhật",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận học lực",
+				"Bản lý lịch công tác",
+				"Giấy chứng nhận năng lực tiếng Nhật (JLPT, v.v.)",
+				"Bản giải trình"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Giấy chứng nhận đăng ký công ty",
+				"Bản mô tả nội dung kinh doanh",
+				"Báo cáo tài chính năm gần nhất (bản sao)",
+				"Giấy nộp thuế khấu trừ tại nguồn hoặc Thông báo thành lập Văn phòng chi trả lương (Bản sao)"
+			],
+			"optional": [
+				"Thư bảo lãnh nhân thân",
+				"Thư mời",
+				"Khác"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận học lực",
+				"Bản lý lịch công tác",
+				"Giấy chứng nhận năng lực tiếng Nhật (JLPT, v.v.)"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Giấy chứng nhận đăng ký công ty",
+				"Bản mô tả nội dung kinh doanh",
+				"Báo cáo tài chính năm gần nhất (bản sao)",
+				"Giấy nộp thuế khấu trừ tại nguồn hoặc Thông báo thành lập Văn phòng chi trả lương (Bản sao)"
+			],
+			"optional": [
+				"Thư bảo lãnh nhân thân",
+				"Thư mời",
+				"Bản giải trình",
+				"Khác"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Giấy chứng nhận đăng ký công ty",
+				"Bản mô tả nội dung kinh doanh",
+				"Báo cáo tài chính năm gần nhất (bản sao)",
+				"Giấy nộp thuế khấu trừ tại nguồn hoặc Thông báo thành lập Văn phòng chi trả lương (Bản sao)"
+			],
+			"optional": [
+				"Thư bảo lãnh nhân thân",
+				"Thư mời",
+				"Bản giải trình",
+				"Khác"
+			]
+		}
+	}
+}

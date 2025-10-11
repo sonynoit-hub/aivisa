@@ -1,0 +1,37 @@
+{
+  "tools": {
+  "hspPoints": {
+    "seoTitle": "Bảng tính điểm Chuyên gia tay nghề cao",
+    "seoDescription": "Ước tính nhanh điểm cho visa Lao động Kỹ năng Cao (HSP) của Nhật. Chọn điều kiện theo nhóm và xem tổng điểm ngay.",
+    "seoKeywords": ["HSP", "Kỹ năng cao", "Điểm", "Visa", "Nhật Bản"],
+      "title": "Bảng tính điểm Chuyên gia tay nghề cao",
+      "subtitle": "Chọn điều kiện để xem tổng điểm (demo).",
+      "points": "điểm",
+      "totalPoints": "Tổng",
+  "categories": {"research": "Nghiên cứu (イ)", "tech": "Kỹ thuật (ロ)", "business": "Kinh doanh / Quản lý (ハ)"},
+      "sections": {
+        "academic": "Học vấn",
+        "workExperience": "Kinh nghiệm làm việc",
+        "age": "Tuổi",
+        "salary": "Lương năm",
+  "position": "Chức vụ",
+  "researchAchievements": "Nghiên cứu",
+  "license": "Giấy phép",
+  "organizations": "Tổ chức",
+  "japaneseLanguage": "Tiếng Nhật",
+  "bonusPoints": "Thành tích bổ sung"
+      },
+  "academic": {"shared": {"doctoral": "Tiến sĩ", "professional": "Bằng nghề chuyên môn", "master": "Thạc sĩ", "bachelor": "Cử nhân"}, "business": {"professional": "Bằng nghề chuyên môn", "master": "Thạc sĩ", "bachelor": "Cử nhân"}},
+      "workExperience": {"research": {"moreThan7": ">= 7 năm", "moreThan5": ">= 5 năm", "moreThan3": ">= 3 năm"}, "tech": {"moreThan10": ">= 10 năm", "moreThan7": ">= 7 năm", "moreThan5": ">= 5 năm", "moreThan3": ">= 3 năm"}, "business": {"moreThan10": ">= 10 năm", "moreThan7": ">= 7 năm", "moreThan5": ">= 5 năm", "moreThan3": ">= 3 năm"}},
+      "age": {"under30": "Dưới 30", "30to34": "30–34", "35to39": "35–39", "over40": "40+"},
+      "salary": {"shared": {"over10M": ">= 10 triệu yên", "over9M": ">= 9 triệu yên", "over8M": ">= 8 triệu yên", "over7M": ">= 7 triệu yên", "over6M": ">= 6 triệu yên", "over5M": ">= 5 triệu yên", "over4M": ">= 4 triệu yên"}, "business": {"over30M": ">= 30 triệu yên", "over25M": ">= 25 triệu yên", "over20M": ">= 20 triệu yên", "over15M": ">= 15 triệu yên", "over10M": ">= 10 triệu yên"}},
+  "position": {"business": {"repDirector": "Tổng giám đốc / Điều hành", "director": "Giám đốc / Điều hành", "invested100M": "Đầu tư từ 100 triệu JPY"}},
+  "researchAchievements": {"research": {"patented": "Có ít nhất 1 phát minh sáng chế", "fundedProjects": "Tham gia vào nghiên cứu nhận ít nhất 3 nguồn tài trợ từ các cơ quan công trước khi nhập cảnh Nhật Bản", "published3plus": "Có it nhất 3 bài báo (tương ứng tác giả) trong các tạp chí học thuật được đăng ký trong cơ sở dữ liệu do các tổ chức quốc gia Nhật Bản sử dụng", "otherAchievements": "Các hồ sơ tương đương có thể được Bộ trưởng Tư pháp đánh giá với ý kiến của các cơ quan liên quan", "if2Apply": "Nếu đáp ứng 2 hoặc nhiều hơn các điều kiện trên"}, "tech": {"patented": "Phát minh sáng chế 1 mục hoặc nhiều hơn", "fundedProjects": "Ít nhất 3 nguồn tài trợ từ các cơ quan công trước khi nhập cảnh Nhật Bản", "published3plus": "Ít nhất 3 bài báo (làm tác giả liên hệ) trong các tạp chí học thuật được đăng ký trong cơ sở dữ liệu do các tổ chức quốc gia Nhật Bản sử dụng", "otherAchievements": "Các hồ sơ tương đương có thể được Bộ trưởng Tư pháp đánh giá với ý kiến của các cơ quan liên quan"}},
+  "license": {"tech": {"national": "Chứng chỉ quốc gia", "itExam": "Kỳ thi/giấy phép IT", "multiple": "Nhiều giấy phép"}},
+  "organization": {"innovation": "Tổ chức hỗ trợ đổi mới", "localGov": "Tổ chức được chính quyền địa phương hỗ trợ", "smeR&D": "Doanh nghiệp vừa và nhỏ có R&D >3%"},
+      "japaneseLanguage": {"jlptN1": "JLPT N1 hoặc Đại học nước ngoài chuyên ngành tiếng Nhật", "jlptN2": "JLPT N2", "graduatedJapan": "Tốt nghiệp đại học tại Nhật"},
+  "bonus": {"research": {"topUnis": "Tốt nghiệp đại học được Bộ Tư pháp chỉ định", "supportedOrg": "Công việc tại tổ chức hỗ trợ", "foreignQual": "Người có bằng cấp nước ngoài liên quan đến công việc", "multipleDegrees": "Có nhiều bằng cử nhân", "innovation": "Làm việc tại tổ chức nhận hỗ trợ đổi mới", "jlptN1": "JLPT N1 / Chuyên ngành tiếng Nhật", "japaneseGraduated": "Tốt nghiệp đại học Nhật Bản", "invManage": "Tham gia công việc liên quan đến quản lý đầu tư", "jicaTrain": "Hoàn thành khóa đào tạo được Bộ Tư pháp chỉ định"}, "tech": {"topUnis": "Tốt nghiệp đại học được Bộ Tư pháp chỉ định", "investment": "Tham gia công việc liên quan đến quản lý đầu tư", "supportedOrg": "Công việc tại tổ chức hỗ trợ", "foreignQual": "Người có bằng cấp nước ngoài liên quan đến công việc", "multipleDegrees": "Nhiều bằng cấp", "jica": "Hoàn thành khóa đào tạo được Bộ Tư pháp chỉ định", "innovation": "Làm việc tại tổ chức nhận hỗ trợ đổi mới", "jlptN1": "JLPT N1 / Chuyên ngành tiếng Nhật", "jlptN2": "JLPT N2", "japaneseGraduated": "Tốt nghiệp đại học Nhật Bản"}, "business": {"topUnis": "Tốt nghiệp đại học được Bộ Tư pháp chỉ định", "investment": "Tham gia công việc liên quan đến quản lý đầu tư", "supportedOrg": "Công việc tại tổ chức hỗ trợ", "foreignQual": "Người có bằng cấp nước ngoài liên quan đến công việc", "jica": "Hoàn thành khóa đào tạo được Bộ Tư pháp chỉ định", "multipleDegrees": "Nhiều bằng cấp", "innovation": "Làm việc tại tổ chức nhận hỗ trợ đổi mới", "jlptN1": "JLPT N1 / Chuyên ngành tiếng Nhật", "jlptN2": "JLPT N2", "japaneseGraduated": "Tốt nghiệp đại học Nhật Bản"}},
+  "references": {"agency": "Cơ quan Dịch vụ Xuất nhập cảnh Nhật Bản", "heading": "Biểu mẫu tính điểm tham khảo", "description": "Các liên kết dưới đây dẫn tới biểu mẫu tham khảo chính thức. Vui lòng luôn đối chiếu tài liệu công bố của cơ quan để biết yêu cầu mới nhất.", "disclaimer": "Kết quả tính chỉ mang tính tham khảo. Điểm số và thẩm định thực tế do cơ quan Nhật Bản quyết định.", "jpExcel": "Excel (tiếng Nhật)", "enExcel": "Excel (tiếng Anh)"}
+    }
+  }
+}

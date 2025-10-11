@@ -1,0 +1,51 @@
+{
+	"title": "Temporary Visitor",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Temporary Visitor",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "optional": "Optional", "company": "Company" },
+	"tips": "・Temporary visitor status allows stays of **up to 90 days** in principle\n\n・Used for tourism, business, visiting relatives, and other short-term purposes\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Applications can be submitted **from 3 months before** the planned stay\n\n・Required documents may vary depending on the purpose of stay",
+	"studyDocs": {
+		"inJapan": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Certificate of Purpose for Short-Term Stay",
+				"Proof of Planned Departure"
+			],
+			"optional": ["Others"],
+			"company": []
+		},
+		"change": {
+			"applicant": [
+				"Application for Permission to Acquire Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Certificate of Purpose for Short-Term Stay",
+				"Proof of Funds",
+				"Proof of Planned Departure"
+			],
+			"optional": ["Others"],
+			"company": []
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Certificate of Purpose for Short-Term Stay",
+				"Proof of Planned Departure"
+			],
+			"optional": ["Others"],
+			"company": []
+		}
+	}
+}

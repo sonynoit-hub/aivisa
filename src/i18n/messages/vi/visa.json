@@ -1,0 +1,20 @@
+{
+  "pages": {
+    "pr": "Vĩnh trú",
+    "study": "Du học",
+    "engineer": "Kỹ sư / Nhân văn / Quốc tế",
+    "hsp-i": "Chuyên gia tay nghề cao loại 1",
+    "hsp-ii": "Chuyên gia tay nghề cao loại 2",
+    "dep": "Người phụ thuộc",
+    "da": "Hoạt động được chỉ định",
+    "pr-spouse": "Vợ/chồng người cư trú vĩnh viễn",
+    "jp-spouse": "Vợ/chồng người Nhật",
+    "ltr": "Người cư trú dài hạn",
+    "bm": "Quản lý kinh doanh",
+    "care": "Điều dưỡng",
+    "skilled": "Lao động kỹ năng",
+    "tit": "Thực tập kỹ năng",
+    "temp": "Lưu trú ngắn hạn",
+    "ssw": "Lao động kỹ năng đặc định"
+  }
+}

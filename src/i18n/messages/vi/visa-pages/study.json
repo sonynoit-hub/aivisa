@@ -1,0 +1,69 @@
+{
+	"title": "Du học",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Du học",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+	"stageLabels": {
+		"abroad": "Nộp từ nước ngoài",
+		"inJapan": "Làm thủ tục tại Nhật",
+		"change": "Đổi tư cách lưu trú",
+		"extend": "Gia hạn thời gian lưu trú"
+	},
+	"categoryLabels": {
+		"applicant": "Người nộp đơn",
+		"school": "Trường học",
+		"optional": "Tuỳ chọn/Bổ sung"
+	},
+	"tips": "・Visa du học dành cho **học tập toàn thời gian tại các cơ sở giáo dục Nhật Bản** bao gồm đại học, trường chuyên môn và trường tiếng Nhật\n\n・Yêu cầu **được trường tiếp nhận** và chứng minh nguồn tài chính đủ cho việc học tập\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・**Giấy phép hoạt động ngoài tư cách** cho phép làm thêm tối đa 28 giờ/tuần\n\n・Phải duy trì **kết quả học tập tốt và tỷ lệ đi học phù hợp** để duy trì tình trạng visa",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp COE",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Bằng cấp cao nhất",
+				"Bảng điểm",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+				"Chứng minh tài chính"
+			],
+			"school": ["Giấy báo nhập học", "Chứng nhận đóng học phí", "Hồ sơ của trường"],
+			"optional": ["Giấy bảo lãnh", "Thư mời/Lý do", "Bản giải trình", "Khác"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Sơ yếu lý lịch",
+				"Bằng cấp cao nhất",
+				"Bảng điểm",
+				"Giấy xác nhận kinh nghiệm làm việc",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)"
+			],
+			"school": ["Giấy báo nhập học", "Chứng nhận đóng học phí", "Hồ sơ của trường"],
+			"optional": ["Bản giải trình", "Khác"]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin đổi tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bằng cấp cao nhất",
+				"Bảng điểm",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+				"Chứng minh tài chính"
+			],
+			"school": ["Giấy báo nhập học", "Chứng nhận đóng học phí", "Hồ sơ của trường"],
+			"optional": ["Giấy bảo lãnh", "Bản giải trình", "Khác"]
+		},
+		"extend": {
+			"applicant": ["Đơn xin gia hạn thời gian lưu trú", "Hộ chiếu", "Thẻ lưu trú", "Ảnh (4×3cm)"],
+			"school": ["Giấy xác nhận đang học", "Chứng nhận đóng học phí", "Hồ sơ của trường"],
+			"optional": ["Bản giải trình", "Khác"]
+		}
+	}
+}

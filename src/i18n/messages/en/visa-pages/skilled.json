@@ -1,0 +1,84 @@
+{
+	"title": "Skilled Labor",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Skilled Labor",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+	"tips": "・Skilled Labor visa is for foreigners engaged in **work requiring specific skills**\n\n・Covers chefs, sports instructors, animal trainers, pilots, ship operators, etc.\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Requires **10+ years of work experience** (for chefs, etc.) or national qualifications/licenses\n\n・Skill certification documents from the employing company are crucial",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Photo (4×3cm)",
+				"Resume",
+				"Skilled Qualification Certificate (License/Certificate)",
+				"Proof of Work Experience"
+			],
+			"company": [
+				"Certificate of Working Conditions",
+				"Employment Contract",
+				"Certificate of Registered Matters / Company Profile",
+				"Financial Report / Tax Certificate",
+				"Invitation Letter / Reason for Invitation"
+			],
+			"optional": ["Letter of Guarantee", "Statement of Reason", "Others"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Photo (4×3cm)",
+				"Resume",
+				"Skilled Qualification Certificate (License/Certificate)",
+				"Proof of Work Experience",
+				"Statement of Reason"
+			],
+			"company": [
+				"Certificate of Working Conditions",
+				"Employment Contract",
+				"Certificate of Registered Matters / Company Profile",
+				"Financial Report / Tax Certificate"
+			],
+			"optional": ["Letter of Guarantee", "Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Permission to Acquire Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resume",
+				"Skilled Qualification Certificate (License/Certificate)",
+				"Proof of Work Experience"
+			],
+			"company": [
+				"Employment Contract",
+				"Certificate of Working Conditions",
+				"Certificate of Registered Matters / Company Profile",
+				"Financial Report / Tax Certificate"
+			],
+			"optional": ["Letter of Guarantee", "Statement of Reason", "Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resident Tax Certificate",
+				"Tax Certificate"
+			],
+			"company": [
+				"Certificate of Working Conditions",
+				"Employment Contract",
+				"Financial Report / Tax Certificate"
+			],
+			"optional": ["Statement of Reason", "Others"]
+		}
+	}
+}

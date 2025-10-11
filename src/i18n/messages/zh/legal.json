@@ -1,0 +1,14 @@
+{
+  "legal": {
+    "privacy": {
+      "seoTitle": "隐私政策",
+      "seoDescription": "我们保护和处理个人信息的原则与方法。",
+      "seoKeywords": ["隐私", "个人信息", "数据保护"]
+    },
+    "terms": {
+      "seoTitle": "使用条款",
+      "seoDescription": "本服务的使用条件与规则。",
+      "seoKeywords": ["使用条款", "条件", "政策"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご質問・サービスに関するご相談・改善提案など、お気軽にお寄せください。",
+    "type": "種別",
+    "typeSuggestion": "改善提案",
+    "typeBiz": "商談・業務",
+    "subject": "件名（任意）",
+    "message": "本文（必須）",
+    "email": "メールアドレス（必須）",
+    "phone": "電話番号（任意）",
+    "submit": "送信",
+    "sending": "送信中...",
+    "success": "送信しました。担当より順次ご連絡します。",
+    "required": "必須です",
+    "invalidEmail": "有効なメールアドレスを入力してください",
+    "invalidPhone": "有効な電話番号を入力してください",
+    "submitFailed": "送信に失敗しました。しばらくしてからもう一度お試しください。"
+  }
+}

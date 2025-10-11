@@ -1,0 +1,88 @@
+{
+	"title": "Spouse of Permanent Resident",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Spouse of Permanent Resident",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "dependents": "Sponsor/Family", "optional": "Optional" },
+	"tips": "・Spouse of Permanent Resident visa is for **spouse and children of permanent residents**\n\n・**Authenticity and continuity of marriage** are key review points\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Permanent resident spouse's **financial stability and sponsorship** are required\n\n・Japanese language ability and integration into Japanese society are also considered",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility (COE) Application",
+				"Passport",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship",
+				"Questionnaire",
+				"Self-addressed Return Envelope"
+			],
+			"dependents": [
+				"Resident Record (with all household members)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee"
+			],
+			"optional": ["Statement of Reason", "Others"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Acquisition of Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship",
+				"Questionnaire"
+			],
+			"dependents": [
+				"Resident Record (with all household members)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee"
+			],
+			"optional": ["Statement of Reason", "Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship",
+				"Questionnaire"
+			],
+			"dependents": [
+				"Resident Record (with all household members)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee"
+			],
+			"optional": ["Statement of Reason", "Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Proof of Ongoing Marriage",
+				"Proof of Marital Relationship"
+			],
+			"dependents": [
+				"Resident Record (with all household members)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee"
+			],
+			"optional": ["Statement of Reason", "Others"]
+		}
+	}
+}

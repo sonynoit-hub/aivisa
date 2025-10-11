@@ -1,0 +1,87 @@
+{
+	"title": "Spouse of Japanese National",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Spouse of Japanese National",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "dependents": "Sponsor/Family", "optional": "Optional" },
+	"tips": "・Japanese spouse visa is for **spouses, children, and special adopted children** of Japanese nationals\n\n・Allows **unrestricted work activities** including employment and business operations, with permanent residency eligibility\n\n・**Proof of genuine marriage** is crucial, requiring evidence of relationship history, photos, and communication records\n\n・**Document requirements vary** by marriage timing, nationality, and marital history\n\n・Check latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Important:** Sham marriages and fraudulent applications are serious crimes. Always provide truthful information",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Certificate of Eligibility (COE) Application",
+				"Passport",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship",
+				"Questionnaire",
+				"Self-addressed Return Envelope"
+			],
+			"dependents": [
+				"Family Register (Koseki Tohon)",
+				"Letter of Guarantee",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Resident Record (with all household members)",
+				"Bank Balance Certificate"
+			],
+			"optional": ["Others"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Application for Acquisition of Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship",
+				"Questionnaire"
+			],
+			"dependents": [
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee",
+				"Resident Record (with all household members)"
+			],
+			"optional": ["Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Marriage Certificate",
+				"Proof of Marital Relationship"
+			],
+			"dependents": [
+				"Family Register (Koseki Tohon)",
+				"Resident Tax (Non-taxable) Certificate",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee",
+				"Resident Record (with all household members)"
+			],
+			"optional": ["Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Photo (4×3cm)",
+				"Residence Card"
+			],
+			"dependents": [
+				"Family Register (Koseki Tohon)",
+				"Tax Payment Certificate",
+				"Bank Balance Certificate",
+				"Letter of Guarantee",
+				"Resident Record (with all household members)"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

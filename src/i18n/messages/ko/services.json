@@ -1,0 +1,9 @@
+{
+  "services": {
+    "index": {
+      "seoTitle": "서비스",
+      "seoDescription": "요건 정리, 서류 작성 지원, AI 상담 등 제공 서비스.",
+      "seoKeywords": ["서비스", "서류", "상담", "행정서사", "비자"]
+    }
+  }
+}

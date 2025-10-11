@@ -1,0 +1,14 @@
+{
+  "legal": {
+    "privacy": {
+      "seoTitle": "プライバシーポリシー",
+      "seoDescription": "ユーザーの個人情報を適切に保護・取り扱うための方針。",
+      "seoKeywords": ["プライバシー", "個人情報", "データ保護"]
+    },
+    "terms": {
+      "seoTitle": "利用規約",
+      "seoDescription": "本サービスの利用条件についての規定。",
+      "seoKeywords": ["利用規約", "条件", "ポリシー"]
+    }
+  }
+}

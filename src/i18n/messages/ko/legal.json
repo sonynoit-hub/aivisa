@@ -1,0 +1,14 @@
+{
+  "legal": {
+    "privacy": {
+      "seoTitle": "개인정보처리방침",
+      "seoDescription": "개인정보를 보호하고 처리하는 우리의 원칙과 방법.",
+      "seoKeywords": ["개인정보", "프라이버시", "데이터 보호"]
+    },
+    "terms": {
+      "seoTitle": "이용약관",
+      "seoDescription": "본 서비스 이용을 위한 조건과 규정.",
+      "seoKeywords": ["이용약관", "조건", "정책"]
+    }
+  }
+}

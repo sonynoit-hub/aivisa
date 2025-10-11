@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "title": "문의",
+    "description": "질문, 상담 요청 또는 개선 제안이 있으시면 언제든지 문의해 주세요.",
+    "type": "유형",
+    "typeSuggestion": "개선 제안",
+    "typeBiz": "비즈니스",
+    "subject": "제목 (선택)",
+    "message": "내용 (필수)",
+    "email": "이메일 (필수)",
+    "phone": "전화번호 (선택)",
+    "submit": "보내기",
+    "sending": "전송 중...",
+    "success": "성공적으로 제출되었습니다. 곧 연락드리겠습니다.",
+    "required": "필수 항목입니다",
+    "invalidEmail": "유효한 이메일 주소를 입력해 주세요",
+    "invalidPhone": "유효한 전화번호를 입력해 주세요",
+    "submitFailed": "제출하지 못했습니다. 잠시 후 다시 시도해 주세요."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "title": "Liên hệ",
+    "description": "Nếu bạn có câu hỏi, yêu cầu tư vấn hoặc đề xuất cải tiến, hãy liên hệ với chúng tôi bất cứ lúc nào.",
+    "type": "Loại",
+    "typeSuggestion": "Góp ý cải tiến",
+    "typeBiz": "Kinh doanh",
+    "subject": "Tiêu đề (không bắt buộc)",
+    "message": "Nội dung (bắt buộc)",
+    "email": "Email (bắt buộc)",
+    "phone": "Số điện thoại (không bắt buộc)",
+    "submit": "Gửi",
+    "sending": "Đang gửi...",
+    "success": "Gửi thành công. Chúng tôi sẽ phản hồi sớm nhất.",
+    "required": "Trường bắt buộc",
+    "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ",
+    "invalidPhone": "Vui lòng nhập số điện thoại hợp lệ",
+    "submitFailed": "Gửi thất bại. Vui lòng thử lại sau."
+  }
+}

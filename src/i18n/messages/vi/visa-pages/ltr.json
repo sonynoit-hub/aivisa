@@ -1,0 +1,73 @@
+{
+	"title": "Người cư trú dài hạn",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ cho diện cư trú dài hạn",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "stepchildren": "Con riêng đi cùng", "divorce-residence": "Cư trú sau ly hôn/tử vong" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "guarantor": "Người bảo lãnh", "optional": "Tuỳ chọn" },
+	"tips": "・Visa Người cư trú dài hạn dành cho **công dân nước ngoài có hoàn cảnh đặc biệt** như con riêng, người tỵ nạn, hoặc người ở lại sau ly hôn/tử vong\n\n・Bao gồm **các tình huống nhân đạo và gia đình khác nhau** không được các loại visa khác bao gồm\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・**Hoàn cảnh cá nhân ảnh hưởng lớn**， tài liệu cần thiết và tiêu chuẩn phê duyệt khác nhau\n\n・Cần có **sự ổn định tài chính và bảo lãnh mạnh mẽ** từ công dân Nhật hoặc người cư trú vĩnh viễn",
+	"studyDocs": {
+			"stepchildren": {
+				"applicant": [
+					"Đơn xin cấp tư cách lưu trú",
+					"Hộ chiếu",
+					"Ảnh (4×3cm)",
+					"Giấy khai sinh",
+					"Sơ yếu lý lịch",
+					"Bằng cấp cuối cùng",
+					"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
+					"Thư giải trình",
+					"Phong bì trả lời"
+				],
+				"guarantor": [
+					"Thư bảo lãnh",
+					"Sổ hộ tịch",
+					"Giấy chứng nhận kết hôn",
+					"Giấy chứng nhận cư trú",
+					"Phiếu khấu trừ thuế",
+					"Chứng nhận thuế cư trú",
+					"Chứng nhận nộp thuế",
+					"Giấy chứng nhận đang làm việc",
+					"Chứng nhận số dư ngân hàng",
+					"Ảnh nơi cư trú",
+					"Hợp đồng bất động sản",
+					"Ảnh (4×3cm)"
+				],
+				"optional": ["Các giấy tờ khác"]
+			},
+			"divorce-residence": {
+				"applicant": [
+					"Đơn thay đổi tư cách lưu trú",
+					"Hộ chiếu",
+					"Thẻ cư trú",
+					"Sổ hộ tịch",
+					"Giấy chứng nhận cư trú",
+					"Lịch sử hôn nhân",
+					"Thư giải trình",
+					"Sơ yếu lý lịch",
+					"Bằng cấp cuối cùng",
+					"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
+					"Phiếu khấu trừ thuế",
+					"Chứng nhận thuế cư trú",
+					"Chứng nhận nộp thuế",
+					"Giấy chứng nhận đang làm việc",
+					"Chứng nhận số dư ngân hàng",
+					"Ảnh nơi cư trú",
+					"Hợp đồng bất động sản",
+					"Ảnh (4×3cm)"
+				],
+				"guarantor": [
+					"Thư bảo lãnh",
+					"Sổ hộ tịch",
+					"Giấy chứng nhận cư trú",
+					"Phiếu khấu trừ thuế",
+					"Giấy chứng nhận đang làm việc",
+					"Chứng nhận thuế cư trú"
+				],
+				"optional": ["Các giấy tờ khác"]
+			}
+	}
+}

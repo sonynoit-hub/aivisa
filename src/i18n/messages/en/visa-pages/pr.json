@@ -1,0 +1,95 @@
+{
+	"title": "Permanent Resident",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Permanent Residence Application",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": {
+		"spouse": "Spouse Route",
+		"settler": "Long-term Resident Route",
+		"work": "Work Route",
+		"highlySkilled": "Highly Skilled Professional Route"
+	},
+	"categoryLabels": {
+		"applicant": "Applicant",
+		"company": "Company",
+		"optional": "Optional"
+	},
+	"tips": "・Permanent Resident status allows **indefinite stay in Japan** with most rights of Japanese citizens except voting\n\n・Requires **10+ years of continuous residence** (or shorter for spouses/children of Japanese/PR holders)\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Must demonstrate **good conduct, financial stability, and contribution to Japan**\n\n・**Points-based system** available for highly skilled professionals to reduce waiting period",
+	"studyDocs": {
+		"spouse": {
+			"applicant": [
+				"Application for Permanent Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Choose one: Family Register (Koseki Tohon) or Marriage Certificate or Birth Certificate",
+				"Resident Record (with all household members)",
+				"Certificate of Employment or Business License (Copy)",
+				"Document Proving Resident Tax Payment Status",
+				"Document Confirming National Tax Payment Status",
+				"Bank Balance Certificate",
+				"Document Proving Insurance Premium Payment Status",
+				"List of Relatives",
+				"Letter of Guarantee",
+				"Agreement Letter"
+			],
+			"optional": ["Others"]
+		},
+		"settler": {
+			"applicant": [
+				"Application for Permanent Residence",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Statement of Reason",
+				"Choose one: Family Register (Koseki Tohon) or Marriage Certificate or Birth Certificate",
+				"Resident Record (with all household members)",
+				"Certificate of Employment or Business License (Copy)",
+				"Document Proving Resident Tax Payment Status",
+				"Document Confirming National Tax Payment Status",
+				"Bank Balance Certificate",
+				"Document Proving Insurance Premium Payment Status",
+				"List of Relatives",
+				"Letter of Guarantee",
+				"Agreement Letter"
+			],
+			"optional": ["Others"]
+		},
+		"work": {
+			"applicant": [
+				"Application for Permanent Residence",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Statement of Reason",
+				"Choose one: Family Register (Koseki Tohon) or Marriage Certificate or Birth Certificate",
+				"Resident Record (with all household members)",
+				"Certificate of Employment or Business License (Copy)",
+				"Document Proving Resident Tax Payment Status",
+				"Document Confirming National Tax Payment Status",
+				"Bank Balance Certificate",
+				"Document Proving Insurance Premium Payment Status",
+				"List of Relatives"
+			],
+			"optional": ["Others"]
+		},
+		"highlySkilled": {
+			"applicant": [
+				"Application for Permanent Residence",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Statement of Reason",
+				"Document Proving Resident Tax Payment Status",
+				"Document Confirming National Tax Payment Status",
+				"Bank Balance Certificate",
+				"Document Proving Insurance Premium Payment Status",
+				"Points Calculation Table",
+				"Supporting Documents for Each Item in Points Calculation",
+				"Letter of Guarantee",
+				"Agreement Letter"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

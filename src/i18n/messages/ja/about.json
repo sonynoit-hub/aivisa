@@ -1,0 +1,19 @@
+{
+  "about": {
+    "index": {
+      "seoTitle": "AIVisaについて",
+      "seoDescription": "ミッション・価値観・プロダクトの紹介。多言語で日本の在留手続を分かりやすく。",
+      "seoKeywords": ["AIVisa", "会社情報", "ビジョン", "ミッション", "サービス"]
+    },
+    "company": {
+      "seoTitle": "運営会社",
+      "seoDescription": "運営会社の基本情報、事業内容、連絡先など。",
+      "seoKeywords": ["運営会社", "会社概要", "法人情報"]
+    },
+    "faq": {
+      "seoTitle": "よくある質問 (FAQ)",
+      "seoDescription": "利用方法、サポート、セキュリティなどのよくある質問への回答。",
+      "seoKeywords": ["FAQ", "ヘルプ", "サポート"]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+	"title": "Designated Activities",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Designated Activities",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+	"stageLabels": { "university": "University", "vocational": "Vocational School", "japSchool": "Japanese Language School" },
+	"categoryLabels": { "applicant": "Applicant", "school": "School", "optional": "Optional" },
+	"tips": "・Designated Activities visa is for **activities individually designated by the Minister of Justice**\n\n・Covers **various categories** including Working Holiday, Internships, EPA nurses, etc.\n\n・Check the latest Designated Activities categories at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・**Different conditions and required documents** are set according to each designated activity\n\n・Activity period and work eligibility vary by each Designated Activities category",
+	"studyDocs": {
+		"university": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Proof of Funds",
+				"Academic Certificate",
+				"Job Hunting Proof"
+			],
+			"school": [
+				"Recommendation Letter for Continued Job Hunting"
+			],
+			"optional": ["Others"]
+		},
+		"vocational": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resume",
+				"Job-Hunting Activity Certificate",
+				"Proof of Funds"
+			],
+			"school": [
+				"Recommendation Letter for Continued Job Hunting",
+				"Senmonshi Certificate",
+				"Vocational School Graduation",
+				"Course Details"
+			],
+			"optional": ["Others"]
+		},
+		"japSchool": {
+			"applicant": [
+				"Application for Change of Status of Residence",
+				"Passport",
+				"Residence Card",
+				"Photo (4×3cm)",
+				"Resume",
+				"Job-Hunting Activity Certificate"
+			],
+			"school": [
+				"Recommendation Letter for Continued Job Hunting",
+				"Japanese School Graduation",
+				"Attendance Proof",
+				"Meeting Confirmation",
+				"Requirements Proof"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "about": {
+    "index": {
+      "seoTitle": "关于 AIVisa",
+      "seoDescription": "我们的使命与产品：用多语言让日本签证信息更清晰。",
+      "seoKeywords": ["AIVisa", "关于我们", "愿景", "使命", "服务"]
+    },
+    "company": {
+      "seoTitle": "运营公司",
+      "seoDescription": "公司基本信息、业务范围与联系方式。",
+      "seoKeywords": ["公司信息", "法人信息", "公司简介"]
+    },
+    "faq": {
+      "seoTitle": "常见问题 (FAQ)",
+      "seoDescription": "关于使用、支持与安全的常见问答。",
+      "seoKeywords": ["FAQ", "帮助", "支持"]
+    }
+  }
+}

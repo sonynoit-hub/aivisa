@@ -1,0 +1,83 @@
+{
+	"title": "Chuyên gia cao cấp loại I",
+	"tips": "・Visa Chuyên môn cao (số 1) dành cho **các chuyên gia có tay nghề cao** trong lĩnh vực nghiên cứu, dịch vụ chuyên môn/kỹ thuật, hoặc quản lý kinh doanh\n\n・Cung cấp **ưu đãi đặc biệt** bao gồm nhập cảnh nhiều lần, cho phép vợ/chồng làm việc, và điều kiện xin vĩnh trú nhanh hơn\n\n・Yêu cầu **tối thiểu 70 điểm** dựa trên học vấn, kinh nghiệm, lương và các yếu tố khác\n\n・Kiểm tra yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> 📊 **Hãy sử dụng công cụ tính điểm**\n> \n> 🔗 **[Công cụ tính điểm chuyên môn cao](/vi/tools/hsp-points)** → Kiểm tra điểm hiện tại của bạn\n> \n> ⚠️ **Quan trọng:** Bảng tính điểm là tài liệu bắt buộc khi nộp đơn.",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Chuyên gia có tay nghề cao loại 1",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+	"stageLabels": {
+		"abroad": "Nộp đơn từ nước ngoài",
+		"inJapan": "Lấy tư cách tại Nhật",
+		"change": "Thay đổi tư cách lưu trú",
+		"extend": "Gia hạn thời gian lưu trú"
+	},
+	"categoryLabels": {
+		"applicant": "Người nộp đơn",
+		"company": "Công ty",
+		"optional": "Tùy chọn"
+	},
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Phong bì hồi đáp",
+				"Bảng tính điểm",
+				"Tài liệu chứng minh cho từng mục trong bảng tính điểm"
+			],
+			"optional": [
+				"Hợp đồng lao động",
+				"Bản mô tả nội dung kinh doanh",
+				"Khác"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú khi ở Nhật",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Bảng tính điểm",
+				"Tài liệu chứng minh cho từng mục trong bảng tính điểm",
+				"Phong bì hồi đáp"
+			],
+			"optional": [
+				"Hợp đồng lao động",
+				"Bản mô tả nội dung kinh doanh",
+				"Khác"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bảng tính điểm",
+				"Tài liệu chứng minh cho từng mục trong bảng tính điểm"
+			],
+			"optional": [
+				"Hợp đồng lao động",
+				"Bản mô tả nội dung kinh doanh",
+				"Khác"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Bảng tính điểm",
+				"Tài liệu chứng minh cho từng mục trong bảng tính điểm"
+			],
+			"optional": [
+				"Hợp đồng lao động",
+				"Bản mô tả nội dung kinh doanh",
+				"Khác"
+			]
+		}
+	}
+}

@@ -1,0 +1,88 @@
+{
+	"title": "Vợ/chồng người cư trú vĩnh viễn",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ cho diện Vợ/chồng người cư trú vĩnh viễn",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Bảo lãnh/Gia đình", "optional": "Tùy chọn" },
+	"tips": "・Visa Vợ/chồng người cư trú vĩnh viễn dành cho **vợ/chồng và con của người cư trú vĩnh viễn**\n\n・**Tính chân thực và liên tục của hôn nhân** là điểm xét duyệt quan trọng\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Cần có **sự ổn định tài chính và bảo lãnh** từ vợ/chồng cư trú vĩnh viễn\n\n・Khả năng tiếng Nhật và ý chí hòa nhập vào xã hội Nhật cũng được xem xét",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy kết hôn",
+				"Tài liệu chứng nhận quan hệ vợ chồng",
+				"Bản câu hỏi",
+				"Phong bì hồi đáp"
+			],
+			"dependents": [
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Thư bảo lãnh nhân thân"
+			],
+			"optional": ["Bản giải trình", "Khác"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú khi ở Nhật",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy kết hôn",
+				"Tài liệu chứng nhận quan hệ vợ chồng",
+				"Bản câu hỏi"
+			],
+			"dependents": [
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Thư bảo lãnh nhân thân"
+			],
+			"optional": ["Bản giải trình", "Khác"]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy kết hôn",
+				"Tài liệu chứng nhận quan hệ vợ chồng",
+				"Bản câu hỏi"
+			],
+			"dependents": [
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Thư bảo lãnh nhân thân"
+			],
+			"optional": ["Bản giải trình", "Khác"]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận tình trạng hôn nhân",
+				"Tài liệu chứng nhận quan hệ vợ chồng"
+			],
+			"dependents": [
+				"Giấy chứng nhận đăng ký cư trú (tất cả thành viên)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế",
+				"Giấy chứng nhận số dư ngân hàng",
+				"Thư bảo lãnh nhân thân"
+			],
+			"optional": ["Bản giải trình", "Khác"]
+		}
+	}
+}

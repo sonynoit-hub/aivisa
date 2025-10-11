@@ -1,0 +1,19 @@
+{
+  "about": {
+    "index": {
+      "seoTitle": "Giới thiệu AIVisa",
+      "seoDescription": "Sứ mệnh và sản phẩm của chúng tôi: hướng dẫn visa Nhật rõ ràng với nhiều ngôn ngữ.",
+      "seoKeywords": ["AIVisa", "Giới thiệu", "Tầm nhìn", "Sứ mệnh", "Dịch vụ"]
+    },
+    "company": {
+      "seoTitle": "Công ty",
+      "seoDescription": "Thông tin công ty, lĩnh vực kinh doanh và liên hệ.",
+      "seoKeywords": ["Thông tin công ty", "Pháp nhân", "Hồ sơ"]
+    },
+    "faq": {
+      "seoTitle": "Câu hỏi thường gặp (FAQ)",
+      "seoDescription": "Giải đáp câu hỏi về sử dụng, hỗ trợ và bảo mật.",
+      "seoKeywords": ["FAQ", "Trợ giúp", "Hỗ trợ"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "hero": {"title": "こんにちは！ビザのご相談をどうぞ 😊"},
+  "seoTitle": "ビザの質問をAIに相談 | AIVISA",
+  "seoDescription": "日本の在留資格・必要書類・手続きについて、AIVISAに気軽に質問できます。多言語対応。",
+  "placeholder": "質問してみましょう",
+  "helperLine": "AIVISA の回答は必ずしも正確ではありません。重要事項は必ず確認し、最新の法令・公式ガイドラインに従ってください。",
+  "suggestions": {
+    "hspPoints": "高度専門職 ポイント診断",
+    "whichWorkVisa": "就労ビザはどれが合う？",
+    "permanentResidency": "永住要件の確認",
+    "familyStay": "家族滞在の手続き",
+    "updateChangeDocs": "更新・変更の必要書類"
+  },
+  "actions": {
+    "copy": "コピー",
+    "scrollToBottom": "一番下へ",
+    "sendTitle": "送信（Enter / ⌘↵ / Ctrl+Enter）"
+  },
+  "errors": {"generic": "エラー"}
+}

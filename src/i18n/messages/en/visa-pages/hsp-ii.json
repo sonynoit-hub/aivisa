@@ -1,0 +1,26 @@
+{
+  "title": "Highly Skilled Professional (Type 2)",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "Required Documents for Highly Skilled Professional II",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "change": "Change of Status", "extend": "Extension" },
+  "categoryLabels": { "applicant": "Applicant", "optional": "Optional" },
+  "tips": "・HSP (ii) visa is for **experienced highly skilled professionals** who have held HSP (i) status for 3+ years\n\n・Provides **maximum flexibility** with unlimited activities, no points requirement renewal, and extended residence periods\n\n・Allows **diverse work activities** across multiple fields without restriction to original category\n\n・Must maintain **minimum 70 points** throughout HSP (i) period before transition\n\n・Check transition requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> 📊 **Use the Points Calculator Tool**\n> \n> 🔗 **[Highly Skilled Professional Points Calculator](/en/tools/hsp-points)** → Verify your points history\n> \n> ⚠️ **Important:** Must prove 3+ years HSP (i) experience and maintained 70+ points.",
+  "studyDocs": {
+    "change": {
+      "applicant": [
+        "Application for Change of Status of Residence",
+        "Passport",
+        "Highly Skilled Professional No.1 Residence Card",
+        "Photo (4×3cm)",
+        "Points Calculation Table",
+        "Supporting Documents for Each Item in Points Calculation"
+      ],
+      "optional": ["Others"]
+  
+    }
+  }
+}

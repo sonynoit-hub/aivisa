@@ -1,0 +1,116 @@
+{
+	"title": "Quản lý kinh doanh",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Quản lý Kinh doanh",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
+	"tips": "・Visa Quản lý kinh doanh dành cho **quản lý hoặc điều hành doanh nghiệp**\n\n・Yêu cầu **đầu tư từ 5 triệu yen trở lên** hoặc **tuyển dụng từ 2 công dân Nhật trở lên**\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Các tài liệu quan trọng bao gồm kế hoạch kinh doanh, chứng minh nguồn vốn, giấy đăng ký kinh doanh, v.v.\n\n・Phải chứng minh khả năng quản lý qua học vấn, kinh nghiệm kinh doanh hoặc chứng chỉ",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin Giấy chứng nhận đủ điều kiện",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Chứng nhận kinh nghiệm làm việc",
+				"Giấy chứng nhận học vấn"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Mô tả hoạt động kinh doanh",
+				"Giấy chứng nhận đăng ký doanh nghiệp",
+				"Sổ đăng ký bất động sản HOẶC hợp đồng thuê",
+				"Kế hoạch kinh doanh (bản sao)",
+				"Báo cáo tài chính (năm tài chính gần nhất) (bản sao)",
+				"Phong bì trả lời"
+			],
+			"optional": [
+				"Chứng minh vốn đầu tư",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+				"Brochure công ty",
+				"Hợp đồng kinh doanh",
+				"Hồ sơ giao dịch",
+				"Sơ đồ tổ chức",
+				"Lý do xin visa"
+			]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin Cấp tình trạng lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Lý do xin visa",
+				"Tài liệu kinh nghiệm làm việc",
+				"Giấy chứng nhận học vấn",
+				"Phong bì trả lời"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Mô tả hoạt động kinh doanh",
+				"Giấy chứng nhận đăng ký doanh nghiệp",
+				"Sổ đăng ký bất động sản HOẶC hợp đồng thuê",
+				"Kế hoạch kinh doanh (bản sao)",
+				"Báo cáo tài chính (năm tài chính gần nhất) (bản sao)",
+				"Thuế khấu trừ HOẶC thông báo thành lập cơ sở thanh toán lương (bản sao)"
+			],
+			"optional": [
+				"Chứng minh vốn đầu tư",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+				"Brochure công ty",
+				"Hợp đồng kinh doanh",
+				"Hồ sơ giao dịch",
+				"Sơ đồ tổ chức"
+			]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin Thay đổi tình trạng lưu trú cho phép",
+				"Ảnh (4×3cm)",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Lý do xin visa",
+				"Tài liệu kinh nghiệm làm việc",
+				"Giấy chứng nhận học vấn"
+			],
+			"company": [
+				"Mô tả hoạt động kinh doanh",
+				"Giấy chứng nhận đăng ký doanh nghiệp",
+				"Sổ đăng ký bất động sản HOẶC hợp đồng thuê",
+				"Kế hoạch kinh doanh (bản sao)",
+				"Báo cáo tài chính (năm tài chính gần nhất) (bản sao)",
+				"Thuế khấu trừ HOẶC thông báo thành lập cơ sở thanh toán lương (bản sao)"
+			],
+			"optional": [
+				"Chứng minh vốn đầu tư",
+				"Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+				"Brochure công ty",
+				"Hợp đồng kinh doanh",
+				"Hồ sơ giao dịch",
+				"Sơ đồ tổ chức"
+			]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin Gia hạn thời hạn lưu trú",
+				"Ảnh (4×3cm)",
+				"Hộ chiếu",
+				"Thẻ lưu trú"
+			],
+			"company": [
+				"Mô tả hoạt động kinh doanh",
+				"Kế hoạch kinh doanh (bản sao)",
+				"Báo cáo tài chính (năm tài chính gần nhất) (bản sao)",
+				"Giấy chứng nhận nộp thuế",
+				"Thuế khấu trừ HOẶC thông báo thành lập cơ sở thanh toán lương (bản sao)"
+			],
+			"optional": [
+				"Lý do xin visa",
+				"Brochure công ty",
+				"Hồ sơ giao dịch"
+			]
+		}
+	}
+}

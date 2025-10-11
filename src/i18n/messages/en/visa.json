@@ -1,0 +1,20 @@
+{
+  "pages": {
+    "pr": "Permanent Resident",
+    "study": "Student",
+  "engineer": "Engineer ・ Humanities ・ International",
+    "hsp-i": "Highly Skilled Professional 1",
+    "hsp-ii": "Highly Skilled Professional 2",
+    "dep": "Dependent",
+    "da": "Designated Activities",
+    "pr-spouse": "Spouse of Permanent Resident",
+    "jp-spouse": "Spouse of Japanese National",
+    "ltr": "Long-term Resident",
+    "bm": "Business Manager",
+    "care": "Care Worker",
+    "skilled": "Skilled Labor",
+    "tit": "Technical Intern Training",
+    "temp": "Temporary Visitor",
+    "ssw": "Specified Skilled Worker"
+  }
+}

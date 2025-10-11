@@ -1,0 +1,74 @@
+{
+	"title": "Điều dưỡng",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Điều dưỡng",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
+	"stageLabels": { "abroad": "Nộp đơn từ nước ngoài", "inJapan": "Nộp đơn tại Nhật", "change": "Thay đổi tư cách", "extend": "Gia hạn" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
+	"tips": "・Visa Điều dưỡng dành cho **công việc chăm sóc tại các cơ sở chăm sóc**\n\n・Yêu cầu **bằng cấp quốc gia Chuyên viên Chăm sóc Được chứng nhận**. Kinh nghiệm EPA care worker cũng hợp lệ\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Cơ sở chăm sóc dự kiến tuyển dụng phải đáp ứng **tiêu chuẩn cơ sở phù hợp**\n\n・Trình độ tiếng Nhật rất quan trọng do đặc thù của công việc chăm sóc",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận đăng ký điều dưỡng"
+			],
+			"company": [
+				"Phong bì hồi đáp",
+				"Giấy thông báo điều kiện lao động",
+				"Hợp đồng lao động",
+				"Thư mời"
+			],
+			"optional": ["Khác"]
+		},
+		"inJapan": {
+			"applicant": [
+				"Đơn xin cấp Tư cách lưu trú khi ở Nhật",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận đăng ký điều dưỡng",
+				"Bản giải trình"
+			],
+			"company": [
+				"Giấy thông báo điều kiện lao động",
+				"Hợp đồng lao động",
+				"Thư mời"
+			],
+			"optional": ["Khác"]
+		},
+		"change": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận đăng ký điều dưỡng"
+			],
+			"company": [
+				"Giấy thông báo điều kiện lao động",
+				"Hợp đồng lao động",
+				"Thư mời"
+			],
+			"optional": ["Khác"]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin thay đổi Tư cách lưu trú",
+				"Hộ chiếu",
+				"Thẻ lưu trú",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
+				"Giấy chứng nhận nộp thuế"
+			],
+			"company": [
+				"Giấy thông báo điều kiện lao động",
+				"Thư mời"
+			],
+			"optional": ["Khác"]
+		}
+	}
+}

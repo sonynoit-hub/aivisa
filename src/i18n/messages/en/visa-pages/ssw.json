@@ -1,0 +1,74 @@
+{
+	"title": "Specified Skilled Worker",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Required Documents for Specified Skilled Worker",
+	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+		"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
+	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+	"tips": "・Document requirements vary by industry sector and skill level.\n\n・Depending on your personal circumstances, the Immigration Bureau may request further documents.\n\n・If you require any further assistance, please do not hesitate to contact us.",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Application for Certificate of Eligibility",
+				"Passport",
+				"Photo (4×3cm)",
+				"Certificate of Passing Specified Skilled Worker Exam",
+				"Highest Degree",
+				"Resume",
+				"Proof of Work Experience",
+				"Certificate of Japanese Language Proficiency (JLPT, etc.)"
+			],
+			"company": [
+				"Self-Addressed Stamped Envelope",
+				"Employment Contract",
+				"Certified Copy of Company Register / Company Profile",
+				"Financial Statement / Tax Payment Certificate",
+				"Withholding Tax Slip"
+			],
+			"optional": ["Others"]
+		},
+		"change": {
+			"applicant": [
+				"Application for Permission to Acquire Status of Residence",
+				"Passport",
+				"Photo (4×3cm)",
+				"Certificate of Passing Specified Skilled Worker Exam",
+				"Highest Degree",
+				"Resume",
+				"Academic Transcript",
+				"Certificate of Employment History",
+				"Self-Addressed Stamped Envelope"
+			],
+			"company": [
+				"Employment Contract",
+				"Certified Copy of Company Register / Company Profile",
+				"Financial Statement / Tax Payment Certificate",
+				"Withholding Tax Slip"
+			],
+			"optional": ["Others"]
+		},
+		"extend": {
+			"applicant": [
+				"Application for Extension of Period of Stay",
+				"Passport",
+				"Photo (4×3cm)",
+				"Certificate of Passing Specified Skilled Worker Exam",
+				"Highest Degree",
+				"Resume",
+				"Academic Transcript",
+				"Certificate of Japanese Language Proficiency (JLPT, etc.)",
+				"Self-Addressed Stamped Envelope"
+			],
+			"company": [
+				"Employment Contract",
+				"Certified Copy of Company Register / Company Profile",
+				"Financial Statement / Tax Payment Certificate",
+				"Withholding Tax Slip"
+			],
+			"optional": ["Others"]
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "title": "联系我们",
+    "description": "如有问题、咨询或改进建议，欢迎随时联系我们。",
+    "type": "类型",
+    "typeSuggestion": "改进建议",
+    "typeBiz": "商务咨询",
+    "subject": "主题（可选）",
+    "message": "消息（必填）",
+    "email": "邮箱（必填）",
+    "phone": "电话（可选）",
+    "submit": "发送",
+    "sending": "发送中...",
+    "success": "提交成功，我们会尽快回复您。",
+    "required": "必填项",
+    "invalidEmail": "请输入有效的邮箱地址",
+    "invalidPhone": "请输入有效的电话号码",
+    "submitFailed": "提交失败，请稍后重试。"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "title": "短期滞在",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "短期滞在 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "optional": "任意", "company": "会社" },
+  "tips": "・短期滞在は原則として**90日以内**の滞在が可能です\n\n・観光、商用、親族訪問等の目的で利用されます\n\n・[出入国在留管理庁](https://www.moj.go.jp/isa/)で最新の申請要件を確認してください\n\n・申請時期は**滞在予定日の3か月前から**可能です\n\n・必要書類は滞在目的により異なる場合があります",
+  "studyDocs": {
+    "inJapan": {
+      "applicant": [
+        "在留資格取得申請書",
+        "パスポート",
+        "在留カード",
+        "写真（4×3cm）",
+        "短期滞在目的証明",
+        "出国予定証明"
+      ],
+      "optional": ["その他"],
+      "company": []
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更申請書",
+        "パスポート",
+        "在留カード",
+        "写真（4×3cm）",
+        "短期滞在目的証明",
+        "資金証明",
+        "出国予定証明"
+      ],
+      "optional": ["その他"],
+      "company": []
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新申請書",
+        "パスポート",
+        "在留カード",
+        "写真（4×3cm）",
+        "短期滞在目的証明",
+        "出国予定証明"
+      ],
+      "optional": ["その他"],
+      "company": []
+    }
+  }
+}

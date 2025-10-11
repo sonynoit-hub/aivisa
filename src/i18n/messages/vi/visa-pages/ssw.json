@@ -1,0 +1,74 @@
+{
+	"title": "Lao động kỹ năng đặc định",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "Hồ sơ visa Kỹ năng đặc định",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có mục", "hint": "Gợi ý" },
+	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách lưu trú", "extend": "Gia hạn" },
+	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
+	"tips": "・Yêu cầu tài liệu khác nhau tùy theo lĩnh vực ngành nghề và trình độ kỹ năng.\n\n・Tùy vào hoàn cảnh cá nhân của bạn, Cục Xuất nhập cư có thể yêu cầu thêm tài liệu.\n\n・Nếu bạn cần hỗ trợ thêm, xin đừng ngần ngại liên hệ với chúng tôi.",
+	"studyDocs": {
+		"abroad": {
+			"applicant": [
+				"Đơn xin cấp tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận thi kỹ năng đặc định",
+				"Bằng cấp cuối cùng",
+				"Sơ yếu lý lịch",
+				"Chứng nhận kinh nghiệm làm việc",
+				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)"
+			],
+			"company": [
+				"Phong bì trả lời",
+				"Hợp đồng lao động",
+				"Giấy đăng ký công ty / Tổng quan công ty",
+				"Báo cáo tài chính / Chứng nhận nộp thuế",
+				"Phiếu khấu trừ thuế"
+			],
+			"optional": ["Khác"]
+		},
+		"change": {
+			"applicant": [
+				"Đơn thay đổi tư cách lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận thi kỹ năng đặc định",
+				"Bằng cấp cuối cùng",
+				"Sơ yếu lý lịch",
+				"Chứng nhận kinh nghiệm làm việc",
+				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
+				"Phong bì trả lời"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Giấy đăng ký công ty / Tổng quan công ty",
+				"Báo cáo tài chính / Chứng nhận nộp thuế",
+				"Phiếu khấu trừ thuế"
+			],
+			"optional": ["Khác"]
+		},
+		"extend": {
+			"applicant": [
+				"Đơn xin gia hạn thời gian lưu trú",
+				"Hộ chiếu",
+				"Ảnh (4×3cm)",
+				"Giấy chứng nhận thi kỹ năng đặc định",
+				"Bằng cấp cuối cùng",
+				"Sơ yếu lý lịch",
+				"Chứng nhận kinh nghiệm làm việc",
+				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
+				"Phong bì trả lời"
+			],
+			"company": [
+				"Hợp đồng lao động",
+				"Giấy đăng ký công ty / Tổng quan công ty",
+				"Báo cáo tài chính / Chứng nhận nộp thuế",
+				"Phiếu khấu trừ thuế"
+			],
+			"optional": ["Khác"]
+		}
+	}
+}

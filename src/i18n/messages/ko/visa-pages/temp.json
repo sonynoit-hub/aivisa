@@ -1,0 +1,51 @@
+{
+	"title": "단기체류",
+	"summary": "",
+	"html": "",
+	"sections": [],
+	"docsTitle": "단기체류 필요 서류",
+	"actions": { "pdf": "PDF", "pdfAria": "PDF로 내보내기" },
+	"ui": { "expand": "펼치기", "collapse": "접기", "progress": "진행", "none": "항목 없음", "hint": "힌트" },
+	"stageLabels": { "inJapan": "일본 내 신청", "change": "재류자격 변경", "extend": "재류기간 갱신" },
+	"categoryLabels": { "applicant": "신청인", "optional": "선택", "company": "회사" },
+	"tips": "・단기체재는 원칙적으로 **90일 이내** 체재가 가능합니다\n\n・관광, 상용, 친족 방문 등의 목적으로 이용됩니다\n\n・[출입국재류관리청](https://www.moj.go.jp/isa/)에서 최신 신청 요건을 확인해주세요\n\n・신청 시기는 **체재 예정일 3개월 전부터** 가능합니다\n\n・필요 서류는 체재 목적에 따라 다를 수 있습니다",
+	"studyDocs": {
+		"inJapan": {
+			"applicant": [
+				"재류자격취득신청서",
+				"여권",
+				"재류카드",
+				"사진 (4×3cm)",
+				"단기체류목적증명서",
+				"출국예정증명서"
+			],
+			"optional": ["기타증빙"],
+			"company": []
+		},
+		"change": {
+			"applicant": [
+				"재류자격변경신청서",
+				"여권",
+				"재류카드",
+				"사진 (4×3cm)",
+				"단기체류목적증명서",
+				"자금증명서",
+				"출국예정증명서"
+			],
+			"optional": ["기타증빙"],
+			"company": []
+		},
+		"extend": {
+			"applicant": [
+				"재류기간갱신신청서",
+				"여권",
+				"재류카드",
+				"사진 (4×3cm)",
+				"단기체류목적증명서",
+				"출국예정증명서"
+			],
+			"optional": ["기타증빙"],
+			"company": []
+		}
+	}
+}
