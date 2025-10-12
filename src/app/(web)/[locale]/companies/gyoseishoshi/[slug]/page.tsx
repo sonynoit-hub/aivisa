@@ -22,8 +22,8 @@ function Pill({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs text-slate-700">{children}</span>;
 }
 
-export default async function OfficeDetailPage({ params }: { params: { locale: string; slug: string } }) {
-  const { locale, slug } = params;
+export default async function OfficeDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
   const office: OfficeDetail = await getOfficeDetail(slug, locale);
 
   const addressText = typeof office.address === 'string'

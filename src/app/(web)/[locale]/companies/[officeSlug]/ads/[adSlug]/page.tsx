@@ -17,8 +17,8 @@ function Badge({ text, variant }: { text?: string; variant?: string }) {
   return <span className={`rounded-full px-2 py-0.5 text-xs ${cls}`}>{text}</span>;
 }
 
-export default async function CompanyAdPage({ params }: { params: { locale: string; officeSlug: string; adSlug: string } }) {
-  const { locale, officeSlug, adSlug } = params;
+export default async function CompanyAdPage({ params }: { params: Promise<{ locale: string; officeSlug: string; adSlug: string }> }) {
+  const { locale, officeSlug, adSlug } = await params;
   const ctx: CompanyAdContext = await getCompanyAdContext(officeSlug, adSlug, locale);
   const { company, ad } = ctx;
 

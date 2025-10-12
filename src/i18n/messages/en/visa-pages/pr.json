@@ -1,104 +1,125 @@
 {
-  "title": "永住者",
+  "title": "Permanent Resident",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "永住許可 申請必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント", "noteTitle": "ご注意" },
-  "note": "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
+  "docsTitle": "Required Documents for Permanent Residence",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint", "noteTitle": "Notice" },
+  "note": "The content on this page is provided as general reference. For the latest and most accurate application requirements and required documents, please refer to the information from the [Immigration Services Agency of Japan](https://www.moj.go.jp/isa/).",
   "stageLabels": {
-    "work": "就労ルート",
-    "highlySkilled": "高度専門職ルート",
-    "spouse": "配偶者ルート",
-    "settler": "定住者ルート"
+    "work": "Work route",
+    "highlySkilled": "Highly Skilled Professional route",
+    "spouse": "Spouse route",
+    "settler": "Long-Term Resident route"
   },
   "categoryLabels": {
-    "applicant": "申請人（個人）",
-    "optional": "任意・補足"
+    "applicant": "Applicant (Individual)",
+    "optional": "Optional"
   },
-  "tips": "・**10年以上の継続在留**が必要（日本人・永住者の配偶者・子は短縮可能）\n\n・高度人材専門職**ポイント制**で70点以上の場合：3年以上の在留で申請可能\n\n・高度人材専門職**ポイント制**で80点以上の場合：1年以上の在留で申請可能",
+  "tips": "・At least **10 years of continuous residence** are required (a shorter period may apply for the spouse/child of a Japanese national or Permanent Resident).\n\n・With the Highly Skilled Professional **points-based system** score of 70 or higher: eligible to apply after **3+ years** of residence.\n\n・With a score of 80 or higher: eligible to apply after **1+ year** of residence.",
   "studyDocs": {
     "work": {
       "applicant": [
-        "永住許可申請書",
-        "写真（4×3cm）",
-        "理由書",
-        "戸籍謄本 or 婚姻証明書 or 出生証明書 or 認知届の記載事項証明書",
-        "住民票（世帯全員の記載）",
-        "在職証明書 or 営業許可書（写し）",
-        "直近5年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        "預貯金通帳の写し or Web通帳の画面の写し等",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "パスポート",
-        "在留カード",
-        "身元保証書",
-        "了解書"
+        "Application for Permanent Residence",
+        "Photo (4×3 cm)",
+        "Statement of Reason",
+        "Family Register (Koseki) or Marriage Certificate or Birth Certificate or Certificate of Acknowledgement of Paternity",
+        "Resident Record (all household members)",
+        "Certificate of Employment or Business License (copy)",
+        "Proof of Residence Tax Payment (past 5 years)",
+        "Proof of National Tax Payment Status",
+        "Copy of Bank Passbook or Web Statement Screenshot",
+        "Proof of Public Pension Premium Payments (past 2 years)",
+        "Proof of Public Health Insurance Premium Payments (past 2 years)",
+        "Passport",
+        "Residence Card",
+        "Letter of Guarantee",
+        "Letter of Consent"
       ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Driving Record Certificate (for license holders)",
+        "No-Accident/No-Violation Certificate (for license holders)",
+        "Documents Evidencing Contributions to Japan",
+        "Real Estate Registration Certificate"
+      ]
     },
     "highlySkilled": {
       "applicant": [
-        "永住許可申請書",
-        "写真（4×3cm）",
-        "理由書",
-        "住民票（世帯全員の記載）",
-        "在職証明書 or 営業許可書（写し）",
-        "直近3年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        "預貯金通帳の写し or Web通帳の画面の写し等",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "高度専門職ポイント計算表等",
-        "ポイント計算の各項目に関する疎明資料",
-        "パスポート",
-        "在留カード",
-        "身元保証書",
-        "了解書"
+        "Application for Permanent Residence",
+        "Photo (4×3 cm)",
+        "Statement of Reason",
+        "Resident Record (all household members)",
+        "Certificate of Employment or Business License (copy)",
+        "Proof of Residence Tax Payment (past 3 years)",
+        "Proof of National Tax Payment Status",
+        "Copy of Bank Passbook or Web Statement Screenshot",
+        "Proof of Public Pension Premium Payments (past 2 years)",
+        "Proof of Public Health Insurance Premium Payments (past 2 years)",
+        "HSP Points Calculation Sheet, etc.",
+        "Supporting Documents for Each Points Item",
+        "Passport",
+        "Residence Card",
+        "Letter of Guarantee",
+        "Letter of Consent"
       ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Driving Record Certificate (for license holders)",
+        "No-Accident/No-Violation Certificate (for license holders)",
+        "Documents Evidencing Contributions to Japan",
+        "Real Estate Registration Certificate"
+      ]
     },
     "spouse": {
       "applicant": [
-        "永住許可申請書",
-        "写真（4×3cm）",
-        "配偶者の方の戸籍謄本 or 日本人親の戸籍謄本 or 婚姻証明書 or 出生証明書",
-        "住民票（世帯全員の記載）",
-        "在職証明書 or 営業許可書（写し）",
-        "直近３年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        "預貯金通帳の写し or Web通帳の画面の写し等",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "親族一覧表",
-        "パスポート",
-        "在留カード",
-        "身元保証書",
-        "了解書"
+        "Application for Permanent Residence",
+        "Photo (4×3 cm)",
+        "Spouse's Family Register (Koseki) or Japanese Parent's Family Register, or Marriage Certificate or Birth Certificate",
+        "Resident Record (all household members)",
+        "Certificate of Employment or Business License (copy)",
+        "Proof of Residence Tax Payment (past 3 years)",
+        "Proof of National Tax Payment Status",
+        "Copy of Bank Passbook or Web Statement Screenshot",
+        "Proof of Public Pension Premium Payments (past 2 years)",
+        "Proof of Public Health Insurance Premium Payments (past 2 years)",
+        "List of Relatives",
+        "Passport",
+        "Residence Card",
+        "Letter of Guarantee",
+        "Letter of Consent"
       ],
-      "optional": ["理由書","運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Statement of Reason",
+        "Driving Record Certificate (for license holders)",
+        "No-Accident/No-Violation Certificate (for license holders)",
+        "Documents Evidencing Contributions to Japan",
+        "Real Estate Registration Certificate"
+      ]
     },
     "settler": {
       "applicant": [
-        "永住許可申請書",
-        "写真（4×3cm）",
-        "理由書",
-        "戸籍謄本 or 婚姻証明書 or 出生証明書 or 認知届の記載事項証明書",
-        "住民票（世帯全員の記載）",
-        "在職証明書 or 営業許可書（写し）",
-        "直近5年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        "預貯金通帳の写し or Web通帳の画面の写し等",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "パスポート",
-        "在留カード",
-        "身元保証書",
-        "了解書"
+        "Application for Permanent Residence",
+        "Photo (4×3 cm)",
+        "Statement of Reason",
+        "Family Register (Koseki) or Marriage Certificate or Birth Certificate or Certificate of Acknowledgement of Paternity",
+        "Resident Record (all household members)",
+        "Certificate of Employment or Business License (copy)",
+        "Proof of Residence Tax Payment (past 5 years)",
+        "Proof of National Tax Payment Status",
+        "Copy of Bank Passbook or Web Statement Screenshot",
+        "Proof of Public Pension Premium Payments (past 2 years)",
+        "Proof of Public Health Insurance Premium Payments (past 2 years)",
+        "Passport",
+        "Residence Card",
+        "Letter of Guarantee",
+        "Letter of Consent"
       ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Driving Record Certificate (for license holders)",
+        "No-Accident/No-Violation Certificate (for license holders)",
+        "Documents Evidencing Contributions to Japan",
+        "Real Estate Registration Certificate"
+      ]
     }
 
   }

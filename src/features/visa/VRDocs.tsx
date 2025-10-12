@@ -33,13 +33,28 @@ type StudyDocsMeta = {
   title?: string;
   tips?: string;
   stageTips?: Record<string, string>;
-  ui?: { expand?: string; collapse?: string; progress?: string; none?: string; hint?: string };
+  note?: string;
+  ui?: { expand?: string; collapse?: string; progress?: string; none?: string; hint?: string; noteTitle?: string };
   actions?: { pdf?: string; pdfAria?: string };
 };
 type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: StudyDocsMeta };
 
 export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }: Props) {
   const locale = propLocale || getLocaleFromPath();
+  const DEFAULT_NOTE_MAP: Record<string, string> = {
+    ja: "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
+    en: "The content on this page is provided as general reference. For the latest and most accurate application requirements and required documents, please refer to the information from the [Immigration Services Agency of Japan](https://www.moj.go.jp/isa/).",
+    zh: "本页面内容仅供一般性参考。关于最新且准确的申请要件与所需材料，请务必查阅[出入国在留管理厅](https://www.moj.go.jp/isa/)的官方信息。",
+    vi: "Nội dung trên trang này chỉ mang tính tham khảo chung. Để biết yêu cầu mới nhất và chính xác nhất về điều kiện và giấy tờ cần thiết, vui lòng tham khảo thông tin từ [Cơ quan Dịch vụ Xuất nhập cảnh Nhật Bản](https://www.moj.go.jp/isa/).",
+    ko: "본 페이지의 내용은 일반적인 참고용입니다. 최신이며 정확한 신청 요건 및 구비서류는 반드시 [출입국재류관리청](https://www.moj.go.jp/isa/)의 공식 정보를 확인해 주세요.",
+  };
+  const DEFAULT_NOTE_TITLE_MAP: Record<string, string> = {
+    ja: "ご注意",
+    en: "Notice",
+    zh: "注意",
+    vi: "Lưu ý",
+    ko: "주의",
+  };
   const [stage, setStage] = useState<StageKey>(() => {
     const docs = (studyDocs || (ja as any).studyDocs) as StudyDocsData | undefined;
     if (docs) {
@@ -81,6 +96,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
       categoryLabels: (data as any).categoryLabels,
       title: (data as any).title,
       tips: (data as any).tips,
+      note: (data as any).note,
       stageTips: (data as any).stageTips,
       ui: (data as any).ui,
       actions: (data as any).actions,
@@ -262,6 +278,21 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
           );
         })}
       </div>
+
+      {/* Note card (above hint) */}
+      {(() => {
+        const noteText = META?.note ?? DEFAULT_NOTE_MAP[locale] ?? DEFAULT_NOTE_MAP.ja;
+        const noteTitle = META?.ui?.noteTitle ?? DEFAULT_NOTE_TITLE_MAP[locale] ?? DEFAULT_NOTE_TITLE_MAP.ja;
+        return noteText ? (
+          <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <div className="mb-2 flex items-center gap-2 text-slate-700">
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-200 text-red-800">!</span>
+              <span className="text-sm font-medium">{noteTitle}</span>
+            </div>
+            <Markdown className="prose prose-slate max-w-none text-sm">{noteText}</Markdown>
+          </div>
+        ) : null;
+      })()}
 
       {(() => {
         const tipsText = (META?.stageTips && (META.stageTips as any)[stage]) || META?.tips;

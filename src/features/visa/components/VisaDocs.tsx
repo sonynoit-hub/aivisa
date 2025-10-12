@@ -12,6 +12,7 @@ type UIStrings = {
   progress?: string;
   none?: string;
   hint?: string;
+  noteTitle?: string;
 };
 
 type ActionsStrings = { pdf?: string; pdfAria?: string };
@@ -21,6 +22,7 @@ export type VisaDocsMeta<C extends string> = {
   categoryLabels: Record<C, string>;
   title?: string;
   tips?: string;
+  note?: string;
   ui?: UIStrings;
   actions?: ActionsStrings;
 };
@@ -57,7 +59,23 @@ export default function VisaDocs<C extends string>({
   meta,
 }: VisaDocsProps<C>) {
   const locale = propLocale || getLocaleFromPath();
+  const DEFAULT_NOTE_MAP: Record<string, string> = {
+    ja: "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
+    en: "The content on this page is provided as general reference. For the latest and most accurate application requirements and required documents, please refer to the information from the [Immigration Services Agency of Japan](https://www.moj.go.jp/isa/).",
+    zh: "本页面内容仅供一般性参考。关于最新且准确的申请要件与所需材料，请务必查阅[出入国在留管理厅](https://www.moj.go.jp/isa/)的官方信息。",
+    vi: "Nội dung trên trang này chỉ mang tính tham khảo chung. Để biết yêu cầu mới nhất và chính xác nhất về điều kiện và giấy tờ cần thiết, vui lòng tham khảo thông tin từ [Cơ quan Dịch vụ Xuất nhập cảnh Nhật Bản](https://www.moj.go.jp/isa/).",
+    ko: "본 페이지의 내용은 일반적인 참고용입니다. 최신이며 정확한 신청 요건 및 구비서류는 반드시 [출입국재류관리청](https://www.moj.go.jp/isa/)의 공식 정보를 확인해 주세요.",
+  };
+  const DEFAULT_NOTE_TITLE_MAP: Record<string, string> = {
+    ja: "ご注意",
+    en: "Notice",
+    zh: "注意",
+    vi: "Lưu ý",
+    ko: "주의",
+  };
+  // Default to 'abroad' for backward compatibility; we'll set to the first available stage once docs load
   const [stage, setStage] = useState<StageKey>("abroad");
+  const initializedDefaultStage = useRef(false);
   const [mounted, setMounted] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -121,14 +139,20 @@ export default function VisaDocs<C extends string>({
       })
     : [];
 
-  // Ensure current stage exists in docs; if not, pick the first available stage
+  // On first load of docs, set default to the first available stage (so the first tab is active by default).
+  // Afterwards, if the current stage becomes unavailable (data shape changes), fall back to the first.
   useEffect(() => {
     if (!ACTIVE_DOCS) return;
-    if (!(stage in ACTIVE_DOCS)) {
-      const first = (Object.keys(ACTIVE_DOCS) as StageKey[])[0];
+    const first = (Object.keys(ACTIVE_DOCS) as StageKey[])[0];
+    if (!initializedDefaultStage.current) {
       if (first && first !== stage) setStage(first);
+      initializedDefaultStage.current = true;
+      return;
     }
-  }, [ACTIVE_DOCS, stage]);
+    if (!(stage in ACTIVE_DOCS) && first && first !== stage) {
+      setStage(first);
+    }
+  }, [ACTIVE_DOCS]);
 
   if (!ACTIVE_DOCS) {
     return (
@@ -315,6 +339,20 @@ export default function VisaDocs<C extends string>({
           );
         })}
       </div>
+
+      {(() => {
+        const noteText = META?.note ?? DEFAULT_NOTE_MAP[locale] ?? DEFAULT_NOTE_MAP.ja;
+        const noteTitle = META?.ui?.noteTitle ?? DEFAULT_NOTE_TITLE_MAP[locale] ?? DEFAULT_NOTE_TITLE_MAP.ja;
+        return noteText ? (
+          <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <div className="mb-2 flex items-center gap-2 text-slate-700">
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-200 text-red-800">!</span>
+              <span className="text-sm font-medium">{noteTitle}</span>
+            </div>
+            <Markdown className="prose prose-slate max-w-none text-sm">{noteText}</Markdown>
+          </div>
+        ) : null;
+      })()}
 
       {META?.tips ? (
         <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">

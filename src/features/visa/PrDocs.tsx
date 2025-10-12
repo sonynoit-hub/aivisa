@@ -16,7 +16,8 @@ type StudyDocsData = Record<"spouse" | "settler" | "work" | "highlySkilled", Rec
 type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaDocsMeta<CategoryKey> };
 
 export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
-  const categoryOrder = useMemo(() => ["applicant", "company", "optional"] as const, []);
+  // PR（永住）ページは会社側の書類セクションが無いため、"company" を除外
+  const categoryOrder = useMemo(() => ["applicant", "optional"] as const, []);
   return (
     <VisaDocs
       locale={locale}

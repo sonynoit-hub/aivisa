@@ -1,104 +1,125 @@
 {
-	"title": "永住者",
+	"title": "Thường trú",
 	"summary": "",
 	"html": "",
 	"sections": [],
-	"docsTitle": "永住許可 申請必要書類",
-	"actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-	"ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント", "noteTitle": "ご注意" },
-	"note": "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
+	"docsTitle": "Hồ sơ cần thiết để xin Thường trú",
+	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý", "noteTitle": "Lưu ý" },
+	"note": "Nội dung trên trang này chỉ mang tính tham khảo chung. Để biết yêu cầu mới nhất và chính xác nhất về điều kiện và giấy tờ cần thiết, vui lòng tham khảo thông tin từ [Cơ quan Dịch vụ Xuất nhập cảnh Nhật Bản](https://www.moj.go.jp/isa/).",
 	"stageLabels": {
-		"work": "就労ルート",
-		"highlySkilled": "高度専門職ルート",
-		"spouse": "配偶者ルート",
-		"settler": "定住者ルート"
+		"work": "Lộ trình lao động",
+		"highlySkilled": "Lộ trình Nhân lực trình độ cao",
+		"spouse": "Lộ trình vợ/chồng",
+		"settler": "Lộ trình Định cư"
 	},
 	"categoryLabels": {
-		"applicant": "申請人（個人）",
-		"optional": "任意・補足"
+		"applicant": "Đương đơn (cá nhân)",
+		"optional": "Tùy chọn · Bổ sung"
 	},
-	"tips": "・**10年以上の継続在留**が必要（日本人・永住者の配偶者・子は短縮可能）\n\n・高度人材専門職**ポイント制**で70点以上の場合：3年以上の在留で申請可能\n\n・高度人材専門職**ポイント制**で80点以上の場合：1年以上の在留で申請可能",
+	"tips": "・Cần **cư trú liên tục từ 10 năm trở lên** (vợ/chồng hoặc con của người Nhật/Người có tư cách thường trú có thể được rút ngắn)\n\n・Với hệ thống điểm **Nhân lực trình độ cao** đạt từ 70 điểm: có thể nộp sau **từ 3 năm** cư trú\n\n・Đạt **80 điểm trở lên**: có thể nộp sau **từ 1 năm** cư trú",
 	"studyDocs": {
 		"work": {
 			"applicant": [
-				"永住許可申請書",
-				"写真（4×3cm）",
-				"理由書",
-				"戸籍謄本 or 婚姻証明書 or 出生証明書 or 認知届の記載事項証明書",
-				"住民票（世帯全員の記載）",
-				"在職証明書 or 営業許可書（写し）",
-				"直近5年分の住民税の納付状況を証明する資料",
-				"国税の納付状況を確認する資料",
-				"預貯金通帳の写し or Web通帳の画面の写し等",
-				"直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-				"直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-				"パスポート",
-				"在留カード",
-				"身元保証書",
-				"了解書"
+				"Đơn xin cấp tư cách thường trú",
+				"Ảnh (4×3 cm)",
+				"Bản giải trình lý do",
+				"Bản sao hộ tịch (Koseki) hoặc Giấy đăng ký kết hôn hoặc Giấy khai sinh hoặc Giấy chứng nhận nội dung đăng ký nhận con",
+				"Giấy chứng nhận cư trú (nêu toàn bộ thành viên hộ)",
+				"Giấy chứng nhận đang làm việc hoặc Bản sao giấy phép kinh doanh",
+				"Tài liệu chứng minh tình trạng nộp thuế cư trú 5 năm gần nhất",
+				"Tài liệu xác nhận tình trạng nộp quốc thuế",
+				"Bản sao sổ tiết kiệm hoặc ảnh chụp màn hình sổ ngân hàng online, v.v.",
+				"Tài liệu chứng minh nộp phí bảo hiểm hưu trí công (2 năm gần nhất)",
+				"Tài liệu chứng minh nộp phí bảo hiểm y tế công (2 năm gần nhất)",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy bảo lãnh nhân thân",
+				"Giấy đồng ý"
 			],
-			"optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+			"optional": [
+				"Giấy chứng nhận lịch sử lái xe (dành cho người có bằng lái)",
+				"Giấy chứng nhận không tai nạn/không vi phạm (dành cho người có bằng lái)",
+				"Tài liệu chứng minh đóng góp cho Nhật Bản",
+				"Giấy chứng nhận đăng ký bất động sản"
+			]
 		},
 		"highlySkilled": {
 			"applicant": [
-				"永住許可申請書",
-				"写真（4×3cm）",
-				"理由書",
-				"住民票（世帯全員の記載）",
-				"在職証明書 or 営業許可書（写し）",
-				"直近3年分の住民税の納付状況を証明する資料",
-				"国税の納付状況を確認する資料",
-				"預貯金通帳の写し or Web通帳の画面の写し等",
-				"直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-				"直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-				"高度専門職ポイント計算表等",
-				"ポイント計算の各項目に関する疎明資料",
-				"パスポート",
-				"在留カード",
-				"身元保証書",
-				"了解書"
+				"Đơn xin cấp tư cách thường trú",
+				"Ảnh (4×3 cm)",
+				"Bản giải trình lý do",
+				"Giấy chứng nhận cư trú (nêu toàn bộ thành viên hộ)",
+				"Giấy chứng nhận đang làm việc hoặc Bản sao giấy phép kinh doanh",
+				"Tài liệu chứng minh nộp thuế cư trú 3 năm gần nhất",
+				"Tài liệu xác nhận tình trạng nộp quốc thuế",
+				"Bản sao sổ tiết kiệm hoặc ảnh chụp màn hình sổ ngân hàng online, v.v.",
+				"Tài liệu chứng minh nộp phí bảo hiểm hưu trí công (2 năm gần nhất)",
+				"Tài liệu chứng minh nộp phí bảo hiểm y tế công (2 năm gần nhất)",
+				"Bảng tính điểm HSP, v.v.",
+				"Tài liệu chứng minh cho từng hạng mục điểm",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy bảo lãnh nhân thân",
+				"Giấy đồng ý"
 			],
-			"optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+			"optional": [
+				"Giấy chứng nhận lịch sử lái xe (dành cho người có bằng lái)",
+				"Giấy chứng nhận không tai nạn/không vi phạm (dành cho người có bằng lái)",
+				"Tài liệu chứng minh đóng góp cho Nhật Bản",
+				"Giấy chứng nhận đăng ký bất động sản"
+			]
 		},
 		"spouse": {
 			"applicant": [
-				"永住許可申請書",
-				"写真（4×3cm）",
-				"配偶者の方の戸籍謄本 or 日本人親の戸籍謄本 or 婚姻証明書 or 出生証明書",
-				"住民票（世帯全員の記載）",
-				"在職証明書 or 営業許可書（写し）",
-				"直近３年分の住民税の納付状況を証明する資料",
-				"国税の納付状況を確認する資料",
-				"預貯金通帳の写し or Web通帳の画面の写し等",
-				"直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-				"直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-				"親族一覧表",
-				"パスポート",
-				"在留カード",
-				"身元保証書",
-				"了解書"
+				"Đơn xin cấp tư cách thường trú",
+				"Ảnh (4×3 cm)",
+				"Hộ tịch của vợ/chồng hoặc Hộ tịch của cha/mẹ người Nhật hoặc Giấy đăng ký kết hôn hoặc Giấy khai sinh",
+				"Giấy chứng nhận cư trú (nêu toàn bộ thành viên hộ)",
+				"Giấy chứng nhận đang làm việc hoặc Bản sao giấy phép kinh doanh",
+				"Tài liệu chứng minh nộp thuế cư trú 3 năm gần nhất",
+				"Tài liệu xác nhận tình trạng nộp quốc thuế",
+				"Bản sao sổ tiết kiệm hoặc ảnh chụp màn hình sổ ngân hàng online, v.v.",
+				"Tài liệu chứng minh nộp phí bảo hiểm hưu trí công (2 năm gần nhất)",
+				"Tài liệu chứng minh nộp phí bảo hiểm y tế công (2 năm gần nhất)",
+				"Bảng danh sách người thân",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy bảo lãnh nhân thân",
+				"Giấy đồng ý"
 			],
-			"optional": ["理由書","運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+			"optional": [
+				"Bản giải trình lý do",
+				"Giấy chứng nhận lịch sử lái xe (dành cho người có bằng lái)",
+				"Giấy chứng nhận không tai nạn/không vi phạm (dành cho người có bằng lái)",
+				"Tài liệu chứng minh đóng góp cho Nhật Bản",
+				"Giấy chứng nhận đăng ký bất động sản"
+			]
 		},
 		"settler": {
 			"applicant": [
-				"永住許可申請書",
-				"写真（4×3cm）",
-				"理由書",
-				"戸籍謄本 or 婚姻証明書 or 出生証明書 or 認知届の記載事項証明書",
-				"住民票（世帯全員の記載）",
-				"在職証明書 or 営業許可書（写し）",
-				"直近5年分の住民税の納付状況を証明する資料",
-				"国税の納付状況を確認する資料",
-				"預貯金通帳の写し or Web通帳の画面の写し等",
-				"直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-				"直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-				"パスポート",
-				"在留カード",
-				"身元保証書",
-				"了解書"
+				"Đơn xin cấp tư cách thường trú",
+				"Ảnh (4×3 cm)",
+				"Bản giải trình lý do",
+				"Bản sao hộ tịch (Koseki) hoặc Giấy đăng ký kết hôn hoặc Giấy khai sinh hoặc Giấy chứng nhận nội dung đăng ký nhận con",
+				"Giấy chứng nhận cư trú (nêu toàn bộ thành viên hộ)",
+				"Giấy chứng nhận đang làm việc hoặc Bản sao giấy phép kinh doanh",
+				"Tài liệu chứng minh tình trạng nộp thuế cư trú 5 năm gần nhất",
+				"Tài liệu xác nhận tình trạng nộp quốc thuế",
+				"Bản sao sổ tiết kiệm hoặc ảnh chụp màn hình sổ ngân hàng online, v.v.",
+				"Tài liệu chứng minh nộp phí bảo hiểm hưu trí công (2 năm gần nhất)",
+				"Tài liệu chứng minh nộp phí bảo hiểm y tế công (2 năm gần nhất)",
+				"Hộ chiếu",
+				"Thẻ cư trú",
+				"Giấy bảo lãnh nhân thân",
+				"Giấy đồng ý"
 			],
-			"optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+			"optional": [
+				"Giấy chứng nhận lịch sử lái xe (dành cho người có bằng lái)",
+				"Giấy chứng nhận không tai nạn/không vi phạm (dành cho người có bằng lái)",
+				"Tài liệu chứng minh đóng góp cho Nhật Bản",
+				"Giấy chứng nhận đăng ký bất động sản"
+			]
 		}
 
 	}
