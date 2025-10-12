@@ -13,7 +13,9 @@ export default function ChatDockClient() {
 			/\/ask-ai(\/.*)?$/.test(pathname) ||
 			/\/questionnaire\/contact\/?$/.test(pathname) ||
 			/\/tools\/(hsp-calculator|hsp-points)\/?$/.test(pathname) ||
-			/\/legal\/(privacy|terms)\/?$/.test(pathname)
+			/\/legal\/(privacy|terms)\/?$/.test(pathname) ||
+			/\/companies\/[\w-]+\/ads\/[\w-]+\/?$/.test(pathname) ||
+			/\/companies\/gyoseishoshi\/[\w-]+\/?$/.test(pathname)
 		)
 	) return null;
 	return <ChatDock />;
