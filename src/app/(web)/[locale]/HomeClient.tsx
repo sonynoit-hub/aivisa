@@ -9,6 +9,7 @@ import { visaCategories } from "@/data/visaCategories";
 import { VisaIconBySlug, VisaCategoryIcon } from "@/features/visa/components/VisaIcon";
 import type { Locale } from "@/i18n/locales";
 import { toShortPathFromSlug } from "@/features/visa/lib/pathMap";
+import AdSlots from "@/components/ad/AdSlots";
 
 export default function HomeClient() {
   const t = useTranslations("home");
@@ -408,56 +409,9 @@ export default function HomeClient() {
           </div>
           <div className="mt-2 h-px bg-slate-200/80" />
 
-          <div className="mt-4 space-y-4">
-            {[0,1,2].map((i) => (
-              <article
-                key={i}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-[17px] font-semibold text-slate-900">
-                    {t(`advisors.items.${i}.name`)}
-                  </h3>
-                  <span className="code-badge text-[12px] text-slate-500">
-                    {t("advisors.score")} {t(`advisors.items.${i}.score`)}
-                  </span>
-                </div>
-                <p className="mt-1 text-[14px] leading-6 text-slate-700">
-                  {t(`advisors.items.${i}.desc`)}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2 text-[12px]">
-                  {[0, 1, 2].map((k) => {
-                    const label = t(`advisors.items.${i}.tags.${k}`);
-                    return label ? (
-                      <span
-                        key={k}
-                        className="rounded-full border border-slate-300 bg-white px-2 py-0.5"
-                      >
-                        {label}
-                      </span>
-                    ) : null;
-                  })}
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <button className="h-10 rounded-lg px-4 text-white shadow-soft transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 btn-primary">
-                    {t("advisors.actions.book")}
-                  </button>
-                  <button className="h-10 rounded-lg border px-4">
-                    {t("advisors.actions.details")}
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-5 flex items-center justify-center gap-2">
-            <button className="h-9 rounded-lg border px-3 text-sm">
-              {t("advisors.pagination.prev")}
-            </button>
-            <div className="text-sm text-slate-500">{t("advisors.pagination.page")}</div>
-            <button className="h-9 rounded-lg border px-3 text-sm">
-              {t("advisors.pagination.next")}
-            </button>
+          {/* 在此展示来自数据库的广告卡片（2 条） */}
+          <div className="mt-4">
+            <AdSlots page="top" slot="top_card" locale={locale} />
           </div>
         </section>
       </div>

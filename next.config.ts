@@ -68,6 +68,7 @@ const nextConfig: NextConfig = {
         '192.168.1.4',
         '192.168.1.9',
         '192.168.1.8',
+        '192.168.1.5',
       ]
     : undefined,
   async redirects() {
