@@ -41,12 +41,20 @@ function getLocaleFromPath(): string {
   return segs[0] || "ja";
 }
 
+// Support group items inside studyDocs arrays: { group: string; options: string[]; pick?: 'one' | 'any' }
+type GroupItem = { group: string; options: string[]; pick?: 'one' | 'any' };
+type DocItem = string | GroupItem;
+
+function isGroupItem(v: unknown): v is GroupItem {
+  return !!v && typeof v === "object" && "group" in (v as any) && Array.isArray((v as any).options);
+}
+
 export type VisaDocsProps<C extends string> = {
   locale?: string;
   storageKey: string;
   categoryOrder?: readonly C[];
   colors?: Partial<Record<C, ColorConfig>>;
-  studyDocs?: Record<StageKey, Record<C, string[]>>;
+  studyDocs?: Record<StageKey, Record<C, DocItem[]>>;
   meta?: VisaDocsMeta<C>;
 };
 
@@ -81,6 +89,8 @@ export default function VisaDocs<C extends string>({
 
   type CheckMap = Record<string, boolean>;
   const [checks, setChecks] = useState<CheckMap>({});
+  type ChoiceMap = Record<string, number | null>;
+  const [choices, setChoices] = useState<ChoiceMap>({});
   const [collapsed, setCollapsed] = useState<Record<C, boolean>>({} as Record<C, boolean>);
 
   useEffect(() => {
@@ -88,6 +98,8 @@ export default function VisaDocs<C extends string>({
     try {
       const raw = window.localStorage.getItem(storageKey);
       if (raw) setChecks(JSON.parse(raw) as CheckMap);
+      const rawChoices = window.localStorage.getItem(storageKey + ":choices");
+      if (rawChoices) setChoices(JSON.parse(rawChoices) as ChoiceMap);
     } catch {}
   }, [storageKey]);
 
@@ -97,15 +109,21 @@ export default function VisaDocs<C extends string>({
     } catch {}
   }, [checks, storageKey]);
 
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(storageKey + ":choices", JSON.stringify(choices));
+    } catch {}
+  }, [choices, storageKey]);
+
   const ACTIVE_DOCS = studyDocs;
   const META = meta;
 
   const categories = useMemo(() => {
     // ACTIVE_DOCS 可能存在但当前 stage 尚未提供（如组件默认 stage 为 'abroad'，而数据仅含 'change'/'extend'）
     // 初次渲染会在下面的 useEffect 中修正 stage，这里需保证有安全的空对象回退以避免读取 undefined 抛错。
-    if (!ACTIVE_DOCS) return {} as Record<C, string[]>;
-    const byStage = (ACTIVE_DOCS as any)[stage] as Record<C, string[]> | undefined;
-    return (byStage ?? ({} as Record<C, string[]>));
+    if (!ACTIVE_DOCS) return {} as Record<C, DocItem[]>;
+    const byStage = (ACTIVE_DOCS as any)[stage] as Record<C, DocItem[]> | undefined;
+    return (byStage ?? ({} as Record<C, DocItem[]>));
   }, [stage, ACTIVE_DOCS]);
 
   const effectiveCatOrder = useMemo(() => {
@@ -248,12 +266,21 @@ export default function VisaDocs<C extends string>({
 
       <div data-export-root className="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {effectiveCatOrder.map((cat) => {
-          const items = (categories as Record<string, string[]>)[cat as string] || [];
+          const items = (categories as Record<string, DocItem[]>)[cat as string] || [];
           const title = (META?.categoryLabels?.[cat as keyof typeof META.categoryLabels] ?? (cat as string)) as string;
           const color = resolveColor(cat);
 
           const itemKey = (idx: number) => `${locale}:${stage}:${String(cat)}:${idx}`;
-          const completedCount = mounted ? items.reduce((acc, _, idx) => (checks[itemKey(idx)] ? acc + 1 : acc), 0) : 0;
+          const completedCount = mounted
+            ? items.reduce((acc, itm, idx) => {
+                const baseKey = itemKey(idx);
+                if (isGroupItem(itm)) {
+                  // group considered completed if any choice selected
+                  return checks[baseKey] ? acc + 1 : acc;
+                }
+                return checks[baseKey] ? acc + 1 : acc;
+              }, 0)
+            : 0;
           const totalCount = items.length || 1;
           const progress = mounted ? Math.round((completedCount / totalCount) * 100) : 0;
           const isCollapsed = collapsed[cat as keyof typeof collapsed] as boolean;
@@ -306,26 +333,91 @@ export default function VisaDocs<C extends string>({
 
               {!isCollapsed ? (
                 <ul className="mt-4 space-y-2">
-                  {items.map((name, i) => {
-                    const k = itemKey(i);
-                    const checked = !!checks[k];
+                  {items.map((rawItem, i) => {
+                    const baseKey = itemKey(i);
+                    const group = isGroupItem(rawItem) ? rawItem : null;
+                    if (group) {
+                      const parentChecked = !!checks[baseKey];
+                      const pick = group.pick === "any" ? "any" : "one"; // default 'one'
+                      return (
+                        <li key={baseKey} className="flex flex-col gap-2 text-[14px]">
+                          <div className="flex items-start gap-3">
+                            <input
+                              id={baseKey}
+                              type="checkbox"
+                              className={`mt-1 h-4 w-4 rounded ${color.checkboxAccent}`}
+                              checked={mounted ? parentChecked : false}
+                              onChange={(e) => {
+                                const v = e.target.checked;
+                                setChecks((m) => ({ ...m, [baseKey]: v }));
+                                if (!v) {
+                                  setChoices((m) => ({ ...m, [baseKey]: null }));
+                                } else if (v && pick === "one" && choices[baseKey] == null) {
+                                  setChoices((m) => ({ ...m, [baseKey]: 0 }));
+                                }
+                              }}
+                            />
+                            <label
+                              htmlFor={baseKey}
+                              className={"cursor-pointer leading-6 block flex-1 " + (parentChecked ? "text-slate-700" : "text-slate-700")}
+                            >
+                              {group.group}
+                              {pick === "one" && <span className="ml-2 text-[14px] text-slate-600 align-baseline">（以下いずれか1点）</span>}
+                            </label>
+                          </div>
+                          <div className="ml-7 space-y-1">
+                            {group.options.map((opt, idx) => {
+                              const radioId = `${baseKey}:opt:${idx}`;
+                              const selectedIdx = choices[baseKey] ?? null;
+                              const selected = selectedIdx === idx;
+                              return (
+                                <label key={radioId} htmlFor={radioId} className="flex items-center gap-2 text-[14px]">
+                                  <input
+                                    id={radioId}
+                                    type={pick === "one" ? "radio" : "checkbox"}
+                                    name={pick === "one" ? baseKey + ":group" : radioId}
+                                    className={`h-3.5 w-3.5 ${pick === "one" ? color.checkboxAccent : color.checkboxAccent}`}
+                                    checked={mounted ? (pick === "one" ? selected : !!checks[`${baseKey}:child:${idx}`]) : false}
+                                    onChange={() => {
+                                      if (pick === "one") {
+                                        setChoices((m) => ({ ...m, [baseKey]: idx }));
+                                        setChecks((m) => ({ ...m, [baseKey]: true }));
+                                      } else {
+                                        setChecks((m) => ({ ...m, [baseKey]: true, [`${baseKey}:child:${idx}`]: !checks[`${baseKey}:child:${idx}`] }));
+                                      }
+                                    }}
+                                  />
+                                  <span className={
+                                    pick === "one"
+                                      ? (selected ? "line-through text-slate-400" : "text-slate-700")
+                                      : (!!checks[`${baseKey}:child:${idx}`] ? "line-through text-slate-400" : "text-slate-700")
+                                  }>{opt}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </li>
+                      );
+                    }
+                    // simple string item
+                    const checked = !!checks[baseKey];
                     return (
-                      <li key={k} className="flex items-start gap-3 text-[14px]">
+                      <li key={baseKey} className="flex items-start gap-3 text-[14px]">
                         <input
-                          id={k}
+                          id={baseKey}
                           type="checkbox"
                           className={`mt-1 h-4 w-4 rounded ${color.checkboxAccent}`}
                           checked={mounted ? checked : false}
                           onChange={(e) => {
                             const v = e.target.checked;
-                            setChecks((m) => ({ ...m, [k]: v }));
+                            setChecks((m) => ({ ...m, [baseKey]: v }));
                           }}
                         />
                         <label
-                          htmlFor={k}
-                          className={"cursor-pointer leading-6 " + (checked ? "text-slate-400 line-through" : "text-slate-700")}
+                          htmlFor={baseKey}
+                          className={"cursor-pointer leading-6 block flex-1 " + (checked ? "text-slate-400 line-through" : "text-slate-700")}
                         >
-                          {name}
+                          {String(rawItem)}
                         </label>
                       </li>
                     );
