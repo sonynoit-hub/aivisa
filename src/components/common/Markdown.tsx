@@ -28,11 +28,19 @@ export default function Markdown({children, className}: Props) {
           blockquote: ({node: _node, ...props}) => (
             <blockquote className="  bg-slate-100 px-4 py-3 mb-3 rounded-r-md" {...props} />
           ),
-          a: ({node: _node, href, children, ...props}) => (
-            <a href={href} className="text-blue-600 hover:text-blue-800 underline" {...props}>
-              {children}
-            </a>
-          ),
+          a: ({node: _node, href, children, ...props}) => {
+            const isExternal = typeof href === "string" && /^https?:\/\//.test(href);
+            return (
+              <a
+                href={href}
+                className="text-blue-600 hover:text-blue-800 underline"
+                {...props}
+                {...(isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {})}
+              >
+                {children}
+              </a>
+            );
+          },
           h1: ({node: _node, ...props}) => <h1 className="text-xl font-semibold mt-2 mb-3" {...props} />,
           h2: ({node: _node, ...props}) => <h2 className="text-lg font-semibold mt-2 mb-2" {...props} />,
           h3: ({node: _node, ...props}) => <h3 className="text-base font-semibold mt-2 mb-2" {...props} />,
