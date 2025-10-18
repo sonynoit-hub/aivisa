@@ -1,104 +1,104 @@
 {
-  "title": "経営・管理",
+  "title": "Business/Management",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "経営・管理 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "・**常勤職員の雇用義務**：会社で1名以上の常勤職員（日本人または身分系在留資格者）の雇用が必須。\n\n・**資本金等の基準**：最低3,000万円以上が必要。\n\n・**日本語能力**：申請者または常勤職員のいずれかが日本語能力N2以上を有すること。\n\n・**学歴・職歴**：関連分野の修士・博士・専門職学位、または経営・管理実務3年以上。\n\n・**事業計画の専門家確認**：提出する事業計画書は中小企業診断士・公認会計士・税理士等による確認が必須。\n\n・**事業所要件**：規模に見合う専用事業所の確保が必要。自宅兼用は原則不可。",
+  "docsTitle": "Business/Management Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from overseas", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+  "tips": "- Employment of at least one full-time staff member (Japanese national or a person with a qualifying resident status) is required.\n\n- Minimum capital requirement: 30,000,000 JPY or more.\n\n- Japanese language ability: Either the applicant or a full-time staff member must have JLPT N2 or higher.\n\n- Education/Experience: A relevant professional degree (Master, Doctor, or Professional) or 3+ years of business/management experience.\n\n- Expert confirmation of business plan: The submitted plan must be confirmed by a certified professional such as a SME management consultant, CPA, or tax accountant.\n\n- Office requirements: Secure a dedicated office appropriate for the business scale. Home-office use is, in principle, not permitted.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "卒業証明書",
-        { "group": "日本語能力を明らかにする資料", "options": ["日本語能力証明（JLPT等）", "その他の資料"], "pick": "one" },
-        { "group": "経歴を明らかにする次のいずれかの資料", "options": ["専門職学位証明書", "履歴書","在職証明書等"], "pick": "one" },
-        "出資金の形成過程説明を証明できる書類",
-        "申請理由書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Graduation certificate",
+        { "group": "Documents proving Japanese proficiency", "options": ["Proof of Japanese ability (e.g., JLPT)", "Other documents"], "pick": "one" },
+        { "group": "One of the following to prove career/experience", "options": ["Proof of professional degree", "CV/Resume","Certificate of employment, etc."], "pick": "one" },
+        "Documents explaining the formation process of investment capital",
+        "Statement of reasons"
       ],
       "company": [
-        "法人口座の写し",
-        "定款の写し",
-        "事業計画書の写し",
-        "登記事項証明書",
-        "役員報酬を決議した株主総会議事録の写し",
-        "選任及び本店所在地決議書の写し",
-        "設立時代表取締役選定決議書の写し",
-        "就任承諾書の写し",
-        "払込証明書の写し",
-        "取引先、仕入先と交わした契約書、請求書など",
-        { "group": "事務所用施設の存在を明らかにする資料", "options": ["不動産登記簿謄本", "賃貸借契約書","その他の資料"], "pick": "one" },
-        "給与支払事務所等の開設届出書の写し",
-        "源泉所得税の納期の特例の承認に関する申請書の写し",
-        "法人設立届出書の写し",
-        "青色申告の承認申請書の写し",
-        "法人（設立時）の事業概況書の写し",
-        { "group": "事業規模を明らかにする資料", "options": ["常勤の職員が一人以上", "貸借対照表","その他の資料"], "pick": "one" },
-        "事務所の写真",
-        "返信用封筒"
+        "Copy of corporate bank account (passbook/statement)",
+        "Copy of Articles of Incorporation",
+        "Copy of business plan",
+        "Certificate of registered matters",
+        "Copy of shareholders' meeting minutes determining executive remuneration",
+        "Copy of resolution on appointments and head office location",
+        "Copy of resolution selecting representative director at incorporation",
+        "Copy of letter of acceptance of appointment",
+        "Copy of capital payment certificate",
+        "Contracts/invoices exchanged with clients and suppliers",
+        { "group": "Documents proving the existence of an office facility", "options": ["Property registry", "Lease agreement","Other documents"], "pick": "one" },
+        "Copy of notification of opening a salary payment office",
+        "Copy of application for approval of special due dates for withholding tax",
+        "Copy of corporate establishment notification",
+        "Copy of application for approval of blue tax return",
+        "Copy of business overview at incorporation",
+        { "group": "Documents showing business scale", "options": ["At least one full-time staff member", "Balance sheet","Other documents"], "pick": "one" },
+        "Photos of the office",
+        "Self-addressed stamped envelope"
       ],
       "optional": [
-        "許可書等の写し"
+        "Copy of permits/licenses"
       ]
     },
     "change": {
-            "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "卒業証明書",
-        { "group": "日本語能力を明らかにする資料", "options": ["日本語能力証明（JLPT等）", "その他の資料"], "pick": "one" },
-        { "group": "経歴を明らかにする次のいずれかの資料", "options": ["専門職学位証明書", "履歴書","在職証明書等"], "pick": "one" },
-        "出資金の形成過程説明を証明できる書類",
-        "申請理由書"
+      "applicant": [
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Graduation certificate",
+        { "group": "Documents proving Japanese proficiency", "options": ["Proof of Japanese ability (e.g., JLPT)", "Other documents"], "pick": "one" },
+        { "group": "One of the following to prove career/experience", "options": ["Proof of professional degree", "CV/Resume","Certificate of employment, etc."], "pick": "one" },
+        "Documents explaining the formation process of investment capital",
+        "Statement of reasons"
       ],
       "company": [
-        "法人口座の写し",
-        "定款の写し",
-        "事業計画書の写し",
-        "登記事項証明書",
-        "役員報酬を決議した株主総会議事録の写し",
-        "選任及び本店所在地決議書の写し",
-        "設立時代表取締役選定決議書の写し",
-        "就任承諾書の写し",
-        "払込証明書の写し",
-        "取引先、仕入先と交わした契約書、請求書など",
-        { "group": "事務所用施設の存在を明らかにする資料", "options": ["不動産登記簿謄本", "賃貸借契約書","その他の資料"], "pick": "one" },
-        "給与支払事務所等の開設届出書の写し",
-        "源泉所得税の納期の特例の承認に関する申請書の写し",
-        "法人設立届出書の写し",
-        "青色申告の承認申請書の写し",
-        "法人（設立時）の事業概況書の写し",
-        { "group": "事業規模を明らかにする資料", "options": ["常勤の職員が一人以上", "貸借対照表","その他の資料"], "pick": "one" },
-        "事務所の写真"
+        "Copy of corporate bank account (passbook/statement)",
+        "Copy of Articles of Incorporation",
+        "Copy of business plan",
+        "Certificate of registered matters",
+        "Copy of shareholders' meeting minutes determining executive remuneration",
+        "Copy of resolution on appointments and head office location",
+        "Copy of resolution selecting representative director at incorporation",
+        "Copy of letter of acceptance of appointment",
+        "Copy of capital payment certificate",
+        "Contracts/invoices exchanged with clients and suppliers",
+        { "group": "Documents proving the existence of an office facility", "options": ["Property registry", "Lease agreement","Other documents"], "pick": "one" },
+        "Copy of notification of opening a salary payment office",
+        "Copy of application for approval of special due dates for withholding tax",
+        "Copy of corporate establishment notification",
+        "Copy of application for approval of blue tax return",
+        "Copy of business overview at incorporation",
+        { "group": "Documents showing business scale", "options": ["At least one full-time staff member", "Balance sheet","Other documents"], "pick": "one" },
+        "Photos of the office"
       ],
       "optional": [
-        "許可書等の写し"
+        "Copy of permits/licenses"
       ]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Tax payment certificate"
       ],
       "company": [
-        "法定調書合計表（写し）",
-        "直近の年度の決算文書（写し）",
-        "登記事項証明書"
+        "Total statutory report (copy)",
+        "Most recent fiscal year financial statements (copy)",
+        "Certificate of registered matters"
       ],
       "optional": [
-        "申請理由書",
-        "会社パンフレット"
+        "Statement of reasons",
+        "Company brochure"
       ]
     }
   }

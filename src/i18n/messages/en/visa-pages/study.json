@@ -1,69 +1,68 @@
 {
-  "title": "留学",
-  
+  "title": "Student",
   "sections": [],
-  "docsTitle": "留学ビザの必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Student Visa Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": {
-    "abroad": "海外申請（渡日前）",
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新"
+    "abroad": "Apply from abroad (before entry)",
+    "change": "Change status of residence",
+    "extend": "Extend period of stay"
   },
   "categoryLabels": {
-    "applicant": "申請人",
-    "school": "学校",
-    "optional": "任意・補足"
+    "applicant": "Applicant",
+    "school": "School",
+    "optional": "Optional/Supplementary"
   },
-  "tips": "**資格外活動許可**で週28時間以内のアルバイトが可能\n\n・ビザステータス維持のため**適切な学業成績と出席率**の維持が必要",
+  "tips": "With a Permission to Engage in Activity Other Than That Permitted under the Status of Residence, part-time work up to 28 hours/week is allowed.\n\n- To maintain visa status, you must keep appropriate academic performance and attendance.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "経費支弁書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        "Passport",
+        "Proof of highest education",
+        "Academic transcript",
+        "Japanese proficiency proof (JLPT, etc.)",
+        "Statement of financial support"
       ],
       "school": [
-        "返信用封筒", 
-        "学校提出書類"
+        "Self-addressed stamped envelope",
+        "Documents required by the school"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Certificate related to scholarship grants"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "経費支弁書"
+        "Application for Change of Status of Residence",
+        "Photo (4cm × 3cm)",
+        "Passport",
+        "Residence card",
+        "Proof of highest education",
+        "Academic transcript",
+        "Japanese proficiency proof (JLPT, etc.)",
+        "Statement of financial support"
       ],
       "school": [
-        "学校提出書類"
+        "Documents required by the school"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Certificate related to scholarship grants"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "滞在費支弁に関する申告書"
+        "Application for Extension of Period of Stay",
+        "Photo (4cm × 3cm)",
+        "Passport",
+        "Residence card",
+        "Proof of highest education",
+        "Academic transcript",
+        "Japanese proficiency proof (JLPT, etc.)",
+        "Declaration regarding stay expense support"
       ],
       "school": [
-        "学校提出書類"
+        "Documents required by the school"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Certificate related to scholarship grants"]
     }
   }
 }

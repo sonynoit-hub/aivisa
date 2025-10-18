@@ -1,40 +1,40 @@
 {
-  "title": "短期滞在",
+  "title": "Temporary Visitor",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "短期滞在 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社" , "optional": "任意"},
-  "tips": "・短期滞在は原則として**90日以内**の滞在が可能です。\n\n※ 例えば、病気治療を理由とする場合、診断書を提出願います。\n\n※ 例えば、預金残高証明書や帰国用航空券を提出願います。",
+  "docsTitle": "Temporary Visitor Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "inJapan": "Apply in Japan", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+  "tips": "- As a rule, Temporary Visitor allows stays of up to 90 days.\n\nNote: For example, if for medical treatment, please submit a doctor's certificate.\n\nNote: For example, please submit a bank balance certificate and a return flight ticket.",
   "studyDocs": {
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "パスポート",
-        "「短期滞在」の取得を必要とする理由書",
-        "航空券予約確認書"
+        "Application for Permission to Acquire Status of Residence",
+        "Passport",
+        "Letter explaining the reason for requiring 'Temporary Visitor'",
+        "Flight reservation confirmation"
       ]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "パスポート",
-        "在留カード",
-        "「短期滞在」の取得を必要とする理由書",
-        "航空券予約確認書"
+        "Application for Change of Status of Residence",
+        "Passport",
+        "Residence card",
+        "Letter explaining the reason for requiring 'Temporary Visitor'",
+        "Flight reservation confirmation"
       ]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "パスポート",
-        "「短期滞在」の取得を必要とする理由書",
-        "活動を説明する資料",
-        "滞在中の経費支弁能力を証明する資料",
-        "航空券予約確認書"
+        "Application for Extension of Period of Stay",
+        "Passport",
+        "Letter explaining the reason for requiring 'Temporary Visitor'",
+        "Documents explaining activities",
+        "Documents proving ability to support expenses during stay",
+        "Flight reservation confirmation"
       ]
     }
   }

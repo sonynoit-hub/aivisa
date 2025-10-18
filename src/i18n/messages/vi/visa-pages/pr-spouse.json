@@ -1,87 +1,87 @@
 {
-  "title": "永住者の配偶者等",
+  "title": "Vợ/chồng hoặc con của người Vĩnh trú",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "永住者の配偶者等 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "配偶者（永住者）", "optional": "任意・補足" },
-  "tips": "・婚姻の**真実性と継続性**が重要な审査ポイントです。",
+  "docsTitle": "Hồ sơ cần nộp - Vợ/chồng hoặc con của người Vĩnh trú",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Vợ/chồng (Vĩnh trú)", "optional": "Tùy chọn/Bổ sung" },
+  "tips": "- Tính chân thực và tính liên tục của hôn nhân là điểm quan trọng trong xét duyệt.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu"
       ],
       "dependents": [
-        "返信用封筒",
-        "結婚証明書",
-        "夫婦間の交流が確認できる資料",
-        "質問書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Giấy chứng nhận kết hôn",
+        "Tài liệu chứng minh giao tiếp giữa vợ chồng",
+        "Bản câu hỏi",
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận nộp thuế của năm vừa qua",
+        { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Thư giải trình", "Ảnh chụp", "Bản ghi SNS", "Lịch sử cuộc gọi"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書",
-        "パスポート"
+        "Đơn xin cấp phép có tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Giấy chứng nhận kết hôn",
+        "Hộ chiếu"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        "夫婦間の交流が確認できる資料"
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận nộp thuế của năm vừa qua",
+        { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)",
+        "Bản câu hỏi",
+        "Tài liệu chứng minh giao tiếp giữa vợ chồng"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Thư giải trình", "Ảnh chụp", "Bản ghi SNS", "Lịch sử cuộc gọi"]
     },
     "change": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書",
-        "パスポート",
-        "在留カード"
+        "Đơn xin cấp phép có tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Giấy chứng nhận kết hôn",
+        "Hộ chiếu",
+        "Thẻ cư trú"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        "夫婦間の交流が確認できる資料"
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận nộp thuế của năm vừa qua",
+        { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)",
+        "Bản câu hỏi",
+        "Tài liệu chứng minh giao tiếp giữa vợ chồng"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Thư giải trình", "Ảnh chụp", "Bản ghi SNS", "Lịch sử cuộc gọi"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "婚姻が継続していることを証明する文書",
-        "パスポート",
-        "在留カード"
+        "Đơn xin gia hạn thời gian lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Tài liệu chứng minh hôn nhân vẫn đang duy trì",
+        "Hộ chiếu",
+        "Thẻ cư trú"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận nộp thuế của năm vừa qua",
+        { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)"
       ],
-      "optional": ["理由書"]
+      "optional": ["Thư giải trình"]
 
     }
   }

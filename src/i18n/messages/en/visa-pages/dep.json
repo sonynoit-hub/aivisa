@@ -1,83 +1,83 @@
 {
-  "title": "家族滞在",
+  "title": "Dependent",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "家族滞在 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外から申請", "change": "在留資格の変更", "extend": "在留期間の更新", "inJapan": "日本国内で申請" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "扶養者・家族", "optional": "任意・補足" },
-  "tips": "・家族滞在資格保持者は別途申請で**アルバイト許可**を取得できます。",
+  "docsTitle": "Dependent Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from overseas", "change": "Change status of residence", "extend": "Extend period of stay", "inJapan": "Apply within Japan" },
+  "categoryLabels": { "applicant": "Applicant", "dependents": "Sponsor/Family", "optional": "Optional/Supplementary" },
+  "tips": "- Holders of Dependent status can obtain separate permission to engage in part-time work.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
-        "返信用封筒",
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Self-addressed stamped envelope",
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)"
       ],
-      "optional": ["スナップ写真","預金残高証明書"]
+      "optional": ["Snapshot photos","Bank balance certificate"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Bank balance certificate"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Bank balance certificate"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "それぞれ定める書類", "options": ["国籍を証する書類", "出生したことを証する書類", "出生証明書（写し）"], "pick": "one" },
-        "パスポート",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" },
-        "質問書"
+        "Application for permission to acquire status of residence",
+        "Photo (4cm x 3cm)",
+        { "group": "Documents as individually prescribed", "options": ["Documents proving nationality", "Documents proving birth", "Birth certificate (copy)"], "pick": "one" },
+        "Passport",
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" },
+        "Questionnaire"
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        "住民票"
+        "Passport",
+        "Residence card",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)",
+        "Certificate of residence (juminhyo)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Bank balance certificate"]
     }
   }
 }

@@ -1,131 +1,131 @@
 {
-  "title": "特定技能",
+  "title": "Kỹ năng đặc định",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "特定技能 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "docsTitle": "Hồ sơ cần thiết cho visa Kỹ năng đặc định",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": {
-    "foodManufacturing": "飲食料品製造業",
-    "industrialManufacturing": "工業製品製造業",
-    "care": "介護",
-    "construction": "建設",
-    "agriculture": "農業",
-    "foodService": "外食業",
-    "shipbuildingMarine": "造船・舶用工業"
+    "foodManufacturing": "Sản xuất thực phẩm & đồ uống",
+    "industrialManufacturing": "Sản xuất sản phẩm công nghiệp",
+    "care": "Điều dưỡng",
+    "construction": "Xây dựng",
+    "agriculture": "Nông nghiệp",
+    "foodService": "Dịch vụ ăn uống",
+    "shipbuildingMarine": "Đóng tàu & công nghiệp hàng hải"
   },
-  "categoryLabels": { "applicant": "申請人", "company": "所属機関", "optional": "任意" },
-  "tips": "・書類の要件は業種分野やスキルレベルによって異なります。\n\n・個人の事情によって、出入国在留管理庁から追加書類の提出を求められる場合があります。\n\n・さらなるサポートが必要な場合は、お気軽にお問い合わせください。",
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Tổ chức tiếp nhận", "optional": "Tùy chọn" },
+  "tips": "- Yêu cầu hồ sơ khác nhau tùy theo ngành nghề và trình độ kỹ năng.\n\n- Tùy tình hình cá nhân, Cục Xuất nhập cảnh có thể yêu cầu nộp bổ sung hồ sơ.\n\n- Nếu cần hỗ trợ thêm, vui lòng liên hệ với chúng tôi.",
   "studyDocs": {
     "foodManufacturing": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["飲食料品製造業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao giấy chứng nhận đỗ Kỳ thi đo lường kỹ năng SSW i lĩnh vực chế biến thực phẩm"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "協議会の構成員であることの証明書"
+        "Thư cam kết",
+        "Giấy chứng nhận là thành viên của hội đồng liên quan"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "industrialManufacturing": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["製造分野特定技能１号評価試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao giấy chứng nhận đỗ Kỳ thi đánh giá SSW i lĩnh vực sản xuất"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "JAIMの構成員名簿"
+        "Thư cam kết",
+        "Danh sách thành viên JAIM"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "care": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①必要書類", "options": ["介護福祉士養成施設の卒業証明書の写し", "直近の介護福祉士国家試験の結果通知書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "②①に該当しない場合", "options": ["介護技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Tài liệu bắt buộc (chọn một)", "options": ["Bản sao giấy chứng nhận tốt nghiệp cơ sở đào tạo điều dưỡng viên", "Bản sao thông báo kết quả Kỳ thi Quốc gia điều dưỡng viên gần nhất", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi đánh giá kỹ năng thực tập điều dưỡng (trình độ nâng cao)", "Phiếu đánh giá thực tập sinh kỹ năng"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "事業所の概要書",
-        "協議会の構成員であることの証明書"
+        "Thư cam kết",
+        "Bản mô tả tổng quan cơ sở/đơn vị",
+        "Giấy chứng nhận là thành viên của hội đồng liên quan"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "construction": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["建設分野特定技能１号評価試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi đánh giá SSW i lĩnh vực xây dựng", "Bản sao chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "建設特定技能受入計画の認定証の写し"
+        "Thư cam kết",
+        "Bản sao giấy chứng nhận phê duyệt kế hoạch tiếp nhận SSW lĩnh vực xây dựng"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "agriculture": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["農業技能評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["１号農業技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành đánh giá kỹ năng nông nghiệp (trình độ nâng cao)", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi đo lường kỹ năng SSW i lĩnh vực nông nghiệp"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "協議会の構成員であることの証明書"
+        "Thư cam kết",
+        "Giấy chứng nhận là thành viên của hội đồng liên quan"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "foodService": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["医療・福祉施設給食製造技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["外食業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành chế biến suất ăn cơ sở y tế/phúc lợi (trình độ nâng cao)", "Phiếu đánh giá thực tập sinh kỹ năng"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi kỹ năng SSW i lĩnh vực dịch vụ ăn uống"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "飲食店営業の営業許可証又は届出書の写し",
-        "旅館業法の旅館・ホテル営業の営業許可証の写し",
-        "風営法の風俗営業の営業許可証の写し",
-        "協議会の構成員であることの証明書"
+        "Thư cam kết",
+        "Bản sao giấy phép/giấy thông báo kinh doanh nhà hàng",
+        "Bản sao giấy phép kinh doanh khách sạn/nhà nghỉ theo Luật Lữ hành",
+        "Bản sao giấy phép kinh doanh ngành dịch vụ giải trí theo Luật Quản lý phong tục",
+        "Giấy chứng nhận là thành viên của hội đồng liên quan"
       ],
-      "optional": ["申請人名簿"]
+  "optional": ["Danh sách ứng viên"]
     },
     "shipbuildingMarine": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能検定３級の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["造船・舶用工業分野特定技能１号試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành đánh giá kỹ năng (trình độ nâng cao)", "Bản sao chứng nhận đỗ phần thi thực hành Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi SSW i lĩnh vực đóng tàu/hàng hải", "Bản sao chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        "Hộ chiếu"
       ],
       "company": [
-        "誓約書",
-        "造船・舶用工業事業者の確認通知書",
-        "協議会の構成員であることの証明書"
+        "Thư cam kết",
+        "Thông báo xác nhận doanh nghiệp trong lĩnh vực đóng tàu/hàng hải",
+        "Giấy chứng nhận là thành viên của hội đồng liên quan"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Danh sách ứng viên"]
     }
   }
 }

@@ -1,52 +1,52 @@
 {
-  "title": "定住者",
+  "title": "Người cư trú dài hạn",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "定住者 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "prstepchildren": "連れ子の定住者(永住者扶養)", "jpspousestepchildren": "連れ子の定住者(日本人の配偶者)" },
-  "categoryLabels": { "applicant": "申請人", "guarantor": "扶養者", "optional": "任意" },
-  "tips": "・定住者ビザは**特別な事情を持つ外国人**（連れ子、難民、離婚・死別後の継続在留者等）のためのビザです。",
+  "docsTitle": "Hồ sơ cần nộp - Người cư trú dài hạn",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "prstepchildren": "Con riêng của Vĩnh trú (người phụ thuộc)", "jpspousestepchildren": "Con riêng của vợ/chồng người Nhật" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "guarantor": "Người bảo lãnh", "optional": "Tùy chọn" },
+  "tips": "- Visa Cư trú dài hạn dành cho người nước ngoài có hoàn cảnh đặc biệt (ví dụ: con riêng, người tị nạn, người tiếp tục ở lại Nhật sau ly hôn hoặc khi vợ/chồng qua đời).",
   "studyDocs": {
     "prstepchildren": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "出生証明書",
-        "申請人の無犯罪経歴証明書"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Giấy khai sinh",
+        "Giấy xác nhận lý lịch tư pháp của người nộp đơn"
       ],
       "guarantor": [
-        "返信用封筒",
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        "扶養者の住民票",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        "申請理由書"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Giấy chứng nhận thuế cư trú (đã nộp hoặc không nộp) của năm gần nhất",
+        "Giấy chứng nhận nộp thuế của năm gần nhất",
+        "Giấy chứng nhận cư trú của người bảo lãnh",
+        { "group": "Tài liệu chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        { "group": "Tài liệu chứng minh thu nhập/tài sản", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh",
+        "Bản giải trình lý do"
       ],
-      "optional": ["認知に係る証明書(ある方のみ)"]
+      "optional": ["Giấy tờ liên quan đến việc nhận con (nếu có)"]
     },
     "jpspousestepchildren": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "出生証明書"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Giấy khai sinh"
       ],
       "guarantor": [
-        "返信用封筒",
-        "戸籍謄本（全部事項証明書）",
-        "住民票（世帯全員の記載があるもの）",
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        "申請理由書"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Bản sao hộ tịch (Koseki tohon; đầy đủ mục)",
+        "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)",
+        "Giấy chứng nhận thuế cư trú (đã nộp hoặc không nộp) của năm gần nhất",
+        "Giấy chứng nhận nộp thuế của năm gần nhất",
+        { "group": "Tài liệu chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        { "group": "Tài liệu chứng minh thu nhập/tài sản", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Thư bảo lãnh",
+        "Bản giải trình lý do"
       ],
-      "optional": ["認知に係る証明書(ある方のみ)"]
+      "optional": ["Giấy tờ liên quan đến việc nhận con (nếu có)"]
     }
   }
 }

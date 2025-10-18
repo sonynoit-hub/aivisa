@@ -1,93 +1,93 @@
 {
-  "title": "日本人の配偶者等",
+  "title": "Vợ/chồng hoặc con của công dân Nhật Bản",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "日本人の配偶者等 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "配偶者（日本人）", "optional": "任意" },
-  "tips": "・**書類要件**は結婚時期、国籍、結婚履歴によって異なります。\n\n> ⚠️ **重要:** 偶装結婚や虚偽申請は重大な犯罪です。必ず真実の情報を提供してください。",
+  "docsTitle": "Hồ sơ cần thiết cho vợ/chồng hoặc con của công dân Nhật Bản",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Vợ/chồng (quốc tịch Nhật)", "optional": "Tùy chọn" },
+  "tips": "- Yêu cầu hồ sơ thay đổi tùy theo thời điểm kết hôn, quốc tịch và lịch sử hôn nhân.\n\n> ⚠️ Quan trọng: Hôn nhân giả và khai man hồ sơ là tội nghiêm trọng. Hãy luôn cung cấp thông tin trung thực.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Giấy chứng nhận kết hôn"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）",
-        "返信用封筒"
+        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
+        { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
+        "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên hộ gia đình)",
+        "Bảng câu hỏi",
+        { "group": "Chứng cứ liên lạc giữa vợ chồng", "options": ["Lịch sử SNS","Lịch sử cuộc gọi"], "pick": "one" },
+        "Ảnh chụp sinh hoạt (2–3 tấm)",
+        "Phong bì có dán tem ghi địa chỉ người nhận"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Tờ trình bày lý do"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "出生証明書"
+        "Đơn xin cấp phép取得 tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Giấy khai sinh"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "結婚証明書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）"
+        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận kết hôn",
+        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
+        { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
+        "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên hộ gia đình)",
+        "Bảng câu hỏi",
+        { "group": "Chứng cứ liên lạc giữa vợ chồng", "options": ["Lịch sử SNS","Lịch sử cuộc gọi"], "pick": "one" },
+        "Ảnh chụp sinh hoạt (2–3 tấm)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Tờ trình bày lý do"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード"
+        "Đơn xin thay đổi tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "結婚証明書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）"
+        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận kết hôn",
+        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
+        { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
+        "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên hộ gia đình)",
+        "Bảng câu hỏi",
+        { "group": "Chứng cứ liên lạc giữa vợ chồng", "options": ["Lịch sử SNS","Lịch sử cuộc gọi"], "pick": "one" },
+        "Ảnh chụp sinh hoạt (2–3 tấm)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Tờ trình bày lý do"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード"
+        "Đơn xin gia hạn thời gian lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
+        { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
+        "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên hộ gia đình)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Tờ trình bày lý do"]
     }
   }
 }

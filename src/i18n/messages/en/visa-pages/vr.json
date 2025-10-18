@@ -1,84 +1,84 @@
 {
-	"title": "親族訪問",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "親族訪問 必要書類",
-	"actions": {
-		"pdf": "PDF",
-		"pdfAria": "PDFとして出力"
-	},
-	"ui": {
-		"expand": "展開",
-		"collapse": "折りたたむ",
-		"progress": "進捗",
-		"none": "項目なし",
-		"hint": "ヒント"
-	},
-	"stageLabels": {
-		"vietnam": "ベトナムで申請",
-		"china": "中国で申請"
-	},
-	"categoryLabels": {
-		"applicant": "申請人",
-		"sponsor": "招待人",
-		"guarantee": "身元保証人"
-	},
-		"tips": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[出入国在留管理庁](https://www.moj.go.jp/isa/)でご確認ください",
-		"stageTips": {
-			"vietnam": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在ベトナム日本国大使館](https://www.vn.emb-japan.go.jp/itpr_ja/VN_SVisaFAM.html)をご確認ください",
-			"china": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在中国日本国大使館](https://www.cn.emb-japan.go.jp/itpr_zh/visa_shinzoku.html)をご確認ください"
-		},
-	"studyDocs": {
-		"vietnam": {
-			"applicant": [
-				"在留資格認定申請書",
-				"パスポート",
-				"写真（縦４cm×横３cm）",
-				"日本の親族や友人との関係を証明する資料",
-				"旅行費用証明書類",
-				"航空券予約確認書"
-			],
-			"guarantee": [
-				"身元保証書",
-				"住民票",
-				"納税証明書",
-				"住民税課税（又は非課税）証明書",
-				"在留カード",
-				"預金残高証明"
-			],
-			"sponsor": [
-				"招待理由書",
-				"滞在日程表",
-				"住民票",
-				"在職証明及び在学証明",
-				"在留カード"
-			]
-		},
-		"china": {
-			"applicant": [
-				"在留資格認定申請書",
-				"パスポート",
-				"写真（縦４cm×横３cm）",
-				"戸口本複印件",
-				"居住証明",
-				"日本の親族や友人との関係を証明する資料"
-			],
-			"guarantee": [
-				"身元保証書",
-				"住民票",
-				"納税証明書",
-				"住民税課税（又は非課税）証明書",
-				"在留カード",
-				"預金残高証明"
-			],
-			"sponsor": [
-				"招待理由書",
-				"滞在日程表",
-				"住民票",
-				"在職証明及び在学証明",
-				"在留カード"
-			]
-		}
-	}
+  "title": "Family Visit",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "Family Visit Required Documents",
+  "actions": {
+    "pdf": "PDF",
+    "pdfAria": "Export as PDF"
+  },
+  "ui": {
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "progress": "Progress",
+    "none": "No items",
+    "hint": "Hint"
+  },
+  "stageLabels": {
+    "vietnam": "Apply in Vietnam",
+    "china": "Apply in China"
+  },
+  "categoryLabels": {
+    "applicant": "Applicant",
+    "sponsor": "Inviter",
+    "guarantee": "Guarantor"
+  },
+  "tips": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the Immigration Services Agency website.",
+  "stageTips": {
+    "vietnam": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in Vietnam.",
+    "china": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in China."
+  },
+  "studyDocs": {
+    "vietnam": {
+      "applicant": [
+        "Application for Certificate of Eligibility",
+        "Passport",
+        "Photo (4cm × 3cm)",
+        "Documents proving relationship with relatives or friends in Japan",
+        "Documents proving travel expenses",
+        "Flight reservation confirmation"
+      ],
+      "guarantee": [
+        "Letter of Guarantee",
+        "Certificate of Residence",
+        "Tax payment certificate",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Residence card",
+        "Bank balance certificate"
+      ],
+      "sponsor": [
+        "Letter of Invitation",
+        "Schedule of stay",
+        "Certificate of Residence",
+        "Certificate of Employment or Enrollment",
+        "Residence card"
+      ]
+    },
+    "china": {
+      "applicant": [
+        "Application for Certificate of Eligibility",
+        "Passport",
+        "Photo (4cm × 3cm)",
+        "Copy of household register",
+        "Proof of residence",
+        "Documents proving relationship with relatives or friends in Japan"
+      ],
+      "guarantee": [
+        "Letter of Guarantee",
+        "Certificate of Residence",
+        "Tax payment certificate",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Residence card",
+        "Bank balance certificate"
+      ],
+      "sponsor": [
+        "Letter of Invitation",
+        "Schedule of stay",
+        "Certificate of Residence",
+        "Certificate of Employment or Enrollment",
+        "Residence card"
+      ]
+    }
+  }
 }

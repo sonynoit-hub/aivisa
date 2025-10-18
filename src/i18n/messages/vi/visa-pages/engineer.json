@@ -1,79 +1,79 @@
 {
-  "title": "技術・人文知識・国際業務",
+  "title": "Kỹ sư/Chuyên gia nhân văn/Dịch vụ quốc tế",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "技術・人文知識・国際業務ビザの必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Hồ sơ cần thiết cho visa Kỹ sư/Nhân văn/Dịch vụ quốc tế",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": {
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新",
-    "abroad": "海外申請（渡日前）"
+    "change": "Thay đổi tư cách lưu trú",
+    "extend": "Gia hạn thời gian lưu trú",
+    "abroad": "Nộp từ nước ngoài (trước khi nhập cảnh)"
   },
   "categoryLabels": {
-    "applicant": "申請人",
-    "company": "会社",
-    "optional": "任意・補足"
+    "applicant": "Người nộp đơn",
+    "company": "Công ty",
+    "optional": "Tùy chọn/Bổ sung"
   },
-  "tips": "・雇用企業はカテゴリー分類に基づく特定の事業規模と財務要件を満たす必要があります。",
+  "tips": "- Doanh nghiệp tuyển dụng cần đáp ứng các yêu cầu về quy mô và tài chính theo phân loại hạng mục.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "卒業証明書",
-        "成績証明書"
+        "Đơn xin thay đổi tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú",
+        "Giấy chứng nhận tốt nghiệp",
+        "Bảng điểm"
       ],
       "company": [
-        "雇用契約書",
-        "雇用理由書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Hợp đồng lao động",
+        "Thư nêu lý do tuyển dụng",
+        "Giấy chứng nhận đăng ký kinh doanh",
+        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
       ],
-      "optional": ["日本語能力証明（JLPT等）","職務経歴書","出席証明書"]
+      "optional": ["Chứng chỉ tiếng Nhật (JLPT, v.v.)","Sơ yếu lý lịch (kinh nghiệm làm việc)","Giấy xác nhận tham dự"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Đơn xin gia hạn thời gian lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú",
+        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế)",
+        "Giấy chứng nhận đã nộp thuế"
       ],
       "company": [
-        "雇用契約書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Hợp đồng lao động",
+        "Giấy chứng nhận đăng ký kinh doanh",
+        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
       ],
-      "optional": ["雇用理由書"]
+      "optional": ["Thư nêu lý do tuyển dụng"]
     },
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "成績証明書",
-        "学歴証明書",
-        "職務経歴書"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Bảng điểm",
+        "Bằng cấp học thuật",
+        "Sơ yếu lý lịch (kinh nghiệm làm việc)"
       ],
       "company": [
-        "返信用封筒",
-        "雇用契約書",
-        "雇用理由書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Hợp đồng lao động",
+        "Thư nêu lý do tuyển dụng",
+        "Giấy chứng nhận đăng ký kinh doanh",
+        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
       ],
-      "optional": ["日本語能力証明（JLPT等）"]
+      "optional": ["Chứng chỉ tiếng Nhật (JLPT, v.v.)"]
     }
   }
 }

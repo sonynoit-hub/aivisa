@@ -1,61 +1,61 @@
 {
-  "title": "介護",
+  "title": "Điều dưỡng (Care Worker)",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "介護 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "「技能実習」の在留資格をもって在留していたことがある場合は技能移転に係る申告書必要です。",
+  "docsTitle": "Hồ sơ cần nộp - Điều dưỡng",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "tips": "Nếu trước đây bạn đã lưu trú tại Nhật theo diện 'Thực tập sinh kỹ năng', cần nộp bản khai liên quan đến chuyển giao kỹ năng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "介護福祉士登録証（写し）"
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên (Certified Care Worker)"
       ],
       "company": [
-        "返信用封筒",
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Thông báo điều kiện lao động",
+        "Hợp đồng lao động",
+        "Hồ sơ/giới thiệu công ty"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "介護福祉士登録証（写し）"
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên"
       ],
       "company": [
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Thông báo điều kiện lao động",
+        "Hợp đồng lao động",
+        "Hồ sơ/giới thiệu công ty"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書",
-        "介護福祉士登録証（写し）"
+        "Đơn xin Gia hạn thời gian lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
+        "Giấy chứng nhận đã nộp thuế",
+        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên"
       ],
       "company": [
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Thông báo điều kiện lao động",
+        "Hợp đồng lao động",
+        "Hồ sơ/giới thiệu công ty"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình"]
     }
   }
 }

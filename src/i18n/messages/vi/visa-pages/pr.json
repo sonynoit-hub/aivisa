@@ -1,27 +1,27 @@
 {
-  "title": "永住者",
+  "title": "Thường trú nhân",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "永住許可申請必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント", "noteTitle": "ご注意" },
-  "note": "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
+  "docsTitle": "Hồ sơ cần thiết cho đơn xin Thường trú",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý", "noteTitle": "Lưu ý" },
+  "note": "Trang này chỉ mang tính tham khảo chung. Vui lòng luôn kiểm tra yêu cầu và hồ sơ mới nhất trên trang của Cục Xuất nhập cảnh: https://www.moj.go.jp/isa/.",
   "stageLabels": {
-    "work": "就労ルート",
-    "highlySkilleds": "高度人材ルート(70点以上)",
-    "highlySkilledh": "高度人材ルート(80点以上)",
-    "familyStay": "家族滞在",
-    "prSpouse": "永住者の配偶者ルート",
-    "jpSpouse": "日本人の配偶者ルート",
-    "settler": "定住者ルート"
+    "work": "Lộ trình lao động",
+    "highlySkilleds": "Lộ trình HSP (70+ điểm)",
+    "highlySkilledh": "Lộ trình HSP (80+ điểm)",
+    "familyStay": "Gia đình lưu trú",
+    "prSpouse": "Lộ trình vợ/chồng Thường trú nhân",
+    "jpSpouse": "Lộ trình vợ/chồng công dân Nhật",
+    "settler": "Lộ trình định cư dài hạn"
   },
   "categoryLabels": {
-    "applicant": "申請人",
-    "dependents": "扶養者・配偶者",
-    "optional": "任意・補足"
+    "applicant": "Người nộp đơn",
+    "dependents": "Người phụ thuộc/Vợ chồng",
+    "optional": "Tùy chọn/Bổ sung"
   },
-  "tips": "・**10年以上の継続在留**が必要（日本人・永住者の配偶者・子は短縮可能）\n\n・高度人材専門職**ポイント制**で70点以上の場合：3年以上の在留で申請可能\n\n・高度人材専門職**ポイント制**で80点以上の場合：1年以上の在留で申請可能",
+  "tips": "- Cần cư trú liên tục từ 10 năm trở lên (rút ngắn với vợ/chồng/con của công dân Nhật hoặc Thường trú nhân).\n\n- Với hệ thống điểm HSP đạt từ 70+: có thể nộp sau khi cư trú từ 3 năm trở lên.\n\n- Với hệ thống điểm HSP đạt từ 80+: có thể nộp sau khi cư trú từ 1 năm trở lên.",
   "studyDocs": {
     "work": {
       "applicant": [

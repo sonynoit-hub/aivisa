@@ -1,84 +1,84 @@
 {
-	"title": "親族訪問",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "親族訪問 必要書類",
-	"actions": {
-		"pdf": "PDF",
-		"pdfAria": "PDFとして出力"
-	},
-	"ui": {
-		"expand": "展開",
-		"collapse": "折りたたむ",
-		"progress": "進捗",
-		"none": "項目なし",
-		"hint": "ヒント"
-	},
-	"stageLabels": {
-		"vietnam": "ベトナムで申請",
-		"china": "中国で申請"
-	},
-	"categoryLabels": {
-		"applicant": "申請人",
-		"sponsor": "招待人",
-		"guarantee": "身元保証人"
-	},
-		"tips": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[出入国在留管理庁](https://www.moj.go.jp/isa/)でご確認ください",
-		"stageTips": {
-			"vietnam": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在ベトナム日本国大使館](https://www.vn.emb-japan.go.jp/itpr_ja/VN_SVisaFAM.html)をご確認ください",
-			"china": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在中国日本国大使館](https://www.cn.emb-japan.go.jp/itpr_zh/visa_shinzoku.html)をご確認ください"
-		},
-	"studyDocs": {
-		"vietnam": {
-			"applicant": [
-				"在留資格認定申請書",
-				"パスポート",
-				"写真（縦４cm×横３cm）",
-				"日本の親族や友人との関係を証明する資料",
-				"旅行費用証明書類",
-				"航空券予約確認書"
-			],
-			"guarantee": [
-				"身元保証書",
-				"住民票",
-				"納税証明書",
-				"住民税課税（又は非課税）証明書",
-				"在留カード",
-				"預金残高証明"
-			],
-			"sponsor": [
-				"招待理由書",
-				"滞在日程表",
-				"住民票",
-				"在職証明及び在学証明",
-				"在留カード"
-			]
-		},
-		"china": {
-			"applicant": [
-				"在留資格認定申請書",
-				"パスポート",
-				"写真（縦４cm×横３cm）",
-				"戸口本複印件",
-				"居住証明",
-				"日本の親族や友人との関係を証明する資料"
-			],
-			"guarantee": [
-				"身元保証書",
-				"住民票",
-				"納税証明書",
-				"住民税課税（又は非課税）証明書",
-				"在留カード",
-				"預金残高証明"
-			],
-			"sponsor": [
-				"招待理由書",
-				"滞在日程表",
-				"住民票",
-				"在職証明及び在学証明",
-				"在留カード"
-			]
-		}
-	}
+  "title": "Thăm thân nhân",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "Hồ sơ cần nộp - Thăm thân nhân",
+  "actions": {
+    "pdf": "PDF",
+    "pdfAria": "Xuất PDF"
+  },
+  "ui": {
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn",
+    "progress": "Tiến độ",
+  "none": "Không có nội dung",
+    "hint": "Gợi ý"
+  },
+  "stageLabels": {
+    "vietnam": "Nộp tại Việt Nam",
+    "china": "Nộp tại Trung Quốc"
+  },
+  "categoryLabels": {
+    "applicant": "Đương đơn",
+    "sponsor": "Người mời",
+    "guarantee": "Người bảo lãnh"
+  },
+  "tips": "- Tư cách Thăm thân nhân dành cho việc thăm thân hoặc lưu trú ngắn hạn với người Nhật hoặc người đang cư trú tại Nhật.\n\n- Tùy mối quan hệ và hoàn cảnh, thường sẽ được cấp thời gian lưu trú tối đa 90 ngày.\n\n- Cần có hồ sơ từ cả đương đơn và người bảo lãnh (thân nhân cư trú tại Nhật).\n\n- Vui lòng kiểm tra yêu cầu mới nhất trên trang của Cục Xuất nhập cảnh.",
+  "stageTips": {
+    "vietnam": "- Tư cách Thăm thân nhân dành cho việc thăm thân hoặc lưu trú ngắn hạn với người Nhật hoặc người đang cư trú tại Nhật.\n\n- Tùy mối quan hệ và hoàn cảnh, thường sẽ được cấp thời gian lưu trú tối đa 90 ngày.\n\n- Cần có hồ sơ từ cả đương đơn và người bảo lãnh (thân nhân cư trú tại Nhật).\n\n- Vui lòng kiểm tra yêu cầu mới nhất trên trang của Đại sứ quán Nhật Bản tại Việt Nam.",
+    "china": "- Tư cách Thăm thân nhân dành cho việc thăm thân hoặc lưu trú ngắn hạn với người Nhật hoặc người đang cư trú tại Nhật.\n\n- Tùy mối quan hệ và hoàn cảnh, thường sẽ được cấp thời gian lưu trú tối đa 90 ngày.\n\n- Cần có hồ sơ từ cả đương đơn và người bảo lãnh (thân nhân cư trú tại Nhật).\n\n- Vui lòng kiểm tra yêu cầu mới nhất trên trang của Đại sứ quán Nhật Bản tại Trung Quốc."
+  },
+  "studyDocs": {
+    "vietnam": {
+      "applicant": [
+        "Đơn xin Cấp tư cách lưu trú",
+        "Hộ chiếu",
+        "Ảnh (4cm × 3cm)",
+        "Tài liệu chứng minh mối quan hệ với thân nhân/bạn bè tại Nhật",
+        "Tài liệu chứng minh chi phí chuyến đi",
+        "Xác nhận đặt vé máy bay"
+      ],
+      "guarantee": [
+        "Thư bảo lãnh",
+        "Giấy chứng nhận cư trú (juminhyo)",
+        "Giấy chứng nhận đã nộp thuế",
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
+        "Thẻ cư trú",
+        "Giấy xác nhận số dư ngân hàng"
+      ],
+      "sponsor": [
+        "Thư mời",
+        "Lịch trình lưu trú",
+        "Giấy chứng nhận cư trú (juminhyo)",
+        "Giấy chứng nhận đang làm việc/học tập",
+        "Thẻ cư trú"
+      ]
+    },
+    "china": {
+      "applicant": [
+        "Đơn xin Cấp tư cách lưu trú",
+        "Hộ chiếu",
+        "Ảnh (4cm × 3cm)",
+        "Bản sao sổ hộ khẩu",
+        "Giấy chứng nhận cư trú",
+        "Tài liệu chứng minh mối quan hệ với thân nhân/bạn bè tại Nhật"
+      ],
+      "guarantee": [
+        "Thư bảo lãnh",
+        "Giấy chứng nhận cư trú (juminhyo)",
+        "Giấy chứng nhận đã nộp thuế",
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
+        "Thẻ cư trú",
+        "Giấy xác nhận số dư ngân hàng"
+      ],
+      "sponsor": [
+        "Thư mời",
+        "Lịch trình lưu trú",
+        "Giấy chứng nhận cư trú (juminhyo)",
+        "Giấy chứng nhận đang làm việc/học tập",
+        "Thẻ cư trú"
+      ]
+    }
+  }
 }

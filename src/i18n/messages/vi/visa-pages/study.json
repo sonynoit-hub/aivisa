@@ -1,69 +1,68 @@
 {
-  "title": "留学",
-  
+  "title": "Du học",
   "sections": [],
-  "docsTitle": "留学ビザの必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Hồ sơ cần thiết cho visa Du học",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": {
-    "abroad": "海外申請（渡日前）",
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新"
+    "abroad": "Nộp từ nước ngoài (trước khi nhập cảnh)",
+    "change": "Thay đổi tư cách lưu trú",
+    "extend": "Gia hạn thời gian lưu trú"
   },
   "categoryLabels": {
-    "applicant": "申請人",
-    "school": "学校",
-    "optional": "任意・補足"
+    "applicant": "Người nộp đơn",
+    "school": "Trường",
+    "optional": "Tùy chọn/Bổ sung"
   },
-  "tips": "**資格外活動許可**で週28時間以内のアルバイトが可能\n\n・ビザステータス維持のため**適切な学業成績と出席率**の維持が必要",
+  "tips": "Với Giấy phép hoạt động ngoài tư cách lưu trú, được phép làm thêm tối đa 28 giờ/tuần.\n\n- Để duy trì tư cách visa, cần giữ thành tích học tập và tỉ lệ chuyên cần phù hợp.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "経費支弁書"
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Chứng nhận học vấn cao nhất",
+        "Bảng điểm",
+        "Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+        "Cam kết bảo lãnh tài chính"
       ],
       "school": [
-        "返信用封筒", 
-        "学校提出書類"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Tài liệu theo yêu cầu của trường"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Giấy chứng nhận liên quan đến học bổng"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "経費支弁書"
+        "Đơn xin thay đổi tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú",
+        "Chứng nhận học vấn cao nhất",
+        "Bảng điểm",
+        "Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+        "Cam kết bảo lãnh tài chính"
       ],
       "school": [
-        "学校提出書類"
+        "Tài liệu theo yêu cầu của trường"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Giấy chứng nhận liên quan đến học bổng"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "最終学歴証明",
-        "成績証明",
-        "日本語能力証明（JLPT等）",
-        "滞在費支弁に関する申告書"
+        "Đơn xin gia hạn thời gian lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ lưu trú",
+        "Chứng nhận học vấn cao nhất",
+        "Bảng điểm",
+        "Chứng chỉ tiếng Nhật (JLPT, v.v.)",
+        "Tờ khai về việc chu cấp chi phí lưu trú"
       ],
       "school": [
-        "学校提出書類"
+        "Tài liệu theo yêu cầu của trường"
       ],
-      "optional": ["奨学金の給付に関する証明書"]
+      "optional": ["Giấy chứng nhận liên quan đến học bổng"]
     }
   }
 }

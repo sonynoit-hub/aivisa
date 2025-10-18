@@ -1,30 +1,30 @@
 {
-  "title": "高度専門職2号",
+  "title": "Highly Skilled Professional (ii)",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "高度専門職2号 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
-  "stageLabels": { "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "optional": "任意" },
-  "tips": "・活動内容に変更がある場合は、各在留資格の案内ページからダウンロードして御使用ください。\n\n> 📊 **ポイント計算ツールを使用**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** 3年以上の高度専門職1号経験と70点以上の維持証明が必要です。",
+  "docsTitle": "Highly Skilled Professional (ii) Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
+  "stageLabels": { "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "optional": "Optional" },
+  "tips": "- If your activity contents change, please download the appropriate forms from the respective status guidance pages.\n\n> 📊 Use the points calculator\n> \n> 🔗 [Highly Skilled Professional Points Calculator](/ja/tools/hsp-points)\n> \n> ⚠️ Important: Proof of 3+ years of Highly Skilled Professional (i) experience and maintenance of 70+ points is required.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料",
-        "直近3年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料"
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Points calculation sheet",
+        "Supporting documents for each item in the points calculation",
+        "Documents proving resident tax payment status for the past 3 years",
+        "Documents confirming national tax payment status",
+        { "group": "Proof of income", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Documents proving payment status of public pension premiums for the past 2 years",
+        "Documents proving payment status of public health insurance premiums for the past 2 years"
       ],
-      "optional": ["理由書"]
+      "optional": ["Letter of explanation"]
     }
   }
 }

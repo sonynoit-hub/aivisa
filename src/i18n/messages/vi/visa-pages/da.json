@@ -1,67 +1,67 @@
 {
-	"title": "特定活動（就職活動）",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "特定活動（就職活動） 必要書類",
-	"actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-	"ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-	"stageLabels": { "university": "大学", "vocational": "専門学校", "japSchool": "日本語学校" },
-	"categoryLabels": { "applicant": "申請人", "school": "学校", "optional": "任意" },
-	"tips": "・特定活動ビザは**法務大臣が個別に指定する活動**のためのビザです\n\n・指定活動に応じて**異なる条件や必要書類**が設定されます。",
-	"studyDocs": {
-		"university": {
-			"applicant": [
-				"在留資格変更許可申請書",
-			    "写真（縦４cm×横３cm）",
-				"パスポート",
-				"在留カード",
-				"経費の支弁能力を証明する書類",
-				"卒業証書（写し）又は卒業証明書",
-				"就職活動証明"
-			],
-			"school": [
-				"就職活動推薦状"
-			],
-			"optional": ["申請理由書"]
-		},
-		"vocational": {
-			"applicant": [
-				"在留資格変更許可申請書",
-			    "写真（縦４cm×横３cm）",
-				"パスポート",
-				"在留カード",
-				"経費の支弁能力を証明する書類",
-				"卒業証書（写し）又は卒業証明書",
-				"就職活動証明"
-			],
-			"school": [
-				"就職活動推薦状",
-				"専門士称号証明書",
-				"専修学校卒業証書",
-				"専門課程修得内容資料"
-			],
-			"optional": ["申請理由書"]
-		},
-		"japSchool": {
-			"applicant": [
-				"在留資格変更許可申請書",
-			    "写真（縦４cm×横３cm）",
-				"パスポート",
-				"在留カード",
-				"経費の支弁能力を証明する書類",
-				"卒業証書（写し）又は卒業証明書",
-				"就職活動証明"
-			],
-			"school": [
-				"就職活動推薦状",
-				"日本語学校卒業証明",
-				"出席証明",
-				"継続就職活動に関する証明書",
-				"就職活動に関する情報提供を受ける旨の確認書",
-				"要件確認資料"
-			],
-			"optional": ["申請理由書"]
-		}
-	}
+  "title": "Hoạt động chỉ định (tìm việc)",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "Hồ sơ cần nộp - Hoạt động chỉ định (tìm việc)",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "university": "Đại học", "vocational": "Trường nghề", "japSchool": "Trường tiếng Nhật" },
+  "categoryLabels": { "applicant": "Đương đơn", "school": "Nhà trường", "optional": "Tùy chọn" },
+  "tips": "- Visa Hoạt động chỉ định dành cho các hoạt động do Bộ trưởng Tư pháp chỉ định riêng.\n\n- Điều kiện và giấy tờ yêu cầu khác nhau tùy theo hoạt động được chỉ định.",
+  "studyDocs": {
+    "university": {
+      "applicant": [
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy tờ chứng minh khả năng chi trả chi phí",
+        "Bằng tốt nghiệp (bản sao) hoặc Giấy chứng nhận tốt nghiệp",
+        "Chứng minh hoạt động tìm việc"
+      ],
+      "school": [
+        "Thư giới thiệu phục vụ tìm việc"
+      ],
+      "optional": ["Thư giải trình"]
+    },
+    "vocational": {
+      "applicant": [
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy tờ chứng minh khả năng chi trả chi phí",
+        "Bằng tốt nghiệp (bản sao) hoặc Giấy chứng nhận tốt nghiệp",
+        "Chứng minh hoạt động tìm việc"
+      ],
+      "school": [
+        "Thư giới thiệu phục vụ tìm việc",
+        "Giấy chứng nhận danh hiệu 'Senmonshi'",
+        "Bằng tốt nghiệp trường nghề",
+        "Tài liệu thể hiện chương trình chuyên môn đã hoàn thành"
+      ],
+      "optional": ["Thư giải trình"]
+    },
+    "japSchool": {
+      "applicant": [
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy tờ chứng minh khả năng chi trả chi phí",
+        "Bằng tốt nghiệp (bản sao) hoặc Giấy chứng nhận tốt nghiệp",
+        "Chứng minh hoạt động tìm việc"
+      ],
+      "school": [
+        "Thư giới thiệu phục vụ tìm việc",
+        "Giấy chứng nhận tốt nghiệp trường tiếng Nhật",
+        "Giấy chứng nhận điểm danh",
+        "Giấy chứng nhận về việc tiếp tục tìm việc",
+        "Xác nhận đã nhận thông tin liên quan đến tìm việc",
+        "Tài liệu xác nhận điều kiện"
+      ],
+      "optional": ["Thư giải trình"]
+    }
+  }
 }

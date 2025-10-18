@@ -1,93 +1,93 @@
 {
-  "title": "日本人の配偶者等",
+  "title": "Spouse or Child of Japanese National",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "日本人の配偶者等 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "配偶者（日本人）", "optional": "任意" },
-  "tips": "・**書類要件**は結婚時期、国籍、結婚履歴によって異なります。\n\n> ⚠️ **重要:** 偶装結婚や虚偽申請は重大な犯罪です。必ず真実の情報を提供してください。",
+  "docsTitle": "Spouse or Child of Japanese National Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from overseas", "inJapan": "Apply in Japan", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "dependents": "Spouse (Japanese)", "optional": "Optional" },
+  "tips": "- Required documents differ depending on timing of marriage, nationality, and marriage history.\n\n> ⚠️ Important: Fake marriages and false applications are serious crimes. Always provide truthful information.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Marriage certificate"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）",
-        "返信用封筒"
+        "Family registry (koseki tohon) of the Japanese spouse",
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of funds", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Japanese spouse",
+        "Certificate of residence (all household members listed)",
+        "Questionnaire",
+        { "group": "Evidence of marital communication", "options": ["SNS records","Call logs"], "pick": "one" },
+        "Snapshot photos (2–3)",
+        "Self-addressed stamped envelope"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "出生証明書"
+        "Application for permission to acquire status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Birth certificate"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "結婚証明書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）"
+        "Family registry (koseki tohon) of the Japanese spouse",
+        "Marriage certificate",
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of funds", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Japanese spouse",
+        "Certificate of residence (all household members listed)",
+        "Questionnaire",
+        { "group": "Evidence of marital communication", "options": ["SNS records","Call logs"], "pick": "one" },
+        "Snapshot photos (2–3)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード"
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "結婚証明書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
-        "スナップ写真（２～３葉）"
+        "Family registry (koseki tohon) of the Japanese spouse",
+        "Marriage certificate",
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of funds", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Japanese spouse",
+        "Certificate of residence (all household members listed)",
+        "Questionnaire",
+        { "group": "Evidence of marital communication", "options": ["SNS records","Call logs"], "pick": "one" },
+        "Snapshot photos (2–3)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード"
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card"
       ],
       "dependents": [
-        "配偶者（日本人）の方の戸籍謄本",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（日本人）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Family registry (koseki tohon) of the Japanese spouse",
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of funds", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Japanese spouse",
+        "Certificate of residence (all household members listed)"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     }
   }
 }

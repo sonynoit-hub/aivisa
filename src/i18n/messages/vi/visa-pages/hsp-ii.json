@@ -1,30 +1,30 @@
 {
-  "title": "高度専門職2号",
+  "title": "Lao động trình độ cao (ii)",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "高度専門職2号 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
-  "stageLabels": { "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "optional": "任意" },
-  "tips": "・活動内容に変更がある場合は、各在留資格の案内ページからダウンロードして御使用ください。\n\n> 📊 **ポイント計算ツールを使用**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** 3年以上の高度専門職1号経験と70点以上の維持証明が必要です。",
+  "docsTitle": "Hồ sơ cần nộp - Lao động trình độ cao (ii)",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Đương đơn", "optional": "Tùy chọn" },
+  "tips": "- Nếu nội dung hoạt động có thay đổi, vui lòng tải biểu mẫu phù hợp từ trang hướng dẫn của tư cách lưu trú tương ứng.\n\n> 📊 Sử dụng công cụ tính điểm\n> \n> 🔗 [Công cụ tính điểm Lao động trình độ cao](/ja/tools/hsp-points)\n> \n> ⚠️ Quan trọng: Cần chứng minh có từ 3 năm kinh nghiệm HSP (i) trở lên và duy trì từ 70 điểm trở lên.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料",
-        "直近3年分の住民税の納付状況を証明する資料",
-        "国税の納付状況を確認する資料",
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料"
+        "Đơn xin thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Bảng tính điểm",
+        "Tài liệu chứng minh cho từng mục trong bảng tính điểm",
+        "Tài liệu chứng minh tình trạng nộp thuế cư trú 3 năm gần nhất",
+        "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+        { "group": "Tài liệu chứng minh thu nhập/tài sản", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
+        "Tài liệu chứng minh tình trạng đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+        "Tài liệu chứng minh tình trạng đóng bảo hiểm y tế công trong 2 năm gần nhất"
       ],
-      "optional": ["理由書"]
+      "optional": ["Thư giải trình"]
     }
   }
 }

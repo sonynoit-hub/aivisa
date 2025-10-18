@@ -1,104 +1,104 @@
 {
-  "title": "経営・管理",
+  "title": "Kinh doanh/Quản lý",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "経営・管理 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "・**常勤職員の雇用義務**：会社で1名以上の常勤職員（日本人または身分系在留資格者）の雇用が必須。\n\n・**資本金等の基準**：最低3,000万円以上が必要。\n\n・**日本語能力**：申請者または常勤職員のいずれかが日本語能力N2以上を有すること。\n\n・**学歴・職歴**：関連分野の修士・博士・専門職学位、または経営・管理実務3年以上。\n\n・**事業計画の専門家確認**：提出する事業計画書は中小企業診断士・公認会計士・税理士等による確認が必須。\n\n・**事業所要件**：規模に見合う専用事業所の確保が必要。自宅兼用は原則不可。",
+  "docsTitle": "Hồ sơ cần nộp - Kinh doanh/Quản lý",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "tips": "- Yêu cầu tuyển dụng ít nhất 1 nhân viên chính thức (quốc tịch Nhật hoặc người có tư cách lưu trú phù hợp).\n\n- Vốn tối thiểu: từ 30.000.000 JPY.\n\n- Năng lực tiếng Nhật: Đương đơn hoặc một nhân viên chính thức phải có JLPT N2 trở lên.\n\n- Học vấn/Kinh nghiệm: Bằng cấp chuyên môn liên quan (Thạc sĩ, Tiến sĩ, Chuyên môn) hoặc kinh nghiệm quản lý/kinh doanh từ 3 năm.\n\n- Xác nhận kế hoạch kinh doanh bởi chuyên gia: Kế hoạch nộp phải được xác nhận bởi chuyên gia như tư vấn quản lý SME, CPA hoặc kế toán thuế.\n\n- Yêu cầu văn phòng: Có văn phòng chuyên dụng phù hợp với quy mô. Nguyên tắc là không dùng nhà ở làm văn phòng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "卒業証明書",
-        { "group": "日本語能力を明らかにする資料", "options": ["日本語能力証明（JLPT等）", "その他の資料"], "pick": "one" },
-        { "group": "経歴を明らかにする次のいずれかの資料", "options": ["専門職学位証明書", "履歴書","在職証明書等"], "pick": "one" },
-        "出資金の形成過程説明を証明できる書類",
-        "申請理由書"
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Giấy chứng nhận tốt nghiệp",
+        { "group": "Tài liệu chứng minh năng lực tiếng Nhật", "options": ["Chứng nhận năng lực tiếng Nhật (JLPT, v.v.)", "Tài liệu khác"], "pick": "one" },
+        { "group": "Một trong các tài liệu sau chứng minh kinh nghiệm", "options": ["Chứng nhận bằng cấp chuyên môn", "Sơ yếu lý lịch","Giấy chứng nhận đang làm việc, v.v."], "pick": "one" },
+        "Tài liệu giải thích quá trình hình thành vốn đầu tư",
+        "Thư giải trình"
       ],
       "company": [
-        "法人口座の写し",
-        "定款の写し",
-        "事業計画書の写し",
-        "登記事項証明書",
-        "役員報酬を決議した株主総会議事録の写し",
-        "選任及び本店所在地決議書の写し",
-        "設立時代表取締役選定決議書の写し",
-        "就任承諾書の写し",
-        "払込証明書の写し",
-        "取引先、仕入先と交わした契約書、請求書など",
-        { "group": "事務所用施設の存在を明らかにする資料", "options": ["不動産登記簿謄本", "賃貸借契約書","その他の資料"], "pick": "one" },
-        "給与支払事務所等の開設届出書の写し",
-        "源泉所得税の納期の特例の承認に関する申請書の写し",
-        "法人設立届出書の写し",
-        "青色申告の承認申請書の写し",
-        "法人（設立時）の事業概況書の写し",
-        { "group": "事業規模を明らかにする資料", "options": ["常勤の職員が一人以上", "貸借対照表","その他の資料"], "pick": "one" },
-        "事務所の写真",
-        "返信用封筒"
+        "Bản sao sổ/sao kê tài khoản ngân hàng công ty",
+        "Bản sao Điều lệ công ty",
+        "Bản sao kế hoạch kinh doanh",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)",
+        "Bản sao biên bản họp cổ đông về thù lao lãnh đạo",
+        "Bản sao nghị quyết về bổ nhiệm và trụ sở chính",
+        "Bản sao nghị quyết chọn đại diện pháp luật khi thành lập",
+        "Bản sao thư chấp nhận bổ nhiệm",
+        "Bản sao chứng nhận góp vốn",
+        "Hợp đồng/hóa đơn với khách hàng và nhà cung cấp",
+        { "group": "Tài liệu chứng minh sự tồn tại của văn phòng", "options": ["Sổ đăng ký bất động sản", "Hợp đồng thuê", "Tài liệu khác"], "pick": "one" },
+        "Bản sao thông báo mở địa điểm chi trả lương",
+        "Bản sao đơn xin chấp thuận thời hạn đặc biệt nộp thuế khấu trừ",
+        "Bản sao thông báo thành lập pháp nhân",
+        "Bản sao đơn xin chấp thuận kê khai thuế màu xanh",
+        "Bản sao tờ khai tổng quan kinh doanh khi thành lập",
+        { "group": "Tài liệu thể hiện quy mô doanh nghiệp", "options": ["Ít nhất một nhân viên chính thức", "Bảng cân đối kế toán", "Tài liệu khác"], "pick": "one" },
+        "Ảnh văn phòng",
+        "Phong bì có dán tem ghi địa chỉ người nhận"
       ],
       "optional": [
-        "許可書等の写し"
+        "Bản sao giấy phép/giấy chứng nhận"
       ]
     },
     "change": {
-            "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "卒業証明書",
-        { "group": "日本語能力を明らかにする資料", "options": ["日本語能力証明（JLPT等）", "その他の資料"], "pick": "one" },
-        { "group": "経歴を明らかにする次のいずれかの資料", "options": ["専門職学位証明書", "履歴書","在職証明書等"], "pick": "one" },
-        "出資金の形成過程説明を証明できる書類",
-        "申請理由書"
+      "applicant": [
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy chứng nhận tốt nghiệp",
+        { "group": "Tài liệu chứng minh năng lực tiếng Nhật", "options": ["Chứng nhận năng lực tiếng Nhật (JLPT, v.v.)", "Tài liệu khác"], "pick": "one" },
+        { "group": "Một trong các tài liệu sau chứng minh kinh nghiệm", "options": ["Chứng nhận bằng cấp chuyên môn", "Sơ yếu lý lịch","Giấy chứng nhận đang làm việc, v.v."], "pick": "one" },
+        "Tài liệu giải thích quá trình hình thành vốn đầu tư",
+        "Thư giải trình"
       ],
       "company": [
-        "法人口座の写し",
-        "定款の写し",
-        "事業計画書の写し",
-        "登記事項証明書",
-        "役員報酬を決議した株主総会議事録の写し",
-        "選任及び本店所在地決議書の写し",
-        "設立時代表取締役選定決議書の写し",
-        "就任承諾書の写し",
-        "払込証明書の写し",
-        "取引先、仕入先と交わした契約書、請求書など",
-        { "group": "事務所用施設の存在を明らかにする資料", "options": ["不動産登記簿謄本", "賃貸借契約書","その他の資料"], "pick": "one" },
-        "給与支払事務所等の開設届出書の写し",
-        "源泉所得税の納期の特例の承認に関する申請書の写し",
-        "法人設立届出書の写し",
-        "青色申告の承認申請書の写し",
-        "法人（設立時）の事業概況書の写し",
-        { "group": "事業規模を明らかにする資料", "options": ["常勤の職員が一人以上", "貸借対照表","その他の資料"], "pick": "one" },
-        "事務所の写真"
+        "Bản sao sổ/sao kê tài khoản ngân hàng công ty",
+        "Bản sao Điều lệ công ty",
+        "Bản sao kế hoạch kinh doanh",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)",
+        "Bản sao biên bản họp cổ đông về thù lao lãnh đạo",
+        "Bản sao nghị quyết về bổ nhiệm và trụ sở chính",
+        "Bản sao nghị quyết chọn đại diện pháp luật khi thành lập",
+        "Bản sao thư chấp nhận bổ nhiệm",
+        "Bản sao chứng nhận góp vốn",
+        "Hợp đồng/hóa đơn với khách hàng và nhà cung cấp",
+        { "group": "Tài liệu chứng minh sự tồn tại của văn phòng", "options": ["Sổ đăng ký bất động sản", "Hợp đồng thuê", "Tài liệu khác"], "pick": "one" },
+        "Bản sao thông báo mở địa điểm chi trả lương",
+        "Bản sao đơn xin chấp thuận thời hạn đặc biệt nộp thuế khấu trừ",
+        "Bản sao thông báo thành lập pháp nhân",
+        "Bản sao đơn xin chấp thuận kê khai thuế màu xanh",
+        "Bản sao tờ khai tổng quan kinh doanh khi thành lập",
+        { "group": "Tài liệu thể hiện quy mô doanh nghiệp", "options": ["Ít nhất một nhân viên chính thức", "Bảng cân đối kế toán", "Tài liệu khác"], "pick": "one" },
+        "Ảnh văn phòng"
       ],
       "optional": [
-        "許可書等の写し"
+        "Bản sao giấy phép/giấy chứng nhận"
       ]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Đơn xin Gia hạn thời gian lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
+        "Giấy chứng nhận đã nộp thuế"
       ],
       "company": [
-        "法定調書合計表（写し）",
-        "直近の年度の決算文書（写し）",
-        "登記事項証明書"
+        "Bản sao bảng tổng hợp chứng từ pháp định",
+        "Bản sao báo cáo tài chính năm gần nhất",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)"
       ],
       "optional": [
-        "申請理由書",
-        "会社パンフレット"
+        "Thư giải trình",
+        "Tờ giới thiệu công ty"
       ]
     }
   }

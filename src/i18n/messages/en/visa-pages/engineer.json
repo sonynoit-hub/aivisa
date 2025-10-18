@@ -1,79 +1,79 @@
 {
-  "title": "技術・人文知識・国際業務",
+  "title": "Engineer/Specialist in Humanities/International Services",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "技術・人文知識・国際業務ビザの必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Required Documents for Engineer/Humanities/International Services Visa",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": {
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新",
-    "abroad": "海外申請（渡日前）"
+    "change": "Change status of residence",
+    "extend": "Extend period of stay",
+    "abroad": "Apply from overseas (before entry)"
   },
   "categoryLabels": {
-    "applicant": "申請人",
-    "company": "会社",
-    "optional": "任意・補足"
+    "applicant": "Applicant",
+    "company": "Company",
+    "optional": "Optional/Supplementary"
   },
-  "tips": "・雇用企業はカテゴリー分類に基づく特定の事業規模と財務要件を満たす必要があります。",
+  "tips": "- The employing company must meet certain business scale and financial requirements based on category classification.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "卒業証明書",
-        "成績証明書"
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Graduation certificate",
+        "Academic transcript"
       ],
       "company": [
-        "雇用契約書",
-        "雇用理由書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Employment contract",
+        "Letter stating reason for employment",
+        "Certificate of registered matters",
+        "Company/Business overview (company brochure, etc.)",
+        { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
+        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
       ],
-      "optional": ["日本語能力証明（JLPT等）","職務経歴書","出席証明書"]
+      "optional": ["Proof of Japanese proficiency (JLPT, etc.)","Resume (work history)","Certificate of attendance"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Tax payment certificate"
       ],
       "company": [
-        "雇用契約書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Employment contract",
+        "Certificate of registered matters",
+        "Company/Business overview (company brochure, etc.)",
+        { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
+        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
       ],
-      "optional": ["雇用理由書"]
+      "optional": ["Letter stating reason for employment"]
     },
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "成績証明書",
-        "学歴証明書",
-        "職務経歴書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Academic transcript",
+        "Academic degree certificate",
+        "Resume (work history)"
       ],
       "company": [
-        "返信用封筒",
-        "雇用契約書",
-        "雇用理由書",
-        "登記事項証明書",
-        "事業内容説明書（会社案内等）",
-        { "group": "決算文書", "options": ["直近の年度の決算文書（写し）", "新規事業の場合は事業計画書"], "pick": "one" },
-        { "group": "法定調書合計表", "options": ["法定調書合計表（写し）", "給与支払事務所等の開設届出書（写し）"], "pick": "one" }
+        "Self-addressed stamped envelope",
+        "Employment contract",
+        "Letter stating reason for employment",
+        "Certificate of registered matters",
+        "Company/Business overview (company brochure, etc.)",
+        { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
+        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
       ],
-      "optional": ["日本語能力証明（JLPT等）"]
+      "optional": ["Proof of Japanese proficiency (JLPT, etc.)"]
     }
   }
 }

@@ -1,52 +1,52 @@
 {
-  "title": "定住者",
+  "title": "Long-Term Resident",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "定住者 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "prstepchildren": "連れ子の定住者(永住者扶養)", "jpspousestepchildren": "連れ子の定住者(日本人の配偶者)" },
-  "categoryLabels": { "applicant": "申請人", "guarantor": "扶養者", "optional": "任意" },
-  "tips": "・定住者ビザは**特別な事情を持つ外国人**（連れ子、難民、離婚・死別後の継続在留者等）のためのビザです。",
+  "docsTitle": "Long-Term Resident Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "prstepchildren": "Stepchild of Permanent Resident (dependent)", "jpspousestepchildren": "Stepchild of Japanese spouse" },
+  "categoryLabels": { "applicant": "Applicant", "guarantor": "Sponsor", "optional": "Optional" },
+  "tips": "- The Long-Term Resident visa is for foreign nationals with special circumstances (e.g., stepchildren, refugees, those remaining in Japan after divorce or bereavement).",
   "studyDocs": {
     "prstepchildren": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "出生証明書",
-        "申請人の無犯罪経歴証明書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Birth certificate",
+        "Applicant's police clearance certificate"
       ],
       "guarantor": [
-        "返信用封筒",
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        "扶養者の住民票",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        "申請理由書"
+        "Self-addressed stamped envelope",
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)",
+        "Sponsor's certificate of residence",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        { "group": "Proof of income/assets", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee",
+        "Statement of reasons"
       ],
-      "optional": ["認知に係る証明書(ある方のみ)"]
+      "optional": ["Certificate related to acknowledgement (if applicable)"]
     },
     "jpspousestepchildren": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "出生証明書"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Birth certificate"
       ],
       "guarantor": [
-        "返信用封筒",
-        "戸籍謄本（全部事項証明書）",
-        "住民票（世帯全員の記載があるもの）",
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        "申請理由書"
+        "Self-addressed stamped envelope",
+        "Family registry (koseki tohon; full items)",
+        "Certificate of residence (with all household members listed)",
+        "Resident tax taxation (or non-taxation) certificate (most recent year)",
+        "Tax payment certificate (most recent year)",
+        { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
+        { "group": "Proof of income/assets", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee",
+        "Statement of reasons"
       ],
-      "optional": ["認知に係る証明書(ある方のみ)"]
+      "optional": ["Certificate related to acknowledgement (if applicable)"]
     }
   }
 }

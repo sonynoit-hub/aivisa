@@ -1,131 +1,131 @@
 {
-  "title": "特定技能",
+  "title": "Specified Skilled Worker",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "特定技能 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "docsTitle": "Specified Skilled Worker Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
   "stageLabels": {
-    "foodManufacturing": "飲食料品製造業",
-    "industrialManufacturing": "工業製品製造業",
-    "care": "介護",
-    "construction": "建設",
-    "agriculture": "農業",
-    "foodService": "外食業",
-    "shipbuildingMarine": "造船・舶用工業"
+    "foodManufacturing": "Food and Beverage Manufacturing",
+    "industrialManufacturing": "Industrial Product Manufacturing",
+    "care": "Caregiving",
+    "construction": "Construction",
+    "agriculture": "Agriculture",
+    "foodService": "Food Service",
+    "shipbuildingMarine": "Shipbuilding and Marine Industry"
   },
-  "categoryLabels": { "applicant": "申請人", "company": "所属機関", "optional": "任意" },
-  "tips": "・書類の要件は業種分野やスキルレベルによって異なります。\n\n・個人の事情によって、出入国在留管理庁から追加書類の提出を求められる場合があります。\n\n・さらなるサポートが必要な場合は、お気軽にお問い合わせください。",
+  "categoryLabels": { "applicant": "Applicant", "company": "Affiliated organization", "optional": "Optional" },
+  "tips": "- Requirements vary by industry field and skill level.\n\n- Depending on personal circumstances, you may be asked by the Immigration Services Agency to submit additional documents.\n\n- If you need further support, feel free to contact us.",
   "studyDocs": {
     "foodManufacturing": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["飲食料品製造業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Food and Beverage Manufacturing Skills Test pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "協議会の構成員であることの証明書"
+        "Letter of undertaking",
+        "Certificate proving membership in the relevant council"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "industrialManufacturing": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["製造分野特定技能１号評価試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Manufacturing Field Evaluation Test pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "JAIMの構成員名簿"
+        "Letter of undertaking",
+        "JAIM membership list"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "care": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①必要書類", "options": ["介護福祉士養成施設の卒業証明書の写し", "直近の介護福祉士国家試験の結果通知書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "②①に該当しない場合", "options": ["介護技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "Required documents (any one)", "options": ["Copy of graduation certificate from a certified care worker training institution", "Copy of the latest National Care Worker Exam result notice", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Practical Skills Test pass certificate for Caregiving (advanced level)", "Evaluation report for technical intern trainees"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "事業所の概要書",
-        "協議会の構成員であることの証明書"
+        "Letter of undertaking",
+        "Business office overview",
+        "Certificate proving membership in the relevant council"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "construction": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["建設分野特定技能１号評価試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Construction Field Evaluation Test pass certificate", "Copy of National Skills Test Grade 3 pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "建設特定技能受入計画の認定証の写し"
+        "Letter of undertaking",
+        "Copy of certification for acceptance plan in Construction SSW field"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "agriculture": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["農業技能評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["１号農業技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test for Agriculture (advanced level) pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Agriculture Skills Measurement Test pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "協議会の構成員であることの証明書"
+        "Letter of undertaking",
+        "Certificate proving membership in the relevant council"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "foodService": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["医療・福祉施設給食製造技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["外食業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test pass certificate for meal preparation in medical/welfare facilities (advanced level)", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Food Service Skills Test pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "飲食店営業の営業許可証又は届出書の写し",
-        "旅館業法の旅館・ホテル営業の営業許可証の写し",
-        "風営法の風俗営業の営業許可証の写し",
-        "協議会の構成員であることの証明書"
+        "Letter of undertaking",
+        "Copy of restaurant business license or notification",
+        "Copy of hotel business license under the Inns and Hotels Act",
+        "Copy of adult entertainment business license under the Entertainment Business Act",
+        "Certificate proving membership in the relevant council"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     },
     "shipbuildingMarine": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能検定３級の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["造船・舶用工業分野特定技能１号試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
-        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test pass certificate (advanced level)", "Copy of National Skills Test Grade 3 practical exam pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Shipbuilding/Marine Industry Test pass certificate", "Copy of National Skills Test Grade 3 pass certificate"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        "Passport"
       ],
       "company": [
-        "誓約書",
-        "造船・舶用工業事業者の確認通知書",
-        "協議会の構成員であることの証明書"
+        "Letter of undertaking",
+        "Confirmation notice for shipbuilding/marine industry operator",
+        "Certificate proving membership in the relevant council"
       ],
-      "optional": ["申請人名簿"]
+      "optional": ["Applicant list"]
     }
   }
 }

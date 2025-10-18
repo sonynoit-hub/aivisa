@@ -1,83 +1,83 @@
 {
-  "title": "家族滞在",
+  "title": "Người phụ thuộc",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "家族滞在 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外から申請", "change": "在留資格の変更", "extend": "在留期間の更新", "inJapan": "日本国内で申請" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "扶養者・家族", "optional": "任意・補足" },
-  "tips": "・家族滞在資格保持者は別途申請で**アルバイト許可**を取得できます。",
+  "docsTitle": "Hồ sơ cần nộp - Người phụ thuộc",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú", "inJapan": "Nộp trong Nhật Bản" },
+  "categoryLabels": { "applicant": "Đương đơn", "dependents": "Người bảo lãnh/Gia đình", "optional": "Tùy chọn/Bổ sung" },
+  "tips": "- Người có tư cách lưu trú Người phụ thuộc có thể xin phép làm thêm theo diện riêng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
-        "返信用封筒",
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
-      "optional": ["スナップ写真","預金残高証明書"]
+      "optional": ["Ảnh chụp", "Giấy xác nhận số dư ngân hàng"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Giấy xác nhận số dư ngân hàng"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+        "Đơn xin Gia hạn thời gian lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）"
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Giấy xác nhận số dư ngân hàng"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        { "group": "それぞれ定める書類", "options": ["国籍を証する書類", "出生したことを証する書類", "出生証明書（写し）"], "pick": "one" },
-        "パスポート",
-        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" },
-        "質問書"
+        "Đơn xin Cấp phép để được tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        { "group": "Giấy tờ theo quy định riêng", "options": ["Giấy tờ chứng minh quốc tịch", "Giấy tờ chứng minh việc sinh", "Giấy khai sinh (bản sao)"], "pick": "one" },
+        "Hộ chiếu",
+        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" },
+        "Bản câu hỏi"
       ],
       "dependents": [
-        "パスポート",
-        "在留カード",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
-        "住民税の課税（又は非課税）証明書（直近年度分）",
-        "納税証明書（直近年度分）",
-        "住民票"
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận đã nộp thuế (năm gần nhất)",
+        "Giấy chứng nhận cư trú (juminhyo)"
       ],
-      "optional": ["預金残高証明書"]
+      "optional": ["Giấy xác nhận số dư ngân hàng"]
     }
   }
 }

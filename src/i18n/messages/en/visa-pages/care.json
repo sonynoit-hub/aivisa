@@ -1,61 +1,61 @@
 {
-  "title": "介護",
+  "title": "Care Worker",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "介護 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "「技能実習」の在留資格をもって在留していたことがある場合は技能移転に係る申告書必要です。",
+  "docsTitle": "Care Worker Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from overseas", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+  "tips": "If you have previously stayed in Japan under the 'Technical Intern Training' status, a declaration related to skill transfer is required.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "介護福祉士登録証（写し）"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Certified Care Worker registration certificate (copy)"
       ],
       "company": [
-        "返信用封筒",
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Self-addressed stamped envelope",
+        "Notice of working conditions",
+        "Employment contract",
+        "Company profile/overview"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "介護福祉士登録証（写し）"
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Certified Care Worker registration certificate (copy)"
       ],
       "company": [
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Notice of working conditions",
+        "Employment contract",
+        "Company profile/overview"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書",
-        "介護福祉士登録証（写し）"
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Tax payment certificate",
+        "Certified Care Worker registration certificate (copy)"
       ],
       "company": [
-        "労働条件通知書",
-        "雇用契約書",
-        "会社の内容案内書"
+        "Notice of working conditions",
+        "Employment contract",
+        "Company profile/overview"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Statement of reasons"]
     }
   }
 }

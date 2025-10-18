@@ -1,50 +1,50 @@
 {
-  "title": "技能実習",
+  "title": "Thực tập sinh kỹ năng",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "技能実習 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "技能実習１号から２号、技能実習２号から３号に変更しようとする場合は在留資格変更許可申請となります。",
+  "docsTitle": "Hồ sơ cần nộp - Thực tập sinh kỹ năng",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
+  "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "tips": "Khi chuyển từ Thực tập sinh kỹ năng i sang ii, hoặc ii sang iii, cần nộp hồ sơ Thay đổi tư cách lưu trú.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu"
       ],
       "company": [
-        "返信用封筒",
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Thông báo phê duyệt Kế hoạch thực tập kỹ năng",
+        "Bản sao đơn xin chứng nhận kế hoạch"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình hồ sơ"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu"
       ],
       "company": [
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "Thông báo phê duyệt Kế hoạch thực tập kỹ năng",
+        "Bản sao đơn xin chứng nhận kế hoạch"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình hồ sơ"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Đơn xin Gia hạn thời gian lưu trú",
+        "Ảnh (4cm × 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
+        "Giấy chứng nhận đã nộp thuế"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Thư giải trình hồ sơ"]
     }
   }
 }

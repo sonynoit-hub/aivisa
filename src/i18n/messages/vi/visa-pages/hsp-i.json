@@ -1,73 +1,73 @@
 {
-  "title": "高度専門職１号ロ",
+  "title": "Lao động trình độ cao (i) - Nhóm Ro",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "高度専門職１号ロ 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Hồ sơ cần nộp - Lao động trình độ cao (i) - Nhóm Ro",
+  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
+  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": {
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新",
-    "abroad": "海外申請（渡日前）"
+    "change": "Thay đổi tư cách lưu trú",
+    "extend": "Gia hạn thời gian lưu trú",
+    "abroad": "Nộp từ nước ngoài (trước khi nhập cảnh)"
   },
   "categoryLabels": {
-    "applicant": "申請人（個人）",
-    "company": "会社",
-    "optional": "任意・補足"
+    "applicant": "Đương đơn (cá nhân)",
+    "company": "Công ty",
+    "optional": "Tùy chọn/Bổ sung"
   },
-  "tips": "・学歴、職歴、年収、年齢等に基づく**最低70ポイント**が必要です。\n\n・日本の大学を卒業している場合、JLPT N2は加点対象になりません。\n\n・職歴で加点を申請する場合は、申請する業務内容と一致する職務である必要があります。『在職証明書』『退職証明書』には、可能であれば具体的な職務内容を記載してもらってください。\n\n> 📊 **ポイント計算ツールを使用してください**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** ポイント計算表は申請時の必須書類です。",
+  "tips": "- Cần tối thiểu 70 điểm dựa trên học vấn, kinh nghiệm, thu nhập hàng năm, độ tuổi, v.v.\n\n- Nếu tốt nghiệp đại học tại Nhật, JLPT N2 không được tính điểm cộng.\n\n- Nếu cộng điểm theo kinh nghiệm làm việc, công việc phải phù hợp với nội dung công việc xin cấp. Nên đề nghị ghi rõ nội dung công việc trong 'Giấy chứng nhận đang làm việc' hoặc 'Giấy chứng nhận nghỉ việc'.\n\n> 📊 Sử dụng công cụ tính điểm\n> \n> 🔗 [Công cụ tính điểm Lao động trình độ cao](/ja/tools/hsp-points)\n> \n> ⚠️ Quan trọng: Bảng tính điểm là tài liệu bắt buộc khi nộp hồ sơ.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+        "Đơn xin Thay đổi tư cách lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Bảng tính điểm",
+        "Tài liệu chứng minh cho từng mục trong bảng tính điểm"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Giấy chứng nhận đang làm việc",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)",
+        "Bản sao báo cáo tài chính năm gần nhất",
+        "Bản sao bảng tổng hợp chứng từ pháp định"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Tài liệu bổ trợ"]
     },
     "extend": {
-  "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+      "applicant": [
+        "Đơn xin Gia hạn thời gian lưu trú",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Thẻ cư trú",
+        "Bảng tính điểm",
+        "Tài liệu chứng minh cho từng mục trong bảng tính điểm"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Giấy chứng nhận đang làm việc",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)",
+        "Bản sao báo cáo tài chính năm gần nhất",
+        "Bản sao bảng tổng hợp chứng từ pháp định"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Tài liệu bổ trợ"]
     },
     "abroad": {
-        "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "返信用封筒",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+      "applicant": [
+        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Ảnh (4cm x 3cm)",
+        "Hộ chiếu",
+        "Phong bì có dán tem ghi địa chỉ người nhận",
+        "Bảng tính điểm",
+        "Tài liệu chứng minh cho từng mục trong bảng tính điểm"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Giấy chứng nhận đang làm việc",
+        "Giấy chứng nhận nội dung đăng ký (pháp nhân)",
+        "Bản sao báo cáo tài chính năm gần nhất",
+        "Bản sao bảng tổng hợp chứng từ pháp định"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Tài liệu bổ trợ"]
     }
   }
 }

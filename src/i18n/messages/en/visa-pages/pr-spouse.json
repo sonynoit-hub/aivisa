@@ -1,87 +1,87 @@
 {
-  "title": "永住者の配偶者等",
+  "title": "Spouse or Child of Permanent Resident",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "永住者の配偶者等 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "dependents": "配偶者（永住者）", "optional": "任意・補足" },
-  "tips": "・婚姻の**真実性と継続性**が重要な审査ポイントです。",
+  "docsTitle": "Spouse or Child of Permanent Resident Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from overseas", "inJapan": "Apply in Japan", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "dependents": "Spouse (Permanent Resident)", "optional": "Optional/Supplementary" },
+  "tips": "- The genuineness and continuity of the marriage are important review points.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport"
       ],
       "dependents": [
-        "返信用封筒",
-        "結婚証明書",
-        "夫婦間の交流が確認できる資料",
-        "質問書",
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Self-addressed stamped envelope",
+        "Marriage certificate",
+        "Evidence of communication between spouses",
+        "Questionnaire",
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of financial capacity", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Permanent Resident spouse",
+        "Certificate of residence (all household members listed)"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Letter of explanation", "Snapshot photos","SNS records","Call logs"]
     },
     "inJapan": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書",
-        "パスポート"
+        "Application for permission to acquire status of residence",
+        "Photo (4cm x 3cm)",
+        "Marriage certificate",
+        "Passport"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        "夫婦間の交流が確認できる資料"
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of financial capacity", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Permanent Resident spouse",
+        "Certificate of residence (all household members listed)",
+        "Questionnaire",
+        "Evidence of communication between spouses"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Letter of explanation", "Snapshot photos","SNS records","Call logs"]
     },
     "change": {
       "applicant": [
-        "在留資格取得許可申請書",
-        "写真（縦４cm×横３cm）",
-        "結婚証明書",
-        "パスポート",
-        "在留カード"
+        "Application for permission to acquire status of residence",
+        "Photo (4cm x 3cm)",
+        "Marriage certificate",
+        "Passport",
+        "Residence card"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）",
-        "質問書",
-        "夫婦間の交流が確認できる資料"
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of financial capacity", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Permanent Resident spouse",
+        "Certificate of residence (all household members listed)",
+        "Questionnaire",
+        "Evidence of communication between spouses"
       ],
-      "optional": ["理由書", "スナップ写真","ＳＮＳ記録","通話記録"]
+      "optional": ["Letter of explanation", "Snapshot photos","SNS records","Call logs"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "婚姻が継続していることを証明する文書",
-        "パスポート",
-        "在留カード"
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Documents proving the marriage is ongoing",
+        "Passport",
+        "Residence card"
       ],
       "dependents": [
-        "直近１年分の住民税の課税（又は非課税）証明書",
-        "直近１年分の納税証明書",
-        { "group": "資力証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "配偶者（永住者）の身元保証書",
-        "住民票（世帯全員の記載）"
+        "Resident tax taxation (or non-taxation) certificate for the past year",
+        "Tax payment certificate for the past year",
+        { "group": "Proof of financial capacity", "options": ["Copy of bankbook", "Screenshot/printout of online bankbook"], "pick": "one" },
+        "Letter of guarantee by the Permanent Resident spouse",
+        "Certificate of residence (all household members listed)"
       ],
-      "optional": ["理由書"]
+      "optional": ["Letter of explanation"]
 
     }
   }

@@ -1,50 +1,50 @@
 {
-  "title": "技能実習",
+  "title": "Technical Intern Training",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "技能実習 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "技能実習１号から２号、技能実習２号から３号に変更しようとする場合は在留資格変更許可申請となります。",
+  "docsTitle": "Technical Intern Training Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
+  "stageLabels": { "abroad": "Apply from abroad", "change": "Change status of residence", "extend": "Extend period of stay" },
+  "categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
+  "tips": "When changing from Technical Intern Training i to ii, or ii to iii, you must apply for Change of Status of Residence.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Application for Certificate of Eligibility",
+        "Photo (4cm × 3cm)",
+        "Passport"
       ],
       "company": [
-        "返信用封筒",
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "Self-addressed stamped envelope",
+        "Notice of approval for Technical Intern Training Plan",
+        "Copy of application for certification"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Letter of explanation for application"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "Application for Change of Status of Residence",
+        "Photo (4cm × 3cm)",
+        "Passport"
       ],
       "company": [
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "Notice of approval for Technical Intern Training Plan",
+        "Copy of application for certification"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Letter of explanation for application"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "Application for Extension of Period of Stay",
+        "Photo (4cm × 3cm)",
+        "Passport",
+        "Residence card",
+        "Resident tax taxation (or non-taxation) certificate",
+        "Tax payment certificate"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["Letter of explanation for application"]
     }
   }
 }

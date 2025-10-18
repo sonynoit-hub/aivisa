@@ -1,50 +1,50 @@
 {
-  "title": "技能実習",
+  "title": "技能实习",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "技能実習 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
-  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
-  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
-  "tips": "技能実習１号から２号、技能実習２号から３号に変更しようとする場合は在留資格変更許可申請となります。",
+  "docsTitle": "技能实习 所需材料",
+  "actions": { "pdf": "PDF", "pdfAria": "导出为 PDF" },
+  "ui": { "expand": "展开", "collapse": "收起", "progress": "进度", "none": "无项目", "hint": "提示" },
+  "stageLabels": { "abroad": "海外申请", "change": "在留资格变更", "extend": "在留期间更新" },
+  "categoryLabels": { "applicant": "申请人", "company": "公司", "optional": "可选" },
+  "tips": "从技能实习1号变更至2号，或从2号变更至3号时，需要办理在留资格变更许可申请。",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "在留资格认定证明书交付申请表",
+        "照片（4cm×3cm）",
+        "护照"
       ],
       "company": [
-        "返信用封筒",
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "回邮信封",
+        "技能实习计划认定通知书",
+        "认定申请书复印件"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["申请理由书"]
     },
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート"
+        "在留资格变更许可申请书",
+        "照片（4cm×3cm）",
+        "护照"
       ],
       "company": [
-        "技能実習計画認定通知書",
-        "認定の申請書の写し"
+        "技能实习计划认定通知书",
+        "认定申请书复印件"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["申请理由书"]
     },
     "extend": {
       "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "住民税の課税（又は非課税）証明書",
-        "納税証明書"
+        "在留期间更新许可申请书",
+        "照片（4cm×3cm）",
+        "护照",
+        "在留卡",
+        "居民税课税（或非课税）证明",
+        "纳税证明"
       ],
-      "optional": ["申請理由書"]
+      "optional": ["申请理由书"]
     }
   }
 }

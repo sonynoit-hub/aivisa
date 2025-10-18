@@ -1,73 +1,73 @@
 {
-  "title": "高度専門職１号ロ",
+  "title": "Highly Skilled Professional (i) - Category Ro",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "高度専門職１号ロ 必要書類",
-  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
-  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "docsTitle": "Highly Skilled Professional (i) - Category Ro Required Documents",
+  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
+  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": {
-    "change": "在留資格の変更",
-    "extend": "在留期間の更新",
-    "abroad": "海外申請（渡日前）"
+    "change": "Change status of residence",
+    "extend": "Extend period of stay",
+    "abroad": "Apply from overseas (before entry)"
   },
   "categoryLabels": {
-    "applicant": "申請人（個人）",
-    "company": "会社",
-    "optional": "任意・補足"
+    "applicant": "Applicant (individual)",
+    "company": "Company",
+    "optional": "Optional/Supplementary"
   },
-  "tips": "・学歴、職歴、年収、年齢等に基づく**最低70ポイント**が必要です。\n\n・日本の大学を卒業している場合、JLPT N2は加点対象になりません。\n\n・職歴で加点を申請する場合は、申請する業務内容と一致する職務である必要があります。『在職証明書』『退職証明書』には、可能であれば具体的な職務内容を記載してもらってください。\n\n> 📊 **ポイント計算ツールを使用してください**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** ポイント計算表は申請時の必須書類です。",
+  "tips": "- A minimum of 70 points based on education, work experience, annual income, age, etc. is required.\n\n- If you graduated from a Japanese university, JLPT N2 does not count for extra points.\n\n- If you claim points for work experience, it must match the job duties you are applying for. Where possible, ask your 'Certificate of Employment' or 'Certificate of Separation' to include specific job duties.\n\n> 📊 Use the points calculator\n> \n> 🔗 [Highly Skilled Professional Points Calculator](/ja/tools/hsp-points)\n> \n> ⚠️ Important: The points calculation sheet is a required document at the time of application.",
   "studyDocs": {
     "change": {
       "applicant": [
-        "在留資格変更許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+        "Application for change of status of residence",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Points calculation sheet",
+        "Supporting documents for each item in the points calculation"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Certificate of employment",
+        "Certificate of registered matters",
+        "Most recent fiscal year financial statements (copy)",
+        "Total statutory report (copy)"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Supporting documents"]
     },
     "extend": {
-  "applicant": [
-        "在留期間更新許可申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "在留カード",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+      "applicant": [
+        "Application for extension of period of stay",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Residence card",
+        "Points calculation sheet",
+        "Supporting documents for each item in the points calculation"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Certificate of employment",
+        "Certificate of registered matters",
+        "Most recent fiscal year financial statements (copy)",
+        "Total statutory report (copy)"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Supporting documents"]
     },
     "abroad": {
-        "applicant": [
-        "在留資格認定証明書交付申請書",
-        "写真（縦４cm×横３cm）",
-        "パスポート",
-        "返信用封筒",
-        "ポイント計算表",
-        "ポイント計算表の各項目に関する疎明資料"
+      "applicant": [
+        "Application for Certificate of Eligibility",
+        "Photo (4cm x 3cm)",
+        "Passport",
+        "Self-addressed stamped envelope",
+        "Points calculation sheet",
+        "Supporting documents for each item in the points calculation"
       ],
       "company": [
-        "在職証明書",
-        "登記事項証明書",
-        "直近の年度の決算文書（写し）",
-        "法定調書合計表（写し）"
+        "Certificate of employment",
+        "Certificate of registered matters",
+        "Most recent fiscal year financial statements (copy)",
+        "Total statutory report (copy)"
       ],
-      "optional": ["疎明資料"]
+      "optional": ["Supporting documents"]
     }
   }
 }
