@@ -1,85 +1,83 @@
 {
-	"title": "Dependent",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Dependent",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "abroad": "Apply from abroad", "inJapan": "Apply in Japan", "change": "Change status", "extend": "Extension of stay" },
-	"categoryLabels": { "applicant": "Applicant", "dependents": "Dependents/Family", "optional": "Optional" },
-	"tips": "・Dependent visa is for **family members of residents** with valid Japanese residence status\n\n・Allows **spouse and unmarried children** under 20 to live in Japan with the main visa holder\n\n・**Document requirements vary** by relationship type (spouse vs. child) and main visa holder's status\n\n・Dependent status holders can apply for **part-time work permission** with separate application\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Important:** Dependent status is tied to the main visa holder's status - if their status changes or expires, dependent status is also affected",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3cm)",
-				"Family Register (Koseki Tohon)",
-				"Marriage Certificate"
-			],
-			"dependents": [
-				"Passport",
-				"Residence Card",
-				"Certificate of Residence",
-				"Resident Tax Certificate",
-				"Tax Certificate",
-				"Bank Balance Certificate"
-			],
-			"optional": ["Others"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3cm)",
-				"Family Register (Koseki Tohon)",
-				"Marriage Certificate",
-				"Questionnaire"
-			],
-			"dependents": [
-				"Passport",
-				"Residence Card",
-				"Certificate of Residence",
-				"Resident Tax Certificate",
-				"Tax Certificate",
-				"Bank Balance Certificate"
-			],
-			"optional": ["Others"]
-		},
-		"change": {
-			"applicant": [
-				"Application for Permission to Acquire Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Marriage Certificate",
-				"Family Register (Koseki Tohon)"
-			],
-			"dependents": [
-				"Certificate of Residence",
-				"Resident Tax Certificate",
-				"Tax Certificate",
-				"Bank Balance Certificate"
-			],
-			"optional": ["Others"]
-		},
-		"extend": {
-			"applicant": [
-				"Application for Extension of Period of Stay",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Marriage Certificate",
-				"Family Register (Koseki Tohon)"
-			],
-			"dependents": [
-				"Certificate of Residence",
-				"Resident Tax Certificate",
-				"Tax Certificate",
-				"Bank Balance Certificate"
-			],
-			"optional": ["Others"]
-		}
-	}
+  "title": "家族滞在",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "家族滞在 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外から申請", "change": "在留資格の変更", "extend": "在留期間の更新", "inJapan": "日本国内で申請" },
+  "categoryLabels": { "applicant": "申請人", "dependents": "扶養者・家族", "optional": "任意・補足" },
+  "tips": "・家族滞在資格保持者は別途申請で**アルバイト許可**を取得できます。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "返信用封筒",
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["スナップ写真","預金残高証明書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["預金残高証明書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["預金残高証明書"]
+    },
+    "inJapan": {
+      "applicant": [
+        "在留資格取得許可申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "それぞれ定める書類", "options": ["国籍を証する書類", "出生したことを証する書類", "出生証明書（写し）"], "pick": "one" },
+        "パスポート",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" },
+        "質問書"
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        "住民票"
+      ],
+      "optional": ["預金残高証明書"]
+    }
+  }
 }

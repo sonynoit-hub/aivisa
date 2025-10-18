@@ -1,68 +1,69 @@
 {
-	"title": "Student",
-
-	"sections": [],
-	"docsTitle": "Required Documents for Student Visa",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": {
-		"abroad": "Apply from abroad",
-		"inJapan": "Obtain in Japan",
-		"change": "Change status",
-		"extend": "Extend period"
-	},
-	"categoryLabels": {
-		"applicant": "Applicant",
-		"school": "School",
-		"optional": "Optional"
-	},
-	"tips": "・Student visa is for **full-time study at Japanese educational institutions** including universities, vocational schools, and language schools\n\n・Requires **acceptance at an accredited institution** and proof of sufficient financial resources for studies\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・**Part-time work permission** allows up to 28 hours per week with proper work permit\n\n・Must maintain **good academic standing** and proper attendance to maintain visa status",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3 cm)",
-				"Certificate of Highest Education",
-				"Academic Transcript",
-				"Proof of Japanese Proficiency (JLPT, etc.)",
-				"Proof of Financial Support"
-			],
-			"school": ["Letter of Admission", "Proof of Tuition Payment", "School Documents"],
-			"optional": ["Letter of Guarantee", "Letter of Invitation / Reason", "Statement of Reasons", "Others"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Acquisition of Status of Residence",
-				"Passport",
-				"Photo (4×3 cm)",
-				"Resume (CV)",
-				"Certificate of Highest Education",
-				"Academic Transcript",
-				"Certificate of Employment History",
-				"Proof of Japanese Proficiency (JLPT, etc.)"
-			],
-			"school": ["Letter of Admission", "Proof of Tuition Payment", "School Documents"],
-			"optional": ["Statement of Reasons", "Others"]
-		},
-		"change": {
-			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3 cm)",
-				"Certificate of Highest Education",
-				"Academic Transcript",
-				"Proof of Japanese Proficiency (JLPT, etc.)",
-				"Proof of Financial Support"
-			],
-			"school": ["Letter of Admission", "Proof of Tuition Payment", "School Documents"],
-			"optional": ["Letter of Guarantee", "Statement of Reasons", "Others"]
-		},
-		"extend": {
-			"applicant": ["Application for Extension of Period of Stay", "Passport", "Residence Card", "Photo (4×3 cm)"],
-			"school": ["Certificate of Enrollment", "Proof of Tuition Payment", "School Documents"],
-			"optional": ["Statement of Reasons", "Others"]
-		}
-	}
+  "title": "留学",
+  
+  "sections": [],
+  "docsTitle": "留学ビザの必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "stageLabels": {
+    "abroad": "海外申請（渡日前）",
+    "change": "在留資格の変更",
+    "extend": "在留期間の更新"
+  },
+  "categoryLabels": {
+    "applicant": "申請人",
+    "school": "学校",
+    "optional": "任意・補足"
+  },
+  "tips": "**資格外活動許可**で週28時間以内のアルバイトが可能\n\n・ビザステータス維持のため**適切な学業成績と出席率**の維持が必要",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "最終学歴証明",
+        "成績証明",
+        "日本語能力証明（JLPT等）",
+        "経費支弁書"
+      ],
+      "school": [
+        "返信用封筒", 
+        "学校提出書類"
+      ],
+      "optional": ["奨学金の給付に関する証明書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "最終学歴証明",
+        "成績証明",
+        "日本語能力証明（JLPT等）",
+        "経費支弁書"
+      ],
+      "school": [
+        "学校提出書類"
+      ],
+      "optional": ["奨学金の給付に関する証明書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "最終学歴証明",
+        "成績証明",
+        "日本語能力証明（JLPT等）",
+        "滞在費支弁に関する申告書"
+      ],
+      "school": [
+        "学校提出書類"
+      ],
+      "optional": ["奨学金の給付に関する証明書"]
+    }
+  }
 }

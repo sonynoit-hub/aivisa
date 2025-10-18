@@ -1,65 +1,67 @@
 {
-	"title": "Designated Activities",
+	"title": "特定活動（就職活動）",
 	"summary": "",
 	"html": "",
 	"sections": [],
-	"docsTitle": "Required Documents for Designated Activities",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "university": "University", "vocational": "Vocational School", "japSchool": "Japanese Language School" },
-	"categoryLabels": { "applicant": "Applicant", "school": "School", "optional": "Optional" },
-	"tips": "・Designated Activities visa is for **activities individually designated by the Minister of Justice**\n\n・Covers **various categories** including Working Holiday, Internships, EPA nurses, etc.\n\n・Check the latest Designated Activities categories at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・**Different conditions and required documents** are set according to each designated activity\n\n・Activity period and work eligibility vary by each Designated Activities category",
+	"docsTitle": "特定活動（就職活動） 必要書類",
+	"actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+	"ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+	"stageLabels": { "university": "大学", "vocational": "専門学校", "japSchool": "日本語学校" },
+	"categoryLabels": { "applicant": "申請人", "school": "学校", "optional": "任意" },
+	"tips": "・特定活動ビザは**法務大臣が個別に指定する活動**のためのビザです\n\n・指定活動に応じて**異なる条件や必要書類**が設定されます。",
 	"studyDocs": {
 		"university": {
 			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Proof of Funds",
-				"Academic Certificate",
-				"Job Hunting Proof"
+				"在留資格変更許可申請書",
+			    "写真（縦４cm×横３cm）",
+				"パスポート",
+				"在留カード",
+				"経費の支弁能力を証明する書類",
+				"卒業証書（写し）又は卒業証明書",
+				"就職活動証明"
 			],
 			"school": [
-				"Recommendation Letter for Continued Job Hunting"
+				"就職活動推薦状"
 			],
-			"optional": ["Others"]
+			"optional": ["申請理由書"]
 		},
 		"vocational": {
 			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resume",
-				"Job-Hunting Activity Certificate",
-				"Proof of Funds"
+				"在留資格変更許可申請書",
+			    "写真（縦４cm×横３cm）",
+				"パスポート",
+				"在留カード",
+				"経費の支弁能力を証明する書類",
+				"卒業証書（写し）又は卒業証明書",
+				"就職活動証明"
 			],
 			"school": [
-				"Recommendation Letter for Continued Job Hunting",
-				"Senmonshi Certificate",
-				"Vocational School Graduation",
-				"Course Details"
+				"就職活動推薦状",
+				"専門士称号証明書",
+				"専修学校卒業証書",
+				"専門課程修得内容資料"
 			],
-			"optional": ["Others"]
+			"optional": ["申請理由書"]
 		},
 		"japSchool": {
 			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resume",
-				"Job-Hunting Activity Certificate"
+				"在留資格変更許可申請書",
+			    "写真（縦４cm×横３cm）",
+				"パスポート",
+				"在留カード",
+				"経費の支弁能力を証明する書類",
+				"卒業証書（写し）又は卒業証明書",
+				"就職活動証明"
 			],
 			"school": [
-				"Recommendation Letter for Continued Job Hunting",
-				"Japanese School Graduation",
-				"Attendance Proof",
-				"Meeting Confirmation",
-				"Requirements Proof"
+				"就職活動推薦状",
+				"日本語学校卒業証明",
+				"出席証明",
+				"継続就職活動に関する証明書",
+				"就職活動に関する情報提供を受ける旨の確認書",
+				"要件確認資料"
 			],
-			"optional": ["Others"]
+			"optional": ["申請理由書"]
 		}
 	}
 }

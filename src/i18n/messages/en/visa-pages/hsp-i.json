@@ -1,83 +1,73 @@
 {
-	"title": "Highly Skilled Professional I",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Highly Skilled Professional I",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": {
-		"abroad": "Apply from abroad",
-		"inJapan": "Obtain in Japan",
-		"change": "Change status",
-		"extend": "Extend period"
-	},
-	"categoryLabels": {
-		"applicant": "Applicant",
-		"company": "Company",
-		"optional": "Optional"
-	},
-	"tips": "・HSP (i) visa is for **highly skilled professionals** in research, specialized/technical services, or business management\n\n・Offers **preferential treatment** including multiple entry, spouse work permission, and faster PR eligibility\n\n・Requires **minimum 70 points** based on education, experience, salary, age, and other factors\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> 📊 **Use the Points Calculator Tool**\n> \n> 🔗 **[Highly Skilled Professional Points Calculator](/en/tools/hsp-points)** → Check your current points\n> \n> ⚠️ **Important:** The points calculation table is a mandatory document for your application.",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Certificate of Eligibility (COE) Application",
-				"Passport",
-				"Photo (4×3cm)",
-				"Self-addressed Return Envelope",
-				"Points Calculation Table",
-				"Supporting Documents for Each Item in Points Calculation"
-			],
-			"optional": [
-				"Employment Contract",
-				"Company Business Description",
-				"Others"
-			]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Acquisition of Status of Residence",
-				"Passport",
-				"Photo (4×3cm)",
-				"Points Calculation Table",
-				"Supporting Documents for Each Item in Points Calculation",
-				"Self-addressed Return Envelope"
-			],
-			"optional": [
-				"Employment Contract",
-				"Company Business Description",
-				"Others"
-			]
-		},
-		"change": {
-			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Points Calculation Table",
-				"Supporting Documents for Each Item in Points Calculation"
-			],
-			"optional": [
-				"Employment Contract",
-				"Company Business Description",
-				"Others"
-			]
-		},
-		"extend": {
-			"applicant": [
-				"Application for Extension of Period of Stay",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Points Calculation Table",
-				"Supporting Documents for Each Item in Points Calculation"
-			],
-			"optional": [
-				"Employment Contract",
-				"Company Business Description",
-				"Others"
-			]
-		}
-	}
+  "title": "高度専門職１号ロ",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "高度専門職１号ロ 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "stageLabels": {
+    "change": "在留資格の変更",
+    "extend": "在留期間の更新",
+    "abroad": "海外申請（渡日前）"
+  },
+  "categoryLabels": {
+    "applicant": "申請人（個人）",
+    "company": "会社",
+    "optional": "任意・補足"
+  },
+  "tips": "・学歴、職歴、年収、年齢等に基づく**最低70ポイント**が必要です。\n\n・日本の大学を卒業している場合、JLPT N2は加点対象になりません。\n\n・職歴で加点を申請する場合は、申請する業務内容と一致する職務である必要があります。『在職証明書』『退職証明書』には、可能であれば具体的な職務内容を記載してもらってください。\n\n> 📊 **ポイント計算ツールを使用してください**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** ポイント計算表は申請時の必須書類です。",
+  "studyDocs": {
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "ポイント計算表",
+        "ポイント計算表の各項目に関する疎明資料"
+      ],
+      "company": [
+        "在職証明書",
+        "登記事項証明書",
+        "直近の年度の決算文書（写し）",
+        "法定調書合計表（写し）"
+      ],
+      "optional": ["疎明資料"]
+    },
+    "extend": {
+  "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "ポイント計算表",
+        "ポイント計算表の各項目に関する疎明資料"
+      ],
+      "company": [
+        "在職証明書",
+        "登記事項証明書",
+        "直近の年度の決算文書（写し）",
+        "法定調書合計表（写し）"
+      ],
+      "optional": ["疎明資料"]
+    },
+    "abroad": {
+        "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "返信用封筒",
+        "ポイント計算表",
+        "ポイント計算表の各項目に関する疎明資料"
+      ],
+      "company": [
+        "在職証明書",
+        "登記事項証明書",
+        "直近の年度の決算文書（写し）",
+        "法定調書合計表（写し）"
+      ],
+      "optional": ["疎明資料"]
+    }
+  }
 }

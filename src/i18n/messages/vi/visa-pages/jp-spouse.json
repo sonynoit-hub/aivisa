@@ -1,86 +1,93 @@
 {
-	"title": "Vợ/chồng người Nhật",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ cho diện Vợ/chồng người Nhật",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Bảo lãnh/Gia đình", "optional": "Tùy chọn" },
-	"tips": "・Visa vợ/chồng người Nhật dành cho **vợ/chồng, con cái và con nuôi đặc biệt** của công dân Nhật Bản\n\n・Chủ visa có thể **làm việc không hạn chế** bao gồm việc làm và kinh doanh, và có thể xin thường trú\n\n・**Chứng minh hôn nhân thật** rất quan trọng, cần bằng chứng về lịch sử mối quan hệ, hình ảnh và hồ sơ liên lạc\n\n・**Yêu cầu tài liệu thay đổi** tùy theo thời điểm kết hôn, quốc tịch và tiền sử hôn nhân\n\n・Kiểm tra yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Quan trọng:** Hôn nhân giả và đơn xín gian lận là tội phạm nghiêm trọng. Luôn cung cấp thông tin trung thực",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận kết hôn",
-				"Giấy chứng nhận cư trú",
-				"Giấy chứng nhận giao lưu vợ chồng",
-				"Phiếu câu hỏi",
-				"Phong bì trả lời"
-			],
-			"dependents": [
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng",
-				"Thư bảo lãnh"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú tại Nhật",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận kết hôn",
-				"Giấy chứng nhận giao lưu vợ chồng",
-				"Phiếu câu hỏi"
-			],
-			"dependents": [
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng",
-				"Thư bảo lãnh"
-			],
-			"optional": ["Thư giải trình", "Các giấy tờ khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận kết hôn",
-				"Giấy chứng nhận giao lưu vợ chồng"
-			],
-			"dependents": [
-				"Sổ hộ tịch",
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng",
-				"Thư bảo lãnh"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Thẻ cư trú"
-			],
-			"dependents": [
-				"Sổ hộ tịch",
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng",
-				"Thư bảo lãnh"
-			],
-			"optional": ["Thư giải trình", "Các giấy tờ khác"]
-		}
-	}
+  "title": "日本人の配偶者等",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "日本人の配偶者等 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "dependents": "配偶者（日本人）", "optional": "任意" },
+  "tips": "・**書類要件**は結婚時期、国籍、結婚履歴によって異なります。\n\n> ⚠️ **重要:** 偶装結婚や虚偽申請は重大な犯罪です。必ず真実の情報を提供してください。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "結婚証明書"
+      ],
+      "dependents": [
+        "配偶者（日本人）の方の戸籍謄本",
+        "直近１年分の住民税の課税（又は非課税）証明書",
+        "直近１年分の納税証明書",
+        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "配配偶者（日本人）の身元保証書",
+        "住民票（世帯全員の記載）",
+        "質問書",
+        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
+        "スナップ写真（２～３葉）",
+        "返信用封筒"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "inJapan": {
+      "applicant": [
+        "在留資格取得許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "出生証明書"
+      ],
+      "dependents": [
+        "配偶者（日本人）の方の戸籍謄本",
+        "結婚証明書",
+        "直近１年分の住民税の課税（又は非課税）証明書",
+        "直近１年分の納税証明書",
+        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "配偶者（日本人）の身元保証書",
+        "住民票（世帯全員の記載）",
+        "質問書",
+        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
+        "スナップ写真（２～３葉）"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード"
+      ],
+      "dependents": [
+        "配偶者（日本人）の方の戸籍謄本",
+        "結婚証明書",
+        "直近１年分の住民税の課税（又は非課税）証明書",
+        "直近１年分の納税証明書",
+        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "配偶者（日本人）の身元保証書",
+        "住民票（世帯全員の記載）",
+        "質問書",
+        { "group": "夫婦間の交流が確認できる資料", "options": ["ＳＮＳ記録","通話記録"], "pick": "one" },
+        "スナップ写真（２～３葉）"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード"
+      ],
+      "dependents": [
+        "配偶者（日本人）の方の戸籍謄本",
+        "直近１年分の住民税の課税（又は非課税）証明書",
+        "直近１年分の納税証明書",
+        { "group": "資金証明", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "配偶者（日本人）の身元保証書",
+        "住民票（世帯全員の記載）"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

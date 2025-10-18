@@ -1,74 +1,61 @@
 {
-	"title": "Điều dưỡng",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ visa Điều dưỡng",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp đơn từ nước ngoài", "inJapan": "Nộp đơn tại Nhật", "change": "Thay đổi tư cách", "extend": "Gia hạn" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
-	"tips": "・Visa Điều dưỡng dành cho **công việc chăm sóc tại các cơ sở chăm sóc**\n\n・Yêu cầu **bằng cấp quốc gia Chuyên viên Chăm sóc Được chứng nhận**. Kinh nghiệm EPA care worker cũng hợp lệ\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Cơ sở chăm sóc dự kiến tuyển dụng phải đáp ứng **tiêu chuẩn cơ sở phù hợp**\n\n・Trình độ tiếng Nhật rất quan trọng do đặc thù của công việc chăm sóc",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp Tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận đăng ký điều dưỡng"
-			],
-			"company": [
-				"Phong bì hồi đáp",
-				"Giấy thông báo điều kiện lao động",
-				"Hợp đồng lao động",
-				"Thư mời"
-			],
-			"optional": ["Khác"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp Tư cách lưu trú khi ở Nhật",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận đăng ký điều dưỡng",
-				"Bản giải trình"
-			],
-			"company": [
-				"Giấy thông báo điều kiện lao động",
-				"Hợp đồng lao động",
-				"Thư mời"
-			],
-			"optional": ["Khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn xin thay đổi Tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ lưu trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận đăng ký điều dưỡng"
-			],
-			"company": [
-				"Giấy thông báo điều kiện lao động",
-				"Hợp đồng lao động",
-				"Thư mời"
-			],
-			"optional": ["Khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin thay đổi Tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ lưu trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận thuế cư trú (hoặc miễn thuế)",
-				"Giấy chứng nhận nộp thuế"
-			],
-			"company": [
-				"Giấy thông báo điều kiện lao động",
-				"Thư mời"
-			],
-			"optional": ["Khác"]
-		}
-	}
+  "title": "介護",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "介護 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "「技能実習」の在留資格をもって在留していたことがある場合は技能移転に係る申告書必要です。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "返信用封筒",
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

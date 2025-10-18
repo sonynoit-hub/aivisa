@@ -1,74 +1,61 @@
 {
-	"title": "Care Worker",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Care Worker",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
-	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
-	"tips": "・Care Worker visa is for **care work at care facilities**\n\n・Requires **national qualification as a Certified Care Worker**. EPA care worker experience is also valid\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・The employing care facility must meet **appropriate facility standards**\n\n・Japanese language proficiency is crucial due to the nature of care work",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Certificate of Eligibility (COE) Application",
-				"Passport",
-				"Photo (4×3cm)",
-				"Certified Care Worker Registration Certificate"
-			],
-			"company": [
-				"Self-addressed Return Envelope",
-				"Notice of Working Conditions",
-				"Employment Contract",
-				"Letter of Invitation"
-			],
-			"optional": ["Others"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Acquisition of Status of Residence",
-				"Passport",
-				"Photo (4×3cm)",
-				"Certified Care Worker Registration Certificate",
-				"Statement of Reason"
-			],
-			"company": [
-				"Notice of Working Conditions",
-				"Employment Contract",
-				"Letter of Invitation"
-			],
-			"optional": ["Others"]
-		},
-		"change": {
-			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Certified Care Worker Registration Certificate"
-			],
-			"company": [
-				"Notice of Working Conditions",
-				"Employment Contract",
-				"Letter of Invitation"
-			],
-			"optional": ["Others"]
-		},
-		"extend": {
-			"applicant": [
-				"Application for Change of Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resident Tax (Non-taxable) Certificate",
-				"Tax Payment Certificate"
-			],
-			"company": [
-				"Notice of Working Conditions",
-				"Letter of Invitation"
-			],
-			"optional": ["Others"]
-		}
-	}
+  "title": "介護",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "介護 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "「技能実習」の在留資格をもって在留していたことがある場合は技能移転に係る申告書必要です。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "返信用封筒",
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書",
+        "介護福祉士登録証（写し）"
+      ],
+      "company": [
+        "労働条件通知書",
+        "雇用契約書",
+        "会社の内容案内書"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

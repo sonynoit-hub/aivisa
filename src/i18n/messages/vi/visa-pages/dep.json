@@ -1,85 +1,83 @@
 {
-	"title": "Đoàn tụ gia đình",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ visa Đoàn tụ gia đình",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Làm thủ tục tại Nhật", "change": "Đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Người phụ thuộc/Gia đình", "optional": "Tuỳ chọn/Bổ sung" },
-	"tips": "・Visa phụ thuộc dành cho **thành viên gia đình của cư dân** có tư cách lưu trú hợp lệ ở Nhật Bản\n\n・Cho phép **vợ/chồng và con chưa kết hôn** dưới 20 tuổi sống ở Nhật Bản với chủ visa chính\n\n・**Yêu cầu tài liệu thay đổi** tùy theo loại mối quan hệ (vợ/chồng hoặc con) và tình trạng của chủ visa chính\n\n・Người có tư cách phụ thuộc có thể xin **giấy phép làm việc bán thời gian** bằng đơn riêng\n\n・Kiểm tra các yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Quan trọng:** Tư cách phụ thuộc gắn liền với tình trạng của chủ visa chính - nếu tình trạng của họ thay đổi hoặc hết hạn, tư cách phụ thuộc cũng bị ảnh hưởng",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Sổ hộ tịch",
-				"Giấy chứng nhận kết hôn"
-			],
-			"dependents": [
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú tại Nhật",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Sổ hộ tịch",
-				"Giấy chứng nhận kết hôn",
-				"Phiếu câu hỏi"
-			],
-			"dependents": [
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận kết hôn",
-				"Sổ hộ tịch"
-			],
-			"dependents": [
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận kết hôn",
-				"Sổ hộ tịch"
-			],
-			"dependents": [
-				"Giấy chứng nhận cư trú",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế",
-				"Chứng nhận số dư ngân hàng"
-			],
-			"optional": ["Các giấy tờ khác"]
-		}
-	}
+  "title": "家族滞在",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "家族滞在 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外から申請", "change": "在留資格の変更", "extend": "在留期間の更新", "inJapan": "日本国内で申請" },
+  "categoryLabels": { "applicant": "申請人", "dependents": "扶養者・家族", "optional": "任意・補足" },
+  "tips": "・家族滞在資格保持者は別途申請で**アルバイト許可**を取得できます。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "返信用封筒",
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["スナップ写真","預金残高証明書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["預金残高証明書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" }
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）"
+      ],
+      "optional": ["預金残高証明書"]
+    },
+    "inJapan": {
+      "applicant": [
+        "在留資格取得許可申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "それぞれ定める書類", "options": ["国籍を証する書類", "出生したことを証する書類", "出生証明書（写し）"], "pick": "one" },
+        "パスポート",
+        { "group": "申請人と扶養者との身分関係を証する文書", "options": ["戸籍謄本", "婚姻届受理証明書", "結婚証明書（写し）", "出生証明書（写し）"], "pick": "one" },
+        "質問書"
+      ],
+      "dependents": [
+        "パスポート",
+        "在留カード",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        "住民票"
+      ],
+      "optional": ["預金残高証明書"]
+    }
+  }
 }

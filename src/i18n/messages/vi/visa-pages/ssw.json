@@ -1,74 +1,131 @@
 {
-	"title": "Lao động kỹ năng đặc định",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ visa Kỹ năng đặc định",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có mục", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách lưu trú", "extend": "Gia hạn" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
-	"tips": "・Yêu cầu tài liệu khác nhau tùy theo lĩnh vực ngành nghề và trình độ kỹ năng.\n\n・Tùy vào hoàn cảnh cá nhân của bạn, Cục Xuất nhập cư có thể yêu cầu thêm tài liệu.\n\n・Nếu bạn cần hỗ trợ thêm, xin đừng ngần ngại liên hệ với chúng tôi.",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận thi kỹ năng đặc định",
-				"Bằng cấp cuối cùng",
-				"Sơ yếu lý lịch",
-				"Chứng nhận kinh nghiệm làm việc",
-				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)"
-			],
-			"company": [
-				"Phong bì trả lời",
-				"Hợp đồng lao động",
-				"Giấy đăng ký công ty / Tổng quan công ty",
-				"Báo cáo tài chính / Chứng nhận nộp thuế",
-				"Phiếu khấu trừ thuế"
-			],
-			"optional": ["Khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận thi kỹ năng đặc định",
-				"Bằng cấp cuối cùng",
-				"Sơ yếu lý lịch",
-				"Chứng nhận kinh nghiệm làm việc",
-				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
-				"Phong bì trả lời"
-			],
-			"company": [
-				"Hợp đồng lao động",
-				"Giấy đăng ký công ty / Tổng quan công ty",
-				"Báo cáo tài chính / Chứng nhận nộp thuế",
-				"Phiếu khấu trừ thuế"
-			],
-			"optional": ["Khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận thi kỹ năng đặc định",
-				"Bằng cấp cuối cùng",
-				"Sơ yếu lý lịch",
-				"Chứng nhận kinh nghiệm làm việc",
-				"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
-				"Phong bì trả lời"
-			],
-			"company": [
-				"Hợp đồng lao động",
-				"Giấy đăng ký công ty / Tổng quan công ty",
-				"Báo cáo tài chính / Chứng nhận nộp thuế",
-				"Phiếu khấu trừ thuế"
-			],
-			"optional": ["Khác"]
-		}
-	}
+  "title": "特定技能",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "特定技能 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": {
+    "foodManufacturing": "飲食料品製造業",
+    "industrialManufacturing": "工業製品製造業",
+    "care": "介護",
+    "construction": "建設",
+    "agriculture": "農業",
+    "foodService": "外食業",
+    "shipbuildingMarine": "造船・舶用工業"
+  },
+  "categoryLabels": { "applicant": "申請人", "company": "所属機関", "optional": "任意" },
+  "tips": "・書類の要件は業種分野やスキルレベルによって異なります。\n\n・個人の事情によって、出入国在留管理庁から追加書類の提出を求められる場合があります。\n\n・さらなるサポートが必要な場合は、お気軽にお問い合わせください。",
+  "studyDocs": {
+    "foodManufacturing": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["飲食料品製造業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "協議会の構成員であることの証明書"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "industrialManufacturing": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["製造分野特定技能１号評価試験の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "JAIMの構成員名簿"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "care": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①必要書類", "options": ["介護福祉士養成施設の卒業証明書の写し", "直近の介護福祉士国家試験の結果通知書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "②①に該当しない場合", "options": ["介護技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "事業所の概要書",
+        "協議会の構成員であることの証明書"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "construction": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["実技試験合格証明書の写し", "技能検定３級合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["建設分野特定技能１号評価試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "建設特定技能受入計画の認定証の写し"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "agriculture": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["農業技能評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["１号農業技能測定試験の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "協議会の構成員であることの証明書"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "foodService": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["医療・福祉施設給食製造技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["外食業特定技能１号技能測定試験の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "飲食店営業の営業許可証又は届出書の写し",
+        "旅館業法の旅館・ホテル営業の営業許可証の写し",
+        "風営法の風俗営業の営業許可証の写し",
+        "協議会の構成員であることの証明書"
+      ],
+      "optional": ["申請人名簿"]
+    },
+    "shipbuildingMarine": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        { "group": "①技能実習２号良好修了者（２年１０か月以上）の場合", "options": ["技能実習評価試験（専門級）の実技試験の合格証明書の写し","技能検定３級の実技試験の合格証明書の写し","技能実習生に関する評価調書"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["造船・舶用工業分野特定技能１号試験の合格証明書の写し","技能検定３級の合格証明書の写し"], "pick": "one" },
+        { "group": "①に該当しない場合", "options": ["日本語能力試験（Ｎ４以上）の合格証明書の写し", "国際交流基金日本語基礎テストの判定結果通知書の写し"], "pick": "one" },
+        "パスポート"
+      ],
+      "company": [
+        "誓約書",
+        "造船・舶用工業事業者の確認通知書",
+        "協議会の構成員であることの証明書"
+      ],
+      "optional": ["申請人名簿"]
+    }
+  }
 }

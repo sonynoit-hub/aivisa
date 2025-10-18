@@ -1,84 +1,70 @@
 {
-	"title": "Skilled Labor",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Skilled Labor",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
-	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
-	"tips": "・Skilled Labor visa is for foreigners engaged in **work requiring specific skills**\n\n・Covers chefs, sports instructors, animal trainers, pilots, ship operators, etc.\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・Requires **10+ years of work experience** (for chefs, etc.) or national qualifications/licenses\n\n・Skill certification documents from the employing company are crucial",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3cm)",
-				"Resume",
-				"Skilled Qualification Certificate (License/Certificate)",
-				"Proof of Work Experience"
-			],
-			"company": [
-				"Certificate of Working Conditions",
-				"Employment Contract",
-				"Certificate of Registered Matters / Company Profile",
-				"Financial Report / Tax Certificate",
-				"Invitation Letter / Reason for Invitation"
-			],
-			"optional": ["Letter of Guarantee", "Statement of Reason", "Others"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3cm)",
-				"Resume",
-				"Skilled Qualification Certificate (License/Certificate)",
-				"Proof of Work Experience",
-				"Statement of Reason"
-			],
-			"company": [
-				"Certificate of Working Conditions",
-				"Employment Contract",
-				"Certificate of Registered Matters / Company Profile",
-				"Financial Report / Tax Certificate"
-			],
-			"optional": ["Letter of Guarantee", "Others"]
-		},
-		"change": {
-			"applicant": [
-				"Application for Permission to Acquire Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resume",
-				"Skilled Qualification Certificate (License/Certificate)",
-				"Proof of Work Experience"
-			],
-			"company": [
-				"Employment Contract",
-				"Certificate of Working Conditions",
-				"Certificate of Registered Matters / Company Profile",
-				"Financial Report / Tax Certificate"
-			],
-			"optional": ["Letter of Guarantee", "Statement of Reason", "Others"]
-		},
-		"extend": {
-			"applicant": [
-				"Application for Extension of Period of Stay",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resident Tax Certificate",
-				"Tax Certificate"
-			],
-			"company": [
-				"Certificate of Working Conditions",
-				"Employment Contract",
-				"Financial Report / Tax Certificate"
-			],
-			"optional": ["Statement of Reason", "Others"]
-		}
-	}
+  "title": "技能",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "技能 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "・実務経験**10年以上**（調理師等）または国家資格・免許が必要。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "履歴書",
+        "職業資格証明書"
+      ],
+      "company": [
+        "雇用理由書",
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し",
+        "返信用封筒"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "履歴書",
+        "職業資格証明書"
+      ],
+      "company": [
+        "雇用理由書",
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書"
+      ],
+      "company": [
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

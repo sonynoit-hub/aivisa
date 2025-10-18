@@ -1,125 +1,229 @@
 {
-  "title": "Permanent Resident",
+  "title": "永住者",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Required Documents for Permanent Residence",
-  "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-  "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint", "noteTitle": "Notice" },
-  "note": "The content on this page is provided as general reference. For the latest and most accurate application requirements and required documents, please refer to the information from the [Immigration Services Agency of Japan](https://www.moj.go.jp/isa/).",
+  "docsTitle": "永住許可申請必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント", "noteTitle": "ご注意" },
+  "note": "本ページの内容は一般的な参考情報としてご利用ください。最新かつ正確な申請要件・必要書類については、必ず[出入国在留管理庁](https://www.moj.go.jp/isa/)の情報をご確認ください。",
   "stageLabels": {
-    "work": "Work route",
-    "highlySkilled": "Highly Skilled Professional route",
-    "spouse": "Spouse route",
-    "settler": "Long-Term Resident route"
+    "work": "就労ルート",
+    "highlySkilleds": "高度人材ルート(70点以上)",
+    "highlySkilledh": "高度人材ルート(80点以上)",
+    "familyStay": "家族滞在",
+    "prSpouse": "永住者の配偶者ルート",
+    "jpSpouse": "日本人の配偶者ルート",
+    "settler": "定住者ルート"
   },
   "categoryLabels": {
-    "applicant": "Applicant (Individual)",
-    "optional": "Optional"
+    "applicant": "申請人",
+    "dependents": "扶養者・配偶者",
+    "optional": "任意・補足"
   },
-  "tips": "・At least **10 years of continuous residence** are required (a shorter period may apply for the spouse/child of a Japanese national or Permanent Resident).\n\n・With the Highly Skilled Professional **points-based system** score of 70 or higher: eligible to apply after **3+ years** of residence.\n\n・With a score of 80 or higher: eligible to apply after **1+ year** of residence.",
+  "tips": "・**10年以上の継続在留**が必要（日本人・永住者の配偶者・子は短縮可能）\n\n・高度人材専門職**ポイント制**で70点以上の場合：3年以上の在留で申請可能\n\n・高度人材専門職**ポイント制**で80点以上の場合：1年以上の在留で申請可能",
   "studyDocs": {
     "work": {
       "applicant": [
-        "Application for Permanent Residence",
-        "Photo (4×3 cm)",
-        "Statement of Reason",
-        "Family Register (Koseki) or Marriage Certificate or Birth Certificate or Certificate of Acknowledgement of Paternity",
-        "Resident Record (all household members)",
-        "Certificate of Employment or Business License (copy)",
-        "Proof of Residence Tax Payment (past 5 years)",
-        "Proof of National Tax Payment Status",
-        "Copy of Bank Passbook or Web Statement Screenshot",
-        "Proof of Public Pension Premium Payments (past 2 years)",
-        "Proof of Public Health Insurance Premium Payments (past 2 years)",
-        "Passport",
-        "Residence Card",
-        "Letter of Guarantee",
-        "Letter of Consent"
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "理由書",
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近５年分の住民税の課税（又は非課税）証明書",
+        "直近５年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
       ],
-      "optional": [
-        "Driving Record Certificate (for license holders)",
-        "No-Accident/No-Violation Certificate (for license holders)",
-        "Documents Evidencing Contributions to Japan",
-        "Real Estate Registration Certificate"
-      ]
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
     },
-    "highlySkilled": {
+    "highlySkilleds": {
       "applicant": [
-        "Application for Permanent Residence",
-        "Photo (4×3 cm)",
-        "Statement of Reason",
-        "Resident Record (all household members)",
-        "Certificate of Employment or Business License (copy)",
-        "Proof of Residence Tax Payment (past 3 years)",
-        "Proof of National Tax Payment Status",
-        "Copy of Bank Passbook or Web Statement Screenshot",
-        "Proof of Public Pension Premium Payments (past 2 years)",
-        "Proof of Public Health Insurance Premium Payments (past 2 years)",
-        "HSP Points Calculation Sheet, etc.",
-        "Supporting Documents for Each Points Item",
-        "Passport",
-        "Residence Card",
-        "Letter of Guarantee",
-        "Letter of Consent"
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "理由書",
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近3年分の住民税の課税（又は非課税）証明書",
+        "直近3年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去2年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去2年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "高度専門職ポイント計算表",
+        "ポイント計算の各項目に関する疎明資料",
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
       ],
-      "optional": [
-        "Driving Record Certificate (for license holders)",
-        "No-Accident/No-Violation Certificate (for license holders)",
-        "Documents Evidencing Contributions to Japan",
-        "Real Estate Registration Certificate"
-      ]
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
     },
-    "spouse": {
+    "highlySkilledh": {
       "applicant": [
-        "Application for Permanent Residence",
-        "Photo (4×3 cm)",
-        "Spouse's Family Register (Koseki) or Japanese Parent's Family Register, or Marriage Certificate or Birth Certificate",
-        "Resident Record (all household members)",
-        "Certificate of Employment or Business License (copy)",
-        "Proof of Residence Tax Payment (past 3 years)",
-        "Proof of National Tax Payment Status",
-        "Copy of Bank Passbook or Web Statement Screenshot",
-        "Proof of Public Pension Premium Payments (past 2 years)",
-        "Proof of Public Health Insurance Premium Payments (past 2 years)",
-        "List of Relatives",
-        "Passport",
-        "Residence Card",
-        "Letter of Guarantee",
-        "Letter of Consent"
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "理由書",
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近1年分の住民税の課税（又は非課税）証明書",
+        "直近1年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去1年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去1年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "高度専門職ポイント計算表",
+        { "group": "ポイント計算の各項目に関する疎明資料", "options": ["高度専門職ポイント計算結果通知書の写し　", "ポイント計算の各項目に関する疎明資料"], "pick": "one" },
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
       ],
-      "optional": [
-        "Statement of Reason",
-        "Driving Record Certificate (for license holders)",
-        "No-Accident/No-Violation Certificate (for license holders)",
-        "Documents Evidencing Contributions to Japan",
-        "Real Estate Registration Certificate"
-      ]
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+    },
+    "familyStay": {
+      "applicant": [
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "理由書",
+        { "group": "身分関係を証明するの資料", "options": ["戸籍謄本（全部事項証明書）", "出生証明書", "婚姻証明書", "認知届の記載事項証明書"], "pick": "one" },
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近５年分の住民税の課税（又は非課税）証明書",
+        "直近５年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
+      ],
+      "dependents": [
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近５年分の住民税の課税（又は非課税）証明書",
+        "直近５年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        { "group": "申請人又は申請人を扶養する方の資産を証明するの資料", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等", "不動産の登記事項証明書"], "pick": "one" },
+        "パスポート",
+        "在留カード"
+      ],
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+    },
+    "prSpouse": {
+      "applicant": [
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        { "group": "婚姻関係を証明するもの", "options": ["配偶者との婚姻証明書", "申請人と配偶者の方の身分関係を証するもの"], "pick": "one" },
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近3年分の住民税の課税（又は非課税）証明書",
+        "直近3年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "親族一覧表",
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
+      ],
+      "dependents": [
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近3年分の住民税の課税（又は非課税）証明書",
+        "直近3年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "パスポート",
+        "在留カード"
+      ],
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+    },
+    "jpSpouse": {
+      "applicant": [
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "配偶者の戸籍謄本（全部事項証明書）",
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近3年分の住民税の課税（又は非課税）証明書",
+        "直近3年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "親族一覧表",
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
+      ],
+      "dependents": [
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近3年分の住民税の課税（又は非課税）証明書",
+        "直近3年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）"
+      ],
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
     },
     "settler": {
       "applicant": [
-        "Application for Permanent Residence",
-        "Photo (4×3 cm)",
-        "Statement of Reason",
-        "Family Register (Koseki) or Marriage Certificate or Birth Certificate or Certificate of Acknowledgement of Paternity",
-        "Resident Record (all household members)",
-        "Certificate of Employment or Business License (copy)",
-        "Proof of Residence Tax Payment (past 5 years)",
-        "Proof of National Tax Payment Status",
-        "Copy of Bank Passbook or Web Statement Screenshot",
-        "Proof of Public Pension Premium Payments (past 2 years)",
-        "Proof of Public Health Insurance Premium Payments (past 2 years)",
-        "Passport",
-        "Residence Card",
-        "Letter of Guarantee",
-        "Letter of Consent"
+        "永住許可申請書",
+        "写真（縦４㎝✕横３㎝）",
+        "理由書",
+        { "group": "身分関係を証明するの資料", "options": ["戸籍謄本（全部事項証明書）", "出生証明書","婚姻証明書","認知届の記載事項証明書"], "pick": "one" },
+        "住民票（世帯全員の記載）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近5年分の住民税の課税（又は非課税）証明書",
+        "直近5年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        "身元保証書",
+        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
+        "了解書",
+        "パスポート",
+        "在留カード"
       ],
-      "optional": [
-        "Driving Record Certificate (for license holders)",
-        "No-Accident/No-Violation Certificate (for license holders)",
-        "Documents Evidencing Contributions to Japan",
-        "Real Estate Registration Certificate"
-      ]
+      "dependents": [
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
+        "直近5年分の住民税の課税（又は非課税）証明書",
+        "直近5年分の住民税の納税証明書",
+        "国税の納付状況を確認する資料",
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
+        "健康保険被保険者証（写し）",
+        { "group": "申請人又は申請人を扶養する方の資産を証明するの資料", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等", "不動産の登記事項証明書"], "pick": "one" },
+        "パスポート",
+        "在留カード"
+      ],
+      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
     }
 
   }

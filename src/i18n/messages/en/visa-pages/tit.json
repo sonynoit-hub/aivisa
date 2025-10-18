@@ -1,70 +1,50 @@
 {
-	"title": "Technical Intern Training",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Technical Intern Training",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "abroad": "Apply from Abroad", "inJapan": "Apply in Japan", "change": "Change of Status", "extend": "Extension" },
-	"categoryLabels": { "applicant": "Applicant", "company": "Company", "optional": "Optional" },
-	"tips": "・Technical Intern Training visa allows foreigners to **learn skills and technology** through practical training in Japan\n\n・Divided into **No.1 (up to 1 year)** and **No.2 (up to 2 additional years)** with different skill requirements\n\n・Requires **supervising organization approval** and detailed training plan submission\n\n・**Skill evaluation tests** are mandatory for progression from No.1 to No.2 status\n\n・Check the latest requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Important:** This is a training program, not regular employment - specific labor protection rules apply",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Photo (4×3cm)"
-			],
-			"company": [
-				"Technical Intern Training Plan Notification",
-				"Application for Certification"
-			],
-			"optional": ["Others"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Application for Certificate of Eligibility",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resident Tax Certificate",
-				"Tax Certificate"
-			],
-			"company": [
-				"Technical Intern Training Plan Notification",
-				"Application for Certification"
-			],
-			"optional": ["Others"]
-		},
-		"change": {
-			"applicant": [
-				"Application for Permission to Acquire Status of Residence",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resident Tax Certificate",
-				"Tax Certificate"
-			],
-			"company": [
-				"Technical Intern Training Plan Notification",
-				"Application for Certification"
-			],
-			"optional": ["Others"]
-		},
-		"extend": {
-			"applicant": [
-				"Application for Extension of Period of Stay",
-				"Passport",
-				"Residence Card",
-				"Photo (4×3cm)",
-				"Resident Tax Certificate",
-				"Tax Certificate"
-			],
-			"company": [
-				"Certificate of Employment"
-			],
-			"optional": ["Others"]
-		}
-	}
+  "title": "技能実習",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "技能実習 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "技能実習１号から２号、技能実習２号から３号に変更しようとする場合は在留資格変更許可申請となります。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート"
+      ],
+      "company": [
+        "返信用封筒",
+        "技能実習計画認定通知書",
+        "認定の申請書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート"
+      ],
+      "company": [
+        "技能実習計画認定通知書",
+        "認定の申請書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

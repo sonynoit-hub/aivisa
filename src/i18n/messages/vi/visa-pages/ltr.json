@@ -1,73 +1,52 @@
 {
-	"title": "Người cư trú dài hạn",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ cho diện cư trú dài hạn",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-	"stageLabels": { "stepchildren": "Con riêng đi cùng", "divorce-residence": "Cư trú sau ly hôn/tử vong" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "guarantor": "Người bảo lãnh", "optional": "Tuỳ chọn" },
-	"tips": "・Visa Người cư trú dài hạn dành cho **công dân nước ngoài có hoàn cảnh đặc biệt** như con riêng, người tỵ nạn, hoặc người ở lại sau ly hôn/tử vong\n\n・Bao gồm **các tình huống nhân đạo và gia đình khác nhau** không được các loại visa khác bao gồm\n\n・Kiểm tra yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・**Hoàn cảnh cá nhân ảnh hưởng lớn**， tài liệu cần thiết và tiêu chuẩn phê duyệt khác nhau\n\n・Cần có **sự ổn định tài chính và bảo lãnh mạnh mẽ** từ công dân Nhật hoặc người cư trú vĩnh viễn",
-	"studyDocs": {
-			"stepchildren": {
-				"applicant": [
-					"Đơn xin cấp tư cách lưu trú",
-					"Hộ chiếu",
-					"Ảnh (4×3cm)",
-					"Giấy khai sinh",
-					"Sơ yếu lý lịch",
-					"Bằng cấp cuối cùng",
-					"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
-					"Thư giải trình",
-					"Phong bì trả lời"
-				],
-				"guarantor": [
-					"Thư bảo lãnh",
-					"Sổ hộ tịch",
-					"Giấy chứng nhận kết hôn",
-					"Giấy chứng nhận cư trú",
-					"Phiếu khấu trừ thuế",
-					"Chứng nhận thuế cư trú",
-					"Chứng nhận nộp thuế",
-					"Giấy chứng nhận đang làm việc",
-					"Chứng nhận số dư ngân hàng",
-					"Ảnh nơi cư trú",
-					"Hợp đồng bất động sản",
-					"Ảnh (4×3cm)"
-				],
-				"optional": ["Các giấy tờ khác"]
-			},
-			"divorce-residence": {
-				"applicant": [
-					"Đơn thay đổi tư cách lưu trú",
-					"Hộ chiếu",
-					"Thẻ cư trú",
-					"Sổ hộ tịch",
-					"Giấy chứng nhận cư trú",
-					"Lịch sử hôn nhân",
-					"Thư giải trình",
-					"Sơ yếu lý lịch",
-					"Bằng cấp cuối cùng",
-					"Chứng chỉ năng lực tiếng Nhật (JLPT, vv)",
-					"Phiếu khấu trừ thuế",
-					"Chứng nhận thuế cư trú",
-					"Chứng nhận nộp thuế",
-					"Giấy chứng nhận đang làm việc",
-					"Chứng nhận số dư ngân hàng",
-					"Ảnh nơi cư trú",
-					"Hợp đồng bất động sản",
-					"Ảnh (4×3cm)"
-				],
-				"guarantor": [
-					"Thư bảo lãnh",
-					"Sổ hộ tịch",
-					"Giấy chứng nhận cư trú",
-					"Phiếu khấu trừ thuế",
-					"Giấy chứng nhận đang làm việc",
-					"Chứng nhận thuế cư trú"
-				],
-				"optional": ["Các giấy tờ khác"]
-			}
-	}
+  "title": "定住者",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "定住者 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "prstepchildren": "連れ子の定住者(永住者扶養)", "jpspousestepchildren": "連れ子の定住者(日本人の配偶者)" },
+  "categoryLabels": { "applicant": "申請人", "guarantor": "扶養者", "optional": "任意" },
+  "tips": "・定住者ビザは**特別な事情を持つ外国人**（連れ子、難民、離婚・死別後の継続在留者等）のためのビザです。",
+  "studyDocs": {
+    "prstepchildren": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "出生証明書",
+        "申請人の無犯罪経歴証明書"
+      ],
+      "guarantor": [
+        "返信用封筒",
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        "扶養者の住民票",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        "申請理由書"
+      ],
+      "optional": ["認知に係る証明書(ある方のみ)"]
+    },
+    "jpspousestepchildren": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "出生証明書"
+      ],
+      "guarantor": [
+        "返信用封筒",
+        "戸籍謄本（全部事項証明書）",
+        "住民票（世帯全員の記載があるもの）",
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        "申請理由書"
+      ],
+      "optional": ["認知に係る証明書(ある方のみ)"]
+    }
+  }
 }

@@ -1,84 +1,70 @@
 {
-	"title": "Lao động kỹ năng",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ visa Lao động kỹ năng",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có mục", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tuỳ chọn" },
-	"tips": "・Visa Lao động kỹ năng dành cho người nước ngoài **làm việc đòi hỏi kỹ năng chuyên môn**\n\n・Bao gồm đầu bếp, huấn luyện viên thể thao, huấn luyện động vật, phi công, thuyền trưởng, v.v.\n\n・Kiểm tra các yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Cần có **kinh nghiệm làm việc 10 năm trở lên** (đối với đầu bếp, v.v.) hoặc bằng cấp/giấy phép quốc gia\n\n・Giấy tờ chứng nhận kỹ năng từ công ty tuyển dụng rất quan trọng",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú (COE)",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Sơ yếu lý lịch",
-				"Chứng chỉ tay nghề (Bằng/Chứng chỉ)",
-				"Giấy chứng nhận kinh nghiệm làm việc"
-			],
-			"company": [
-				"Giấy chứng nhận điều kiện làm việc",
-				"Hợp đồng lao động",
-				"Giấy đăng ký kinh doanh/Tổng quan công ty",
-				"Báo cáo tài chính/Chứng nhận nộp thuế",
-				"Thư mời/Lý do mời"
-			],
-			"optional": ["Giấy bảo lãnh", "Thư giải trình", "Giấy tờ khác"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú tại Nhật",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)",
-				"Sơ yếu lý lịch",
-				"Chứng chỉ tay nghề (Bằng/Chứng chỉ)",
-				"Giấy chứng nhận kinh nghiệm làm việc",
-				"Thư giải trình"
-			],
-			"company": [
-				"Giấy chứng nhận điều kiện làm việc",
-				"Hợp đồng lao động",
-				"Giấy đăng ký kinh doanh/Tổng quan công ty",
-				"Báo cáo tài chính/Chứng nhận nộp thuế"
-			],
-			"optional": ["Giấy bảo lãnh", "Giấy tờ khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Sơ yếu lý lịch",
-				"Chứng chỉ tay nghề (Bằng/Chứng chỉ)",
-				"Giấy chứng nhận kinh nghiệm làm việc"
-			],
-			"company": [
-				"Hợp đồng lao động",
-				"Giấy chứng nhận điều kiện làm việc",
-				"Giấy đăng ký kinh doanh/Tổng quan công ty",
-				"Báo cáo tài chính/Chứng nhận nộp thuế"
-			],
-			"optional": ["Giấy bảo lãnh", "Thư giải trình", "Giấy tờ khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế"
-			],
-			"company": [
-				"Giấy chứng nhận điều kiện làm việc",
-				"Hợp đồng lao động",
-				"Báo cáo tài chính/Chứng nhận nộp thuế"
-			],
-			"optional": ["Thư giải trình", "Giấy tờ khác"]
-		}
-	}
+  "title": "技能",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "技能 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "・実務経験**10年以上**（調理師等）または国家資格・免許が必要。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "履歴書",
+        "職業資格証明書"
+      ],
+      "company": [
+        "雇用理由書",
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し",
+        "返信用封筒"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "履歴書",
+        "職業資格証明書"
+      ],
+      "company": [
+        "雇用理由書",
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書"
+      ],
+      "company": [
+        "雇用契約書",
+        "登記事項証明書",
+        "会社概要説明",
+        "法定調書合計表（写し）",
+        "決直近の年度の決算文書の写し"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

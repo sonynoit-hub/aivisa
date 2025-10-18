@@ -1,65 +1,83 @@
 {
-	"title": "Thăm thân nhân",
+	"title": "親族訪問",
 	"summary": "",
 	"html": "",
 	"sections": [],
-	"docsTitle": "Hồ sơ Thăm thân nhân",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
-	"stageLabels": { "vietnam": "Việt Nam", "china": "Trung Quốc" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "sponsor": "Người mời", "guarantee": "Người bảo lãnh" },
-	"tips": "・Tư cách thăm thân nhân cho phép **thăm gia đình và lưu trú ngắn hạn** với công dân hoặc cư dân Nhật Bản\n\n・Thường được cấp **90 ngày hoặc ít hơn** tùy thuộc vào mối quan hệ và hoàn cảnh\n\n・Đơn xin yêu cầu hồ sơ từ cả người nộp đơn và người bảo lãnh (thân nhân ở Nhật)\n\n・Kiểm tra yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)",
-	"stageTips": {
-		"vietnam": "・Tư cách thăm thân nhân cho phép **thăm gia đình và lưu trú ngắn hạn** với công dân hoặc cư dân Nhật Bản\n\n・Thường được cấp **90 ngày hoặc ít hơn** tùy thuộc vào mối quan hệ và hoàn cảnh\n\n・Đơn xin yêu cầu hồ sơ từ cả người nộp đơn và người bảo lãnh (thân nhân ở Nhật)\n\n・Xem yêu cầu mới nhất tại [Đại sứ quán Nhật Bản tại Việt Nam](https://www.vn.emb-japan.go.jp/itpr_ja/VN_SVisaFAM.html)",
-		"china": "・Tư cách thăm thân nhân cho phép **thăm gia đình và lưu trú ngắn hạn** với công dân hoặc cư dân Nhật Bản\n\n・Thường được cấp **90 ngày hoặc ít hơn** tùy thuộc vào mối quan hệ và hoàn cảnh\n\n・Đơn xin yêu cầu hồ sơ từ cả người nộp đơn và người bảo lãnh (thân nhân ở Nhật)\n\n・Xem yêu cầu mới nhất tại [Đại sứ quán Nhật Bản tại Trung Quốc](https://www.cn.emb-japan.go.jp/itpr_zh/visa_shinzoku.html)"
+	"docsTitle": "親族訪問 必要書類",
+	"actions": {
+		"pdf": "PDF",
+		"pdfAria": "PDFとして出力"
 	},
+	"ui": {
+		"expand": "展開",
+		"collapse": "折りたたむ",
+		"progress": "進捗",
+		"none": "項目なし",
+		"hint": "ヒント"
+	},
+	"stageLabels": {
+		"vietnam": "ベトナムで申請",
+		"china": "中国で申請"
+	},
+	"categoryLabels": {
+		"applicant": "申請人",
+		"sponsor": "招待人",
+		"guarantee": "身元保証人"
+	},
+		"tips": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[出入国在留管理庁](https://www.moj.go.jp/isa/)でご確認ください",
+		"stageTips": {
+			"vietnam": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在ベトナム日本国大使館](https://www.vn.emb-japan.go.jp/itpr_ja/VN_SVisaFAM.html)をご確認ください",
+			"china": "・親族訪問の在留資格は、日本人または在留者との**家族訪問や短期滞在**を目的とします\n\n・関係性や状況により、通常は**90日以内**が付与されます\n\n・申請には申請人と身元保証人（日本在住の親族）双方の書類が必要です\n\n・最新要件は[在中国日本国大使館](https://www.cn.emb-japan.go.jp/itpr_zh/visa_shinzoku.html)をご確認ください"
+		},
 	"studyDocs": {
 		"vietnam": {
 			"applicant": [
-				"Đơn xin cấp Giấy chứng nhận tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3 cm)",
-				"Tài liệu chứng minh mối quan hệ với người thân hoặc bạn bè tại Nhật"
+				"在留資格認定申請書",
+				"パスポート",
+				"写真（縦４cm×横３cm）",
+				"日本の親族や友人との関係を証明する資料",
+				"旅行費用証明書類",
+				"航空券予約確認書"
 			],
 			"guarantee": [
-				"Giấy cam kết bảo đảm",
-				"Sổ hộ khẩu cư trú",
-				"Giấy chứng nhận nộp thuế",
-				"Giấy chứng nhận thuế cư trú (có hoặc không)",
-				"Thẻ lưu trú",
-				"Giấy chứng nhận số dư tài khoản"
+				"身元保証書",
+				"住民票",
+				"納税証明書",
+				"住民税課税（又は非課税）証明書",
+				"在留カード",
+				"預金残高証明"
 			],
 			"sponsor": [
-				"Thư lý do mời",
-				"Lịch trình lưu trú",
-				"Sổ hộ khẩu cư trú",
-				"Giấy chứng nhận đang làm việc / đang học",
-				"Thẻ lưu trú"
+				"招待理由書",
+				"滞在日程表",
+				"住民票",
+				"在職証明及び在学証明",
+				"在留カード"
 			]
 		},
 		"china": {
 			"applicant": [
-				"Đơn xin cấp Giấy chứng nhận tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3 cm)",
-				"Bản sao hộ khẩu",
-				"Giấy chứng nhận nơi cư trú",
-				"Tài liệu chứng minh mối quan hệ với người thân hoặc bạn bè tại Nhật"
+				"在留資格認定申請書",
+				"パスポート",
+				"写真（縦４cm×横３cm）",
+				"戸口本複印件",
+				"居住証明",
+				"日本の親族や友人との関係を証明する資料"
 			],
 			"guarantee": [
-				"Giấy cam kết bảo đảm",
-				"Sổ hộ khẩu cư trú",
-				"Giấy chứng nhận nộp thuế",
-				"Giấy chứng nhận thuế cư trú (có hoặc không)",
-				"Thẻ lưu trú",
-				"Giấy chứng nhận số dư tài khoản"
+				"身元保証書",
+				"住民票",
+				"納税証明書",
+				"住民税課税（又は非課税）証明書",
+				"在留カード",
+				"預金残高証明"
 			],
 			"sponsor": [
-				"Thư lý do mời",
-				"Lịch trình lưu trú",
-				"Sổ hộ khẩu cư trú",
-				"Giấy chứng nhận đang làm việc / đang học",
-				"Thẻ lưu trú"
+				"招待理由書",
+				"滞在日程表",
+				"住民票",
+				"在職証明及び在学証明",
+				"在留カード"
 			]
 		}
 	}

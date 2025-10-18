@@ -1,73 +1,52 @@
 {
-	"title": "Long-term Resident",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Required Documents for Long-term Resident",
-	"actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
-	"ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-	"stageLabels": { "stepchildren": "Stepchildren", "divorce-residence": "Residence after Divorce/Death" },
-	"categoryLabels": { "applicant": "Applicant", "guarantor": "Guarantor", "optional": "Optional" },
-	"tips": "・Long-term Resident visa is for **foreign nationals in special circumstances** such as stepchildren, refugees, or those remaining after divorce/death\n\n・Covers **various humanitarian and family situations** not covered by other visa categories\n\n・Check the latest application requirements at the [Immigration Services Agency](https://www.moj.go.jp/isa/)\n\n・**Individual circumstances heavily influence** required documentation and approval criteria\n\n・Requires strong **financial stability and guarantorship** from Japanese citizens or permanent residents",
-	"studyDocs": {
-			"stepchildren": {
-				"applicant": [
-					"Application for Certificate of Eligibility",
-					"Passport",
-					"Photo (4×3cm)",
-					"Birth Certificate",
-					"Resume",
-					"Highest Degree",
-					"Japanese Proficiency Certificate (JLPT, etc.)",
-					"Statement of Reason",
-					"Self-Addressed Stamped Envelope"
-				],
-				"guarantor": [
-					"Letter of Guarantee",
-					"Family Register (Koseki Tohon)",
-					"Marriage Certificate",
-					"Certificate of Residence",
-					"Withholding Tax Slip",
-					"Resident Tax Certificate",
-					"Tax Certificate",
-					"Certificate of Employment",
-					"Bank Balance Certificate",
-					"Proof of Residence (Photos)",
-					"Real Estate Contract",
-					"Photo (4×3cm)"
-				],
-				"optional": ["Others"]
-			},
-			"divorce-residence": {
-				"applicant": [
-					"Application for Change of Status of Residence",
-					"Passport",
-					"Residence Card",
-					"Family Register (Koseki Tohon)",
-					"Certificate of Residence",
-					"Relationship/Marriage Timeline",
-					"Statement of Reason",
-					"Resume",
-					"Highest Degree",
-					"Japanese Proficiency Certificate (JLPT, etc.)",
-					"Withholding Tax Slip",
-					"Resident Tax Certificate",
-					"Tax Certificate",
-					"Certificate of Employment",
-					"Bank Balance Certificate",
-					"Proof of Residence (Photos)",
-					"Real Estate Contract",
-					"Photo (4×3cm)"
-				],
-				"guarantor": [
-					"Letter of Guarantee",
-					"Family Register (Koseki Tohon)",
-					"Certificate of Residence",
-					"Withholding Tax Slip",
-					"Certificate of Employment",
-					"Resident Tax Certificate"
-				],
-				"optional": ["Others"]
-			}
-	}
+  "title": "定住者",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "定住者 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "prstepchildren": "連れ子の定住者(永住者扶養)", "jpspousestepchildren": "連れ子の定住者(日本人の配偶者)" },
+  "categoryLabels": { "applicant": "申請人", "guarantor": "扶養者", "optional": "任意" },
+  "tips": "・定住者ビザは**特別な事情を持つ外国人**（連れ子、難民、離婚・死別後の継続在留者等）のためのビザです。",
+  "studyDocs": {
+    "prstepchildren": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "出生証明書",
+        "申請人の無犯罪経歴証明書"
+      ],
+      "guarantor": [
+        "返信用封筒",
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        "扶養者の住民票",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        "申請理由書"
+      ],
+      "optional": ["認知に係る証明書(ある方のみ)"]
+    },
+    "jpspousestepchildren": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "出生証明書"
+      ],
+      "guarantor": [
+        "返信用封筒",
+        "戸籍謄本（全部事項証明書）",
+        "住民票（世帯全員の記載があるもの）",
+        "住民税の課税（又は非課税）証明書（直近年度分）",
+        "納税証明書（直近年度分）",
+        { "group": "職業を証明するの資料", "options": ["在職証明書", "営業許可書の写し"], "pick": "one" },
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "身元保証書",
+        "申請理由書"
+      ],
+      "optional": ["認知に係る証明書(ある方のみ)"]
+    }
+  }
 }

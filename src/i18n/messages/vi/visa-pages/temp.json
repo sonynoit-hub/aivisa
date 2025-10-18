@@ -1,51 +1,41 @@
 {
-	"title": "Lưu trú ngắn hạn",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ visa Lưu trú ngắn hạn",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-	"stageLabels": { "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "optional": "Tùy chọn", "company": "Công ty" },
-	"tips": "・Tư cách lưu trú tạm thời cho phép lưu trú **tối đa 90 ngày** về nguyên tắc\n\n・Được sử dụng cho du lịch, kinh doanh, thăm thân nhân và các mục đích ngắn hạn khác\n\n・Kiểm tra các yêu cầu nộp đơn mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n・Có thể nộp đơn **từ 3 tháng trước** ngày dự kiến lưu trú\n\n・Các giấy tờ cần thiết có thể khác nhau tùy theo mục đích lưu trú",
-	"studyDocs": {
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú tại Nhật",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
-				"Giấy chứng nhận dự định xuất cảnh"
-			],
-			"optional": ["Các giấy tờ khác"],
-			"company": []
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
-				"Giấy chứng nhận nguồn tài chính",
-				"Giấy chứng nhận dự định xuất cảnh"
-			],
-			"optional": ["Các giấy tờ khác"],
-			"company": []
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Giấy chứng nhận mục đích lưu trú ngắn hạn",
-				"Giấy chứng nhận dự định xuất cảnh"
-			],
-			"optional": ["Các giấy tờ khác"],
-			"company": []
-		}
-	}
+  "title": "短期滞在",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "短期滞在 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "inJapan": "在日申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社" , "optional": "任意"},
+  "tips": "・短期滞在は原則として**90日以内**の滞在が可能です。\n\n※ 例えば、病気治療を理由とする場合、診断書を提出願います。\n\n※ 例えば、預金残高証明書や帰国用航空券を提出願います。",
+  "studyDocs": {
+    "inJapan": {
+      "applicant": [
+        "在留資格取得許可申請書",
+        "パスポート",
+        "「短期滞在」の取得を必要とする理由書",
+        "航空券予約確認書"
+      ]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "パスポート",
+        "在留カード",
+        "「短期滞在」の取得を必要とする理由書",
+        "航空券予約確認書"
+      ]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "パスポート",
+        "「短期滞在」の取得を必要とする理由書",
+        "活動を説明する資料",
+        "滞在中の経費支弁能力を証明する資料",
+        "航空券予約確認書"
+      ]
+    }
+  }
 }

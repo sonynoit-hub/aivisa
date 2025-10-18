@@ -1,70 +1,50 @@
 {
-	"title": "Thực tập kỹ năng",
-	"summary": "",
-	"html": "",
-	"sections": [],
-	"docsTitle": "Hồ sơ cho diện Thực tập kỹ năng",
-	"actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-	"ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-	"stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Đổi tư cách", "extend": "Gia hạn" },
-	"categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
-	"tips": "・Visa Thực tập kỹ thuật cho phép người nước ngoài **học hỏi kỹ năng và công nghệ** thông qua thực tập tại Nhật Bản\n\n・Được chia thành **Số 1 (tối đa 1 năm)** và **Số 2 (thêm 2 năm nữa)** với các yêu cầu kỹ năng khác nhau\n\n・Yêu cầu **sự chấp thuận của tổ chức giám sát** và nộp kế hoạch thực tập chi tiết\n\n・**Bài thi đánh giá kỹ năng** là bắt buộc để chuyển từ trạng thái Số 1 lên Số 2\n\n・Kiểm tra các yêu cầu mới nhất tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> ⚠️ **Quan trọng:** Đây là chương trình đào tạo, không phải việc làm thông thường - áp dụng các quy tắc bảo vệ lao động cụ thể",
-	"studyDocs": {
-		"abroad": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú",
-				"Hộ chiếu",
-				"Ảnh (4×3cm)"
-			],
-			"company": [
-				"Thông báo kế hoạch thực tập kỹ năng",
-				"Đơn xin công nhận"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"inJapan": {
-			"applicant": [
-				"Đơn xin cấp tư cách lưu trú tại Nhật",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế"
-			],
-			"company": [
-				"Thông báo kế hoạch thực tập kỹ năng",
-				"Đơn xin công nhận"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"change": {
-			"applicant": [
-				"Đơn thay đổi tư cách lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế"
-			],
-			"company": [
-				"Thông báo kế hoạch thực tập kỹ năng",
-				"Đơn xin công nhận"
-			],
-			"optional": ["Các giấy tờ khác"]
-		},
-		"extend": {
-			"applicant": [
-				"Đơn xin gia hạn thời gian lưu trú",
-				"Hộ chiếu",
-				"Thẻ cư trú",
-				"Ảnh (4×3cm)",
-				"Chứng nhận thuế cư trú",
-				"Chứng nhận nộp thuế"
-			],
-			"company": [
-				"Giấy chứng nhận đang làm việc"
-			],
-			"optional": ["Các giấy tờ khác"]
-		}
-	}
+  "title": "技能実習",
+  "summary": "",
+  "html": "",
+  "sections": [],
+  "docsTitle": "技能実習 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "項目なし", "hint": "ヒント" },
+  "stageLabels": { "abroad": "海外申請", "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "company": "会社", "optional": "任意" },
+  "tips": "技能実習１号から２号、技能実習２号から３号に変更しようとする場合は在留資格変更許可申請となります。",
+  "studyDocs": {
+    "abroad": {
+      "applicant": [
+        "在留資格認定証明書交付申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート"
+      ],
+      "company": [
+        "返信用封筒",
+        "技能実習計画認定通知書",
+        "認定の申請書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "change": {
+      "applicant": [
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート"
+      ],
+      "company": [
+        "技能実習計画認定通知書",
+        "認定の申請書の写し"
+      ],
+      "optional": ["申請理由書"]
+    },
+    "extend": {
+      "applicant": [
+        "在留期間更新許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "住民税の課税（又は非課税）証明書",
+        "納税証明書"
+      ],
+      "optional": ["申請理由書"]
+    }
+  }
 }

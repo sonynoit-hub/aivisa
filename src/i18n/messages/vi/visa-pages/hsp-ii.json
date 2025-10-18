@@ -1,26 +1,30 @@
 {
-  "title": "Chuyên môn cao loại 2",
+  "title": "高度専門職2号",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ visa Chuyên gia có tay nghề cao loại 2",
-  "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
-  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có", "hint": "Gợi ý" },
-  "stageLabels": { "change": "Thay đổi tư cách", "extend": "Gia hạn" },
-  "categoryLabels": { "applicant": "Người nộp đơn", "optional": "Tùy chọn" },
-  "tips": "・Visa Chuyên môn cao (số 2) dành cho **các chuyên gia giàu kinh nghiệm** đã có tư cách HSP (i) từ 3+ năm\n\n・Cung cấp **tính linh hoạt tối đa** với hoạt động không hạn chế, không cần gia hạn điểm số, và thời hạn lưu trú mở rộng\n\n・Cho phép **các hoạt động làm việc đa dạng** trên nhiều lĩnh vực mà không bị hạn chế bởi danh mục ban đầu\n\n・Phải duy trì **tối thiểu 70 điểm** trong suốt thời kỳ HSP (i) trước khi chuyển đổi\n\n・Kiểm tra yêu cầu chuyển đổi tại [Cục Quản lý Xuất nhập cảnh](https://www.moj.go.jp/isa/)\n\n> 📊 **Sử dụng công cụ tính điểm**\n> \n> 🔗 **[Công cụ tính điểm chuyên môn cao](/vi/tools/hsp-points)** → Xác minh lịch sử điểm\n> \n> ⚠️ **Quan trọng:** Phải chứng minh kinh nghiệm HSP (i) từ 3+ năm và duy trì 70+ điểm.",
+  "docsTitle": "高度専門職2号 必要書類",
+  "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
+  "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
+  "stageLabels": { "change": "在留資格変更", "extend": "在留期間更新" },
+  "categoryLabels": { "applicant": "申請人", "optional": "任意" },
+  "tips": "・活動内容に変更がある場合は、各在留資格の案内ページからダウンロードして御使用ください。\n\n> 📊 **ポイント計算ツールを使用**\n> \n> 🔗 **[高度専門職ポイント計算ツール](/ja/tools/hsp-points)\n> \n> ⚠️ **重要:** 3年以上の高度専門職1号経験と70点以上の維持証明が必要です。",
   "studyDocs": {
     "change": {
       "applicant": [
-        "Đơn xin thay đổi Tư cách lưu trú",
-        "Hộ chiếu",
-        "Thẻ lưu trú Chuyên gia có tay nghề cao loại 1",
-        "Ảnh (4×3cm)",
-        "Bảng tính điểm",
-        "Tài liệu chứng minh cho từng mục trong bảng tính điểm"
+        "在留資格変更許可申請書",
+        "写真（縦４cm×横３cm）",
+        "パスポート",
+        "在留カード",
+        "ポイント計算表",
+        "ポイント計算表の各項目に関する疎明資料",
+        "直近3年分の住民税の納付状況を証明する資料",
+        "国税の納付状況を確認する資料",
+        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
+        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
+        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料"
       ],
-      "optional": ["Khác"]
-  
+      "optional": ["理由書"]
     }
   }
 }
