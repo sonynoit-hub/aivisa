@@ -126,9 +126,13 @@ export default function VisaDocs<C extends string>({
     return (byStage ?? ({} as Record<C, DocItem[]>));
   }, [stage, ACTIVE_DOCS]);
 
-  const effectiveCatOrder = useMemo(() => {
-    const keys = Object.keys(categories) as C[];
-    return (categoryOrder && categoryOrder.length ? categoryOrder : keys);
+  // Prefer provided categoryOrder, but hide categories with no items
+  const visibleCatOrder = useMemo(() => {
+    const allKeys = (categoryOrder && categoryOrder.length ? categoryOrder : (Object.keys(categories) as C[]));
+    return allKeys.filter((k) => {
+      const arr = (categories as Record<string, DocItem[]>)[k as string] || [];
+      return Array.isArray(arr) && arr.length > 0;
+    });
   }, [categoryOrder, categories]);
 
   const resolveColor = (cat: C): ColorConfig => {
@@ -197,7 +201,7 @@ export default function VisaDocs<C extends string>({
                 filename={`${META?.title ?? "VisaDocs"}-${META?.stageLabels?.[stage] ?? stage}`}
                 onBeforePrint={async () => {
                   const prev = collapsed;
-                  const expandedAll = effectiveCatOrder.reduce((acc, k) => {
+                  const expandedAll = visibleCatOrder.reduce((acc, k) => {
                     (acc as any)[k] = false;
                     return acc;
                   }, {} as Record<C, boolean>);
@@ -265,7 +269,7 @@ export default function VisaDocs<C extends string>({
       </div>
 
       <div data-export-root className="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {effectiveCatOrder.map((cat) => {
+        {visibleCatOrder.map((cat) => {
           const items = (categories as Record<string, DocItem[]>)[cat as string] || [];
           const title = (META?.categoryLabels?.[cat as keyof typeof META.categoryLabels] ?? (cat as string)) as string;
           const color = resolveColor(cat);
