@@ -7,7 +7,7 @@
   "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
   "ui": { "expand": "展開", "collapse": "折りたたむ", "progress": "進捗", "none": "内容はありません", "hint": "ヒント" },
   "stageLabels": { "abroad": "海外から申請", "change": "在留資格の変更", "extend": "在留期間の更新", "inJapan": "日本国内で申請" },
-  "categoryLabels": { "applicant": "申請人（本人）", "dependents": "扶養者・家族", "optional": "任意・補足" },
+  "categoryLabels": { "applicant": "申請人", "dependents": "扶養者・家族", "optional": "任意・補足" },
   "tips": "・家族滞在資格保持者は別途申請で**アルバイト許可**を取得できます。",
   "studyDocs": {
     "abroad": {
