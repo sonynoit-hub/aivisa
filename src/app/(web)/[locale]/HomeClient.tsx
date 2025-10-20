@@ -411,7 +411,7 @@ export default function HomeClient() {
 
           {/* 在此展示来自数据库的广告卡片（2 条） */}
           <div className="mt-4">
-            <AdSlots page="top" slot="top_card" locale={locale} />
+            <AdSlots page="top" slot="top_card" locale={locale} limit={2} />
           </div>
         </section>
       </div>

@@ -21,8 +21,6 @@ export const EP = {
   company: {
     offices: "/companies",
     officeDetail: (slug: string) => `/api/companies/${slug}`,
-    officeAdContext: (officeSlug: string, adSlug: string) => `/api/companies/${officeSlug}/ads/${adSlug}`,
-    officeAdPage: (locale: string, officeSlug: string, adSlug: string) => `/${locale}/companies/${officeSlug}/ads/${adSlug}`,
   },
   analytics: {
     base: "/api/analytics",

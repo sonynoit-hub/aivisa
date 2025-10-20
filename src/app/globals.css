@@ -396,3 +396,14 @@
   /* 卡片标题在打印中确保可见与对比度 */
   [data-card-title] { color: #0f172a !important; font-weight: 600 !important; display: inline-block !important; }
 }
+
+/* ===== Utilities: Multi-line clamp ===== */
+@layer utilities {
+  .clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}

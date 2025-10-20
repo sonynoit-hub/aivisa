@@ -15,8 +15,9 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
   useEffect(() => {
     let mounted = true;
     setLoading(true);
+    const defaultLimit = (typeof limit === 'number') ? limit : (page === 'top' && slot === 'top_card' ? 2 : undefined);
     const params: any = { page, slot, categorySlug, locale: locale || "ja" };
-    if (typeof limit === 'number') params.limit = limit;
+    if (typeof defaultLimit === 'number') params.limit = defaultLimit;
     if (DEBUG_ADS && typeof window !== 'undefined') console.debug('[ads] AdSlots:fetch', params);
     getAdsByPlacement(params)
       .then((res) => {

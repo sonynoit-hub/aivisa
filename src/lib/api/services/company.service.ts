@@ -1,11 +1,17 @@
 import { EP } from "../endpoints";
 import { apiGet } from "../client";
-import type { OfficeDetail } from "@/types/company";
+import type { OfficeDetail, OfficeCard } from "@/types/company";
 
 // 选取 locale 对应的 i18n 记录，兼容数组/对象/直接平铺
 function pickI18n(raw: any, locale: string) {
   const loc = (locale || '').toLowerCase();
-  const i18n = raw?.i18n ?? raw?.office_i18n ?? raw?.partner_office_i18n;
+  // 兼容多层嵌套：out.i18n / out.office.i18n / 直接挂载
+  const i18n =
+    raw?.i18n ??
+    raw?.office_i18n ??
+    raw?.partner_office_i18n ??
+    raw?.out?.i18n ??
+    raw?.out?.office?.i18n;
   if (!i18n) return {};
   // 1) { ja: {...}, en: {...} } 这种 map 结构
   if (!Array.isArray(i18n) && typeof i18n === 'object') {
@@ -27,15 +33,17 @@ function pickI18n(raw: any, locale: string) {
 }
 
 export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
+  // 支持新接口：OfficeDto.OfficeGetResponse => { out: { office: {...}, i18n: {...} } }
+  const base = raw?.out?.office ?? raw?.office ?? raw;
   const i18n = pickI18n(raw, locale) || {};
   // Address: prefer structured object; else build from flat fields; else fallback to i18n string
-  const addrFromRaw = raw?.address ?? raw?.office_address ?? undefined;
-  const flatZip = raw?.zip ?? raw?.postal_code ?? raw?.post_code ?? raw?.postcode ?? undefined;
-  const flatPref = raw?.pref ?? raw?.prefecture ?? raw?.state ?? undefined;
-  const flatCity = raw?.city ?? raw?.ward ?? undefined;
-  const flatLine1 = raw?.line1 ?? raw?.addr1 ?? raw?.address1 ?? raw?.street ?? raw?.street1 ?? undefined;
-  const flatLine2 = raw?.line2 ?? raw?.addr2 ?? raw?.address2 ?? raw?.street2 ?? undefined;
-  const flatCountry = raw?.country ?? undefined;
+  const addrFromRaw = base?.address ?? base?.office_address ?? undefined;
+  const flatZip = base?.zip ?? base?.postal_code ?? base?.post_code ?? base?.postcode ?? undefined;
+  const flatPref = base?.pref ?? base?.prefecture ?? base?.state ?? undefined;
+  const flatCity = base?.city ?? base?.ward ?? undefined;
+  const flatLine1 = base?.line1 ?? base?.addr1 ?? base?.address1 ?? base?.street ?? base?.street1 ?? undefined;
+  const flatLine2 = base?.line2 ?? base?.addr2 ?? base?.address2 ?? base?.street2 ?? undefined;
+  const flatCountry = base?.country ?? undefined;
   const addrBuilt = (flatZip || flatPref || flatCity || flatLine1 || flatLine2 || flatCountry)
     ? { zip: flatZip, pref: flatPref, city: flatCity, line1: flatLine1, line2: flatLine2, country: flatCountry }
     : undefined;
@@ -55,36 +63,103 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
       : undefined
   );
 
-  const name = i18n?.display_name ?? raw?.display_name ?? raw?.displayName ?? i18n?.name ?? raw?.name ?? raw?.office_name ?? raw?.slug ?? '';
-  const shortDesc = i18n?.short_desc ?? raw?.shortDesc ?? raw?.short_desc ?? raw?.intro ?? i18n?.summary ?? raw?.summary ?? i18n?.tagline ?? raw?.tagline ?? undefined;
+  const name = i18n?.display_name ?? i18n?.displayName ?? base?.display_name ?? base?.displayName ?? i18n?.name ?? base?.name ?? base?.office_name ?? base?.slug ?? '';
+  const shortDesc = i18n?.short_desc ?? i18n?.shortDesc ?? base?.shortDesc ?? base?.short_desc ?? base?.intro ?? i18n?.summary ?? base?.summary ?? i18n?.tagline ?? base?.tagline ?? undefined;
   // 兼容 detail 字段的多种命名（后端/数据不一致时依然可显示）
   const descriptionMd =
     i18n?.detail_md ?? i18n?.detailMd ?? i18n?.description_md ?? i18n?.descriptionMd ?? i18n?.detail_markdown ?? i18n?.details_markdown ??
-    raw?.descriptionMd ?? raw?.detailMd ?? raw?.description_md ?? raw?.detail_md ?? raw?.detail ?? raw?.details ?? raw?.detail_markdown ?? raw?.details_markdown ?? raw?.description_markdown ?? undefined;
+    base?.descriptionMd ?? base?.detailMd ?? base?.description_md ?? base?.detail_md ?? base?.detail ?? base?.details ?? base?.detail_markdown ?? base?.details_markdown ?? base?.description_markdown ?? undefined;
 
   // Contact info: try i18n first then raw; support common variants
   const websiteUrl = i18n?.websiteUrl ?? i18n?.website_url ?? i18n?.website ?? i18n?.homepage ?? i18n?.home_page ?? i18n?.url ??
-    raw?.websiteUrl ?? raw?.website_url ?? raw?.website ?? raw?.homepage ?? raw?.home_page ?? raw?.site ?? raw?.url ?? undefined;
+    base?.websiteUrl ?? base?.website_url ?? base?.website ?? base?.homepage ?? base?.home_page ?? base?.site ?? base?.url ?? undefined;
   const email = i18n?.email ?? i18n?.mail ?? i18n?.contact_email ?? i18n?.e_mail ?? i18n?.email_public ??
-    raw?.email ?? raw?.mail ?? raw?.contact_email ?? raw?.e_mail ?? raw?.info_email ?? raw?.emailPublic ?? undefined;
+    base?.email ?? base?.mail ?? base?.contact_email ?? base?.e_mail ?? base?.info_email ?? base?.emailPublic ?? undefined;
   const phone = i18n?.phone ?? i18n?.tel ?? i18n?.telephone ?? i18n?.phone_number ?? i18n?.contact_phone ?? i18n?.phone_public ??
-    raw?.phone ?? raw?.tel ?? raw?.telephone ?? raw?.phone_number ?? raw?.contact_phone ?? raw?.phonePublic ?? undefined;
+    base?.phone ?? base?.tel ?? base?.telephone ?? base?.phone_number ?? base?.contact_phone ?? base?.phonePublic ?? undefined;
+
+  // cards_json: 后端 i18n 表中可能包含的 JSON 字段
+  function parseCards(src: any): OfficeCard[] | undefined {
+    try {
+      const v = src?.cards_json ?? src?.cardsJson ?? src?.cardsJSON ?? src?.cards ?? undefined;
+      if (!v) return undefined;
+      const parsed = typeof v === 'string' ? JSON.parse(v) : v;
+      // 情况1：直接数组
+      if (Array.isArray(parsed)) {
+        return parsed.filter((x: any) => x && typeof x === 'object');
+      }
+      // 情况2：对象形式，包含 cards
+      if (parsed && typeof parsed === 'object' && parsed.cards) {
+        // 2a) cards 是数组
+        if (Array.isArray(parsed.cards)) {
+          return parsed.cards.filter((x: any) => x && typeof x === 'object');
+        }
+        // 2b) cards 是对象映射：{ key: {...}, key2: {...} }
+        if (parsed.cards && typeof parsed.cards === 'object') {
+          const entries = Object.entries(parsed.cards);
+          if (entries.length) {
+            return entries
+              .map(([key, val]) => (val && typeof val === 'object') ? ({ key, ...(val as any) }) : undefined)
+              .filter(Boolean) as any[];
+          }
+        }
+      }
+      // 情况3：对象映射，如 { legal: {...}, career: {...} }
+      if (parsed && typeof parsed === 'object') {
+        const entries = Object.entries(parsed);
+        if (entries.length) {
+          return entries
+            .map(([key, val]) => (val && typeof val === 'object') ? ({ key, ...(val as any) }) : undefined)
+            .filter(Boolean) as any[];
+        }
+      }
+      return undefined;
+    } catch { return undefined; }
+  }
+  const cards = parseCards(i18n) ?? parseCards(base) ?? parseCards(raw?.out);
+
+  // 辅助解析 JSON 字段
+  const parseJson = (v: any) => {
+    try { return typeof v === 'string' ? JSON.parse(v) : v; } catch { return undefined; }
+  };
+  const sns = base?.sns ?? parseJson(base?.snsJson ?? base?.sns_json) ?? parseJson(i18n?.snsJson ?? i18n?.sns_json) ?? undefined;
+  const media = parseJson(base?.mediaJson ?? base?.media_json) ?? undefined;
+  const listings = parseJson(base?.listingsJson ?? base?.listings_json) ?? undefined;
+  const tags = Array.isArray(base?.tags) ? base?.tags : (Array.isArray(i18n?.tags) ? i18n?.tags : undefined);
+  const isActive = base?.isActive ?? base?.active ?? undefined;
+  const ogImageUrl = base?.ogImageUrl ?? base?.og_image_url ?? undefined;
+  const publishedAt = base?.publishedAt ?? base?.published_at ?? undefined;
+  const geoLat = base?.geoLat ?? base?.geo_lat ?? base?.lat ?? undefined;
+  const geoLng = base?.geoLng ?? base?.geo_lng ?? base?.lng ?? base?.lon ?? base?.long ?? undefined;
+  const seoTitle = i18n?.seoTitle ?? i18n?.seo_title ?? undefined;
+  const seoDesc = i18n?.seoDesc ?? i18n?.seo_desc ?? undefined;
 
   return {
-    id: raw?.id ?? raw?.office_id ?? raw?.uuid ?? '',
-    slug: raw?.slug ?? raw?.office_slug ?? '',
+    id: base?.id ?? base?.office_id ?? base?.uuid ?? '',
+    slug: base?.slug ?? base?.office_slug ?? '',
+    isActive,
     name,
     shortDesc,
     descriptionMd,
-  websiteUrl,
-  email,
-  phone,
+    websiteUrl,
+    email,
+    phone,
     address,
-  languages: raw?.languages ?? i18n?.languages ?? undefined,
-  services: raw?.services ?? i18n?.services ?? raw?.tags ?? undefined,
+    cards,
+    languages: base?.languages ?? i18n?.languages ?? undefined,
+    services: base?.services ?? i18n?.services ?? base?.tags ?? undefined,
     badgeText: raw?.badgeText ?? raw?.badge_text ?? undefined,
     badgeVariant: raw?.badgeVariant ?? raw?.badge_variant ?? undefined,
-    sns: raw?.sns ?? undefined,
+    sns,
+    tags,
+    media,
+    listings,
+    publishedAt,
+    ogImageUrl,
+    geoLat,
+    geoLng,
+    seoTitle,
+    seoDesc,
   } as OfficeDetail;
 }
 

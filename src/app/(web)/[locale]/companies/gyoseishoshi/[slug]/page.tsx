@@ -5,6 +5,15 @@ import Markdown from "@/components/common/Markdown";
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  const office: OfficeDetail = await getOfficeDetail(slug, locale);
+  const title = office.seoTitle || `${office.name} | aivisa`;
+  const description = office.seoDesc || office.shortDesc || undefined;
+  const openGraph = office.ogImageUrl ? { images: [{ url: office.ogImageUrl }] } : undefined;
+  return { title, description, openGraph };
+}
+
 function Badge({ text, variant }: { text?: string; variant?: string }) {
   const v = (variant || '').toLowerCase();
   const map: Record<string, string> = {
@@ -106,6 +115,50 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Description */}
           <div className="lg:col-span-2">
+            {/* Cards from partner_office_i18n.cards_json */}
+            {office.cards && office.cards.length > 0 && (
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {office.cards.map((c, idx) => {
+                    const title = (c as any).title || (c as any).name || (c as any).heading || (c as any).label;
+                    const desc = (c as any).desc || (c as any).description || (c as any).text || (c as any).content;
+                    const href = (c as any).url || (c as any).href || (c as any).ctaUrl;
+                    const emoji = (c as any).emoji;
+                    const defaultCta = locale.startsWith('ja') ? '詳しく見る' : (locale.startsWith('zh') ? '查看详情' : 'Learn more');
+                    const ctaLabel = (c as any).ctaLabel || defaultCta;
+                    const bullets = Array.isArray((c as any).bullets) ? (c as any).bullets.filter(Boolean).slice(0, 4) : [];
+                    return (
+                      <div key={idx} className="rounded-xl border border-slate-200 p-4">
+                        {(title || emoji) && (
+                          <div className="text-[15px] font-semibold text-slate-900 mb-1 flex items-center gap-2">
+                            {emoji ? <span className="text-lg leading-none">{String(emoji)}</span> : null}
+                            {title ? <span className="clamp-2">{String(title)}</span> : null}
+                          </div>
+                        )}
+                        {desc && <p className="text-slate-700 text-sm clamp-2">{String(desc)}</p>}
+                        {bullets.length > 0 && (
+                          <ul className="mt-2 space-y-1 text-[13px] text-slate-700">
+                            {bullets.map((b: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-teal-500" />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {href && (
+                          <div className="mt-3">
+                            <a href={String(href)} className="inline-flex items-center rounded-lg border px-3 py-1.5 text-sm hover:border-teal-300 hover:text-teal-700">
+                              {String(ctaLabel)}
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
             {office.descriptionMd && (
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
                 <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">

@@ -6,6 +6,8 @@ export type AdCardContent = {
   badgeText?: string;
   badgeVariant?: string; // '法律' | '生活' | 'キャリア' ... 等，前端样式映射
   imageUrl?: string;
+  // 新增：公司名称（与请求 locale 一致，带后端回退）
+  companyName?: string;
   primaryCtaLabel?: string;
   primaryCtaUrl?: string;
   secondaryCtaLabel?: string;
@@ -25,11 +27,3 @@ export type AdPlacementQuery = {
 
 export type AdPlacementResponse = AdCardContent | null;
 export type AdListResponse = AdCardContent[];
-
-// 公司 + 广告上下文（用于 /companies/{officeSlug}/ads/{adSlug} 页面）
-import type { OfficeDetail } from "@/types/company";
-export type CompanyAdContext = {
-  company: OfficeDetail;
-  ad: AdCardContent;
-  placement?: { page?: string; slot?: string; category?: string | null } | null;
-};

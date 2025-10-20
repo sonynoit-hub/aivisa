@@ -35,6 +35,7 @@ function mockTopAd(locale: string): AdCardContent {
     bullets: isJa ? ["初回相談 30分 無料", "見積り即時発行"] : ["First consultation free", "Instant quote"],
     badgeText: isJa ? "法務" : "Legal",
     badgeVariant: "legal",
+    companyName: isJa ? "行政書士ネットワーク" : "Gyoseishoshi Network",
     primaryCtaLabel: isJa ? "AIでマッチング" : "AI Match",
     primaryCtaUrl: "/ja/questionnaire/recommend-office",
     secondaryCtaLabel: isJa ? "事務所一覧" : "Offices",
@@ -53,6 +54,7 @@ function mockCategoryAd(locale: string, categorySlug?: string | null): AdCardCon
       bullets: isJa ? ["短中期OK（マンスリー）", "家賃の目安をAI試算"] : ["Monthly OK", "AI rent estimate"],
       badgeText: isJa ? "生活" : "Life",
       badgeVariant: 'life',
+      companyName: isJa ? "さくら不動産" : "Sakura Real Estate",
       primaryCtaLabel: isJa ? "条件入力で提案" : "Get Proposals",
       primaryCtaUrl: "/ja/resources/real-estate",
       secondaryCtaLabel: isJa ? "物件を見る" : "Browse",
@@ -67,6 +69,7 @@ function mockCategoryAd(locale: string, categorySlug?: string | null): AdCardCon
     bullets: isJa ? ["ビザ適合フィルター", "リファラル・企業紹介"] : ["Visa fit filter", "Referral"],
     badgeText: isJa ? "キャリア" : "Career",
     badgeVariant: 'career',
+    companyName: isJa ? "AIVISA 採用" : "AIVISA Jobs",
     primaryCtaLabel: isJa ? "AI求人を見る" : "AI Jobs",
     primaryCtaUrl: "/ja/resources/jobs",
     secondaryCtaLabel: isJa ? "エージェント一覧" : "Agents",
@@ -101,9 +104,17 @@ export async function getAdByPlacement(q: AdPlacementQuery): Promise<AdPlacement
     const params = { ...paramsBase, page: c.page, slot: c.slot };
     try {
       dlog('getAdByPlacement:request', params);
-      const res = await apiGet<AdPlacementResponse>(EP.ads.byPlacement, params);
+      const res = await apiGet<any>(EP.ads.byPlacement, params);
       dlog('getAdByPlacement:response', { params, has: !!res });
-      if (res && typeof res === 'object') return res;
+      // 兼容 DTO 外层包装：{ items: AdCardContent[] }
+      if (res && typeof res === 'object') {
+        if (Array.isArray((res as any).items)) {
+          const first = (res as any).items[0] || null;
+          if (first) return first as AdCardContent;
+          continue;
+        }
+        return res as AdCardContent;
+      }
       if (res === null) continue;
     } catch {
       // 忽略错误，继续尝试下一个组合
@@ -157,12 +168,19 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
     const params = { ...paramsBase, page: c.page, slot: c.slot };
     try {
       dlog('getAdsByPlacement:request', params);
-      const list = await apiGet<AdListResponse | AdPlacementResponse>(EP.ads.byPlacementList, params);
+      const list = await apiGet<any>(EP.ads.byPlacementList, params);
       // 后端可能永远返回数组，也可能在 limit 的情况下才返回数组，这里做兼容
       if (Array.isArray(list)) {
         dlog('getAdsByPlacement:response-array', { params, length: list.length });
         if (list.length > 0) return list as AdListResponse;
         // 空数组则尝试下一组合
+        continue;
+      }
+      // 兼容 DTO 外层包装：{ items: AdCardContent[] }
+      if (list && typeof list === 'object' && Array.isArray((list as any).items)) {
+        const items = (list as any).items as AdCardContent[];
+        dlog('getAdsByPlacement:response-dto-items', { params, length: items.length });
+        if (items.length > 0) return items;
         continue;
       }
       if (list && typeof list === 'object') {
