@@ -3,16 +3,16 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Kinh doanh/Quản lý",
+  "docsTitle": "Hồ sơ cần thiết cho visa Kinh doanh/Quản lý",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
-  "tips": "- Yêu cầu tuyển dụng ít nhất 1 nhân viên chính thức (quốc tịch Nhật hoặc người có tư cách lưu trú phù hợp).\n\n- Vốn tối thiểu: từ 30.000.000 JPY.\n\n- Năng lực tiếng Nhật: Đương đơn hoặc một nhân viên chính thức phải có JLPT N2 trở lên.\n\n- Học vấn/Kinh nghiệm: Bằng cấp chuyên môn liên quan (Thạc sĩ, Tiến sĩ, Chuyên môn) hoặc kinh nghiệm quản lý/kinh doanh từ 3 năm.\n\n- Xác nhận kế hoạch kinh doanh bởi chuyên gia: Kế hoạch nộp phải được xác nhận bởi chuyên gia như tư vấn quản lý SME, CPA hoặc kế toán thuế.\n\n- Yêu cầu văn phòng: Có văn phòng chuyên dụng phù hợp với quy mô. Nguyên tắc là không dùng nhà ở làm văn phòng.",
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "tips": "- Yêu cầu tuyển dụng ít nhất 1 nhân viên chính thức (quốc tịch Nhật hoặc người có tư cách lưu trú phù hợp).\n\n- Vốn tối thiểu: từ 30.000.000 JPY.\n\n- Năng lực tiếng Nhật: Người nộp đơn hoặc một nhân viên chính thức phải có JLPT N2 trở lên.\n\n- Học vấn/Kinh nghiệm: Bằng cấp chuyên môn liên quan (Thạc sĩ, Tiến sĩ, Chuyên môn) hoặc kinh nghiệm quản lý/kinh doanh từ 3 năm.\n\n- Xác nhận kế hoạch kinh doanh bởi chuyên gia: Kế hoạch nộp phải được xác nhận bởi chuyên gia như tư vấn quản lý SME, CPA hoặc kế toán thuế.\n\n- Yêu cầu văn phòng: Có văn phòng chuyên dụng phù hợp với quy mô. Nguyên tắc là không dùng nhà ở làm văn phòng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Đơn xin Cấp tư cách lưu trú ",
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
         "Giấy chứng nhận tốt nghiệp",
@@ -48,7 +48,7 @@
     },
     "change": {
       "applicant": [
-        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Đơn xin Cấp tư cách lưu trú ",
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
         "Thẻ cư trú",

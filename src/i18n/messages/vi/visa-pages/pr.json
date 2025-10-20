@@ -1,230 +1,492 @@
 {
-  "title": "Thường trú nhân",
+  "title": "Vĩnh trú",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần thiết cho đơn xin Thường trú",
-  "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
-  "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý", "noteTitle": "Lưu ý" },
-  "note": "Trang này chỉ mang tính tham khảo chung. Vui lòng luôn kiểm tra yêu cầu và hồ sơ mới nhất trên trang của Cục Xuất nhập cảnh: https://www.moj.go.jp/isa/.",
+  "docsTitle": "Hồ sơ cần thiết để xin visa Vĩnh trú",
+  "actions": {
+    "pdf": "PDF",
+    "pdfAria": "Xuất ra PDF"
+  },
+  "ui": {
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn",
+    "progress": "Tiến độ",
+    "none": "Không có nội dung",
+    "hint": "Gợi ý",
+    "noteTitle": "Lưu ý"
+  },
+  "note": "Trang này chỉ mang tính tham khảo chung. Vui lòng luôn kiểm tra các yêu cầu và mẫu hồ sơ mới nhất trên trang chính thức của Cục Xuất nhập cảnh Nhật Bản: https://www.moj.go.jp/isa/.",
   "stageLabels": {
-    "work": "Lộ trình lao động",
-    "highlySkilleds": "Lộ trình HSP (70+ điểm)",
-    "highlySkilledh": "Lộ trình HSP (80+ điểm)",
-    "familyStay": "Gia đình lưu trú",
-    "prSpouse": "Lộ trình vợ/chồng Thường trú nhân",
-    "jpSpouse": "Lộ trình vợ/chồng công dân Nhật",
-    "settler": "Lộ trình định cư dài hạn"
+    "work": "Từ visa Kỹ sư",
+    "highlySkilleds": "Từ visa Nhân lực chất lượng cao (70+ điểm)",
+    "highlySkilledh": "Từ visa Nhân lực chất lượng cao (80+ điểm)",
+    "familyStay": "Từ visa Đoàn tụ gia đình",
+    "prSpouse": "Từ visa Vợ/chồng của người có Vĩnh trú",
+    "jpSpouse": "Từ visa Vợ/chồng của công dân Nhật Bản",
+    "settler": "Từ visa Định trú"
   },
   "categoryLabels": {
     "applicant": "Người nộp đơn",
-    "dependents": "Người phụ thuộc/Vợ chồng",
-    "optional": "Tùy chọn/Bổ sung"
+    "dependents": "Người phụ thuộc / Vợ hoặc chồng",
+    "optional": "Tùy chọn / Bổ sung"
   },
   "tips": "- Cần cư trú liên tục từ 10 năm trở lên (rút ngắn với vợ/chồng/con của công dân Nhật hoặc Thường trú nhân).\n\n- Với hệ thống điểm HSP đạt từ 70+: có thể nộp sau khi cư trú từ 3 năm trở lên.\n\n- Với hệ thống điểm HSP đạt từ 80+: có thể nộp sau khi cư trú từ 1 năm trở lên.",
-  "studyDocs": {
+   "studyDocs": {
     "work": {
       "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "理由書",
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近５年分の住民税の課税（又は非課税）証明書",
-        "直近５年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
+        "Đơn xin cấp Vĩnh trú",
+        "Ảnh (4cm × 3cm)",
+        "Bản lý do xin cấp Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên gia đình)",
+        {
+          "group": "Tài liệu chứng minh nghề nghiệp",
+          "options": [
+            "Giấy chứng nhận đang làm việc",
+            "Bản sao tờ khai thuế đã nộp",
+            "Bản sao giấy phép kinh doanh (nếu có)",
+            "Bản mô tả công việc (tự soạn)"
+          ],
+          "pick": "one"
+        },
+        "Giấy chứng nhận thuế cư trú (hoặc miễn thuế) trong 5 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế cư trú trong 5 năm gần nhất",
+        "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+        "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+        "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+        "Bản sao thẻ bảo hiểm y tế",
+        {
+          "group": "Tài liệu chứng minh thu nhập",
+          "options": [
+            "Bản sao sổ ngân hàng",
+            "Ảnh chụp màn hình sổ tiết kiệm online"
+          ],
+          "pick": "one"
+        },
+        "Giấy bảo lãnh nhân thân",
+        {
+          "group": "Tài liệu liên quan đến người bảo lãnh",
+          "options": [
+            "Bản sao bằng lái xe",
+            "Bản sao thẻ cư trú"
+          ],
+          "pick": "one"
+        },
+        "Giấy đồng ý",
+        "Hộ chiếu",
+        "Thẻ cư trú"
       ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Giấy chứng nhận lịch sử lái xe (đối với người có bằng lái)",
+        "Giấy chứng nhận không tai nạn, không vi phạm (đối với người có bằng lái)",
+        "Tài liệu chứng minh đóng góp cho Nhật Bản",
+        "Giấy chứng nhận đăng ký bất động sản"
+      ]
     },
-    "highlySkilleds": {
+       "highlySkilleds": {
       "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "理由書",
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近3年分の住民税の課税（又は非課税）証明書",
-        "直近3年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去2年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去2年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "高度専門職ポイント計算表",
-        "ポイント計算の各項目に関する疎明資料",
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
+        "Đơn xin cấp Vĩnh trú",
+        "Ảnh (4cm × 3cm)",
+        "Bản lý do xin cấp Vĩnh trú",
+        "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+        {
+          "group": "Tài liệu chứng minh nghề nghiệp",
+          "options": [
+            "Giấy chứng nhận đang làm việc",
+            "Bản sao tờ khai thuế đã nộp",
+            "Bản sao giấy phép kinh doanh (nếu có)",
+            "Bản mô tả công việc (tự soạn)"
+          ],
+          "pick": "one"
+        },
+        "Giấy chứng nhận thuế cư trú (hoặc miễn thuế) trong 3 năm gần nhất",
+        "Giấy chứng nhận đã nộp thuế cư trú trong 3 năm gần nhất",
+        "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+        "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+        "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+        "Bản sao thẻ bảo hiểm y tế",
+        "Bảng tính điểm visa Nhân lực chất lượng cao",
+        "Tài liệu chứng minh từng hạng mục điểm",
+        {
+          "group": "Tài liệu chứng minh thu nhập",
+          "options": [
+            "Bản sao sổ ngân hàng",
+            "Ảnh chụp màn hình sổ tiết kiệm online"
+          ],
+          "pick": "one"
+        },
+        "Giấy bảo lãnh nhân thân",
+        {
+          "group": "Tài liệu liên quan đến người bảo lãnh",
+          "options": [
+            "Bản sao bằng lái xe",
+            "Bản sao thẻ cư trú"
+          ],
+          "pick": "one"
+        },
+        "Giấy đồng ý",
+        "Hộ chiếu",
+        "Thẻ cư trú"
       ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
+      "optional": [
+        "Giấy chứng nhận lịch sử lái xe",
+        "Giấy chứng nhận không tai nạn, không vi phạm",
+        "Tài liệu chứng minh đóng góp cho Nhật Bản",
+        "Giấy chứng nhận đăng ký bất động sản"
+      ]
     },
-    "highlySkilledh": {
-      "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "理由書",
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近1年分の住民税の課税（又は非課税）証明書",
-        "直近1年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去1年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去1年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "高度専門職ポイント計算表",
-        { "group": "ポイント計算の各項目に関する疎明資料", "options": ["高度専門職ポイント計算結果通知書の写し　", "ポイント計算の各項目に関する疎明資料"], "pick": "one" },
-        { "group": "所得を証明するもの", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等"], "pick": "one" },
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
-      ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
-    },
-    "familyStay": {
-      "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "理由書",
-        { "group": "身分関係を証明するの資料", "options": ["戸籍謄本（全部事項証明書）", "出生証明書", "婚姻証明書", "認知届の記載事項証明書"], "pick": "one" },
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近５年分の住民税の課税（又は非課税）証明書",
-        "直近５年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
-      ],
-      "dependents": [
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近５年分の住民税の課税（又は非課税）証明書",
-        "直近５年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        { "group": "申請人又は申請人を扶養する方の資産を証明するの資料", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等", "不動産の登記事項証明書"], "pick": "one" },
-        "パスポート",
-        "在留カード"
-      ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
-    },
-    "prSpouse": {
-      "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        { "group": "婚姻関係を証明するもの", "options": ["配偶者との婚姻証明書", "申請人と配偶者の方の身分関係を証するもの"], "pick": "one" },
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近3年分の住民税の課税（又は非課税）証明書",
-        "直近3年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "親族一覧表",
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
-      ],
-      "dependents": [
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近3年分の住民税の課税（又は非課税）証明書",
-        "直近3年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "パスポート",
-        "在留カード"
-      ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
-    },
-    "jpSpouse": {
-      "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "配偶者の戸籍謄本（全部事項証明書）",
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近3年分の住民税の課税（又は非課税）証明書",
-        "直近3年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "親族一覧表",
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
-      ],
-      "dependents": [
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近3年分の住民税の課税（又は非課税）証明書",
-        "直近3年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）"
-      ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
-    },
-    "settler": {
-      "applicant": [
-        "永住許可申請書",
-        "写真（縦４㎝✕横３㎝）",
-        "理由書",
-        { "group": "身分関係を証明するの資料", "options": ["戸籍謄本（全部事項証明書）", "出生証明書","婚姻証明書","認知届の記載事項証明書"], "pick": "one" },
-        "住民票（世帯全員の記載）",
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近5年分の住民税の課税（又は非課税）証明書",
-        "直近5年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        "身元保証書",
-        { "group": "身元保証書に係る資料", "options": ["運転免許証の写し", "在留カードの写し等"], "pick": "one" },
-        "了解書",
-        "パスポート",
-        "在留カード"
-      ],
-      "dependents": [
-        { "group": "職業を証明するの資料", "options": ["在職証明書", "確定申告書控えの写し", "営業許可書の写し（ある場合）", "職業に係る説明書（書式自由）"], "pick": "one" },
-        "直近5年分の住民税の課税（又は非課税）証明書",
-        "直近5年分の住民税の納税証明書",
-        "国税の納付状況を確認する資料",
-        "直近（過去２年間）の公的年金の保険料の納付状況を証明する資料",
-        "直近（過去２年間）の公的医療保険の保険料の納付状況を証明する資料",
-        "健康保険被保険者証（写し）",
-        { "group": "申請人又は申請人を扶養する方の資産を証明するの資料", "options": ["預貯金通帳の写し", "Web通帳の画面の写し等", "不動産の登記事項証明書"], "pick": "one" },
-        "パスポート",
-        "在留カード"
-      ],
-      "optional": ["運転記録証明書（運転免許をお持ちの方）","無事故・無違反証明書（運転免許をお持ちの方）","我が国への貢献に係る資料","不動産の登記事項証明書"]
-    }
-
+  "highlySkilledh": {
+    "applicant": [
+      "Đơn xin cấp Vĩnh trú",
+      "Ảnh (4cm × 3cm)",
+      "Bản lý do xin cấp Vĩnh trú",
+      "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú (hoặc miễn thuế) trong 1 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 1 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 1 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 1 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Bảng tính điểm visa Nhân lực chất lượng cao",
+      {
+        "group": "Tài liệu chứng minh điểm chuyên môn",
+        "options": [
+          "Bản sao thông báo kết quả tính điểm",
+          "Tài liệu chứng minh điểm theo từng hạng mục"
+        ],
+        "pick": "one"
+      },
+      {
+        "group": "Tài liệu chứng minh thu nhập",
+        "options": [
+          "Bản sao sổ ngân hàng",
+          "Ảnh chụp màn hình sổ tiết kiệm online"
+        ],
+        "pick": "one"
+      },
+      "Giấy bảo lãnh nhân thân",
+      {
+        "group": "Tài liệu liên quan đến người bảo lãnh",
+        "options": [
+          "Bản sao bằng lái xe",
+          "Bản sao thẻ cư trú"
+        ],
+        "pick": "one"
+      },
+      "Giấy đồng ý",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "optional": [
+      "Giấy chứng nhận lịch sử lái xe",
+      "Giấy chứng nhận không tai nạn, không vi phạm",
+      "Tài liệu chứng minh đóng góp cho Nhật Bản",
+      "Giấy chứng nhận đăng ký bất động sản"
+    ]
+  },
+      "familyStay": {
+    "applicant": [
+      "Đơn xin cấp Vĩnh trú",
+      "Ảnh (4cm × 3cm)",
+      "Bản lý do xin cấp Vĩnh trú",
+      {
+        "group": "Tài liệu chứng minh quan hệ thân nhân",
+        "options": [
+          "Bản sao hộ tịch hoặc giấy khai sinh",
+          "Giấy chứng nhận kết hôn",
+          "Giấy chứng nhận nhận con",
+          "Giấy chứng minh quan hệ gia đình"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 5 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 5 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Giấy bảo lãnh nhân thân",
+      {
+        "group": "Tài liệu liên quan đến người bảo lãnh",
+        "options": [
+          "Bản sao bằng lái xe",
+          "Bản sao thẻ cư trú"
+        ],
+        "pick": "one"
+      },
+      "Giấy đồng ý",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "dependents": [
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 5 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 5 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      {
+        "group": "Tài liệu chứng minh tài sản của người nộp hoặc người bảo trợ",
+        "options": [
+          "Bản sao sổ tiết kiệm",
+          "Ảnh chụp sổ tiết kiệm online",
+          "Giấy chứng nhận đăng ký bất động sản"
+        ],
+        "pick": "one"
+      },
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "optional": [
+      "Giấy chứng nhận lịch sử lái xe",
+      "Giấy chứng nhận không tai nạn, không vi phạm",
+      "Tài liệu chứng minh đóng góp cho Nhật Bản",
+      "Giấy chứng nhận đăng ký bất động sản"
+    ]
+  },
+     "prSpouse": {
+    "applicant": [
+      "Đơn xin cấp Vĩnh trú",
+      "Ảnh (4cm × 3cm)",
+      {
+        "group": "Tài liệu chứng minh quan hệ hôn nhân",
+        "options": [
+          "Giấy chứng nhận kết hôn với người có vĩnh trú",
+          "Tài liệu chứng minh quan hệ nhân thân với vợ/chồng"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 3 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 3 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Bảng danh sách người thân",
+      "Giấy bảo lãnh nhân thân",
+      {
+        "group": "Tài liệu liên quan đến người bảo lãnh",
+        "options": [
+          "Bản sao bằng lái xe",
+          "Bản sao thẻ cư trú"
+        ],
+        "pick": "one"
+      },
+      "Giấy đồng ý",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "dependents": [
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 3 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 3 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "optional": [
+      "Giấy chứng nhận lịch sử lái xe",
+      "Giấy chứng nhận không tai nạn, không vi phạm",
+      "Tài liệu chứng minh đóng góp cho Nhật Bản",
+      "Giấy chứng nhận đăng ký bất động sản"
+    ]
+  },
+  
+  "jpSpouse": {
+    "applicant": [
+      "Đơn xin cấp Vĩnh trú",
+      "Ảnh (4cm × 3cm)",
+      "Bản sao hộ tịch của vợ/chồng (bản đầy đủ các thông tin)",
+      "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 3 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 3 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Bảng danh sách người thân",
+      "Giấy bảo lãnh nhân thân",
+      {
+        "group": "Tài liệu liên quan đến người bảo lãnh",
+        "options": [
+          "Bản sao bằng lái xe",
+          "Bản sao thẻ cư trú"
+        ],
+        "pick": "one"
+      },
+      "Giấy đồng ý",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "dependents": [
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 3 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 3 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế"
+    ],
+    "optional": [
+      "Giấy chứng nhận lịch sử lái xe",
+      "Giấy chứng nhận không tai nạn, không vi phạm",
+      "Tài liệu chứng minh đóng góp cho Nhật Bản",
+      "Giấy chứng nhận đăng ký bất động sản"
+    ]
+  },
+  "settler": {
+    "applicant": [
+      "Đơn xin cấp Vĩnh trú",
+      "Ảnh (4cm × 3cm)",
+      "Bản lý do xin cấp Vĩnh trú",
+      {
+        "group": "Tài liệu chứng minh quan hệ thân nhân",
+        "options": [
+          "Bản sao hộ tịch hoặc giấy khai sinh",
+          "Giấy chứng nhận kết hôn",
+          "Giấy chứng nhận nhận con",
+          "Giấy chứng minh quan hệ gia đình"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận cư trú (ghi toàn bộ thành viên trong hộ)",
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 5 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 5 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      "Giấy bảo lãnh nhân thân",
+      {
+        "group": "Tài liệu liên quan đến người bảo lãnh",
+        "options": [
+          "Bản sao bằng lái xe",
+          "Bản sao thẻ cư trú"
+        ],
+        "pick": "one"
+      },
+      "Giấy đồng ý",
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "dependents": [
+      {
+        "group": "Tài liệu chứng minh nghề nghiệp",
+        "options": [
+          "Giấy chứng nhận đang làm việc",
+          "Bản sao tờ khai thuế đã nộp",
+          "Bản sao giấy phép kinh doanh (nếu có)",
+          "Bản mô tả công việc (tự soạn)"
+        ],
+        "pick": "one"
+      },
+      "Giấy chứng nhận thuế cư trú trong 5 năm gần nhất",
+      "Giấy chứng nhận đã nộp thuế cư trú trong 5 năm gần nhất",
+      "Tài liệu xác nhận tình trạng nộp thuế quốc gia",
+      "Giấy chứng nhận đã đóng bảo hiểm hưu trí công trong 2 năm gần nhất",
+      "Giấy chứng nhận đã đóng bảo hiểm y tế công trong 2 năm gần nhất",
+      "Bản sao thẻ bảo hiểm y tế",
+      {
+        "group": "Tài liệu chứng minh tài sản của người nộp hoặc người bảo trợ",
+        "options": [
+          "Bản sao sổ tiết kiệm",
+          "Ảnh chụp sổ tiết kiệm online",
+          "Giấy chứng nhận đăng ký bất động sản"
+        ],
+        "pick": "one"
+      },
+      "Hộ chiếu",
+      "Thẻ cư trú"
+    ],
+    "optional": [
+      "Giấy chứng nhận lịch sử lái xe",
+      "Giấy chứng nhận không tai nạn, không vi phạm",
+      "Tài liệu chứng minh đóng góp cho Nhật Bản",
+      "Giấy chứng nhận đăng ký bất động sản"
+    ]
   }
+}
 }

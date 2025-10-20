@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Dependent Required Documents",
+  "docsTitle": "Dependent Visa Required Documents",
   "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
   "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": { "abroad": "Apply from overseas", "change": "Change status of residence", "extend": "Extend period of stay", "inJapan": "Apply within Japan" },
@@ -14,7 +14,7 @@
       "applicant": [
         "Application for Certificate of Eligibility",
         "Photo (4cm x 3cm)",
-        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family register", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
         "Self-addressed stamped envelope",
@@ -32,7 +32,7 @@
         "Photo (4cm x 3cm)",
         "Passport",
         "Residence card",
-        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family register", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
         "Passport",
@@ -49,7 +49,7 @@
         "Photo (4cm x 3cm)",
         "Passport",
         "Residence card",
-        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family register", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" }
       ],
       "dependents": [
         "Passport",
@@ -66,7 +66,7 @@
         "Photo (4cm x 3cm)",
         { "group": "Documents as individually prescribed", "options": ["Documents proving nationality", "Documents proving birth", "Birth certificate (copy)"], "pick": "one" },
         "Passport",
-        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family registry (koseki tohon)", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" },
+        { "group": "Documents proving the relationship between applicant and sponsor", "options": ["Family register", "Certificate of acceptance of marriage notification", "Marriage certificate (copy)", "Birth certificate (copy)"], "pick": "one" },
         "Questionnaire"
       ],
       "dependents": [
@@ -75,7 +75,7 @@
         { "group": "Documents proving occupation", "options": ["Certificate of employment", "Copy of business license"], "pick": "one" },
         "Resident tax taxation (or non-taxation) certificate (most recent year)",
         "Tax payment certificate (most recent year)",
-        "Certificate of residence (juminhyo)"
+        "Certificate of residence"
       ],
       "optional": ["Bank balance certificate"]
     }

@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Vợ/chồng hoặc con của người Vĩnh trú",
+  "docsTitle": "Hồ sơ cần thiết cho visa Vợ/chồng hoặc con của người Vĩnh trú",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
@@ -12,7 +12,7 @@
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú ",
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu"
       ],
@@ -21,7 +21,7 @@
         "Giấy chứng nhận kết hôn",
         "Tài liệu chứng minh giao tiếp giữa vợ chồng",
         "Bản câu hỏi",
-        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (hoặc miễn thuế)",
         "Giấy chứng nhận nộp thuế của năm vừa qua",
         { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
         "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
@@ -37,7 +37,7 @@
         "Hộ chiếu"
       ],
       "dependents": [
-        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (hoặc miễn thuế)",
         "Giấy chứng nhận nộp thuế của năm vừa qua",
         { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
         "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
@@ -56,7 +56,7 @@
         "Thẻ cư trú"
       ],
       "dependents": [
-        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (hoặc miễn thuế)",
         "Giấy chứng nhận nộp thuế của năm vừa qua",
         { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
         "Thư bảo lãnh của người vợ/chồng Vĩnh trú",
@@ -75,7 +75,7 @@
         "Thẻ cư trú"
       ],
       "dependents": [
-        "Giấy chứng nhận thuế cư trú của năm vừa qua (đã nộp hoặc không nộp)",
+        "Giấy chứng nhận thuế cư trú của năm vừa qua (hoặc miễn thuế)",
         "Giấy chứng nhận nộp thuế của năm vừa qua",
         { "group": "Chứng minh năng lực tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng online"], "pick": "one" },
         "Thư bảo lãnh của người vợ/chồng Vĩnh trú",

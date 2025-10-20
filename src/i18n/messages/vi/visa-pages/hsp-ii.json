@@ -1,13 +1,13 @@
 {
-  "title": "Lao động trình độ cao (ii)",
+  "title": "Nhân lực chất lượng cao số 2",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Lao động trình độ cao (ii)",
+  "docsTitle": "Hồ sơ cần thiết cho visa  Nhân lực chất lượng cao số 2",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "optional": "Tùy chọn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "optional": "Tùy chọn" },
   "tips": "- Nếu nội dung hoạt động có thay đổi, vui lòng tải biểu mẫu phù hợp từ trang hướng dẫn của tư cách lưu trú tương ứng.\n\n> 📊 Sử dụng công cụ tính điểm\n> \n> 🔗 [Công cụ tính điểm Lao động trình độ cao](/ja/tools/hsp-points)\n> \n> ⚠️ Quan trọng: Cần chứng minh có từ 3 năm kinh nghiệm HSP (i) trở lên và duy trì từ 70 điểm trở lên.",
   "studyDocs": {
     "change": {

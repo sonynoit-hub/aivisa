@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Specified Skilled Worker Required Documents",
+  "docsTitle": "Specified Skilled Worker Visa Required Documents",
   "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
   "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
   "stageLabels": {
@@ -24,7 +24,7 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Food and Beverage Manufacturing Skills Test pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [
@@ -39,7 +39,7 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Manufacturing Field Evaluation Test pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [
@@ -69,12 +69,12 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of practical skills test pass certificate", "Copy of National Skills Test Grade 3 pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Construction Field Evaluation Test pass certificate", "Copy of National Skills Test Grade 3 pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [
         "Letter of undertaking",
-        "Copy of certification for acceptance plan in Construction SSW field"
+        "Copy of certification for acceptance plan in Construction Specified Skilled Worker field"
       ],
       "optional": ["Applicant list"]
     },
@@ -84,7 +84,7 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test for Agriculture (advanced level) pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Agriculture Skills Measurement Test pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [
@@ -99,7 +99,7 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test pass certificate for meal preparation in medical/welfare facilities (advanced level)", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Food Service Skills Test pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [
@@ -117,7 +117,7 @@
         "Photo (4cm × 3cm)",
         { "group": "If you completed Technical Intern Training (ii) with good results (2 years and 10+ months)", "options": ["Copy of Practical Skills Test pass certificate (advanced level)", "Copy of National Skills Test Grade 3 practical exam pass certificate", "Evaluation report for technical intern trainees"], "pick": "one" },
         { "group": "If not applicable to the above", "options": ["Copy of Specified Skilled Worker i Shipbuilding/Marine Industry Test pass certificate", "Copy of National Skills Test Grade 3 pass certificate"], "pick": "one" },
-        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JF Japanese Basic Test result notice"], "pick": "one" },
+        { "group": "If not applicable to the above", "options": ["Copy of JLPT (N4 or above) pass certificate", "Copy of JFT Japanese Basic Test result notice"], "pick": "one" },
         "Passport"
       ],
       "company": [

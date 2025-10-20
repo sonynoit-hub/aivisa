@@ -28,10 +28,10 @@ const CHIP_SOFT =
 
 // Localized labels for top-level main menu
 const MAIN_LABELS: Record<Locale, { home: string; "ask-ai": string; hsp: string; support: string; faq: string; visa: string; "visiting-relatives": string }> = {
-  en: { home: "Home", "ask-ai": "AI Assistant", hsp: "HSP Points", support: "Contact", faq: "FAQ", visa: "Categories", "visiting-relatives": "Visiting Relatives" },
+  en: { home: "Home", "ask-ai": "AI Assistant", hsp: "High Skilled Professional Points Calculator", support: "Contact", faq: "FAQ", visa: "Categories", "visiting-relatives": "Visiting Relatives" },
   ja: { home: "ホーム", "ask-ai": "AI相談", hsp: "高度専門職ポイント計算", support: "問い合わせ", faq: "FAQ", visa: "カテゴリー", "visiting-relatives": "親族訪問" },
   zh: { home: "首页", "ask-ai": "AI 咨询", hsp: "高度人才积分计算", support: "联系", faq: "常见问题", visa: "类别", "visiting-relatives": "探亲" },
-  vi: { home: "Trang chủ", "ask-ai": "Trợ lý AI", hsp: "Tính điểm HSP", support: "Liên hệ", faq: "FAQ", visa: "Danh mục", "visiting-relatives": "Thăm thân nhân" },
+  vi: { home: "Trang chủ", "ask-ai": "Trợ lý AI", hsp: "Tính điểm Nhân lực chất lượng cao", support: "Liên hệ", faq: "Câu hỏi thường gặp", visa: "Danh mục", "visiting-relatives": "Thăm thân nhân" },
   ko: { home: "홈", "ask-ai": "AI 상담", hsp: "고도전문직 포인트 계산", support: "문의", faq: "FAQ", visa: "카테고리", "visiting-relatives": "친족 방문" },
 } as const;
 
@@ -368,7 +368,7 @@ export function SiteHeader() {
                     ja: { hsp1: "高度専門職1号", hsp2: "高度専門職2号" },
                     en: { hsp1: "Highly Skilled Professional Type 1", hsp2: "Highly Skilled Professional Type 2" },
                     zh: { hsp1: "高度人材1号", hsp2: "高度人材2号" },
-                    vi: { hsp1: "Chuyên gia tay nghề cao loại 1", hsp2: "Chuyên gia tay nghề cao loại 2" },
+                    vi: { hsp1: "Nhân lực chất lượng cao số 1", hsp2: "Nhân lực chất lượng cao số 2" },
                     ko: { hsp1: "고도전문직 1호", hsp2: "고도전문직 2호" },
                   } as const;
                   const getLabel = (item: (typeof ORDERED_ITEMS)[number]) => {

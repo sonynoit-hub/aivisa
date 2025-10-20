@@ -1,27 +1,27 @@
 {
-  "title": "Người phụ thuộc",
+  "title": "Đoàn tụ gia đình",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Người phụ thuộc",
+  "docsTitle": "Hồ sơ cần thiết cho visa Đoàn tụ gia đình",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú", "inJapan": "Nộp trong Nhật Bản" },
-  "categoryLabels": { "applicant": "Đương đơn", "dependents": "Người bảo lãnh/Gia đình", "optional": "Tùy chọn/Bổ sung" },
-  "tips": "- Người có tư cách lưu trú Người phụ thuộc có thể xin phép làm thêm theo diện riêng.",
+  "categoryLabels": { "applicant": "Người nộp đơn", "dependents": "Người bảo lãnh/Gia đình", "optional": "Tùy chọn/Bổ sung" },
+  "tips": "- Người có tư cách lưu trú Đoàn tụ gia đình có thể xin phép làm thêm theo diện riêng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Đơn xin Cấp tư cách lưu trú ",
         "Ảnh (4cm x 3cm)",
-        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
+        { "group": "Giấy tờ chứng minh quan hệ giữa người nộp đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
         "Phong bì có dán tem ghi địa chỉ người nhận",
         "Hộ chiếu",
         "Thẻ cư trú",
         { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
-        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận thuế cư trú  năm gần nhất( hoặc được miễn thuế)",
         "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
       "optional": ["Ảnh chụp", "Giấy xác nhận số dư ngân hàng"]
@@ -32,13 +32,13 @@
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
         "Thẻ cư trú",
-        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
+        { "group": "Giấy tờ chứng minh quan hệ giữa người nộp đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
         "Hộ chiếu",
         "Thẻ cư trú",
         { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
-        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận thuế cư trú  năm gần nhất( hoặc được miễn thuế)",
         "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
       "optional": ["Giấy xác nhận số dư ngân hàng"]
@@ -49,13 +49,13 @@
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
         "Thẻ cư trú",
-        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
+        { "group": "Giấy tờ chứng minh quan hệ giữa người nộp đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" }
       ],
       "dependents": [
         "Hộ chiếu",
         "Thẻ cư trú",
         { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
-        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận thuế cư trú  năm gần nhất( hoặc được miễn thuế)",
         "Giấy chứng nhận đã nộp thuế (năm gần nhất)"
       ],
       "optional": ["Giấy xác nhận số dư ngân hàng"]
@@ -66,14 +66,14 @@
         "Ảnh (4cm x 3cm)",
         { "group": "Giấy tờ theo quy định riêng", "options": ["Giấy tờ chứng minh quốc tịch", "Giấy tờ chứng minh việc sinh", "Giấy khai sinh (bản sao)"], "pick": "one" },
         "Hộ chiếu",
-        { "group": "Giấy tờ chứng minh quan hệ giữa đương đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" },
+        { "group": "Giấy tờ chứng minh quan hệ giữa người nộp đơn và người bảo lãnh", "options": ["Sổ hộ khẩu", "Giấy tiếp nhận đăng ký kết hôn", "Giấy đăng ký kết hôn (bản sao)", "Giấy khai sinh (bản sao)"], "pick": "one" },
         "Bản câu hỏi"
       ],
       "dependents": [
         "Hộ chiếu",
         "Thẻ cư trú",
         { "group": "Giấy tờ chứng minh nghề nghiệp", "options": ["Giấy chứng nhận đang làm việc", "Bản sao giấy phép kinh doanh"], "pick": "one" },
-        "Giấy chứng nhận thuế cư trú (có/không chịu thuế) (năm gần nhất)",
+        "Giấy chứng nhận thuế cư trú  năm gần nhất( hoặc được miễn thuế)",
         "Giấy chứng nhận đã nộp thuế (năm gần nhất)",
         "Giấy chứng nhận cư trú (juminhyo)"
       ],

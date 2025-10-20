@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần thiết cho visa Kỹ sư/Nhân văn/Dịch vụ quốc tế",
+  "docsTitle": "Hồ sơ cần thiết cho visa Kỹ sư",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": {
@@ -31,9 +31,9 @@
         "Hợp đồng lao động",
         "Thư nêu lý do tuyển dụng",
         "Giấy chứng nhận đăng ký kinh doanh",
-        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        "Giới thiệu hoạt động doanh nghiệp",
         { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
-        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo thành lập văn phòng chi trả lương (bản sao)"] , "pick": "one" }
       ],
       "optional": ["Chứng chỉ tiếng Nhật (JLPT, v.v.)","Sơ yếu lý lịch (kinh nghiệm làm việc)","Giấy xác nhận tham dự"]
     },
@@ -49,9 +49,9 @@
       "company": [
         "Hợp đồng lao động",
         "Giấy chứng nhận đăng ký kinh doanh",
-        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        "Giới thiệu hoạt động doanh nghiệp",
         { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
-        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo thành lập văn phòng chi trả lương (bản sao) "] , "pick": "one" }
       ],
       "optional": ["Thư nêu lý do tuyển dụng"]
     },
@@ -69,9 +69,9 @@
         "Hợp đồng lao động",
         "Thư nêu lý do tuyển dụng",
         "Giấy chứng nhận đăng ký kinh doanh",
-        "Giới thiệu hoạt động/Doanh nghiệp (brochure, v.v.)",
+        "Giới thiệu hoạt động doanh nghiệp",
         { "group": "Tài liệu tài chính", "options": ["Báo cáo tài chính năm gần nhất (bản sao)", "Kế hoạch kinh doanh (đối với doanh nghiệp mới)"] , "pick": "one" },
-        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo mở nơi chi trả lương (bản sao)"] , "pick": "one" }
+        { "group": "Bảng tổng hợp tờ khai pháp định", "options": ["Bảng tổng hợp tờ khai pháp định (bản sao)", "Thông báo thành lập văn phòng chi trả lương (bản sao)"] , "pick": "one" }
       ],
       "optional": ["Chứng chỉ tiếng Nhật (JLPT, v.v.)"]
     }

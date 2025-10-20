@@ -6,7 +6,7 @@ import type { AbstractIntlMessages } from "next-intl";
 import dynamic from "next/dynamic";
 const HomeClient = dynamic(() => import("@/app/(web)/[locale]/HomeClient"), { ssr: true });
 
-type Props = { params: Promise<{ locale: Locale }> };
+type Props = { params: { locale: Locale } };
 
 export default function Page(_: Props) {
   return <HomeClient />;

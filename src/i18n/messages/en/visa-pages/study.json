@@ -1,7 +1,7 @@
 {
-  "title": "Student",
+  "title": "Study Abroad",
   "sections": [],
-  "docsTitle": "Student Visa Required Documents",
+  "docsTitle": "Study Abroad Visa Required Documents",
   "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
   "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": {

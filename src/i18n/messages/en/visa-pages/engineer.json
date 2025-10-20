@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Required Documents for Engineer/Humanities/International Services Visa",
+  "docsTitle": "Engineer/Humanities/International Services Visa Required Documents",
   "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
   "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No content", "hint": "Hint" },
   "stageLabels": {
@@ -29,13 +29,13 @@
       ],
       "company": [
         "Employment contract",
-        "Letter stating reason for employment",
+        "Employment verification letter",
         "Certificate of registered matters",
-        "Company/Business overview (company brochure, etc.)",
+        "Company overview (brochure, etc.)",
         { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
-        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
+        { "group": "Statutory report", "options": ["Statutory report (copy)", "Notification of Establishment of a Salary-Paying Office (copy)"] , "pick": "one" }
       ],
-      "optional": ["Proof of Japanese proficiency (JLPT, etc.)","Resume (work history)","Certificate of attendance"]
+      "optional": ["Proof of Japanese proficiency (JLPT, etc.)","Resume","Certificate of attendance"]
     },
     "extend": {
       "applicant": [
@@ -49,11 +49,11 @@
       "company": [
         "Employment contract",
         "Certificate of registered matters",
-        "Company/Business overview (company brochure, etc.)",
+        "Company overview (brochure, etc.)",
         { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
-        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
+        { "group": "Statutory report", "options": ["Statutory report (copy)", "Notification of Establishment of a Salary-Paying Office (copy)"] , "pick": "one" }
       ],
-      "optional": ["Letter stating reason for employment"]
+      "optional": ["Employment verification letter"]
     },
     "abroad": {
       "applicant": [
@@ -62,16 +62,16 @@
         "Passport",
         "Academic transcript",
         "Academic degree certificate",
-        "Resume (work history)"
+        "Resume"
       ],
       "company": [
         "Self-addressed stamped envelope",
         "Employment contract",
-        "Letter stating reason for employment",
+        "Employment verification letter",
         "Certificate of registered matters",
-        "Company/Business overview (company brochure, etc.)",
+        "Company overview (brochure, etc.)",
         { "group": "Financial documents", "options": ["Most recent fiscal year financial statements (copy)", "Business plan for new businesses"], "pick": "one" },
-        { "group": "Total statutory report", "options": ["Total statutory report (copy)", "Notification of opening a salary payment office (copy)"] , "pick": "one" }
+        { "group": "Statutory report", "options": ["Statutory report (copy)", "Notification of Establishment of a Salary-Paying Office (copy)"] , "pick": "one" }
       ],
       "optional": ["Proof of Japanese proficiency (JLPT, etc.)"]
     }

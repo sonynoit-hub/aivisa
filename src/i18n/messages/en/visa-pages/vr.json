@@ -1,9 +1,9 @@
 {
-  "title": "Family Visit",
+  "title": "Visiting Relatives",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Family Visit Required Documents",
+  "docsTitle": "Visiting Relatives Visa Required Documents",
   "actions": {
     "pdf": "PDF",
     "pdfAria": "Export as PDF"
@@ -24,10 +24,10 @@
     "sponsor": "Inviter",
     "guarantee": "Guarantor"
   },
-  "tips": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the Immigration Services Agency website.",
+  "tips": "- The Visiting Relatives status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the Immigration Services Agency website.",
   "stageTips": {
-    "vietnam": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in Vietnam.",
-    "china": "- The Family Visit status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in China."
+    "vietnam": "- The Visiting Relatives status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in Vietnam.",
+    "china": "- The Visiting Relatives status is intended for family visits or short-term stays with Japanese nationals or residents.\n\n- Depending on the relationship and circumstances, a stay period of up to 90 days is typically granted.\n\n- Documents from both the applicant and the guarantor (a relative residing in Japan) are required.\n\n- Please check the latest requirements on the website of the Embassy of Japan in China."
   },
   "studyDocs": {
     "vietnam": {

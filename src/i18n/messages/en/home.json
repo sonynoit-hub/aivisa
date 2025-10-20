@@ -1,15 +1,15 @@
 {
   "home": {
-    "seoTitle": "Streamline Japan visa with AI and experts",
+    "seoTitle": "Streamline Japan visa with AI",
     "seoDescription": "Multilingual visa guidance (JA/EN/ZH/KO/VI) with instant AI Q&A. Clear requirements, document checklists, timelines, and gyoseishoshi-backed support.",
     "seoKeywords": ["Japan visa", "status of residence", "requirements", "documents", "immigration", "HSP", "permanent resident", "spouse visa", "student visa", "work visa"],
     "hero": {
-      "title": "Make visa procedures easier with AI and experts",
-      "subtitle": "5 languages supported · Instant AI answers · Supervised by gyoseishoshi specialists",
+      "title": "Simplify Japan visa procedures with AI Visa ",
+      "subtitle": "5 languages supported · Instant AI answers",
       "placeholder": "e.g. Required income for a Spouse visa?",
       "cta": "Ask AI",
       "chips": [
-        "# PR requirements",
+        "# Permanent resident requirements",
   "# Engineer・Humanities・Intl sample docs",
         "# Study fastest route"
       ]
@@ -19,7 +19,7 @@
       "subtitle": "AI summarizes requirements and documents. Open a card for details.",
       "items": [
   {"title": "Engineer ・ Humanities ・ International", "badge": "Work", "desc": "Education or work experience + target annual income from ¥3M. Usual 1–3 months."},
-        {"title": "Student", "badge": "Study", "desc": "Enrollment certificate + proof of funds. Usual 1–2 months."},
+        {"title": "Study abroad", "badge": "Study", "desc": "Enrollment certificate + proof of funds. Usual 1–2 months."},
         {"title": "Spouse of Japanese", "badge": "Family", "desc": "Genuine relationship + livelihood requirements. Usual 1–3 months."},
         {"title": "Permanent Resident", "badge": "PR", "desc": "Good conduct, stable income, and tax compliance."}
       ]

@@ -1,11 +1,11 @@
 {
   "tools": {
   "hspPoints": {
-    "seoTitle": "Bảng tính điểm Chuyên gia tay nghề cao",
-    "seoDescription": "Ước tính nhanh điểm cho visa Lao động Kỹ năng Cao (HSP) của Nhật. Chọn điều kiện theo nhóm và xem tổng điểm ngay.",
+    "seoTitle": "Bảng tính điểm Nhân lực chất lượng cao",
+    "seoDescription": "Ước tính nhanh điểm cho visa Lao động Kỹ năng Cao của Nhật. Chọn điều kiện theo nhóm và xem tổng điểm ngay.",
     "seoKeywords": ["HSP", "Kỹ năng cao", "Điểm", "Visa", "Nhật Bản"],
-      "title": "Bảng tính điểm Chuyên gia tay nghề cao",
-      "subtitle": "Chọn điều kiện để xem tổng điểm (demo).",
+      "title": "Bảng tính điểm Nhân lực chất lượng cao",
+      "subtitle": "Chọn điều kiện để xem tổng điểm ",
       "points": "điểm",
       "totalPoints": "Tổng",
   "categories": {"research": "Nghiên cứu (イ)", "tech": "Kỹ thuật (ロ)", "business": "Kinh doanh / Quản lý (ハ)"},

@@ -1,18 +1,18 @@
 {
-  "title": "Người cư trú dài hạn",
+  "title": "Định trú",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Người cư trú dài hạn",
+  "docsTitle": "Hồ sơ cần thiết cho visa Định trú",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
-  "stageLabels": { "prstepchildren": "Con riêng của Vĩnh trú (người phụ thuộc)", "jpspousestepchildren": "Con riêng của vợ/chồng người Nhật" },
+  "stageLabels": { "prstepchildren": "Con riêng của người định trú (người phụ thuộc)", "jpspousestepchildren": "Con riêng của vợ/chồng người Nhật" },
   "categoryLabels": { "applicant": "Người nộp đơn", "guarantor": "Người bảo lãnh", "optional": "Tùy chọn" },
   "tips": "- Visa Cư trú dài hạn dành cho người nước ngoài có hoàn cảnh đặc biệt (ví dụ: con riêng, người tị nạn, người tiếp tục ở lại Nhật sau ly hôn hoặc khi vợ/chồng qua đời).",
   "studyDocs": {
     "prstepchildren": {
       "applicant": [
-        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
         "Ảnh (4cm x 3cm)",
         "Giấy khai sinh",
         "Giấy xác nhận lý lịch tư pháp của người nộp đơn"
@@ -31,13 +31,13 @@
     },
     "jpspousestepchildren": {
       "applicant": [
-        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú (COE)",
+        "Đơn xin cấp Giấy chứng nhận đủ tư cách lưu trú",
         "Ảnh (4cm x 3cm)",
         "Giấy khai sinh"
       ],
       "guarantor": [
         "Phong bì có dán tem ghi địa chỉ người nhận",
-        "Bản sao hộ tịch (Koseki tohon; đầy đủ mục)",
+        "Bản sao hộ tịch ",
         "Giấy chứng nhận cư trú (ghi đủ các thành viên trong hộ)",
         "Giấy chứng nhận thuế cư trú (đã nộp hoặc không nộp) của năm gần nhất",
         "Giấy chứng nhận nộp thuế của năm gần nhất",

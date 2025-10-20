@@ -3,19 +3,19 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Điều dưỡng",
+  "docsTitle": "Hồ sơ cần thiết cho visa Hộ lý",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
   "tips": "Nếu trước đây bạn đã lưu trú tại Nhật theo diện 'Thực tập sinh kỹ năng', cần nộp bản khai liên quan đến chuyển giao kỹ năng.",
   "studyDocs": {
     "abroad": {
       "applicant": [
-        "Đơn xin Cấp tư cách lưu trú (COE)",
+        "Đơn xin Cấp tư cách lưu trú ",
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
-        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên (Certified Care Worker)"
+        "Bản sao Giấy chứng nhận đăng ký Hộ lý "
       ],
       "company": [
         "Phong bì có dán tem ghi địa chỉ người nhận",
@@ -31,7 +31,7 @@
         "Ảnh (4cm x 3cm)",
         "Hộ chiếu",
         "Thẻ cư trú",
-        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên"
+        "Bản sao Giấy chứng nhận đăng ký Hộ lý"
       ],
       "company": [
         "Thông báo điều kiện lao động",
@@ -48,7 +48,7 @@
         "Thẻ cư trú",
         "Giấy chứng nhận thuế cư trú (có/không chịu thuế)",
         "Giấy chứng nhận đã nộp thuế",
-        "Bản sao Giấy chứng nhận đăng ký Điều dưỡng viên"
+        "Bản sao Giấy chứng nhận đăng ký Hộ lý"
       ],
       "company": [
         "Thông báo điều kiện lao động",

@@ -3,11 +3,11 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Hoạt động chỉ định (tìm việc)",
+  "docsTitle": "Hồ sơ cần thiết cho visa Hoạt động chỉ định (tìm việc)",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "university": "Đại học", "vocational": "Trường nghề", "japSchool": "Trường tiếng Nhật" },
-  "categoryLabels": { "applicant": "Đương đơn", "school": "Nhà trường", "optional": "Tùy chọn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "school": "Nhà trường", "optional": "Tùy chọn" },
   "tips": "- Visa Hoạt động chỉ định dành cho các hoạt động do Bộ trưởng Tư pháp chỉ định riêng.\n\n- Điều kiện và giấy tờ yêu cầu khác nhau tùy theo hoạt động được chỉ định.",
   "studyDocs": {
     "university": {
@@ -39,7 +39,7 @@
         "Thư giới thiệu phục vụ tìm việc",
         "Giấy chứng nhận danh hiệu 'Senmonshi'",
         "Bằng tốt nghiệp trường nghề",
-        "Tài liệu thể hiện chương trình chuyên môn đã hoàn thành"
+        "Tài liệu chứng minh đã hoàn thành chương trình chuyên môn"
       ],
       "optional": ["Thư giải trình"]
     },
@@ -56,8 +56,8 @@
       "school": [
         "Thư giới thiệu phục vụ tìm việc",
         "Giấy chứng nhận tốt nghiệp trường tiếng Nhật",
-        "Giấy chứng nhận điểm danh",
-        "Giấy chứng nhận về việc tiếp tục tìm việc",
+        "Giấy chứng nhận chuyên cần",
+        "Giấy chứng nhận đang tiếp tục tìm việc",
         "Xác nhận đã nhận thông tin liên quan đến tìm việc",
         "Tài liệu xác nhận điều kiện"
       ],

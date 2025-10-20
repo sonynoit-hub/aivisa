@@ -3,10 +3,10 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Long-Term Resident Required Documents",
+  "docsTitle": "Long-Term Resident Visa Required Documents",
   "actions": { "pdf": "PDF", "pdfAria": "Export as PDF" },
   "ui": { "expand": "Expand", "collapse": "Collapse", "progress": "Progress", "none": "No items", "hint": "Hint" },
-  "stageLabels": { "prstepchildren": "Stepchild of Permanent Resident (dependent)", "jpspousestepchildren": "Stepchild of Japanese spouse" },
+  "stageLabels": { "prstepchildren": "Stepchild of Long-Term Resident (dependent)", "jpspousestepchildren": "Stepchild of Japanese spouse" },
   "categoryLabels": { "applicant": "Applicant", "guarantor": "Sponsor", "optional": "Optional" },
   "tips": "- The Long-Term Resident visa is for foreign nationals with special circumstances (e.g., stepchildren, refugees, those remaining in Japan after divorce or bereavement).",
   "studyDocs": {
@@ -15,7 +15,7 @@
         "Application for Certificate of Eligibility",
         "Photo (4cm x 3cm)",
         "Birth certificate",
-        "Applicant's police clearance certificate"
+        "Criminal record certificate"
       ],
       "guarantor": [
         "Self-addressed stamped envelope",

@@ -3,7 +3,7 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần thiết cho vợ/chồng hoặc con của công dân Nhật Bản",
+  "docsTitle": "Hồ sơ cần thiết cho visa Vợ/chồng hoặc con của công dân Nhật Bản",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất ra PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
@@ -17,8 +17,8 @@
         "Giấy chứng nhận kết hôn"
       ],
       "dependents": [
-        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
-        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Bản sao sổ hộ tịch của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận thuế cư trú của năm gần nhất (hoặc miễn thuế) ",
         "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
         { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
         "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
@@ -32,15 +32,15 @@
     },
     "inJapan": {
       "applicant": [
-        "Đơn xin cấp phép取得 tư cách lưu trú",
+        "Đơn xin cấp phép tư cách lưu trú",
         "Ảnh (4cm × 3cm)",
         "Hộ chiếu",
         "Giấy khai sinh"
       ],
       "dependents": [
-        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Bản sao sổ hộ tịch của người vợ/chồng là công dân Nhật",
         "Giấy chứng nhận kết hôn",
-        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận thuế cư trú của năm gần nhất (hoặc miễn thuế) ",
         "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
         { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
         "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
@@ -59,9 +59,9 @@
         "Thẻ lưu trú"
       ],
       "dependents": [
-        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
+        "Bản sao sổ hộ tịch của người vợ/chồng là công dân Nhật",
         "Giấy chứng nhận kết hôn",
-        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Giấy chứng nhận thuế cư trú của năm gần nhất (hoặc miễn thuế) ",
         "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
         { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
         "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",
@@ -80,8 +80,8 @@
         "Thẻ lưu trú"
       ],
       "dependents": [
-        "Bản sao sổ hộ tịch (koseki tohon) của người vợ/chồng là công dân Nhật",
-        "Giấy chứng nhận thuế cư trú (đã/không chịu thuế) của 1 năm gần nhất",
+        "Bản sao sổ hộ tịch của người vợ/chồng là công dân Nhật",
+        "Giấy chứng nhận thuế cư trú của năm gần nhất (hoặc miễn thuế) ",
         "Giấy chứng nhận đã nộp thuế của 1 năm gần nhất",
         { "group": "Chứng minh tài chính", "options": ["Bản sao sổ ngân hàng", "Ảnh chụp/in màn hình sổ ngân hàng trực tuyến"], "pick": "one" },
         "Giấy bảo lãnh của vợ/chồng (quốc tịch Nhật)",

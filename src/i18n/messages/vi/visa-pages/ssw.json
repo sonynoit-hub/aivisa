@@ -24,7 +24,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao giấy chứng nhận đỗ Kỳ thi đo lường kỹ năng SSW i lĩnh vực chế biến thực phẩm"], "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
@@ -39,7 +39,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao giấy chứng nhận đỗ Kỳ thi đánh giá SSW i lĩnh vực sản xuất"] , "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
@@ -69,7 +69,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao giấy chứng nhận đỗ thi kỹ năng thực hành", "Bản sao giấy chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi đánh giá SSW i lĩnh vực xây dựng", "Bản sao chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3"] , "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
@@ -84,7 +84,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành đánh giá kỹ năng nông nghiệp (trình độ nâng cao)", "Phiếu đánh giá thực tập sinh kỹ năng"], "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi đo lường kỹ năng SSW i lĩnh vực nông nghiệp"] , "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
@@ -99,7 +99,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành chế biến suất ăn cơ sở y tế/phúc lợi (trình độ nâng cao)", "Phiếu đánh giá thực tập sinh kỹ năng"] , "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi kỹ năng SSW i lĩnh vực dịch vụ ăn uống"] , "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
@@ -117,7 +117,7 @@
         "Ảnh (4cm × 3cm)",
         { "group": "Nếu đã hoàn thành TTS kỹ năng (ii) với kết quả tốt (từ 2 năm 10 tháng)", "options": ["Bản sao chứng nhận đỗ Kỳ thi thực hành đánh giá kỹ năng (trình độ nâng cao)", "Bản sao chứng nhận đỗ phần thi thực hành Kỳ thi Kỹ năng Quốc gia bậc 3", "Phiếu đánh giá thực tập sinh kỹ năng"] , "pick": "one" },
         { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng nhận đỗ Kỳ thi SSW i lĩnh vực đóng tàu/hàng hải", "Bản sao chứng nhận đỗ Kỳ thi Kỹ năng Quốc gia bậc 3"] , "pick": "one" },
-        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JF Japanese Basic"] , "pick": "one" },
+        { "group": "Nếu không thuộc trường hợp trên", "options": ["Bản sao chứng chỉ JLPT (N4 trở lên)", "Bản sao thông báo kết quả kỳ thi JFT Japanese Basic"] , "pick": "one" },
         "Hộ chiếu"
       ],
       "company": [
