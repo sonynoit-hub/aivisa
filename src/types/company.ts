@@ -40,6 +40,17 @@ export type OfficeDetail = {
   // 其他 JSON 字段解析结果
   media?: unknown;
   listings?: unknown;
+  // 办公室图片
+  images?: OfficeImage[];
+};
+
+// 办公室图片类型
+export type OfficeImage = {
+  url: string;
+  alt?: string;
+  sort?: number;
+  caption?: string;
+  [k: string]: unknown;
 };
 
 // 展示卡片的通用类型（字段名做了最小假设与兼容）

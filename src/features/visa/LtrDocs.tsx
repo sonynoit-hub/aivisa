@@ -1,6 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import AdSlots from "@/components/ad/AdSlots";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "guarantor" | "optional";
@@ -18,13 +19,16 @@ type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaD
 export default function LtrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
   const categoryOrder = useMemo(() => ["applicant", "guarantor", "optional"] as const, []);
   return (
-    <VisaDocs
-      locale={locale}
-      storageKey="ltrDocs:checks"
-      categoryOrder={categoryOrder}
-      colors={CAT_COLORS}
-      studyDocs={studyDocs as any}
-      meta={studyDocsMeta}
-    />
+    <div className="space-y-6">
+      <VisaDocs
+        locale={locale}
+        storageKey="ltrDocs:checks"
+        categoryOrder={categoryOrder}
+        colors={CAT_COLORS}
+        studyDocs={studyDocs as any}
+        meta={studyDocsMeta}
+      />
+      <AdSlots page="category" slot="detail_bottom" categorySlug="ltr" locale={locale} />
+    </div>
   );
 }

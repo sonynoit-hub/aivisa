@@ -1,6 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import AdSlots from "@/components/ad/AdSlots";
 import { useMemo } from "react";
 
 // PR ページでは "扶養者" セクションも存在するため、dependents を含める
@@ -19,13 +20,16 @@ export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
   // PR（永住）ページは "扶養者" セクションを表示する
   const categoryOrder = useMemo(() => ["applicant", "dependents", "optional"] as const, []);
   return (
-    <VisaDocs
-      locale={locale}
-      storageKey="prDocs:checks"
-      categoryOrder={categoryOrder}
-      colors={CAT_COLORS}
-      studyDocs={studyDocs as any}
-      meta={studyDocsMeta}
-    />
+    <div className="space-y-6">
+      <VisaDocs
+        locale={locale}
+        storageKey="prDocs:checks"
+        categoryOrder={categoryOrder}
+        colors={CAT_COLORS}
+        studyDocs={studyDocs as any}
+        meta={studyDocsMeta}
+      />
+      <AdSlots page="category" slot="detail_bottom" categorySlug="pr" locale={locale} />
+    </div>
   );
 }

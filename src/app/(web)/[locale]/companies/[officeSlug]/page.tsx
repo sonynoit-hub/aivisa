@@ -2,6 +2,7 @@ import { getOfficeDetail } from "@/lib/api/services/company.service";
 import type { OfficeDetail } from "@/types/company";
 import Link from "next/link";
 import Markdown from "@/components/common/Markdown";
+import AutoScrollImageStrip from "@/components/common/AutoScrollImageStrip";
 
 export const dynamic = "force-dynamic";
 
@@ -104,6 +105,22 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
         .join(' ')
     : '';
 
+  // 提取邮编与不含邮编的地址行，便于“邮编一行 + 地址一行”的展示
+  const addressZip = typeof office.address === 'object' ? office.address?.zip : undefined;
+  const addressLineNoZip = typeof office.address === 'string'
+    ? office.address
+    : office.address
+    ? [
+        office.address.pref,
+        office.address.city,
+        office.address.line1,
+        office.address.line2,
+        office.address.country,
+      ]
+        .filter(Boolean)
+        .join(' ')
+    : '';
+
   // 若卡片包含 order 字段，则按 order 升序排列，未定义的排在后面
   const cardsSorted = Array.isArray(cards)
     ? [...cards].sort((a: any, b: any) => {
@@ -114,29 +131,29 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
     : cards;
 
   return (
-      <main className="min-h-screen bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+        <div className="mx-auto max-w-7xl px-4 pt-8 pb-12 sm:px-6 sm:pt-9 lg:px-8 lg:pt-10">
           {/* Header */}
-          <header className="mb-10">
-            <div className="flex items-start gap-3 mb-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 break-words leading-tight">{office.name}</h1>
+          <header className="mb-6 sm:mb-8">
+            <div className="flex items-start gap-3 mb-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 break-words leading-tight">{office.name}</h1>
               {office.badgeText && <Badge text={office.badgeText} variant={office.badgeVariant} />}
             </div>
             {office.shortDesc && (
-              <p className="text-slate-600 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">{office.shortDesc}</p>
+              <p className="text-slate-600 text-lg sm:text-xl leading-snug sm:leading-relaxed max-w-3xl mb-4 sm:mb-5">{office.shortDesc}</p>
             )}
             {(office.languages?.length || office.services?.length) && (
               <div className="flex flex-wrap gap-2">
                 {office.languages?.map((lng) => (
-                  <span key={`lang-${lng}`} className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700">
-                    <svg width="14" height="14" viewBox="0 0 24 24" className="fill-current text-slate-500">
+                  <span key={`lang-${lng}`} className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm sm:text-base font-medium text-slate-700 shadow-sm hover:border-[#04c4b6] hover:shadow-md transition-all">
+                    <svg width="16" height="16" viewBox="0 0 24 24" className="fill-current text-slate-500">
                       <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
                     </svg>
-                    {lng.toUpperCase?.() || lng}
+                    <span>{lng.toUpperCase?.() || lng}</span>
                   </span>
                 ))}
                 {office.services?.map((s) => (
-                  <span key={`svc-${s}`} className="inline-flex items-center rounded-full bg-slate-100 border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700">
+                  <span key={`svc-${s}`} className="inline-flex items-center rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm sm:text-base font-medium text-slate-700 shadow-sm hover:border-[#04c4b6] hover:shadow-md transition-all">
                     {s}
                   </span>
                 ))}
@@ -144,13 +161,29 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
             )}
           </header>
 
+          {/* Full-width Images Gallery - auto scroll every 3s, no title (moved here after header) */}
+          {office.images && office.images.length > 0 && (() => {
+            const imagesSorted = [...office.images].sort((a, b) => {
+              const aSort = typeof a.sort === 'number' ? a.sort : 999;
+              const bSort = typeof b.sort === 'number' ? b.sort : 999;
+              return aSort - bSort;
+            });
+            return (
+              <section className="my-6 sm:my-8 md:my-10">
+                <AutoScrollImageStrip images={imagesSorted as any} />
+              </section>
+            );
+          })()}
+
           {/* Main */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Left */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
+              {/* Office Images Gallery moved below into the sidebar after SNS */}
+
               {/* Enhanced JSON Cards with modern design */}
               {cardsSorted.length > 0 && (
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {cardsSorted.map((c, idx) => {
                     const title = (c as any).title || (c as any).name || (c as any).heading || (c as any).label;
                     const desc = (c as any).desc || (c as any).lead || (c as any).description || (c as any).text || (c as any).content;
@@ -171,7 +204,7 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                     return (
                       <article 
                         key={idx} 
-                        className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 overflow-hidden"
+                        className="group bg-white rounded-3xl border-2 border-slate-200 shadow-md hover:shadow-2xl hover:border-[#04c4b6] transition-all duration-300 overflow-hidden"
                       >
                         {/* Card Header with optional image */}
                         {imageUrl && (
@@ -191,32 +224,32 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                           </div>
                         )}
                         
-                        <div className="p-6 sm:p-8">
+                        <div className="p-8 sm:p-10">
                           {/* Title Section with enhanced visual hierarchy */}
                           {(title || emoji || icon || (pill && !imageUrl)) && (
-                            <div className="mb-5">
-                              <div className="flex items-start gap-3 mb-2">
+                            <div className="mb-6">
+                              <div className="flex items-start gap-4 mb-3">
                                 {/* Icon/Emoji - 更大更醒目 */}
                                 {emoji && (
-                                  <span className="text-3xl sm:text-4xl flex-shrink-0" role="img" aria-hidden="true">
+                                  <span className="text-4xl sm:text-5xl flex-shrink-0" role="img" aria-hidden="true">
                                     {String(emoji)}
                                   </span>
                                 )}
                                 {icon && !emoji && (
-                                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#04c4b6]/10 to-[#039991]/10 flex items-center justify-center flex-shrink-0">
-                                    <span className="text-xl text-[#04c4b6]">{String(icon)}</span>
+                                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-[#04c4b6]/10 to-[#039991]/10 flex items-center justify-center flex-shrink-0">
+                                    <span className="text-2xl text-[#04c4b6]">{String(icon)}</span>
                                   </div>
                                 )}
                                 
                                 <div className="flex-1 min-w-0">
-                                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                                  <div className="flex items-center gap-2 flex-wrap mb-2">
                                     {title && (
-                                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 break-words">
+                                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 break-words leading-tight">
                                         {String(title)}
                                       </h3>
                                     )}
                                     {pill && !imageUrl && (
-                                      <span className="inline-block rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium px-2.5 py-0.5">
+                                      <span className="inline-block rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1">
                                         {String(pill)}
                                       </span>
                                     )}
@@ -233,18 +266,18 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                           
                           {/* Description */}
                           {desc && (
-                            <p className="text-slate-600 leading-relaxed mb-5 text-sm sm:text-base">
+                            <p className="text-slate-700 leading-relaxed mb-6 text-lg sm:text-xl">
                               {String(desc)}
                             </p>
                           )}
                           
                           {/* Enhanced Bullets with custom icons */}
                           {bullets.length > 0 && (
-                            <div className="mb-5">
-                              <ul className="space-y-2">
+                            <div className="mb-6">
+                              <ul className="space-y-3">
                                 {bullets.map((b: string, i: number) => (
-                                  <li key={i} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-700">
-                                    <svg className="w-5 h-5 text-[#04c4b6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <li key={i} className="flex items-start gap-3 text-lg sm:text-xl text-slate-700">
+                                    <svg className="w-6 h-6 text-[#04c4b6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                                     </svg>
                                     <span className="flex-1">{b}</span>
@@ -256,11 +289,11 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                           
                           {/* Enhanced Details with different style */}
                           {details.length > 0 && (
-                            <div className="mb-5 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                              <ul className="space-y-2">
+                            <div className="mb-6 p-5 bg-slate-50 rounded-xl border border-slate-100">
+                              <ul className="space-y-3">
                                 {details.map((d: string, i: number) => (
-                                  <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-                                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-400 flex-shrink-0 mt-2" />
+                                  <li key={i} className="flex items-start gap-3 text-base sm:text-lg text-slate-600">
+                                    <span className="inline-block w-2 h-2 rounded-full bg-slate-400 flex-shrink-0 mt-2" />
                                     <span className="flex-1">{d}</span>
                                   </li>
                                 ))}
@@ -270,16 +303,16 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                           
                           {/* Enhanced CTA buttons */}
                           {(href || ctaSecondary) && (
-                            <div className="flex flex-wrap gap-3 pt-2">
+                            <div className="flex flex-wrap gap-4 pt-2">
                               {href && (
                                 <a 
                                   href={String(href)} 
-                                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#04c4b6] to-[#039991] text-white px-5 py-2.5 text-sm font-semibold hover:from-[#03a898] hover:to-[#028074] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 no-underline"
+                                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#04c4b6] to-[#039991] text-white px-6 py-3 text-base font-semibold hover:from-[#03a898] hover:to-[#028074] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 no-underline"
                                   target={href.toString().startsWith('http') ? '_blank' : undefined}
                                   rel={href.toString().startsWith('http') ? 'noopener noreferrer' : undefined}
                                 >
                                   <span>{String(ctaPrimary)}</span>
-                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                   </svg>
                                 </a>
@@ -288,14 +321,14 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                                 ctaSecondaryUrl ? (
                                   <a 
                                     href={String(ctaSecondaryUrl)} 
-                                    className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white text-slate-700 px-5 py-2.5 text-sm font-semibold hover:border-slate-400 hover:bg-slate-50 hover:-translate-y-0.5 transition-all duration-200 no-underline"
+                                    className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white text-slate-700 px-6 py-3 text-base font-semibold hover:border-slate-400 hover:bg-slate-50 hover:-translate-y-0.5 transition-all duration-200 no-underline"
                                     target={ctaSecondaryUrl.toString().startsWith('http') ? '_blank' : undefined}
                                     rel={ctaSecondaryUrl.toString().startsWith('http') ? 'noopener noreferrer' : undefined}
                                   >
                                     {String(ctaSecondary)}
                                   </a>
                                 ) : (
-                                  <span className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 bg-slate-50 text-slate-500 px-5 py-2.5 text-sm font-semibold">
+                                  <span className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 bg-slate-50 text-slate-500 px-6 py-3 text-base font-semibold">
                                     {String(ctaSecondary)}
                                   </span>
                                 )
@@ -310,8 +343,8 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
               )}
 
               {office.descriptionMd && (
-                <article className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 p-6 sm:p-8">
-                  <div className="prose prose-slate prose-lg max-w-none
+                <article className="bg-white rounded-3xl border-2 border-slate-200 shadow-md hover:shadow-2xl hover:border-[#04c4b6] transition-all duration-300 p-8 sm:p-10">
+                  <div className="prose prose-slate prose-xl max-w-none
                     prose-headings:font-bold prose-headings:text-slate-900
                     prose-h1:text-2xl prose-h1:sm:text-3xl prose-h1:mb-4
                     prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:mb-3 prose-h2:mt-8 prose-h2:pb-2 prose-h2:border-b prose-h2:border-slate-200
@@ -340,63 +373,62 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
             </div>
 
             {/* Right */}
-            <aside className="lg:col-span-1 space-y-6">
-              <div className="bg-white rounded-3xl border border-slate-200 shadow-lg p-6 sticky top-8">
-                <h3 className="text-lg font-bold text-slate-900 mb-5 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#04c4b6]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                  </svg>
+            <aside className="lg:col-span-1 space-y-8">
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-lg p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6 pb-3 border-b-2 border-slate-100">
                   お問合せ
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-5">
                   {office.phone && (
-                    <div className="flex items-center gap-2.5 group">
-                      <svg className="w-4 h-4 text-[#04c4b6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                      </svg>
-                      <a href={`tel:${office.phone}`} className="text-sm text-slate-900 hover:text-[#04c4b6] transition-colors font-medium">
+                    <div className="flex items-center gap-3 group">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#04c4b6]/10 text-[#04c4b6] flex-shrink-0">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                      </div>
+                      <a href={`tel:${office.phone}`} className="text-base text-slate-900 hover:text-[#04c4b6] transition-colors font-medium">
                         {office.phone}
                       </a>
                     </div>
                   )}
                   {office.email && (
-                    <div className="flex items-center gap-2.5 group">
-                      <svg className="w-4 h-4 text-[#04c4b6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                      </svg>
-                      <a href={`mailto:${office.email}`} className="text-sm text-slate-900 hover:text-[#04c4b6] transition-colors font-medium break-all">
+                    <div className="flex items-center gap-3 group">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#04c4b6]/10 text-[#04c4b6] flex-shrink-0">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                      </div>
+                      <a href={`mailto:${office.email}`} className="text-base text-slate-900 hover:text-[#04c4b6] transition-colors font-medium break-all">
                         {office.email}
                       </a>
                     </div>
                   )}
-                  {(typeof office.address === 'object' && office.address?.zip) && (
-                    <div className="flex items-center gap-2.5">
-                      <svg className="w-4 h-4 text-[#04c4b6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
-                      </svg>
-                      <span className="text-sm text-slate-900 font-medium">
-                        〒{office.address.zip}
-                      </span>
-                    </div>
-                  )}
-                  {addressText && (
-                    <div className="flex items-start gap-2.5">
-                      <svg className="w-4 h-4 text-[#04c4b6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
-                      </svg>
-                      <span className="text-sm text-slate-900 font-medium leading-relaxed">
-                        {addressText}
-                      </span>
+                  {(addressZip || addressLineNoZip) && (
+                    <div className="flex items-start gap-3">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#04c4b6]/10 text-[#04c4b6] flex-shrink-0 mt-0.5">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <div className="text-base text-slate-900 leading-relaxed">
+                        {addressZip && (
+                          <div className="font-normal">〒{addressZip}</div>
+                        )}
+                        {addressLineNoZip && (
+                          <div className="mt-0.5 font-normal">{addressLineNoZip}</div>
+                        )}
+                      </div>
                     </div>
                   )}
                   {office.websiteUrl && (
-                    <div className="flex items-center gap-2.5 group">
-                      <svg className="w-4 h-4 text-[#04c4b6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clipRule="evenodd"/>
-                      </svg>
-                      <a href={office.websiteUrl} target="_blank" rel="noreferrer" className="text-sm text-slate-900 hover:text-[#04c4b6] transition-colors font-medium break-all">
+                    <div className="flex items-center gap-3 group">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#04c4b6]/10 text-[#04c4b6] flex-shrink-0">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <a href={office.websiteUrl} target="_blank" rel="noreferrer" className="text-base text-slate-900 hover:text-[#04c4b6] transition-colors font-medium break-all">
                         {office.websiteUrl}
                       </a>
                     </div>
@@ -405,14 +437,11 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
               </div>
 
               {snsEntries.length > 0 && (
-                <div className="bg-white rounded-3xl border border-slate-200 shadow-lg p-6">
-                  <h4 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <svg className="w-5 h-5 text-[#04c4b6]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
-                    </svg>
+                <div className="bg-white rounded-3xl border border-slate-200 shadow-lg p-8">
+                  <h4 className="text-2xl font-bold text-slate-900 mb-6 pb-3 border-b-2 border-slate-100">
                     SNS
                   </h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-4">
                     {snsEntries.map(([k, url]) => {
                       const platform = k.toLowerCase();
                       let icon = null;
@@ -491,8 +520,12 @@ export default async function OfficeDetailPage({ params }: { params: Promise<{ l
                   </div>
                 </div>
               )}
+
+              {/* Images moved to full-width section below */}
             </aside>
           </div>
+
+          {/* Gallery moved above */}
         </div>
       </main>
     );

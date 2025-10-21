@@ -28,6 +28,7 @@ const processEnv = {
   API_SECRET_KEY: process.env.API_SECRET_KEY,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   SESSION_SECRET: process.env.SESSION_SECRET,
+  BACKEND_URL: process.env.BACKEND_URL,
   // client
   NEXT_PUBLIC_API_BASE: process.env.NEXT_PUBLIC_API_BASE,
   // build

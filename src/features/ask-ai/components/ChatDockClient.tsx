@@ -14,6 +14,8 @@ export default function ChatDockClient() {
 			/\/questionnaire\/contact\/?$/.test(pathname) ||
 			/\/tools\/(hsp-calculator|hsp-points)\/?$/.test(pathname) ||
 			/\/legal\/(privacy|terms)\/?$/.test(pathname) ||
+			// 公司详情页：隐藏浮动 Ask AI
+			/\/companies\/[\w-]+\/?$/.test(pathname) ||
 			/\/companies\/[\w-]+\/ads\/[\w-]+\/?$/.test(pathname) ||
 			/\/companies\/gyoseishoshi\/[\w-]+\/?$/.test(pathname)
 		)

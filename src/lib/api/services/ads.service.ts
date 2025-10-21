@@ -25,6 +25,47 @@ function dlog(...args: any[]) {
   } catch {}
 }
 
+// 将后端返回的不同字段名统一映射为前端使用的 AdCardContent 结构
+function toAd(raw: any): AdCardContent {
+  if (!raw || typeof raw !== 'object') return raw as AdCardContent;
+  const id = raw.id ?? raw.ad_id ?? raw._id ?? raw.uuid ?? String(Math.random());
+  const title = raw.title ?? raw.name ?? raw.ad_title;
+  const leadMd = raw.leadMd ?? raw.lead ?? raw.description ?? raw.desc ?? raw.summary;
+  const bullets = Array.isArray(raw.bullets)
+    ? raw.bullets
+    : Array.isArray(raw.highlights)
+      ? raw.highlights
+      : Array.isArray(raw.points)
+        ? raw.points
+        : undefined;
+  const badgeText = raw.badgeText ?? raw.badge ?? raw.tag ?? raw.category_text;
+  const badgeVariant = raw.badgeVariant ?? raw.badge_variant ?? raw.badgeType ?? raw.type ?? raw.category;
+  const imageUrl = raw.imageUrl ?? raw.image_url ?? raw.thumbnail ?? raw.cover;
+  const companyName = raw.companyName ?? raw.company_name ?? raw.company?.name ?? raw.office?.name ?? raw.brand ?? undefined;
+  const primaryCtaLabel = raw.primaryCtaLabel ?? raw.primary_label ?? raw.cta_label ?? raw.action_label ?? raw.button_label ?? raw.detail_label ?? raw.ctaText;
+  const primaryCtaUrl = raw.primaryCtaUrl ?? raw.primary_url ?? raw.cta_url ?? raw.action_url ?? raw.button_url ?? raw.detail_url ?? raw.link ?? raw.url;
+  const secondaryCtaLabel = raw.secondaryCtaLabel ?? raw.secondary_label ?? raw.second_label ?? raw.secondaryCtaText;
+  const secondaryCtaUrl = raw.secondaryCtaUrl ?? raw.secondary_url ?? raw.second_url ?? raw.secondaryLink ?? raw.secondaryUrl;
+  const officeSlug = raw.officeSlug ?? raw.office_slug ?? raw.office?.slug ?? raw.company?.slug ?? undefined;
+  const adSlug = raw.adSlug ?? raw.slug ?? raw.ad_slug ?? undefined;
+  return {
+    id,
+    title,
+    leadMd,
+    bullets,
+    badgeText,
+    badgeVariant,
+    imageUrl,
+    companyName,
+    primaryCtaLabel,
+    primaryCtaUrl,
+    secondaryCtaLabel,
+    secondaryCtaUrl,
+    officeSlug,
+    adSlug,
+  } as AdCardContent;
+}
+
 function mockTopAd(locale: string): AdCardContent {
   // 与截图风格接近的默认卡片
   const isJa = locale === 'ja';
@@ -90,6 +131,8 @@ export async function getAdByPlacement(q: AdPlacementQuery): Promise<AdPlacement
   tryCombos.push({ page: q.page, slot: q.slot });
   // 2) 兼容后端命名：top -> home
   if (q.page === 'top') tryCombos.push({ page: 'home', slot: q.slot });
+  // 3) 兼容后端命名：category -> detail（有些后端用 detail 表示详情页）
+  if (q.page === 'category') tryCombos.push({ page: 'detail', slot: q.slot });
   // 3) 常见 slot 备选：top_card -> hero / sidebar
   if (q.slot === 'top_card') {
     tryCombos.push({ page: q.page, slot: 'hero' });
@@ -110,10 +153,10 @@ export async function getAdByPlacement(q: AdPlacementQuery): Promise<AdPlacement
       if (res && typeof res === 'object') {
         if (Array.isArray((res as any).items)) {
           const first = (res as any).items[0] || null;
-          if (first) return first as AdCardContent;
+          if (first) return toAd(first);
           continue;
         }
-        return res as AdCardContent;
+        return toAd(res);
       }
       if (res === null) continue;
     } catch {
@@ -148,6 +191,7 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
   const tryCombos: Array<{ page: string; slot: string }> = [];
   tryCombos.push({ page: q.page, slot: q.slot });
   if (q.page === 'top') tryCombos.push({ page: 'home', slot: q.slot });
+  if (q.page === 'category') tryCombos.push({ page: 'detail', slot: q.slot });
   if (q.slot === 'top_card') {
     tryCombos.push({ page: q.page, slot: 'hero' });
     if (q.page === 'top') tryCombos.push({ page: 'home', slot: 'hero' });
@@ -172,21 +216,21 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
       // 后端可能永远返回数组，也可能在 limit 的情况下才返回数组，这里做兼容
       if (Array.isArray(list)) {
         dlog('getAdsByPlacement:response-array', { params, length: list.length });
-        if (list.length > 0) return list as AdListResponse;
+        if (list.length > 0) return (list as any[]).map(toAd) as AdListResponse;
         // 空数组则尝试下一组合
         continue;
       }
       // 兼容 DTO 外层包装：{ items: AdCardContent[] }
       if (list && typeof list === 'object' && Array.isArray((list as any).items)) {
-        const items = (list as any).items as AdCardContent[];
+        const items = (list as any).items as any[];
         dlog('getAdsByPlacement:response-dto-items', { params, length: items.length });
-        if (items.length > 0) return items;
+        if (items.length > 0) return items.map(toAd) as AdListResponse;
         continue;
       }
       if (list && typeof list === 'object') {
         dlog('getAdsByPlacement:response-single', { params });
         // 单对象也兼容为列表返回
-        return [list as AdCardContent];
+        return [toAd(list) as AdCardContent];
       }
     } catch {
       // 忽略错误，继续尝试下一个组合

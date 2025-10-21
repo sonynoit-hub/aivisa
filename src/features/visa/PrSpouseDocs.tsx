@@ -1,6 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import AdSlots from "@/components/ad/AdSlots";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "dependents" | "optional";
@@ -16,13 +17,16 @@ type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaD
 export default function PrSpouseDocs({ locale, studyDocs, studyDocsMeta }: Props) {
   const categoryOrder = useMemo(() => ["applicant", "dependents", "optional"] as const, []);
   return (
-    <VisaDocs
-      locale={locale}
-      storageKey="prSpouseDocs:checks"
-      categoryOrder={categoryOrder}
-      colors={CAT_COLORS}
-  studyDocs={studyDocs}
-  meta={studyDocsMeta}
-    />
+    <div className="space-y-6">
+      <VisaDocs
+        locale={locale}
+        storageKey="prSpouseDocs:checks"
+        categoryOrder={categoryOrder}
+        colors={CAT_COLORS}
+        studyDocs={studyDocs}
+        meta={studyDocsMeta}
+      />
+      <AdSlots page="category" slot="detail_bottom" categorySlug="pr-spouse" locale={locale} />
+    </div>
   );
 }

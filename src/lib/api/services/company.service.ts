@@ -38,7 +38,8 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
   const i18n = pickI18n(raw, locale) || {};
   // Address: prefer structured object; else build from flat fields; else fallback to i18n string
   const addrFromRaw = base?.address ?? base?.office_address ?? undefined;
-  const flatZip = base?.zip ?? base?.postal_code ?? base?.post_code ?? base?.postcode ?? undefined;
+  // 后端可能提供 addressZip（camelCase），纳入归一化
+  const flatZip = base?.zip ?? base?.postal_code ?? base?.post_code ?? base?.postcode ?? base?.addressZip ?? undefined;
   const flatPref = base?.pref ?? base?.prefecture ?? base?.state ?? undefined;
   const flatCity = base?.city ?? base?.ward ?? undefined;
   const flatLine1 = base?.line1 ?? base?.addr1 ?? base?.address1 ?? base?.street ?? base?.street1 ?? undefined;
@@ -48,12 +49,37 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
     ? { zip: flatZip, pref: flatPref, city: flatCity, line1: flatLine1, line2: flatLine2, country: flatCountry }
     : undefined;
   const i18nAddressString = i18n?.address ?? i18n?.address_text ?? i18n?.addressStr ?? undefined;
-  const addr = addrFromRaw ?? addrBuilt ?? i18nAddressString ?? {};
+  // 地址选择策略：
+  // 1) 如果是对象，直接用对象
+  // 2) 如果是字符串：
+  //    - 若仅有 zip 或少量结构字段，则把字符串塞到 line1，保留 zip，保证既有邮编也有地址文本
+  //    - 若结构字段较完整（pref/city/line1/line2/country 任一存在），优先用结构化对象
+  //    - 否则回退用字符串
+  let addr: any;
+  if (addrFromRaw && typeof addrFromRaw === 'object') {
+    addr = addrFromRaw;
+  } else if (typeof addrFromRaw === 'string') {
+    const hasStruct = Boolean(flatPref || flatCity || flatLine1 || flatLine2 || flatCountry);
+    if (flatZip || hasStruct) {
+      addr = {
+        zip: flatZip,
+        pref: flatPref,
+        city: flatCity,
+        line1: flatLine1 || (hasStruct ? undefined : addrFromRaw),
+        line2: flatLine2,
+        country: flatCountry,
+      };
+    } else {
+      addr = addrFromRaw;
+    }
+  } else {
+    addr = addrBuilt ?? i18nAddressString ?? {};
+  }
 
   const address = typeof addr === 'string' ? addr : (
     addr && typeof addr === 'object'
       ? {
-          zip: addr.zip ?? addr.postal_code ?? addr.post_code ?? undefined,
+          zip: addr.zip ?? addr.postal_code ?? addr.post_code ?? addr.addressZip ?? undefined,
           pref: addr.pref ?? addr.prefecture ?? undefined,
           city: addr.city ?? undefined,
           line1: addr.line1 ?? addr.addr1 ?? addr.address1 ?? undefined,
@@ -125,6 +151,18 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
   const sns = base?.sns ?? parseJson(base?.snsJson ?? base?.sns_json) ?? parseJson(i18n?.snsJson ?? i18n?.sns_json) ?? undefined;
   const media = parseJson(base?.mediaJson ?? base?.media_json) ?? undefined;
   const listings = parseJson(base?.listingsJson ?? base?.listings_json) ?? undefined;
+  
+  // 解析办公室图片
+  const imagesRaw = parseJson(base?.officeImagesJson ?? base?.office_images_json ?? base?.imagesJson ?? base?.images_json) ?? undefined;
+  const images = Array.isArray(imagesRaw) 
+    ? imagesRaw.filter((img: any) => img && typeof img === 'object' && img.url).map((img: any) => ({
+        url: img.url,
+        alt: img.alt ?? img.caption ?? img.title ?? undefined,
+        sort: typeof img.sort === 'number' ? img.sort : (typeof img.order === 'number' ? img.order : undefined),
+        caption: img.caption ?? img.description ?? undefined,
+      }))
+    : undefined;
+  
   const tags = Array.isArray(base?.tags) ? base?.tags : (Array.isArray(i18n?.tags) ? i18n?.tags : undefined);
   const isActive = base?.isActive ?? base?.active ?? undefined;
   const ogImageUrl = base?.ogImageUrl ?? base?.og_image_url ?? undefined;
@@ -154,6 +192,7 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
     tags,
     media,
     listings,
+    images,
     publishedAt,
     ogImageUrl,
     geoLat,

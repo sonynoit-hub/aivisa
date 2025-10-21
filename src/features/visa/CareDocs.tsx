@@ -1,6 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import AdSlots from "@/components/ad/AdSlots";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "company" | "optional";
@@ -16,13 +17,16 @@ type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaD
 export default function CareDocs({ locale, studyDocs, studyDocsMeta }: Props) {
   const categoryOrder = useMemo(() => ["applicant", "company", "optional"] as const, []);
   return (
-    <VisaDocs
-      locale={locale}
-      storageKey="careDocs:checks"
-      categoryOrder={categoryOrder}
-      colors={CAT_COLORS}
-  studyDocs={studyDocs}
-  meta={studyDocsMeta}
-    />
+    <div className="space-y-6">
+      <VisaDocs
+        locale={locale}
+        storageKey="careDocs:checks"
+        categoryOrder={categoryOrder}
+        colors={CAT_COLORS}
+        studyDocs={studyDocs}
+        meta={studyDocsMeta}
+      />
+      <AdSlots page="category" slot="detail_bottom" categorySlug="care" locale={locale} />
+    </div>
   );
 }
