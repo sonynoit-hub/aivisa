@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAnalyticsBase, buildAnalyticsHeaders } from "@/server/analytics/http";
+import { runtimeConfig } from "@/config/runtime";
 import { passthrough } from "@/server/bff/http";
 import { serverDbg } from "@/server/analytics/debug";
 export const dynamic = "force-dynamic";
@@ -17,6 +18,10 @@ export async function POST(req: NextRequest) {
 		return passthrough(upstream, { forceJson: true });
 	} catch (e) {
 		serverDbg('ERR', url, String(e));
+		if (runtimeConfig.stage === 'dev') {
+			// In dev, swallow analytics failures to avoid noisy 5xx in console
+			return NextResponse.json({ ok: true, devNoop: true }, { status: 200 });
+		}
 		return NextResponse.json({ error: { code: "BACKEND_UNREACHABLE", message: "devices upstream failed" } }, { status: 502 });
 	}
 }

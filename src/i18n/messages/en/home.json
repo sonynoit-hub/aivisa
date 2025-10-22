@@ -4,25 +4,21 @@
     "seoDescription": "Multilingual visa guidance (JA/EN/ZH/KO/VI) with instant AI Q&A. Clear requirements, document checklists, timelines, and gyoseishoshi-backed support.",
     "seoKeywords": ["Japan visa", "status of residence", "requirements", "documents", "immigration", "HSP", "permanent resident", "spouse visa", "student visa", "work visa"],
     "hero": {
-      "title": "Simplify Japan visa procedures with AI Visa ",
-      "subtitle": "5 languages supported · Instant AI answers",
+      "title": "Simplify Your Visa Process with AI",
+      "subtitle": "5 languages supported｜Check required documents｜Ask AI instantly",
       "placeholder": "e.g. Required income for a Spouse visa?",
       "cta": "Ask AI",
       "chips": [
-        "# Permanent resident requirements",
-  "# Engineer・Humanities・Intl sample docs",
-        "# Study fastest route"
+        "# Permanent residency requirements",
+        "# Engineer/Humanities/Intl Services required documents",
+        "# Student visa renewal",
+        "# Highly Skilled Professional visa point system",
+        "# Specified Skilled Worker visa application steps"
       ]
     },
     "visas": {
       "title": "Choose a status of residence",
-      "subtitle": "AI summarizes requirements and documents. Open a card for details.",
-      "items": [
-  {"title": "Engineer ・ Humanities ・ International", "badge": "Work", "desc": "Education or work experience + target annual income from ¥3M. Usual 1–3 months."},
-        {"title": "Study abroad", "badge": "Study", "desc": "Enrollment certificate + proof of funds. Usual 1–2 months."},
-        {"title": "Spouse of Japanese", "badge": "Family", "desc": "Genuine relationship + livelihood requirements. Usual 1–3 months."},
-        {"title": "Permanent Resident", "badge": "PR", "desc": "Good conduct, stable income, and tax compliance."}
-      ]
+      "subtitle": "AI summarizes requirements and documents. Open a card for details."
     },
     "process": {
       "title": "Process route",
@@ -33,31 +29,8 @@
       ]
     },
     "advisors": {
-      "title": "Recommended Services",
-      "note": "Advertisement (PR)",
-      "score": "score",
-      "items": [
-        {
-          "name": "Tanaka Legal Office",
-          "score": "4.9/5",
-          "desc": "Wide coverage: work, family, and PR. English/Chinese available.",
-          "tags": ["First 30min free", "English OK", "Online consult"]
-        },
-        {
-          "name": "Sato Administrative Law",
-          "score": "4.8/5",
-          "desc": "Strong in Engineer・Humanities・Intl and Business Manager. Flexible on tight timelines.",
-          "tags": ["Fast response", "Work visa focus", "Weekend OK"]
-        },
-        {
-          "name": "Yamamoto Visa Support",
-          "score": "4.7/5",
-          "desc": "Many cases for Spouse/Dependent/Student. Fully remote plan available.",
-          "tags": ["Family cases expert", "Multilingual", "Remote friendly"]
-        }
-      ],
-      "actions": {"book": "Book", "details": "Details"},
-      "pagination": {"prev": "Prev", "next": "Next", "page": "1 / 8"}
+      "title": "Living in Japan Support",
+      "note": "Advertisement (PR)"
     }
   }
 }

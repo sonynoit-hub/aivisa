@@ -268,16 +268,9 @@ export default function HomeClient() {
           <div className="hero-fade" aria-hidden />
 
           <div className="relative z-10">
-            {locale === "ja" ? (
-              <h1 className="text-[30px] sm:text-[34px] font-extrabold leading-[1.15] text-slate-900 text-center">
-                <span className="block">AIと専門家による</span>
-                <span className="block">簡単ビザ手続き</span>
-              </h1>
-            ) : (
-              <h1 className="text-[30px] sm:text-[34px] font-extrabold leading-tight tracking-tight text-slate-900 text-center">
-                {t("hero.title")}
-              </h1>
-            )}
+            <h1 className="text-[30px] sm:text-[34px] font-extrabold leading-tight tracking-tight text-slate-900 text-center">
+              {t("hero.title")}
+            </h1>
 
             <p className="mt-3 text-[15px] leading-[1.8] text-slate-700 text-center">
               {t("hero.subtitle")}

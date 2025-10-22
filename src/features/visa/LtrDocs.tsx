@@ -1,7 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
-import AdSlots from "@/components/ad/AdSlots";
+import AdSection from "@/components/ad/AdSection";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "guarantor" | "optional";
@@ -28,7 +28,7 @@ export default function LtrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-      <AdSlots page="category" slot="detail_bottom" categorySlug="ltr" locale={locale} />
+  <AdSection page="category" slot="detail_bottom" categorySlug="ltr" locale={locale} />
     </div>
   );
 }

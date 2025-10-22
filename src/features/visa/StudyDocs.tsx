@@ -1,7 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
-import AdSlots from "@/components/ad/AdSlots";
+import AdSection from "@/components/ad/AdSection";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "school" | "optional";
@@ -28,7 +28,7 @@ export default function StudyDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         meta={studyDocsMeta}
       />
   {/* 分类详情底部广告：留学（返回几条显示几条） */}
-  <AdSlots page="category" slot="detail_bottom" categorySlug="study" locale={locale} />
+  <AdSection page="category" slot="detail_bottom" categorySlug="study" locale={locale} />
     </div>
   );
 }

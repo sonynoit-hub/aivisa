@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Markdown from "@/components/common/Markdown";
 import { PrintToPdfButton } from "@/components/pdf/PrintToPdfButton";
-import AdSlots from "@/components/ad/AdSlots";
+import AdSection from "@/components/ad/AdSection";
 import ja from "@/i18n/messages/ja/visa-pages/vr.json";
 import en from "@/i18n/messages/en/visa-pages/vr.json";
 import zh from "@/i18n/messages/zh/visa-pages/vr.json";
@@ -308,7 +308,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
         ) : null;
       })()}
       {/* 分类详情底部广告：亲属访问 */}
-      <AdSlots page="category" slot="detail_bottom" categorySlug="vr" locale={locale} />
+  <AdSection page="category" slot="detail_bottom" categorySlug="vr" locale={locale} />
     </section>
   );
 }

@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { env } from "@/lib/env";
 
+// Avoid spamming logs when upstream is down in dev
+let ADS_UPSTREAM_WARNED = false;
+
 // Proxy to backend DB. No mock here.
 export async function GET(req: NextRequest) {
   try {
@@ -24,7 +27,11 @@ export async function GET(req: NextRequest) {
     if (category) outUrl.searchParams.set("category", category);
     if (limit) outUrl.searchParams.set("limit", limit);
 
-    const res = await fetch(outUrl.toString(), { headers: { Accept: "application/json" }, cache: "no-store" });
+  // Add a short timeout to keep UI responsive if upstream is unreachable
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(new Error("ads upstream timeout")), 1500);
+  const res = await fetch(outUrl.toString(), { headers: { Accept: "application/json" }, cache: "no-store", signal: ctrl.signal });
+  clearTimeout(t);
     const contentType = res.headers.get("content-type") || "";
     if (!res.ok) {
       // Degrade gracefully
@@ -40,7 +47,12 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(isList ? [] : null, { status: 200 });
   } catch (e) {
     const isDev = process.env.NODE_ENV !== 'production';
-    if (isDev) console.error('[api/ads] proxy error', e);
+    // Degrade gracefully and log once (concise) in dev
+    if (isDev && !ADS_UPSTREAM_WARNED) {
+      ADS_UPSTREAM_WARNED = true;
+      // eslint-disable-next-line no-console
+      console.warn('[api/ads] upstream unreachable; returning empty. Tip: run backend or unset BACKEND_URL for silent mock.');
+    }
     return NextResponse.json([], { status: 200 });
   }
 }

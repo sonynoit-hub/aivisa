@@ -1,7 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
-import AdSlots from "@/components/ad/AdSlots";
+import AdSection from "@/components/ad/AdSection";
 import { useMemo } from "react";
 
 // PR ページでは "扶養者" セクションも存在するため、dependents を含める
@@ -29,7 +29,7 @@ export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-      <AdSlots page="category" slot="detail_bottom" categorySlug="pr" locale={locale} />
+  <AdSection page="category" slot="detail_bottom" categorySlug="pr" locale={locale} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAnalyticsBase, buildAnalyticsHeaders } from "@/server/analytics/http";
+import { runtimeConfig } from "@/config/runtime";
 import { passthrough } from "@/server/bff/http";
 import { serverDbg } from "@/server/analytics/debug";
 export const dynamic = "force-dynamic";
@@ -33,9 +34,15 @@ export async function POST(req: NextRequest) {
 			}
 		}
 		serverDbg('ERR', 'analytics/events fallback exhausted', String(lastErr || 'unknown'));
+		if (runtimeConfig.stage === 'dev') {
+			return NextResponse.json({ ok: true, devNoop: true }, { status: 200 });
+		}
 		return NextResponse.json({ error: { code: "BACKEND_UNREACHABLE", message: "events upstream failed" } }, { status: 502 });
 	} catch (e) {
 		serverDbg('ERR', 'analytics/events unhandled', String(e));
+		if (runtimeConfig.stage === 'dev') {
+			return NextResponse.json({ ok: true, devNoop: true }, { status: 200 });
+		}
 		return NextResponse.json({ error: { code: "BACKEND_UNREACHABLE", message: "events upstream failed" } }, { status: 502 });
 	}
 }

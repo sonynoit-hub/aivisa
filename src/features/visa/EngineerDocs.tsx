@@ -1,7 +1,7 @@
 "use client";
 
 import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
-import AdSlots from "@/components/ad/AdSlots";
+import AdSection from "@/components/ad/AdSection";
 import { useMemo } from "react";
 
 type CategoryKey = "applicant" | "company" | "optional";
@@ -27,7 +27,7 @@ export default function EngineerDocs({ locale, studyDocs, studyDocsMeta }: Props
         studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
-      <AdSlots page="category" slot="detail_bottom" categorySlug="engineer" locale={locale} />
+  <AdSection page="category" slot="detail_bottom" categorySlug="engineer" locale={locale} />
     </div>
   );
 }
