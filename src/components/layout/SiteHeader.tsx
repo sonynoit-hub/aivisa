@@ -382,16 +382,9 @@ export function SiteHeader() {
                       : item.kind === "hsp1"
                         ? `/${currentLocale}/visa/hsp-i`
                         : `/${currentLocale}/visa/hsp-ii`;
-                  const badgeClassByItem = (it: (typeof ORDERED_ITEMS)[number]) => {
-                    const key = it.type === 'slug' ? slugToCat[it.slug] : 'work';
-                    switch (key) {
-                      case 'work': return 'icon-badge icon-badge--work';
-                      case 'status-family': return 'icon-badge icon-badge--family';
-                      case 'study-training': return 'icon-badge icon-badge--study';
-                      case 'short-others': return 'icon-badge icon-badge--short';
-                      default: return 'icon-badge icon-badge--work';
-                    }
-                  };
+                  // 5-color cyclic badge palette by display order
+                  const BADGE_PALETTE = ['icon-badge--p1','icon-badge--p2','icon-badge--p3','icon-badge--p4','icon-badge--p5'] as const;
+                  const badgeClassByIndex = (idx: number) => `icon-badge ${BADGE_PALETTE[idx % 5]}`;
 
                   return (
                     <ul className="space-y-1.5">
@@ -404,7 +397,7 @@ export function SiteHeader() {
                             title={getLabel(it)}
                           >
                             <span className="flex items-center gap-2.5">
-                              <span className={`${badgeClassByItem(it)} h-8 w-8 shrink-0`}>
+                              <span className={`${badgeClassByIndex(idx)} h-8 w-8 shrink-0`}>
                                 {it.type === "slug" ? (
                                   <VisaIconBySlug slug={it.slug} className="h-[18px] w-[18px] text-white" />
                                 ) : (

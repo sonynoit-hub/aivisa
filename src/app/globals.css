@@ -92,6 +92,27 @@
   /* Switch short/others to orange to avoid closeness to work(blue) */
   .icon-badge--short { --tone-from: #FF9F0A; --tone-to: #FF7A00; }
   .group:hover .icon-badge--short { --tone-from: #FF9500; --tone-to: #FF6A00; box-shadow: 0 10px 26px rgba(255,149,0,.20), 0 3px 10px rgba(255,149,0,.14); }
+
+  /* Five-color cyclic palette (order-based) */
+  /* p1: Teal (brand-adjacent, friendly, trustworthy) */
+  .icon-badge--p1 { --tone-from: #2DD4BF; --tone-to: #14B8A6; }
+  .group:hover .icon-badge--p1 { --tone-from: #22C1B0; --tone-to: #0EA5A1; box-shadow: 0 10px 26px rgba(20,184,166,.22), 0 3px 10px rgba(20,184,166,.14); }
+
+  /* p2: Blue (professional, reliable) */
+  .icon-badge--p2 { --tone-from: #0A84FF; --tone-to: #0077FF; }
+  .group:hover .icon-badge--p2 { --tone-from: #007AFF; --tone-to: #0066FF; box-shadow: 0 10px 26px rgba(0,122,255,.20), 0 3px 10px rgba(0,102,255,.14); }
+
+  /* p3: Violet (innovative, premium) */
+  .icon-badge--p3 { --tone-from: #BF5AF2; --tone-to: #A64DFF; }
+  .group:hover .icon-badge--p3 { --tone-from: #B14EF0; --tone-to: #9340F5; box-shadow: 0 10px 26px rgba(147,64,245,.20), 0 3px 10px rgba(147,64,245,.14); }
+
+  /* p4: Orange (energetic, attention) */
+  .icon-badge--p4 { --tone-from: #FF9F0A; --tone-to: #FF7A00; }
+  .group:hover .icon-badge--p4 { --tone-from: #FF9500; --tone-to: #FF6A00; box-shadow: 0 10px 26px rgba(255,149,0,.20), 0 3px 10px rgba(255,149,0,.14); }
+
+  /* p5: Emerald (growth, support) */
+  .icon-badge--p5 { --tone-from: #34C759; --tone-to: #2EB94E; }
+  .group:hover .icon-badge--p5 { --tone-from: #2CC14F; --tone-to: #28A844; box-shadow: 0 10px 26px rgba(40,168,68,.20), 0 3px 10px rgba(40,168,68,.14); }
   /* Primary button with teal gradient */
   .btn-primary {
     background-image: linear-gradient(135deg, var(--ai-gradient-light-start), var(--ai-gradient-light-end));

@@ -248,16 +248,9 @@ export default function HomeClient() {
     return map;
   }, []);
 
-  const badgeClassByItem = (it: (typeof ORDERED_ITEMS)[number]) => {
-    const key = it.type === 'slug' ? slugToCat[it.slug] : 'work';
-    switch (key) {
-      case 'work': return 'icon-badge icon-badge--work';
-      case 'status-family': return 'icon-badge icon-badge--family';
-      case 'study-training': return 'icon-badge icon-badge--study';
-      case 'short-others': return 'icon-badge icon-badge--short';
-      default: return 'icon-badge icon-badge--work';
-    }
-  };
+  // 5-color cyclic badge palette by display order
+  const BADGE_PALETTE = ['icon-badge--p1','icon-badge--p2','icon-badge--p3','icon-badge--p4','icon-badge--p5'] as const;
+  const badgeClassByIndex = (idx: number) => `icon-badge ${BADGE_PALETTE[idx % 5]}`;
 
   return (
     <main className="min-h-screen bg-slate-50 overflow-x-hidden">
@@ -334,7 +327,7 @@ export default function HomeClient() {
                     <div className="flex h-full items-center justify-between">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="shrink-0">
-                          <span className={`${badgeClassByItem(it)} h-10 w-10`}>
+                          <span className={`${badgeClassByIndex(idx)} h-10 w-10`}>
                             {it.type === 'slug' ? (
                               <VisaIconBySlug slug={it.slug} className="h-[26px] w-[26px] text-white" />
                             ) : (
@@ -343,7 +336,7 @@ export default function HomeClient() {
                           </span>
                         </div>
                         <div className="min-w-0">
-                          <h3 className="text-[15px] font-semibold text-slate-900 truncate">{label}</h3>
+                          <h3 className="text-[16px] font-semibold text-slate-900 truncate">{label}</h3>
                           {desc && (
                             <p className="mt-1 text-[12.5px] leading-5 text-slate-600 max-h-[2.5rem] overflow-hidden line-clamp-2">{desc}</p>
                           )}
@@ -393,14 +386,13 @@ export default function HomeClient() {
           </div>
         </section>
 
-        <section className="mt-10">
+        <section className="mt-12">
           <div className="flex items-end justify-between">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
               {t("advisors.title")}
             </h2>
             <div className="text-sm text-slate-500">{t("advisors.note")}</div>
           </div>
-          <div className="mt-2 h-px bg-slate-200/80" />
 
           {/* 在此展示来自数据库的广告卡片（2 条） */}
           <div className="mt-4">

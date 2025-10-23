@@ -30,7 +30,7 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
 
   if (loading) {
     return (
-      <div className="space-y-3">
+      <div className="flex flex-col gap-5">
         {Array.from({ length: typeof limit === 'number' ? limit : 2 }).map((_, i) => (
           <div key={i} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft animate-pulse">
             <div className="h-4 w-40 bg-slate-200 rounded" />
@@ -44,7 +44,7 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
   }
   if (!list || list.length === 0) return null;
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-5">
       {list.map((ad) => (
         <AdCard key={String(ad.id)} ad={ad} />
       ))}

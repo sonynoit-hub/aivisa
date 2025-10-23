@@ -48,8 +48,9 @@ export default function AnalyticsEventsClient() {
           return;
         }
         // Defer until analytics ready (single-shot) to avoid dropping early clicks
-        let done = false;
-        let poll: any;
+  let done = false;
+  // eslint-disable-next-line prefer-const
+  let poll: any;
         const onReady = () => {
           if (done) return;
           done = true;
