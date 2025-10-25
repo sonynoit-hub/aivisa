@@ -151,6 +151,11 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
   const sns = base?.sns ?? parseJson(base?.snsJson ?? base?.sns_json) ?? parseJson(i18n?.snsJson ?? i18n?.sns_json) ?? undefined;
   const media = parseJson(base?.mediaJson ?? base?.media_json) ?? undefined;
   const listings = parseJson(base?.listingsJson ?? base?.listings_json) ?? undefined;
+  // 直连咨询渠道
+  const contactChannels =
+    parseJson(base?.contact_channels_json ?? base?.contactChannelsJson) ??
+    parseJson(i18n?.contact_channels_json ?? i18n?.contactChannelsJson) ??
+    undefined;
   
   // 解析办公室图片
   const imagesRaw = parseJson(base?.officeImagesJson ?? base?.office_images_json ?? base?.imagesJson ?? base?.images_json) ?? undefined;
@@ -189,6 +194,7 @@ export function normalizeOfficeDetail(raw: any, locale: string): OfficeDetail {
     badgeText: raw?.badgeText ?? raw?.badge_text ?? undefined,
     badgeVariant: raw?.badgeVariant ?? raw?.badge_variant ?? undefined,
     sns,
+  contactChannelsJson: contactChannels,
     tags,
     media,
     listings,

@@ -10,6 +10,8 @@ export type OfficeDetail = {
   websiteUrl?: string;
   email?: string; // 规范化自 emailPublic
   phone?: string; // 规范化自 phonePublic
+  // 直连咨询渠道（来自 partner_office.contact_channels_json），后端可能返回为 JSON 字符串
+  contactChannelsJson?: string | ContactChannelsMap;
   // SEO / OG / 发布时间等
   seoTitle?: string;
   seoDesc?: string;
@@ -52,6 +54,22 @@ export type OfficeImage = {
   caption?: string;
   [k: string]: unknown;
 };
+
+// 直连咨询渠道类型：仅在前端渲染使用
+export type ContactChannel = {
+  url?: string;
+  id?: string;
+  label?: string;
+  qr_url?: string; // snake_case from backend
+  qrUrl?: string;  // potential camelCase
+  phone?: string;  // e.g., whatsapp phone number
+  // 兼容 is_public（后端常用）与 isPublic（万一有驼峰）
+  is_public?: boolean;
+  isPublic?: boolean;
+  [k: string]: unknown;
+};
+
+export type ContactChannelsMap = Record<string, ContactChannel>;
 
 // 展示卡片的通用类型（字段名做了最小假设与兼容）
 export type OfficeCard = {
