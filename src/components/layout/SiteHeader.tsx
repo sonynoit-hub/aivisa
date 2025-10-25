@@ -253,7 +253,6 @@ export function SiteHeader() {
             className="inline-flex items-center gap-2 font-semibold tracking-wide text-slate-800 absolute left-1/2 -translate-x-1/2"
           >
             <Logo />
-            <span className="hidden sm:inline">Visa</span>
           </Link>
           
           {/* 右：菜单触发（轻按钮） */}
