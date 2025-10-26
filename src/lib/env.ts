@@ -32,7 +32,7 @@ const processEnv = {
   // client
   NEXT_PUBLIC_API_BASE: process.env.NEXT_PUBLIC_API_BASE,
   // build
-  NODE_ENV: process.env.NODE_ENV as any,
+  NODE_ENV: process.env.NODE_ENV as 'development' | 'production' | 'test' | undefined,
 };
 
 const merged = serverSchema.merge(clientSchema).merge(buildSchema);

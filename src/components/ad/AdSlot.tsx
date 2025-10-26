@@ -23,7 +23,7 @@ export default function AdSlot({ page, slot, categorySlug, locale }: AdSlotProps
     return () => {
       mounted = false;
     };
-  }, [page, slot, categorySlug, locale]);
+  }, [page, slot, categorySlug, locale, DEBUG_ADS]);
 
   if (loading) {
     return (

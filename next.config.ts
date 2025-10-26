@@ -52,8 +52,21 @@ const csp = baseCspParts.join('; ');
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  // Produce standalone output for smaller Docker runtime image
+  // Produce standalone output so we can zip and run with `node server.js` on server
   output: 'standalone',
+  // Allow remote images for next/image
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.example.com',
+      },
+    ],
+  },
   // 允许开发环境中从这些源发起到本应用的请求（Next 15+ 开发安全策略）
   // 按需补充你的后端开发域名
   allowedDevOrigins: process.env.NODE_ENV !== 'production'

@@ -93,34 +93,62 @@ ANALYTICS_PROXY_BASE=https://analytics.example.com
 NEXT_PUBLIC_API_BASE=https://www.example.com
 ```
 
-### Docker build & run
+### Production (without Docker)
 
-One-click container build and run using Next.js standalone output:
+1) Configure environment variables
 
-Optional: prepare envs for production
-```bash
-cp .env.example .env.production.local
-# edit values inside
-```
-
-Build image (build-time will embed NEXT_PUBLIC_ vars into client bundle):
-```bash
-./scripts/docker-build.sh latest
-```
-
-Run container (runtime reads server envs from .env.production.local):
-```bash
-./scripts/docker-run.sh latest
-```
-
-### Push to AWS ECR
+Create `.env.production.local` (not committed):
 
 ```bash
-# login (script handles auto repository creation)
-./scripts/ecr-push.sh ap-northeast-1 123456789012 aivisa-web v1
+APP_ENV=deploy
+BACKEND_URL=https://api.example.com
+ANALYTICS_PROXY_BASE=https://analytics.example.com
+NEXT_PUBLIC_API_BASE=https://www.example.com
 ```
 
-Then deploy on ECS/Fargate or your Kubernetes cluster, providing runtime env vars (BACKEND_URL, ANALYTICS_PROXY_BASE, NEXT_PUBLIC_API_BASE) via your task definition or secrets manager.
+2) Build
+
+```bash
+npm run build
+```
+
+3) Start
+
+```bash
+npm run start
+```
+
+The app listens on PORT=3000 by default. You can set `PORT=8080 npm run start` to change it.
+
+Optional: process manager examples
+
+- pm2
+```bash
+pm2 start "npm run start" --name aivisa-web --update-env --time
+```
+
+- systemd (minimal unit)
+```
+[Unit]
+Description=Aivisa Next.js Web
+After=network.target
+
+[Service]
+Type=simple
+Environment=NODE_ENV=production
+Environment=APP_ENV=deploy
+Environment=BACKEND_URL=https://api.example.com
+Environment=ANALYTICS_PROXY_BASE=https://analytics.example.com
+Environment=NEXT_PUBLIC_API_BASE=https://www.example.com
+Environment=PORT=3000
+WorkingDirectory=/opt/aivisa-web
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ### Security headers
 

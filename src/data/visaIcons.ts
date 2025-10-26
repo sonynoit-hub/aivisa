@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { IconType } from 'react-icons';
 import {
   PiGlobeHemisphereEastDuotone,
   PiBuildingsDuotone,
@@ -21,7 +21,7 @@ import {
 } from 'react-icons/pi';
 import type { VisaCategoryKey } from "./visaCategories";
 
-export const visaIconBySlug: Record<string, ComponentType<any>> = {
+export const visaIconBySlug: Record<string, IconType> = {
   // Work
   "engineer-humanities-international": PiGlobeHemisphereEastDuotone,
   "business-manager": PiBuildingsDuotone,
@@ -48,7 +48,7 @@ export const visaIconBySlug: Record<string, ComponentType<any>> = {
   "designated-activities": PiIdentificationBadgeDuotone,
 };
 
-export const categoryIconByKey: Record<VisaCategoryKey, ComponentType<any>> = {
+export const categoryIconByKey: Record<VisaCategoryKey, IconType> = {
   work: PiBriefcaseDuotone,
   "status-family": PiUsersDuotone,
   "study-training": PiGraduationCapDuotone,

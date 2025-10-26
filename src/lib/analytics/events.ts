@@ -8,19 +8,45 @@ function baseHeaders() {
     "X-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Tokyo",
   } as const;
 }
-export async function logEvent(eventType: string, payloadObj?: Record<string, any>, extra?: { category?: string; label?: string; value?: number }) {
+type EventBody = {
+  eventType: string;
+  payload: string;
+  anonUserId?: string;
+  sessionId: number;
+  route?: string;
+  referrer?: string;
+  isBot?: boolean;
+  receivedAt: string;
+  deviceId?: number;
+  deviceTokenHash?: string;
+};
+
+export async function logEvent(eventType: string, payloadObj?: Record<string, unknown>, extra?: { category?: string; label?: string; value?: number }) {
   // sessionId for /events = Analytics Session ID
-  const sidRaw = (typeof window !== "undefined" && ((window as any).__ANALYTICS_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId)) || undefined;
-  const sid = typeof sidRaw === 'string' ? Number(sidRaw) : sidRaw;
+  const sidRaw = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return (w.__ANALYTICS_SESSION_ID__ ?? (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined)?.sessionId) as unknown;
+  })()) || undefined;
+  const sid = typeof sidRaw === 'string' ? Number(sidRaw) : (typeof sidRaw === 'number' ? sidRaw : undefined);
   if (!sid) return; // 无 Analytics Session 则跳过
 
-  const anonUserId = (typeof window !== "undefined" && ((window as any).__ANON_USER_ID__ || window.localStorage.getItem("aid"))) || undefined;
-  const deviceId = (typeof window !== "undefined" && ((window as any).__DEVICE_ID__)) || undefined;
-  const deviceTokenHash = (typeof window !== "undefined" && ((window as any).__DEVICE_TOKEN_HASH__)) || undefined;
+  const anonUserId = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return (w.__ANON_USER_ID__ as string | undefined) || window.localStorage.getItem("aid") || undefined;
+  })()) || undefined;
+  const deviceIdRaw = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return w.__DEVICE_ID__ as number | string | undefined;
+  })()) || undefined;
+  const deviceTokenHash = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return w.__DEVICE_TOKEN_HASH__ as string | undefined;
+  })()) || undefined;
 
   const nowIso = new Date().toISOString();
   const payload = JSON.stringify({ ...(payloadObj || {}), category: extra?.category, label: extra?.label, value: extra?.value });
-  const body: any = {
+  const deviceIdVal = typeof deviceIdRaw === 'string' ? Number(deviceIdRaw) : (typeof deviceIdRaw === 'number' ? deviceIdRaw : undefined);
+  const body: EventBody = {
     eventType,
     payload,
     anonUserId,
@@ -30,11 +56,11 @@ export async function logEvent(eventType: string, payloadObj?: Record<string, an
     isBot: typeof navigator !== "undefined" ? /bot|crawl|spider/i.test(navigator.userAgent) : undefined,
     receivedAt: nowIso,
   };
-  if (deviceId != null) body.deviceId = deviceId;
-  if (deviceTokenHash != null) body.deviceTokenHash = deviceTokenHash;
+  if (deviceIdVal != null && !Number.isNaN(deviceIdVal)) body.deviceId = deviceIdVal;
+  if (deviceTokenHash != null) body.deviceTokenHash = String(deviceTokenHash);
 
   try {
-    const h = { ...baseHeaders(), "X-Request-Id": newRequestId() } as any;
+  const h: Record<string, string> = { ...baseHeaders(), "X-Request-Id": newRequestId() };
     dbg("POST", `${API}/events`, { headers: h, body });
     const res = await fetch(`${API}/events`, { method: "POST", headers: h, credentials: "omit", body: JSON.stringify(body) });
     dbg("RES", `${API}/events`, res.status);
@@ -51,19 +77,32 @@ export async function logEvent(eventType: string, payloadObj?: Record<string, an
 }
 
 // Reliable path: try keepalive fetch, fallback to sendBeacon
-export async function logEventReliable(eventType: string, payloadObj?: Record<string, any>, extra?: { category?: string; label?: string; value?: number }) {
+export async function logEventReliable(eventType: string, payloadObj?: Record<string, unknown>, extra?: { category?: string; label?: string; value?: number }) {
   // sessionId for /events = Analytics Session ID
-  const sidRaw = (typeof window !== "undefined" && ((window as any).__ANALYTICS_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId)) || undefined;
-  const sid = typeof sidRaw === 'string' ? Number(sidRaw) : sidRaw;
+  const sidRaw = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return (w.__ANALYTICS_SESSION_ID__ ?? (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined)?.sessionId) as unknown;
+  })()) || undefined;
+  const sid = typeof sidRaw === 'string' ? Number(sidRaw) : (typeof sidRaw === 'number' ? sidRaw : undefined);
   if (!sid) return;
 
-  const anonUserId = (typeof window !== "undefined" && ((window as any).__ANON_USER_ID__ || window.localStorage.getItem("aid"))) || undefined;
-  const deviceId = (typeof window !== "undefined" && ((window as any).__DEVICE_ID__)) || undefined;
-  const deviceTokenHash = (typeof window !== "undefined" && ((window as any).__DEVICE_TOKEN_HASH__)) || undefined;
+  const anonUserId = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return (w.__ANON_USER_ID__ as string | undefined) || window.localStorage.getItem("aid") || undefined;
+  })()) || undefined;
+  const deviceIdRaw = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return w.__DEVICE_ID__ as number | string | undefined;
+  })()) || undefined;
+  const deviceTokenHash = (typeof window !== "undefined" && (() => {
+    const w = window as unknown as Record<string, unknown>;
+    return w.__DEVICE_TOKEN_HASH__ as string | undefined;
+  })()) || undefined;
 
   const nowIso = new Date().toISOString();
   const payload = JSON.stringify({ ...(payloadObj || {}), category: extra?.category, label: extra?.label, value: extra?.value });
-  const body: any = {
+  const deviceIdVal = typeof deviceIdRaw === 'string' ? Number(deviceIdRaw) : (typeof deviceIdRaw === 'number' ? deviceIdRaw : undefined);
+  const body: EventBody = {
     eventType,
     payload,
     anonUserId,
@@ -73,11 +112,11 @@ export async function logEventReliable(eventType: string, payloadObj?: Record<st
     isBot: typeof navigator !== "undefined" ? /bot|crawl|spider/i.test(navigator.userAgent) : undefined,
     receivedAt: nowIso,
   };
-  if (deviceId != null) body.deviceId = deviceId;
-  if (deviceTokenHash != null) body.deviceTokenHash = deviceTokenHash;
+  if (deviceIdVal != null && !Number.isNaN(deviceIdVal)) body.deviceId = deviceIdVal;
+  if (deviceTokenHash != null) body.deviceTokenHash = String(deviceTokenHash);
 
   const url = `${API}/events`;
-  const headers = { ...baseHeaders(), "X-Request-Id": newRequestId() } as any;
+  const headers: Record<string, string> = { ...baseHeaders(), "X-Request-Id": newRequestId() };
   const jsonBody = JSON.stringify(body);
   try {
     dbg("POST(reliable)", url, { headers, body });

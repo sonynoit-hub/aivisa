@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import SafeImage from "@/components/common/SafeImage";
 
 export type StripImage = {
   url: string;
@@ -90,10 +91,10 @@ export default function AutoScrollImageStrip({ images }: Props) {
       }
     };
 
-    const onMouseEnter = () => stop();
-    const onMouseLeave = () => start();
-    const onTouchStart = () => stop();
-    const onTouchEnd = () => start();
+  const onMouseEnter = () => stop();
+  const onMouseLeave = () => start();
+  const onTouchStart: EventListener = () => stop();
+  const onTouchEnd = () => start();
 
     scroller.addEventListener("mouseenter", onMouseEnter);
     scroller.addEventListener("mouseleave", onMouseLeave);
@@ -109,7 +110,7 @@ export default function AutoScrollImageStrip({ images }: Props) {
       stop();
       scroller.removeEventListener("mouseenter", onMouseEnter);
       scroller.removeEventListener("mouseleave", onMouseLeave);
-      scroller.removeEventListener("touchstart", onTouchStart as any);
+      scroller.removeEventListener("touchstart", onTouchStart);
       scroller.removeEventListener("touchend", onTouchEnd);
     };
   }, [images, prefersReduced, isVisible, isDocVisible]);
@@ -131,10 +132,12 @@ export default function AutoScrollImageStrip({ images }: Props) {
               className="group relative flex-shrink-0 w-72 sm:w-80 md:w-96 aspect-[4/3]"
             >
               <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-100 shadow-md hover:shadow-xl transition-all duration-300">
-                <img
+                <SafeImage
                   src={img.url}
                   alt={img.alt || `Office photo ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 18rem, (max-width: 768px) 20rem, 24rem"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </article>

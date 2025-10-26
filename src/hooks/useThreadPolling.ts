@@ -59,9 +59,11 @@ export function useThreadPolling(threadId?: number, opts: UseThreadPollingOption
     setLastId((id) => Math.max(...items.map((m) => m.id), id ?? 0));
   }, []);
 
+  const tickRef = useRef<() => void>(() => {});
   const schedule = useCallback((ms: number) => {
     if (timerRef.current) window.clearTimeout(timerRef.current);
-    timerRef.current = window.setTimeout(tick, ms) as unknown as number;
+    const fn = tickRef.current;
+    timerRef.current = window.setTimeout(() => fn(), ms) as unknown as number;
   }, []);
 
   const tick = useCallback(async () => {
@@ -92,11 +94,12 @@ export function useThreadPolling(threadId?: number, opts: UseThreadPollingOption
         intervalRef.current = Math.min(max, Math.max(base, intervalRef.current * 2));
         schedule(intervalRef.current);
       }
-    } catch (e: any) {
-      const status: number | undefined = e?.status ?? e?.code; // 兼容 http 封装差异
+    } catch (e: unknown) {
+      const err = (e && typeof e === 'object') ? (e as Record<string, unknown>) : {};
+      const status = (typeof err.status === 'number' ? err.status : (typeof err.code === 'number' ? err.code : undefined)) as number | undefined; // 兼容 http 封装差异
       if (status === 429) {
         // 429: 优先使用 Retry-After 头/元数据
-        const h = e?.headers?.["retry-after"] ?? e?.meta?.retryAfterSec;
+        const h = (err.headers as Record<string, unknown> | undefined)?.["retry-after"] ?? (err.meta as Record<string, unknown> | undefined)?.retryAfterSec;
         const n = Number(h);
         const waitMs = Number.isFinite(n) && n >= 0 ? n * 1000 : Math.min(max, Math.max(base, intervalRef.current * 2));
         intervalRef.current = waitMs;
@@ -111,6 +114,9 @@ export function useThreadPolling(threadId?: number, opts: UseThreadPollingOption
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [append, base, lastId, limit, max, threadId]);
+
+  // keep latest tick in ref for schedule
+  useEffect(() => { tickRef.current = tick; }, [tick]);
 
   const reset = useCallback(() => {
     intervalRef.current = base;

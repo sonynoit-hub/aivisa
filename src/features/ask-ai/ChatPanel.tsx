@@ -8,7 +8,7 @@ import { getChatLimits, sendChatWithRate } from "@/lib/api/services/chat.service
 type Msg = { role: "user" | "ai" | "error"; content: string };
 
 export default function ChatPanel() {
-  const t = useTranslations();
+  // const t = useTranslations(); // not used currently
   const te = useTranslations('errors');
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
@@ -70,8 +70,8 @@ export default function ChatPanel() {
 
   useEffect(() => {
     // 监听列表尺寸变化（例如字体或图片导致高度变化），保持贴底
-    const el = listRef.current;
-    if (!el || !(globalThis as any).ResizeObserver) return;
+  const el = listRef.current;
+  if (!el || typeof ResizeObserver === "undefined") return;
     let raf = 0;
     const ro = new ResizeObserver(() => {
       if (raf) return;
@@ -126,17 +126,18 @@ export default function ChatPanel() {
       setMsgs(m => [...m, { role: "ai", content: ans }]);
       if (typeof r.meta.limit === "number") setLimit(r.meta.limit);
       if (typeof r.meta.remaining === "number") setRemaining(r.meta.remaining);
-    } catch (e: any) {
-      const status = e?.status as number | undefined;
-      const meta = e?.meta as { retryAfterSec?: number; limit?: number; remaining?: number } | undefined;
-      const code = String(e?.payload?.code || "").toUpperCase();
+    } catch (e: unknown) {
+      const err = (e && typeof e === 'object') ? (e as Record<string, unknown>) : {};
+      const status = (typeof err.status === 'number' ? err.status : undefined) as number | undefined;
+      const meta = (err.meta && typeof err.meta === 'object') ? (err.meta as Record<string, unknown>) : undefined;
+      const code = String((err.payload as Record<string, unknown> | undefined)?.code || "").toUpperCase();
       if (status === 429) {
-        const wait = Math.max(0, Number(meta?.retryAfterSec ?? 0));
+        const wait = Math.max(0, Number(meta?.retryAfterSec as unknown ?? 0));
         if (wait > 0) setRetryAfter(wait);
-        const isDailyExhausted = (typeof meta?.remaining === 'number' && meta.remaining <= 0) || code === 'RATE_LIMITED';
+        const isDailyExhausted = (typeof meta?.remaining === 'number' && (meta.remaining as number) <= 0) || code === 'RATE_LIMITED';
         const content = isDailyExhausted ? te('rateLimited') : te('rateLimited');
         setMsgs(m => [...m, { role: "error", content }]);
-      } else if (code === 'BACKEND_UNREACHABLE' || (e?.message && /fetch failed|Failed to fetch|NetworkError/i.test(String(e.message)))) {
+      } else if (code === 'BACKEND_UNREACHABLE' || (err && (err as Record<string, unknown>).message && /fetch failed|Failed to fetch|NetworkError/i.test(String((err as Record<string, unknown>).message)))) {
         setMsgs(m => [...m, { role: "error", content: te('serverBusy') }]);
       } else if (status && status >= 400 && status < 500) {
         // 不再显示后端的原始 message，统一使用友好提示
@@ -144,8 +145,8 @@ export default function ChatPanel() {
       } else {
         setMsgs(m => [...m, { role: "error", content: te('network') }]);
       }
-      if (typeof meta?.limit === "number") setLimit(meta.limit);
-      if (typeof meta?.remaining === "number") setRemaining(meta.remaining);
+      if (typeof meta?.limit === "number") setLimit(meta.limit as number);
+      if (typeof meta?.remaining === "number") setRemaining(meta.remaining as number);
     } finally {
       setLoading(false);
       inputRef.current?.focus();

@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { visaCatalog } from "@/data/visaCatalog";
-import { visaCategories } from "@/data/visaCategories";
 import { VisaIconBySlug, VisaCategoryIcon } from "@/features/visa/components/VisaIcon";
 import type { Locale } from "@/i18n/locales";
 import { toShortPathFromSlug } from "@/features/visa/lib/pathMap";
@@ -240,13 +239,7 @@ export default function HomeClient() {
   };
 
 
-  const slugToCat: Record<string, typeof visaCategories[number]["key"]> = useMemo(() => {
-    const map = {} as Record<string, typeof visaCategories[number]["key"]>;
-    for (const c of visaCategories) {
-      for (const s of c.visas) map[s] = c.key;
-    }
-    return map;
-  }, []);
+  // slugToCat mapping is not used in UI; remove to avoid unused var
 
   // 5-color cyclic badge palette by display order
   const BADGE_PALETTE = ['icon-badge--p1','icon-badge--p2','icon-badge--p3','icon-badge--p4','icon-badge--p5'] as const;

@@ -10,11 +10,15 @@ export default function AnalyticsEventsClient() {
   // page_view on route change
   useEffect(() => {
     const send = () => logEvent("page_view", { path: pathname, title: document.title }, { category: "navigation" });
-    const getSid = () => (window as any).__ANALYTICS_SESSION_ID__ || (window as any).__WEB_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId;
+    const getSid = () => {
+      const w = window as unknown as Record<string, unknown>;
+      const sid = (w.__ANALYTICS_SESSION_ID__ ?? w.__WEB_SESSION_ID__ ?? (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined)?.sessionId) as unknown;
+      return sid as number | string | undefined;
+    };
     if (!getSid()) {
       if (isAnalyticsDebug()) console.warn('[analytics] page_view delayed: sessionId not ready');
       let done = false;
-      const onReady = () => { if (!done) { done = true; send(); cleanup(); } };
+      const onReady: EventListener = () => { if (!done) { done = true; send(); cleanup(); } };
       const poll = setInterval(() => {
         if (getSid()) { if (!done) { done = true; send(); cleanup(); } }
       }, 500);
@@ -26,11 +30,11 @@ export default function AnalyticsEventsClient() {
         }
       }, 15000);
       const cleanup = () => {
-        try { window.removeEventListener("analytics:ready", onReady as any); } catch {}
+        try { window.removeEventListener("analytics:ready", onReady); } catch {}
         try { clearInterval(poll); } catch {}
         try { clearTimeout(timeout); } catch {}
       };
-      window.addEventListener("analytics:ready", onReady, { once: true } as any);
+      window.addEventListener("analytics:ready", onReady, { once: true });
       return () => cleanup();
     }
     send();
@@ -41,30 +45,32 @@ export default function AnalyticsEventsClient() {
     function handler(e: MouseEvent) {
       const t = e.target as HTMLElement | null;
       if (!t) return;
-      const getSid = () => (window as any).__ANALYTICS_SESSION_ID__ || (window as any).__WEB_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId;
-      const sendOrDefer = (eventType: string, payload: Record<string, any>, extra?: { category?: string; label?: string; value?: number }) => {
+      const getSid = () => {
+        const w = window as unknown as Record<string, unknown>;
+        const sid = (w.__ANALYTICS_SESSION_ID__ ?? w.__WEB_SESSION_ID__ ?? (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined)?.sessionId) as unknown;
+        return sid as number | string | undefined;
+      };
+      const sendOrDefer = (eventType: string, payload: Record<string, unknown>, extra?: { category?: string; label?: string; value?: number }) => {
         if (getSid()) {
           logEvent(eventType, payload, extra);
           return;
         }
         // Defer until analytics ready (single-shot) to avoid dropping early clicks
-  let done = false;
-  // eslint-disable-next-line prefer-const
-  let poll: any;
-        const onReady = () => {
+        let done = false;
+        const onReady: EventListener = () => {
           if (done) return;
           done = true;
           try { clearInterval(poll); } catch {}
-          try { window.removeEventListener("analytics:ready", onReady as any); } catch {}
+          try { window.removeEventListener("analytics:ready", onReady); } catch {}
           logEvent(eventType, payload, extra);
         };
-        window.addEventListener("analytics:ready", onReady as any);
+        window.addEventListener("analytics:ready", onReady);
         // Fallback: short poll
-        poll = setInterval(() => {
+        const poll = setInterval(() => {
           if (!done && getSid()) {
             done = true;
             try { clearInterval(poll); } catch {}
-            try { window.removeEventListener("analytics:ready", onReady as any); } catch {}
+            try { window.removeEventListener("analytics:ready", onReady); } catch {}
             logEvent(eventType, payload, extra);
           }
         }, 500);
@@ -97,7 +103,7 @@ export default function AnalyticsEventsClient() {
       }
     }
     document.addEventListener("click", handler, { capture: true });
-    return () => document.removeEventListener("click", handler, { capture: true } as any);
+    return () => document.removeEventListener("click", handler, { capture: true });
   }, []);
 
   return null;

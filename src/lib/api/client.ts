@@ -50,16 +50,31 @@ export function getClientIdHeader(): Record<string, string> {
 }
 
 export async function apiGet<T>(path: string, params?: Record<string, string>, opts?: { timeoutMs?: number; signal?: AbortSignal }) {
-  const base = typeof window === 'undefined'
-    ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-    : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-  const url = new URL(path, base);
-  if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+  const isServer = typeof window === 'undefined';
+  const isAbsolute = /^https?:\/\//i.test(path);
+  let urlStr: string;
+  if (isServer && !isAbsolute && path.startsWith('/')) {
+    // 在服务端对相对路径保持相对请求，避免依赖绝对基座（端口/域名配置差异）
+    const qs = params ? `?${new URLSearchParams(params).toString()}` : '';
+    urlStr = `${path}${qs}`;
+  } else {
+    const base = isServer
+      ? (
+          process.env.NEXT_BASE_URL
+          || process.env.NEXT_PUBLIC_API_BASE
+          || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+          || 'http://localhost:3000'
+        )
+      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+    const url = new URL(path, base);
+    if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+    urlStr = url.toString();
+  }
   const timeoutMs = opts?.timeoutMs ?? 30000;
   const helper = withTimeoutAndAbort(timeoutMs);
   const signal = opts?.signal ?? helper.signal;
   try {
-  const res = await fetch(url.toString(), { method: "GET", signal, headers: { ...getClientIdHeader() }, credentials: "include" });
+  const res = await fetch(urlStr, { method: "GET", signal, headers: { ...getClientIdHeader() }, credentials: "include" });
     if (!res.ok) throw await buildError(res);
     return res.json() as Promise<T>;
   } finally {
@@ -68,15 +83,28 @@ export async function apiGet<T>(path: string, params?: Record<string, string>, o
 }
 
 export async function apiPost<T>(path: string, body?: any, opts?: { timeoutMs?: number; signal?: AbortSignal }) {
-  const base = typeof window === 'undefined'
-    ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-    : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-  const url = new URL(path, base);
+  const isServer = typeof window === 'undefined';
+  const isAbsolute = /^https?:\/\//i.test(path);
+  let urlStr: string;
+  if (isServer && !isAbsolute && path.startsWith('/')) {
+    urlStr = path; // POST 无需追加查询字符串（调用方自行附带）
+  } else {
+    const base = isServer
+      ? (
+          process.env.NEXT_BASE_URL
+          || process.env.NEXT_PUBLIC_API_BASE
+          || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+          || 'http://localhost:3000'
+        )
+      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+    const url = new URL(path, base);
+    urlStr = url.toString();
+  }
   const timeoutMs = opts?.timeoutMs ?? 30000;
   const helper = withTimeoutAndAbort(timeoutMs);
   const signal = opts?.signal ?? helper.signal;
   try {
-    const res = await fetch(url.toString(), {
+    const res = await fetch(urlStr, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json", ...getClientIdHeader() },
       body: body ? JSON.stringify(body) : undefined,
@@ -91,16 +119,30 @@ export async function apiPost<T>(path: string, body?: any, opts?: { timeoutMs?: 
 }
 
 export async function apiGetWithMeta<T>(path: string, params?: Record<string, string>, opts?: { timeoutMs?: number; signal?: AbortSignal }): Promise<ApiResponse<T>> {
-  const base = typeof window === 'undefined'
-    ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-    : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-  const url = new URL(path, base);
-  if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+  const isServer = typeof window === 'undefined';
+  const isAbsolute = /^https?:\/\//i.test(path);
+  let urlStr: string;
+  if (isServer && !isAbsolute && path.startsWith('/')) {
+    const qs = params ? `?${new URLSearchParams(params).toString()}` : '';
+    urlStr = `${path}${qs}`;
+  } else {
+    const base = isServer
+      ? (
+          process.env.NEXT_BASE_URL
+          || process.env.NEXT_PUBLIC_API_BASE
+          || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+          || 'http://localhost:3000'
+        )
+      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+    const url = new URL(path, base);
+    if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+    urlStr = url.toString();
+  }
   const timeoutMs = opts?.timeoutMs ?? 30000;
   const helper = withTimeoutAndAbort(timeoutMs);
   const signal = opts?.signal ?? helper.signal;
   try {
-  const res = await fetch(url.toString(), { method: "GET", signal, headers: { ...getClientIdHeader() }, credentials: "include" });
+  const res = await fetch(urlStr, { method: "GET", signal, headers: { ...getClientIdHeader() }, credentials: "include" });
     const meta = parseRateMeta(res);
     const contentType = res.headers.get("content-type");
     let data: any;
@@ -114,15 +156,28 @@ export async function apiGetWithMeta<T>(path: string, params?: Record<string, st
 }
 
 export async function apiPostWithMeta<T>(path: string, body?: any, opts?: { timeoutMs?: number; signal?: AbortSignal }): Promise<ApiResponse<T>> {
-  const base = typeof window === 'undefined'
-    ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-    : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-  const url = new URL(path, base);
+  const isServer = typeof window === 'undefined';
+  const isAbsolute = /^https?:\/\//i.test(path);
+  let urlStr: string;
+  if (isServer && !isAbsolute && path.startsWith('/')) {
+    urlStr = path;
+  } else {
+    const base = isServer
+      ? (
+          process.env.NEXT_BASE_URL
+          || process.env.NEXT_PUBLIC_API_BASE
+          || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+          || 'http://localhost:3000'
+        )
+      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+    const url = new URL(path, base);
+    urlStr = url.toString();
+  }
   const timeoutMs = opts?.timeoutMs ?? 30000;
   const helper = withTimeoutAndAbort(timeoutMs);
   const signal = opts?.signal ?? helper.signal;
   try {
-    const res = await fetch(url.toString(), {
+    const res = await fetch(urlStr, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json", ...getClientIdHeader() },
       body: body ? JSON.stringify(body) : undefined,
@@ -169,11 +224,22 @@ function buildPlainError(status: number, payload: any, meta: RateMeta) {
 // 使用提供的 schema 验证响应数据（schema 需有 .parse 方法，如 zod）
 export function createHttpWithSchema<S>(schema: { parse: (data: unknown) => S }) {
   return async function <T = S>(path: string, init?: RequestInit & { next?: any }): Promise<T> {
-    const base = typeof window === 'undefined'
-      ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-    const url = new URL(path, base);
-    const res = await fetch(url.toString(), {
+    const isServer = typeof window === 'undefined';
+    const isAbsolute = /^https?:\/\//i.test(path);
+    const urlStr = (isServer && !isAbsolute && path.startsWith('/'))
+      ? path
+      : new URL(
+          path,
+          isServer
+            ? (
+                process.env.NEXT_BASE_URL
+                || process.env.NEXT_PUBLIC_API_BASE
+                || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+                || 'http://localhost:3000'
+              )
+            : ((globalThis as any).location?.origin ?? 'http://localhost:3000')
+        ).toString();
+    const res = await fetch(urlStr, {
       method: (init?.method as any) ?? "GET",
       ...init,
       headers: { Accept: "application/json", ...(init?.headers || {}), ...getClientIdHeader() },
@@ -194,12 +260,23 @@ export function createHttpWithSchema<S>(schema: { parse: (data: unknown) => S })
 type HttpInit = Omit<RequestInit, 'body'> & { body?: any; next?: any };
 
 export async function http<T = unknown>(path: string, init?: HttpInit): Promise<T> {
-  const base = typeof window === 'undefined'
-    ? (process.env.NEXT_BASE_URL || process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` || 'http://localhost:3000')
-    : (globalThis as any).location?.origin ?? 'http://localhost:3000';
-  const url = new URL(path, base);
+  const isServer = typeof window === 'undefined';
+  const isAbsolute = /^https?:\/\//i.test(path);
+  const urlStr = (isServer && !isAbsolute && path.startsWith('/'))
+    ? path
+    : new URL(
+        path,
+        isServer
+          ? (
+              process.env.NEXT_BASE_URL
+              || process.env.NEXT_PUBLIC_API_BASE
+              || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+              || 'http://localhost:3000'
+            )
+          : ((globalThis as any).location?.origin ?? 'http://localhost:3000')
+      ).toString();
   const hasJsonBody = typeof init?.body === "object" && init?.body !== null && !(init?.body instanceof FormData) && !(init?.body instanceof Blob);
-  const res = await fetch(url.toString(), {
+  const res = await fetch(urlStr, {
     method: (init?.method as any) ?? "GET",
     ...init,
     headers: {

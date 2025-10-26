@@ -2,13 +2,13 @@ export function serverAnalyticsDebug(): boolean {
   const flag = process.env.NEXT_PUBLIC_ANALYTICS_DEBUG;
   if (flag === "true") return true;
   if (flag === "false") return false;
-  return process.env.NODE_ENV !== "production";
+  // 默认不打印调试日志，只有显式设置为 true 时才开启
+  return false;
 }
 
-export function serverDbg(...args: any[]) {
+export function serverDbg(...args: unknown[]) {
   if (!serverAnalyticsDebug()) return;
   try {
-    // eslint-disable-next-line no-console
     console.log('[analytics:bff]', ...args);
   } catch {}
 }

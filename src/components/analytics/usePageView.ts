@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function cacheIds(_: any) {}
+export function cacheIds(_: unknown) {}
 
 // Push a GTM-compatible pageview event on SPA route changes.
 export function usePageView(route: string) {
@@ -13,8 +13,9 @@ export function usePageView(route: string) {
 		}
 		if (typeof window === "undefined") return;
 		try {
-			(window as any).dataLayer = (window as any).dataLayer || [];
-			(window as any).dataLayer.push({ event: "pageview", page: route });
+			const w = window as unknown as { dataLayer?: Array<Record<string, unknown>> };
+			w.dataLayer = w.dataLayer || [];
+			w.dataLayer.push({ event: "pageview", page: route });
 		} catch {}
 	}, [route]);
 }

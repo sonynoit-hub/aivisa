@@ -16,7 +16,6 @@ function getRedis(): Redis | null {
     const token = process.env.UPSTASH_REDIS_REST_TOKEN;
     if (!url || !/^https?:\/\//i.test(url) || !token) {
       redis = null;
-      // eslint-disable-next-line no-console
       console.warn('[rateLimit] Upstash env invalid or missing. Rate limiting disabled.');
       return redis;
     }
@@ -24,7 +23,6 @@ function getRedis(): Redis | null {
     redis = Redis.fromEnv();
   } catch {
     redis = null;
-    // eslint-disable-next-line no-console
     console.warn('[rateLimit] Upstash Redis init failed. Rate limiting disabled.');
   }
   return redis;
@@ -60,13 +58,13 @@ export function getClientId(req?: NextRequest): string {
       const ip = (xff?.split(',')[0] || req.headers.get('x-real-ip') || req.headers.get('cf-connecting-ip') || '').trim();
       if (ip) return ip;
     } else {
-      // headers() returns ReadonlyHeaders in Next 15
-      const hdrs = headers();
-      // handle both sync and promise typings defensively
-      const h: any = (typeof (hdrs as any)?.get === 'function') ? hdrs : undefined;
-      if (h) {
-        const xff = h.get('x-forwarded-for');
-        const ip = (xff?.split(',')[0] || h.get('x-real-ip') || h.get('cf-connecting-ip') || '').trim();
+      // headers() returns ReadonlyHeaders in Next 15; in some runtimes it may be a promise-like
+      type Gettable = { get(name: string): string | null };
+      const hdrsU = headers() as unknown;
+      if (hdrsU && typeof hdrsU === 'object' && 'get' in hdrsU && typeof (hdrsU as Gettable).get === 'function') {
+        const hdrs = hdrsU as Gettable;
+        const xff = hdrs.get('x-forwarded-for');
+        const ip = (xff?.split(',')[0] || hdrs.get('x-real-ip') || hdrs.get('cf-connecting-ip') || '').trim();
         if (ip) return ip;
       }
     }
@@ -92,16 +90,14 @@ export async function withRateLimit(
   try {
     const r = await instance.limit(id);
     success = r.success; limit = r.limit; remaining = r.remaining; reset = r.reset;
-  } catch (e: any) {
-    const msg = String(e?.message || e);
+  } catch (e: unknown) {
+    const msg = String((e as { message?: unknown })?.message || e);
     // 当 Upstash 客户端被错误配置（如基址为空导致请求 /pipeline）时，视为限流不可用 -> 放行并记录 warning
     if (/invalid url|failed to parse url|only absolute urls/i.test(msg)) {
-      // eslint-disable-next-line no-console
       console.warn('[rateLimit] Upstash limit skipped due to invalid URL/env. Proceeding without rate limit.');
       return { success: true };
     }
     // 其他错误也不阻断主流程，但记录一条 warning
-    // eslint-disable-next-line no-console
     console.warn('[rateLimit] Upstash limit error:', msg);
     return { success: true };
   }

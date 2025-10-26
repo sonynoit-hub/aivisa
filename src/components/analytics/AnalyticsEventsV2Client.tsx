@@ -5,11 +5,9 @@ import { logEventV2 } from "@/lib/api/services/analytics.v2";
 
 // Helper to get numeric sessionId from existing analytics chain if available
 function getV2SessionId(): number | string | null {
-  // Prefer existing analytics session id if available
-  const a: any = (window as any).__ANALYTICS_IDS__;
-  // Our upstream may produce a numeric session id; fallback to string sessionId
-  if (a?.sessionId) return a.sessionId;
-  const sid = (window as any).__WEB_SESSION_ID__;
+  const w = window as unknown as Record<string, unknown>;
+  const a = (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined);
+  const sid = (a?.sessionId as number | string | undefined) ?? (w.__WEB_SESSION_ID__ as number | string | undefined);
   return sid ?? null;
 }
 
@@ -20,13 +18,13 @@ export default function AnalyticsEventsV2Client() {
   useEffect(() => {
     const sessionId = getV2SessionId();
     if (!sessionId) {
-      const onReady = () => {
+      const onReady: EventListener = () => {
         const sid = getV2SessionId();
         if (!sid) return;
         logEventV2({ sessionId: sid, name: "page_view", category: "navigation", props: { path: pathname, title: document.title } }).catch(() => {});
       };
-      window.addEventListener("analytics:ready", onReady, { once: true } as any);
-      return () => window.removeEventListener("analytics:ready", onReady as any);
+      window.addEventListener("analytics:ready", onReady, { once: true });
+      return () => window.removeEventListener("analytics:ready", onReady);
     }
     logEventV2({ sessionId, name: "page_view", category: "navigation", props: { path: pathname, title: document.title } }).catch(() => {});
   }, [pathname]);
@@ -38,16 +36,16 @@ export default function AnalyticsEventsV2Client() {
       if (!t) return;
       const now = new Date().toISOString();
       const sessionId = getV2SessionId();
-      const send = (name: string, category?: string, label?: string, props?: Record<string, any>) => {
+      const send = (name: string, category?: string, label?: string, props?: Record<string, unknown>) => {
         const sid = sessionId ?? getV2SessionId();
         if (!sid) {
           const payload = { name, category, label, props, ts: now };
-          const onReady = () => {
+          const onReady: EventListener = () => {
             const readySid = getV2SessionId();
             if (!readySid) return;
             logEventV2({ sessionId: readySid, ...payload }).catch(() => {});
           };
-          window.addEventListener("analytics:ready", onReady, { once: true } as any);
+          window.addEventListener("analytics:ready", onReady, { once: true });
           return;
         }
         logEventV2({ sessionId: sid, name, category, label, props, ts: now }).catch(() => {});
@@ -83,7 +81,7 @@ export default function AnalyticsEventsV2Client() {
       }
     }
     document.addEventListener("click", handleClick, { capture: true });
-    return () => document.removeEventListener("click", handleClick, { capture: true } as any);
+    return () => document.removeEventListener("click", handleClick, { capture: true });
   }, []);
 
   return null;

@@ -28,13 +28,16 @@ export function PdfExportButton({
     if (!targetRef.current || loading) return;
     // Fire analytics 'pdf' event early with readiness deferral
     try {
-      const label = (typeof children === 'string' ? children : (filename ? `ExportPDF:${filename}` : 'ExportPDF')) as string;
-      const getSid = () => (window as any).__ANALYTICS_SESSION_ID__ || (window as any).__WEB_SESSION_ID__ || (window as any).__ANALYTICS_IDS__?.sessionId;
-  const send = () => logEventReliable("pdf", { path: location.pathname }, { category: "interaction", label: String(label) });
+      const label = typeof children === 'string' ? children : (filename ? `ExportPDF:${filename}` : 'ExportPDF');
+      const getSid = () => {
+        const w = window as unknown as Record<string, unknown>;
+        return (w.__ANALYTICS_SESSION_ID__ ?? w.__WEB_SESSION_ID__ ?? (w.__ANALYTICS_IDS__ as Record<string, unknown> | undefined)?.sessionId) as number | string | undefined;
+      };
+      const send = () => logEventReliable("pdf", { path: location.pathname }, { category: "interaction", label: String(label) });
       if (getSid()) send(); else {
-        const onReady = () => send();
-        window.addEventListener("analytics:ready", onReady as any, { once: true } as any);
-        const poll = setInterval(() => { if (getSid()) { clearInterval(poll); try { window.removeEventListener("analytics:ready", onReady as any); } catch {}; send(); } }, 500);
+        const onReady: EventListener = () => send();
+        window.addEventListener("analytics:ready", onReady, { once: true });
+        const poll = setInterval(() => { if (getSid()) { clearInterval(poll); try { window.removeEventListener("analytics:ready", onReady); } catch {}; send(); } }, 500);
         setTimeout(() => clearInterval(poll), 15000);
       }
     } catch {}

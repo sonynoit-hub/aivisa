@@ -6,14 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:standalone": "./scripts/run-standalone.sh",
-  "lint": "eslint --cache --cache-location .eslintcache --ext .ts,.tsx src",
+    "lint": "eslint --cache --cache-location .eslintcache --ext .ts,.tsx src",
     "tsc": "tsc --noEmit",
     "clean": "rm -rf .next node_modules/.cache .eslintcache tsconfig.tsbuildinfo || true",
-    "docker:build": "docker build -t aivisa-web:latest .",
-    "docker:run": "docker run --rm -p 3000:3000 --env-file ./.env.production.local aivisa-web:latest",
     "env:init": "node ./scripts/setup-env.mjs",
-    "i18n:reset:visa": "node scripts/i18n/resetVisaPages.js"
+    "i18n:reset:visa": "node scripts/i18n/resetVisaPages.js",
+    "package:slim": "npm run build && bash ./scripts/package-standalone.sh"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.5",

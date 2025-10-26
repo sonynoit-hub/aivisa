@@ -16,7 +16,7 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
     let mounted = true;
     setLoading(true);
     const defaultLimit = (typeof limit === 'number') ? limit : (page === 'top' && slot === 'top_card' ? 2 : undefined);
-    const params: any = { page, slot, categorySlug, locale: locale || "ja" };
+    const params: AdPlacementQuery = { page, slot, categorySlug, locale: locale || "ja" } as AdPlacementQuery;
     if (typeof defaultLimit === 'number') params.limit = defaultLimit;
     if (DEBUG_ADS && typeof window !== 'undefined') console.debug('[ads] AdSlots:fetch', params);
     getAdsByPlacement(params)
@@ -26,7 +26,7 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
       })
       .finally(() => mounted && setLoading(false));
     return () => { mounted = false; };
-  }, [page, slot, categorySlug, locale, limit]);
+  }, [page, slot, categorySlug, locale, limit, DEBUG_ADS]);
 
   if (loading) {
     return (

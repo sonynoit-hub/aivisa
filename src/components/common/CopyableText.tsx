@@ -19,8 +19,8 @@ export default function CopyableText({ text, className = '' }: CopyableTextProps
           setCopied(true);
           setTimeout(() => setCopied(false), 2000);
           return;
-        } catch (err) {
-          console.log('Clipboard API failed, trying fallback...');
+        } catch (_err) {
+          console.log('Clipboard API failed, trying fallback...', _err);
         }
       }
       

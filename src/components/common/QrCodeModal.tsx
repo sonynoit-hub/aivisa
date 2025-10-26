@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SafeImage from '@/components/common/SafeImage';
 
 interface QrCodeModalProps {
   qrUrl: string;
@@ -41,7 +42,9 @@ export default function QrCodeModal({ qrUrl, platformLabel }: QrCodeModalProps) 
             </button>
             <h5 className="text-lg font-bold text-slate-900 mb-4">{platformLabel} QRコード</h5>
             <div className="flex justify-center mb-4">
-              <img src={qrUrl} alt="QR Code" className="w-64 h-64 rounded-xl border-2 border-slate-200" />
+              <div className="relative w-64 h-64 rounded-xl border-2 border-slate-200 overflow-hidden">
+                <SafeImage src={qrUrl} alt="QR Code" fill sizes="256px" className="object-contain" />
+              </div>
             </div>
             <p className="text-sm text-slate-600 text-center">スマホでスキャンしてください</p>
           </div>

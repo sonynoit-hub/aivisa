@@ -34,10 +34,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   let keywords: string[] | undefined
   try {
     const mod = await import(`@/i18n/messages/${locale}/resources.json`)
-    const data = (mod as any).default?.resources?.index ?? {}
-    title = data.seoTitle || title
-    description = data.seoDescription || description
-    keywords = Array.isArray(data.seoKeywords) ? data.seoKeywords : undefined
+    const root = (mod && typeof mod === 'object') ? (mod as Record<string, unknown>) : {}
+    const def = (root.default && typeof root.default === 'object') ? (root.default as Record<string, unknown>) : undefined
+    const resources = (def?.resources && typeof def.resources === 'object') ? (def.resources as Record<string, unknown>) : undefined
+    const data = (resources?.index && typeof resources.index === 'object') ? (resources.index as Record<string, unknown>) : {}
+    const t = typeof data.seoTitle === 'string' ? data.seoTitle : undefined
+    const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined
+    const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string')
+    title = t || title
+    description = d || description
+    keywords = k
   } catch {}
 
   return {

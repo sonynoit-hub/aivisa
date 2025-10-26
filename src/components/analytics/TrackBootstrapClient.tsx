@@ -6,7 +6,6 @@ export default function TrackBootstrapClient() {
   const ctx = useTracking();
   useEffect(() => {
     if (ctx) {
-      // eslint-disable-next-line no-console
       console.debug("[track] session started", ctx);
     }
   }, [ctx]);

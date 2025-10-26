@@ -1,5 +1,4 @@
 import { getVisaDetail } from '@/lib/api/services/visa.service';
-import { getTranslations } from 'next-intl/server';
 import { visaCatalog } from '@/data/visaCatalog';
 import { locales, type Locale, ogLocaleMap } from '@/i18n/locales';
 import { notFound } from 'next/navigation';
@@ -8,14 +7,15 @@ import type { Metadata } from 'next';
 import { VisaIconBySlug } from '@/features/visa/components/VisaIcon';
 import { site } from '@/config/site';
 import type { ComponentType } from 'react';
+import type { VisaPageI18n } from '@/i18n/messages/visaPages';
 
 type Props = { params: Promise<{ locale: string }> };
 
-type StaticPageOptions = { showHeaderIcon?: boolean; showHeaderTitle?: boolean; showSummary?: boolean; showHtml?: boolean; staticI18n?: Partial<Record<string, any>> };
-export function createVisaStaticPage(
+type StaticPageOptions = { showHeaderIcon?: boolean; showHeaderTitle?: boolean; showSummary?: boolean; showHtml?: boolean; staticI18n?: Partial<Record<string, VisaPageI18n>> };
+export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
   catalogSlug: string,
   shortPath: string,
-  extra?: ComponentType<{ locale: string; studyDocs?: any; studyDocsMeta?: { stageLabels: any; categoryLabels: any; title?: string; tips?: string; stageTips?: Record<string, string>; ui?: any; actions?: any } }> ,
+  extra?: ComponentType<{ locale: string; studyDocs?: TDocs; studyDocsMeta?: TMeta }>,
   opts: StaticPageOptions = {}
 ) {
   async function loadLocalizedContent(locale: string) {
@@ -23,7 +23,7 @@ export function createVisaStaticPage(
     // 1) Prefer statically imported i18n when provided (to satisfy Turbopack HMR)
     if (opts.staticI18n) {
       for (const loc of tryLocales) {
-        const data = (opts.staticI18n as any)[loc];
+        const data = opts.staticI18n[loc];
         if (data) {
           return {
             title: typeof data.title === 'string' ? data.title : undefined,
@@ -35,11 +35,11 @@ export function createVisaStaticPage(
               categoryLabels: data.categoryLabels,
               title: data.docsTitle,
               tips: data.tips,
-              stageTips: (data as any).stageTips,
+              stageTips: data.stageTips,
               ui: data.ui,
               actions: data.actions,
             },
-          } as Partial<{ title: string; summary: string; html: string; studyDocs: any; studyDocsMeta: any }>;
+          } as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
         }
       }
     }
@@ -47,7 +47,7 @@ export function createVisaStaticPage(
     for (const loc of tryLocales) {
       try {
         const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
-        const data = (mod as any).default || {};
+        const data = (mod as { default?: VisaPageI18n }).default || {};
         return {
           title: typeof data.title === 'string' ? data.title : undefined,
           summary: typeof data.summary === 'string' ? data.summary : undefined,
@@ -58,14 +58,14 @@ export function createVisaStaticPage(
             categoryLabels: data.categoryLabels,
             title: data.docsTitle,
             tips: data.tips,
-            stageTips: (data as any).stageTips,
+            stageTips: data.stageTips,
             ui: data.ui,
             actions: data.actions,
           },
-        } as Partial<{ title: string; summary: string; html: string; studyDocs: any; studyDocsMeta: any }>;
+        } as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
       } catch {}
     }
-  return {} as Partial<{ title: string; summary: string; html: string; studyDocs: any; studyDocsMeta: any }>;
+  return {} as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
   }
   async function Page({ params }: Props) {
     const { locale } = await params;
@@ -76,7 +76,6 @@ export function createVisaStaticPage(
       getVisaDetail(catalogSlug, locale),
       loadLocalizedContent(locale),
     ]);
-    const t = await getTranslations({ locale });
     return (
       <div className="mx-auto max-w-3xl px-4 py-10">
         {(() => {

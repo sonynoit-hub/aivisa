@@ -12,15 +12,6 @@ export type AdCardProps = {
 export default function AdCard({ ad }: AdCardProps) {
   const locale = useLocale();
   const bullets = (ad.bullets ?? []).filter(Boolean);
-  const variant = (ad.badgeVariant || '').toLowerCase();
-  const isCareer = variant === 'career';
-  const badgeMap: Record<string, { badge: string; dot: string }> = {
-    legal:  { badge: 'bg-indigo-100 text-indigo-800',  dot: 'bg-indigo-500' },
-    life:   { badge: 'bg-emerald-100 text-emerald-800', dot: 'bg-emerald-500' },
-    career: { badge: 'bg-violet-100 text-violet-800',  dot: 'bg-violet-500' },
-    pr:     { badge: 'bg-cyan-100 text-cyan-800',      dot: 'bg-cyan-500' },
-  };
-  const badgeStyle = badgeMap[variant]?.badge || 'bg-slate-100 text-slate-700';
   const hasPrimary = !!ad.primaryCtaLabel;
   const hasSecondary = !!(ad.secondaryCtaLabel && ad.secondaryCtaUrl);
   const hasButtons = hasPrimary || hasSecondary;

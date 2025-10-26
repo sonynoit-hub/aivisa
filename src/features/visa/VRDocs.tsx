@@ -19,7 +19,7 @@ const CAT_COLORS: Record<string, { titleDot: string; badgeBg: string; badgeText:
   sponsor: { titleDot: "bg-amber-400", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-700" },
   guarantee: { titleDot: "bg-indigo-500", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-700" },
 };
-const FALLBACK_COLOR = { titleDot: "bg-slate-400", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-600" };
+// const FALLBACK_COLOR = { titleDot: "bg-slate-400", badgeBg: "bg-slate-50", badgeText: "text-slate-600", badgeBorder: "border-slate-200", checkboxAccent: "accent-slate-600" };
 
 function getLocaleFromPath(): string {
   if (typeof window === "undefined") return "ja";
@@ -38,6 +38,7 @@ type StudyDocsMeta = {
   ui?: { expand?: string; collapse?: string; progress?: string; none?: string; hint?: string; noteTitle?: string };
   actions?: { pdf?: string; pdfAria?: string };
 };
+type VRLocaleDoc = StudyDocsMeta & { studyDocs: StudyDocsData };
 type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: StudyDocsMeta };
 
 export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }: Props) {
@@ -57,7 +58,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
     ko: "주의",
   };
   const [stage, setStage] = useState<StageKey>(() => {
-    const docs = (studyDocs || (ja as any).studyDocs) as StudyDocsData | undefined;
+    const docs = (studyDocs || (ja as VRLocaleDoc).studyDocs) as StudyDocsData | undefined;
     if (docs) {
       if (docs.vietnam) return "vietnam";
       const keys = Object.keys(docs);
@@ -87,25 +88,21 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
     } catch {}
   }, [checks]);
 
-  const META = useMemo<StudyDocsMeta & { studyDocs: StudyDocsData }>(() => {
-    if (studyDocsMeta && studyDocs) return { ...studyDocsMeta, studyDocs } as StudyDocsMeta & { studyDocs: StudyDocsData };
+  const META = useMemo<VRLocaleDoc>(() => {
+    if (studyDocsMeta && studyDocs) return { ...studyDocsMeta, studyDocs } as VRLocaleDoc;
 
-    const dataByLocale = { ja, en, zh, vi, ko };
-    const data = dataByLocale[locale as keyof typeof dataByLocale] ?? dataByLocale.ja;
-    return {
-      stageLabels: (data as any).stageLabels,
-      categoryLabels: (data as any).categoryLabels,
-      title: (data as any).title,
-      tips: (data as any).tips,
-      note: (data as any).note,
-      stageTips: (data as any).stageTips,
-      ui: (data as any).ui,
-      actions: (data as any).actions,
-      studyDocs: (data as any).studyDocs,
-    } as StudyDocsMeta & { studyDocs: StudyDocsData };
+    const dataByLocale: Record<string, VRLocaleDoc> = {
+      ja: ja as VRLocaleDoc,
+      en: en as VRLocaleDoc,
+      zh: zh as VRLocaleDoc,
+      vi: vi as VRLocaleDoc,
+      ko: ko as VRLocaleDoc,
+    };
+    const data = dataByLocale[locale] ?? dataByLocale.ja;
+    return data;
   }, [locale, studyDocs, studyDocsMeta]);
 
-  const ACTIVE_DOCS: StudyDocsData | undefined = META?.studyDocs as any;
+  const ACTIVE_DOCS: StudyDocsData | undefined = META?.studyDocs;
   useEffect(() => {
     if (ACTIVE_DOCS && !ACTIVE_DOCS[stage]) {
       const first = Object.keys(ACTIVE_DOCS)[0];
@@ -116,7 +113,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
   const stageTabs = ACTIVE_DOCS
     ? Object.keys(ACTIVE_DOCS).map((k) => ({
         key: k,
-        label: (META?.stageLabels as any)?.[k] ?? k,
+        label: META?.stageLabels?.[k] ?? k,
         count: Object.values(ACTIVE_DOCS[k]).reduce((acc, arr) => acc + (arr?.length || 0), 0),
       }))
     : [];
@@ -134,17 +131,17 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
             <div className="flex items-center gap-2" data-hide-print>
               <PrintToPdfButton
                 targetRef={sectionRef as React.RefObject<HTMLElement>}
-                filename={`${META?.title ?? "VRDocs"}-${(META?.stageLabels as any)?.[stage] ?? stage}`}
+                filename={`${META?.title ?? "VRDocs"}-${META?.stageLabels?.[stage] ?? stage}`}
                 onBeforePrint={async () => {
                   const prev = collapsed;
                   setCollapsed({ applicant: false, sponsor: false });
                   await new Promise((r) => requestAnimationFrame(() => r(null)));
-                  (window as any).__vrDocsPrevCollapsed = prev;
+                  (window as unknown as Record<string, unknown>).__vrDocsPrevCollapsed = prev;
                 }}
                 onAfterPrint={async () => {
-                  const prev = (window as any).__vrDocsPrevCollapsed as Record<string, boolean> | undefined;
+                  const prev = (window as unknown as Record<string, unknown>).__vrDocsPrevCollapsed as Record<string, boolean> | undefined;
                   if (prev) setCollapsed(prev);
-                  (window as any).__vrDocsPrevCollapsed = undefined;
+                  (window as unknown as Record<string, unknown>).__vrDocsPrevCollapsed = undefined;
                 }}
                 className={
                   "inline-flex h-9 items-center rounded-xl px-3 text-sm transition border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 shadow-sm"
@@ -158,7 +155,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
           <div aria-hidden className="mb-2 mt-1 hidden print:block">
             <h1 className="text-[18px] font-semibold text-slate-900">
               {META.title}
-              <span className="ml-2 text-slate-500">— {(META?.stageLabels as any)?.[stage] ?? stage}</span>
+              <span className="ml-2 text-slate-500">— {META?.stageLabels?.[stage] ?? stage}</span>
             </h1>
           </div>
         </>
@@ -205,7 +202,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
       <div ref={captureRef} data-export-root className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         {(Object.keys(categories) as CategoryKey[]).map((cat) => {
           const items = categories[cat];
-          const title = ((META?.categoryLabels as any)?.[cat] ?? cat) as string;
+          const title = META?.categoryLabels?.[cat] ?? cat;
           const color = CAT_COLORS[cat];
 
           const itemKey = (idx: number) => `${locale}:${stage}:${cat}:${idx}`;
@@ -296,7 +293,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
       })()}
 
       {(() => {
-        const tipsText = (META?.stageTips && (META.stageTips as any)[stage]) || META?.tips;
+  const tipsText = (META?.stageTips && META.stageTips[stage]) || META?.tips;
         return tipsText ? (
         <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
           <div className="mb-2 flex items-center gap-2 text-slate-700">

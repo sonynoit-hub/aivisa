@@ -1,9 +1,9 @@
 {
-  "title": "护理",
+  "title": "介护",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "护理 所需材料",
+  "docsTitle": "介护 所需材料",
   "actions": { "pdf": "PDF", "pdfAria": "导出为 PDF" },
   "ui": { "expand": "展开", "collapse": "收起", "progress": "进度", "none": "无项目", "hint": "提示" },
   "stageLabels": { "abroad": "海外申请", "change": "在留资格变更", "extend": "在留期间更新" },

@@ -1,9 +1,9 @@
 {
-  "title": "高度专业职1号（ロ）",
+  "title": "高度人材1号（ロ）",
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "高度专业职1号（ロ） 所需材料",
+  "docsTitle": "高度人材1号（ロ） 所需材料",
   "actions": { "pdf": "PDF", "pdfAria": "PDFとして出力" },
   "ui": { "expand": "展开", "collapse": "收起", "progress": "进度", "none": "内容为空", "hint": "提示" },
   "stageLabels": {
@@ -12,7 +12,7 @@
     "abroad": "海外申请（入境前）"
   },
   "categoryLabels": {
-    "applicant": "申请人（个人）",
+    "applicant": "申请人",
     "company": "公司",
     "optional": "可选"
   },
@@ -25,7 +25,7 @@
         "护照",
         "在留卡",
         "积分计算表",
-        "积分计算表各项对应的佐证材料"
+        "积分计算表各项对应的证明材料"
       ],
       "company": [
         "在职证明书",
@@ -33,7 +33,7 @@
         "最近年度的决算文件（复印件）",
         "法定报表合计表（复印件）"
       ],
-      "optional": ["佐证材料"]
+      "optional": ["证明材料"]
     },
     "extend": {
   "applicant": [
@@ -50,7 +50,7 @@
         "最近年度的决算文件（复印件）",
         "法定报表合计表（复印件）"
       ],
-      "optional": ["佐证材料"]
+      "optional": ["证明材料"]
     },
     "abroad": {
         "applicant": [
@@ -67,7 +67,7 @@
         "最近年度的决算文件（复印件）",
         "法定报表合计表（复印件）"
       ],
-      "optional": ["佐证材料"]
+      "optional": ["证明材料"]
     }
   }
 }

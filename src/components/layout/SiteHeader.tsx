@@ -117,14 +117,7 @@ export function SiteHeader() {
     return { main, visaCategories };
   }, [currentLocale]);
 
-  // slug -> category key mapping for badge color (memoized once)
-  const slugToCat = useMemo(() => {
-    const map: Record<string, VisaCategoryKey> = {};
-    for (const c of CATEGORY_DATA) {
-      for (const s of c.visas) map[s] = c.key;
-    }
-    return map;
-  }, []);
+  // Removed unused slugToCat mapping to keep component lean
 
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);

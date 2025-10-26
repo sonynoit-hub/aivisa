@@ -10,7 +10,7 @@ function headers() {
   } as const;
 }
 
-async function post<T>(path: string, body?: any): Promise<T> {
+async function post<T>(path: string, body?: unknown): Promise<T> {
   const h = headers();
   dbg("POST", `${API}${path}`, { headers: h, body });
   // same-origin 以便 /anon/ensure 的 Set-Cookie 能被复用
@@ -37,7 +37,7 @@ function parseUtm(): { source?: string; medium?: string; campaign?: string; term
     const term = sp.get('utm_term') || undefined;
     const content = sp.get('utm_content') || undefined;
     if (!source && !medium && !campaign && !term && !content) return undefined;
-    return { source, medium, campaign, term, content } as any;
+    return { source, medium, campaign, term, content };
   } catch { return undefined; }
 }
 
@@ -64,10 +64,11 @@ function detectDeviceType(): "desktop" | "mobile" | "tablet" {
 }
 
 export async function ensureAnon(): Promise<{ aid: string; createdAt?: string; lastSeenAt?: string }> {
-  const data: any = await post("/anon/ensure");
-  const aid = data?.anonId || data?.id || data?.aid; // 兼容多种后端返回
+  const data = await post<unknown>("/anon/ensure");
+  const obj = (data && typeof data === "object") ? (data as Record<string, unknown>) : {};
+  const aid = (obj["anonId"] || obj["id"] || obj["aid"]) as string | undefined; // 兼容多种后端返回
   if (!aid) throw new Error("no aid returned");
-  return { aid, createdAt: data?.createdAt, lastSeenAt: data?.lastSeenAt };
+  return { aid, createdAt: obj["createdAt"] as string | undefined, lastSeenAt: obj["lastSeenAt"] as string | undefined };
 }
 
 // /devices: { anonUserId, token?, fingerprint?, uaRaw }
@@ -130,16 +131,18 @@ export async function initAnalytics(): Promise<{ aid: string; deviceId: number; 
     deviceToken = (globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2)) as string;
     window.localStorage.setItem(tokenKey, deviceToken);
   }
-  const fingerprint = `${navigator.platform}|${navigator.language}|${(window as any).devicePixelRatio || 1}`;
+  const fingerprint = `${navigator.platform}|${navigator.language}|${window.devicePixelRatio || 1}`;
 
   // 3) 注册/更新设备
   const device = await registerDevice(aid!, fingerprint, deviceToken);
-  const deviceId = (device as any)?.id ?? (device as any)?.deviceId ?? (device as any)?.data?.id ?? (device as any)?.data?.deviceId;
+  const dObj = (device && typeof device === "object") ? (device as Record<string, unknown>) : {};
+  const deviceId = (dObj["id"] ?? dObj["deviceId"] ?? (dObj["data"] as Record<string, unknown> | undefined)?.["id"] ?? (dObj["data"] as Record<string, unknown> | undefined)?.["deviceId"]) as number | undefined;
   if (typeof deviceId !== "number") throw new Error("invalid deviceId from /devices");
 
   // 4) 创建 Web 会话
   const ws = await createWebSession(aid!, deviceId);
-  const webSessionId = (ws as any)?.id ?? (ws as any)?.webSessionId ?? (ws as any)?.data?.id;
+  const wsObj = (ws && typeof ws === "object") ? (ws as Record<string, unknown>) : {};
+  const webSessionId = (wsObj["id"] ?? wsObj["webSessionId"] ?? (wsObj["data"] as Record<string, unknown> | undefined)?.["id"]) as number | undefined;
   if (typeof webSessionId !== "number") throw new Error("invalid webSessionId from /web-sessions");
 
   // 5) 创建 Analytics Session（环境快照；此处 sessionId = Web Session ID）
@@ -158,17 +161,19 @@ export async function initAnalytics(): Promise<{ aid: string; deviceId: number; 
     lang: navigator.language,
     timezone: tz,
   });
-  const analyticsSessionId = (aSession as any)?.id ?? (aSession as any)?.sessionId ?? (aSession as any)?.data?.id;
+  const asObj = (aSession && typeof aSession === "object") ? (aSession as Record<string, unknown>) : {};
+  const analyticsSessionId = (asObj["id"] ?? asObj["sessionId"] ?? (asObj["data"] as Record<string, unknown> | undefined)?.["id"]) as number | undefined;
   if (typeof analyticsSessionId !== "number") throw new Error("invalid analyticsSessionId from /sessions");
 
   // 6) 发布上下文（供事件上报使用）
   try {
-    (window as any).__ANON_USER_ID__ = aid;
-    (window as any).__DEVICE_ID__ = deviceId;
-    (window as any).__DEVICE_TOKEN_HASH__ = deviceTokenHash;
-    (window as any).__WEB_SESSION_ID__ = webSessionId;
-    (window as any).__ANALYTICS_SESSION_ID__ = analyticsSessionId;
-    window.dispatchEvent(new CustomEvent("analytics:ready", { detail: { sessionId: analyticsSessionId } } as any));
+    (window as unknown as Record<string, unknown>).__ANON_USER_ID__ = aid;
+    (window as unknown as Record<string, unknown>).__DEVICE_ID__ = deviceId;
+    (window as unknown as Record<string, unknown>).__DEVICE_TOKEN_HASH__ = deviceTokenHash;
+    (window as unknown as Record<string, unknown>).__WEB_SESSION_ID__ = webSessionId;
+    (window as unknown as Record<string, unknown>).__ANALYTICS_SESSION_ID__ = analyticsSessionId;
+    const evt = new CustomEvent<{ sessionId: number }>("analytics:ready", { detail: { sessionId: analyticsSessionId } });
+    window.dispatchEvent(evt);
   } catch {}
 
   return { aid: aid!, deviceId, webSessionId, sessionId: analyticsSessionId };

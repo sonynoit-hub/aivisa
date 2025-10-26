@@ -16,38 +16,38 @@ function isForceRemote(): boolean {
   }
 }
 
-function dlog(...args: any[]) {
+function dlog(...args: unknown[]) {
   try {
     if (typeof window !== 'undefined' && DEBUG_ADS) {
-      // eslint-disable-next-line no-console
       console.debug('[ads]', ...args);
     }
   } catch {}
 }
 
 // 将后端返回的不同字段名统一映射为前端使用的 AdCardContent 结构
-function toAd(raw: any): AdCardContent {
+function toAd(raw: unknown): AdCardContent {
   if (!raw || typeof raw !== 'object') return raw as AdCardContent;
-  const id = raw.id ?? raw.ad_id ?? raw._id ?? raw.uuid ?? String(Math.random());
-  const title = raw.title ?? raw.name ?? raw.ad_title;
-  const leadMd = raw.leadMd ?? raw.lead ?? raw.description ?? raw.desc ?? raw.summary;
-  const bullets = Array.isArray(raw.bullets)
-    ? raw.bullets
-    : Array.isArray(raw.highlights)
-      ? raw.highlights
-      : Array.isArray(raw.points)
-        ? raw.points
+  const r = raw as Record<string, unknown>;
+  const id = (r.id ?? r.ad_id ?? r._id ?? r.uuid ?? String(Math.random())) as string;
+  const title = (r.title ?? r.name ?? r.ad_title) as string | undefined;
+  const leadMd = (r.leadMd ?? r.lead ?? r.description ?? r.desc ?? r.summary) as string | undefined;
+  const bullets = Array.isArray(r.bullets)
+    ? (r.bullets as string[])
+    : Array.isArray(r.highlights)
+      ? (r.highlights as string[])
+      : Array.isArray(r.points)
+        ? (r.points as string[])
         : undefined;
-  const badgeText = raw.badgeText ?? raw.badge ?? raw.tag ?? raw.category_text;
-  const badgeVariant = raw.badgeVariant ?? raw.badge_variant ?? raw.badgeType ?? raw.type ?? raw.category;
-  const imageUrl = raw.imageUrl ?? raw.image_url ?? raw.thumbnail ?? raw.cover;
-  const companyName = raw.companyName ?? raw.company_name ?? raw.company?.name ?? raw.office?.name ?? raw.brand ?? undefined;
-  const primaryCtaLabel = raw.primaryCtaLabel ?? raw.primary_label ?? raw.cta_label ?? raw.action_label ?? raw.button_label ?? raw.detail_label ?? raw.ctaText;
-  const primaryCtaUrl = raw.primaryCtaUrl ?? raw.primary_url ?? raw.cta_url ?? raw.action_url ?? raw.button_url ?? raw.detail_url ?? raw.link ?? raw.url;
-  const secondaryCtaLabel = raw.secondaryCtaLabel ?? raw.secondary_label ?? raw.second_label ?? raw.secondaryCtaText;
-  const secondaryCtaUrl = raw.secondaryCtaUrl ?? raw.secondary_url ?? raw.second_url ?? raw.secondaryLink ?? raw.secondaryUrl;
-  const officeSlug = raw.officeSlug ?? raw.office_slug ?? raw.office?.slug ?? raw.company?.slug ?? undefined;
-  const adSlug = raw.adSlug ?? raw.slug ?? raw.ad_slug ?? undefined;
+  const badgeText = (r.badgeText ?? r.badge ?? r.tag ?? r.category_text) as string | undefined;
+  const badgeVariant = (r.badgeVariant ?? r.badge_variant ?? r.badgeType ?? r.type ?? r.category) as string | undefined;
+  const imageUrl = (r.imageUrl ?? r.image_url ?? r.thumbnail ?? r.cover) as string | undefined;
+  const companyName = (r.companyName ?? r.company_name ?? (r.company as Record<string, unknown> | undefined)?.name ?? (r.office as Record<string, unknown> | undefined)?.name ?? r.brand) as string | undefined;
+  const primaryCtaLabel = (r.primaryCtaLabel ?? r.primary_label ?? r.cta_label ?? r.action_label ?? r.button_label ?? r.detail_label ?? r.ctaText) as string | undefined;
+  const primaryCtaUrl = (r.primaryCtaUrl ?? r.primary_url ?? r.cta_url ?? r.action_url ?? r.button_url ?? r.detail_url ?? r.link ?? r.url) as string | undefined;
+  const secondaryCtaLabel = (r.secondaryCtaLabel ?? r.secondary_label ?? r.second_label ?? r.secondaryCtaText) as string | undefined;
+  const secondaryCtaUrl = (r.secondaryCtaUrl ?? r.secondary_url ?? r.second_url ?? r.secondaryLink ?? r.secondaryUrl) as string | undefined;
+  const officeSlug = (r.officeSlug ?? r.office_slug ?? (r.office as Record<string, unknown> | undefined)?.slug ?? (r.company as Record<string, unknown> | undefined)?.slug) as string | undefined;
+  const adSlug = (r.adSlug ?? r.slug ?? r.ad_slug) as string | undefined;
   return {
     id,
     title,
@@ -147,12 +147,13 @@ export async function getAdByPlacement(q: AdPlacementQuery): Promise<AdPlacement
     const params = { ...paramsBase, page: c.page, slot: c.slot };
     try {
       dlog('getAdByPlacement:request', params);
-      const res = await apiGet<any>(EP.ads.byPlacement, params);
+  const res = await apiGet<unknown>(EP.ads.byPlacement, params);
       dlog('getAdByPlacement:response', { params, has: !!res });
       // 兼容 DTO 外层包装：{ items: AdCardContent[] }
       if (res && typeof res === 'object') {
-        if (Array.isArray((res as any).items)) {
-          const first = (res as any).items[0] || null;
+        const resObj = res as Record<string, unknown>;
+        if (Array.isArray(resObj.items)) {
+          const first = (resObj.items[0] as unknown) || null;
           if (first) return toAd(first);
           continue;
         }
@@ -212,17 +213,17 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
     const params = { ...paramsBase, page: c.page, slot: c.slot };
     try {
       dlog('getAdsByPlacement:request', params);
-      const list = await apiGet<any>(EP.ads.byPlacementList, params);
+      const list = await apiGet<unknown>(EP.ads.byPlacementList, params);
       // 后端可能永远返回数组，也可能在 limit 的情况下才返回数组，这里做兼容
       if (Array.isArray(list)) {
         dlog('getAdsByPlacement:response-array', { params, length: list.length });
-        if (list.length > 0) return (list as any[]).map(toAd) as AdListResponse;
+        if (list.length > 0) return (list as unknown[]).map(toAd) as AdListResponse;
         // 空数组则尝试下一组合
         continue;
       }
       // 兼容 DTO 外层包装：{ items: AdCardContent[] }
-      if (list && typeof list === 'object' && Array.isArray((list as any).items)) {
-        const items = (list as any).items as any[];
+      if (list && typeof list === 'object' && Array.isArray((list as Record<string, unknown>).items as unknown[])) {
+        const items = (list as Record<string, unknown>).items as unknown[];
         dlog('getAdsByPlacement:response-dto-items', { params, length: items.length });
         if (items.length > 0) return items.map(toAd) as AdListResponse;
         continue;

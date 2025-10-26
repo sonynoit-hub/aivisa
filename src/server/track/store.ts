@@ -40,7 +40,7 @@ export function sha256Hex(input: string): string {
   return crypto.createHash("sha256").update(input).digest("hex");
 }
 
-export function ensureAnonRecord(opts?: { userAgent?: string; fingerprint?: string }): Anon {
+export function ensureAnonRecord(_opts?: { userAgent?: string; fingerprint?: string }): Anon {
   // No cookie: generate a new aid always; client should persist it in localStorage
   const aid = uuid();
   const createdAt = nowIso();

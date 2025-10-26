@@ -45,12 +45,11 @@ export async function GET(req: NextRequest) {
     // Non-JSON: return empty gracefully
     const isList = !!(limit && Number.parseInt(limit, 10) >= 2);
     return NextResponse.json(isList ? [] : null, { status: 200 });
-  } catch (e) {
+  } catch {
     const isDev = process.env.NODE_ENV !== 'production';
     // Degrade gracefully and log once (concise) in dev
     if (isDev && !ADS_UPSTREAM_WARNED) {
       ADS_UPSTREAM_WARNED = true;
-      // eslint-disable-next-line no-console
       console.warn('[api/ads] upstream unreachable; returning empty. Tip: run backend or unset BACKEND_URL for silent mock.');
     }
     return NextResponse.json([], { status: 200 });

@@ -9,7 +9,7 @@ function headers() {
   } as const;
 }
 
-async function req<T = any>(path: string, body?: any): Promise<Response> {
+async function req(path: string, body?: unknown): Promise<Response> {
   return fetch(`${API_BASE}${path}`, {
     method: "POST",
     headers: headers(),
@@ -23,7 +23,7 @@ export async function ensureAnon() {
     userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
     fingerprint:
       typeof window !== "undefined"
-        ? `${navigator.platform}|${navigator.language}|${(window as any).devicePixelRatio || 1}`
+        ? `${navigator.platform}|${navigator.language}|${window.devicePixelRatio || 1}`
         : undefined,
   });
   if (!res.ok) throw new Error("ensureAnon failed");
@@ -56,9 +56,9 @@ export async function startSession(input: { aid: string; deviceId: string }) {
 export function endSession(sessionId: string, payload: { reason?: string } = { reason: "page_unload" }) {
   const url = `${API_BASE}/session/${sessionId}/end`;
   const data = JSON.stringify(payload);
-  const headers: any = { type: "application/json" };
-  if (typeof navigator !== "undefined" && (navigator as any).sendBeacon) {
-    const ok = (navigator as any).sendBeacon(url, new Blob([data], headers));
+  const blobInit: BlobPropertyBag = { type: "application/json" };
+  if (typeof navigator !== "undefined" && "sendBeacon" in navigator) {
+    const ok = navigator.sendBeacon(url, new Blob([data], blobInit));
     if (ok) return Promise.resolve();
   }
   return fetch(url, { method: "POST", headers: headers(), credentials: "omit", body: data });
@@ -72,7 +72,7 @@ export async function initTracking() {
     aid = anon.aid;
     window.localStorage.setItem("aid", aid);
   }
-  const fingerprint = `${navigator.platform}|${navigator.language}|${(window as any).devicePixelRatio || 1}`;
+  const fingerprint = `${navigator.platform}|${navigator.language}|${window.devicePixelRatio || 1}`;
   const device = await upsertDevice(aid, fingerprint);
   const session = await startSession({ aid, deviceId: device.deviceId });
 
