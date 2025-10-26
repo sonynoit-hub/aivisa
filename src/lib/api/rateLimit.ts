@@ -11,12 +11,21 @@ function getRedis(): Redis | null {
   if (initialized) return redis;
   initialized = true;
   try {
-    // Will throw if env missing
+    // 先校验 URL 与 Token 是否合理，避免出现 fetch '/pipeline' 的相对地址报错
+    const url = process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+    if (!url || !/^https?:\/\//i.test(url) || !token) {
+      redis = null;
+      // eslint-disable-next-line no-console
+      console.warn('[rateLimit] Upstash env invalid or missing. Rate limiting disabled.');
+      return redis;
+    }
+    // Will throw if env missing/invalid in library
     redis = Redis.fromEnv();
   } catch {
     redis = null;
     // eslint-disable-next-line no-console
-    console.warn('[rateLimit] Upstash Redis env not found. Rate limiting is disabled.');
+    console.warn('[rateLimit] Upstash Redis init failed. Rate limiting disabled.');
   }
   return redis;
 }
@@ -76,7 +85,26 @@ export async function withRateLimit(
 
   const idBase = getClientId(req);
   const id = keySuffix ? `${idBase}:${keySuffix}` : idBase;
-  const { success, limit, remaining, reset } = await instance.limit(id);
+  let success = true;
+  let limit = 0;
+  let remaining = 0;
+  let reset = Date.now();
+  try {
+    const r = await instance.limit(id);
+    success = r.success; limit = r.limit; remaining = r.remaining; reset = r.reset;
+  } catch (e: any) {
+    const msg = String(e?.message || e);
+    // 当 Upstash 客户端被错误配置（如基址为空导致请求 /pipeline）时，视为限流不可用 -> 放行并记录 warning
+    if (/invalid url|failed to parse url|only absolute urls/i.test(msg)) {
+      // eslint-disable-next-line no-console
+      console.warn('[rateLimit] Upstash limit skipped due to invalid URL/env. Proceeding without rate limit.');
+      return { success: true };
+    }
+    // 其他错误也不阻断主流程，但记录一条 warning
+    // eslint-disable-next-line no-console
+    console.warn('[rateLimit] Upstash limit error:', msg);
+    return { success: true };
+  }
 
   if (!success) {
     const retryAfter = Math.max(0, Math.ceil((reset - Date.now()) / 1000));

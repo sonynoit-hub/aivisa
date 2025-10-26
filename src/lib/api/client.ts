@@ -34,7 +34,7 @@ function withTimeoutAndAbort(ms = 30000) {
   } as const;
 }
 
-function getClientIdHeader(): Record<string, string> {
+export function getClientIdHeader(): Record<string, string> {
   try {
     if (typeof window === "undefined") return {};
     const k = "vp_client_id";

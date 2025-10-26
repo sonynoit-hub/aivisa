@@ -4,6 +4,7 @@ import { defaultLocale } from "@/i18n/locales";
 import HtmlLangSync from "@/components/layout/HtmlLangSync";
 import Script from "next/script";
 import RouteTrackerClient from "@/components/analytics/RouteTrackerClient";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "aivisa",
@@ -39,8 +40,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        {/* SPA route change -> pageview (GTM dataLayer) */}
-        <RouteTrackerClient />
+        {/* SPA route change -> pageview (GTM dataLayer) wrapped in Suspense for searchParams */}
+        <Suspense fallback={null}>
+          <RouteTrackerClient />
+        </Suspense>
         <HtmlLangSync />
         <SiteHeader />
         <main className="flex-1">{children}</main>

@@ -19,6 +19,9 @@ export function buildBackendHeaders(
   if (ua) headers["user-agent"] = ua;
   const xff = req.headers.get("x-forwarded-for");
   if (xff) headers["x-forwarded-for"] = xff;
+  // Forward client correlation headers if present
+  const xClientId = req.headers.get("x-client-id");
+  if (xClientId) headers["x-client-id"] = xClientId;
   if (opts?.contentType) headers["content-type"] = opts.contentType;
   if (opts?.extra) Object.assign(headers, opts.extra);
   return headers;

@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import type React from "react";
-import { useSearchParams } from "next/navigation";
-import { streamChat } from "@/lib/api/services/chat.service";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ensureThreadId, streamGenerate, sendFeedback } from "@/lib/api/services/ai.service";
+import { useLocale as useAppLocale } from "@/hooks/useLocale";
 import Markdown from "@/components/common/Markdown";
 import { useTranslations } from "next-intl";
  
 
-type Msg = { role: "user" | "ai"; text: string; streaming?: boolean };
+type Msg = { role: "user" | "ai"; text: string; streaming?: boolean; id?: number; feedback?: "up" | "down" };
 
 // 将模型输出标准化为更易读的 Markdown：
 // - 合并“1.”独立一行与其后首个非空行
@@ -51,16 +52,24 @@ function normalizeAiMarkdown(text: string): string {
 export default function AskAIPage() {
   const t = useTranslations("ask-ai");
   const te = useTranslations("errors");
+  const appLocale = useAppLocale();
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
   const sendingRef = useRef(false);
-  const [conversationId, setConversationId] = useState<string | undefined>(undefined);
+  const [threadId, setThreadId] = useState<number | undefined>(undefined);
+  const streamAbortRef = useRef<{ abort: () => void } | null>(null);
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  // 429 限流处理：封禁到期时间与倒计时
+  const [blockedUntil, setBlockedUntil] = useState<number | null>(null);
+  const [blockedCountdown, setBlockedCountdown] = useState<number>(0);
   // 打字机“... ”动画：1~3个点循环
   const [typingTick, setTypingTick] = useState(0);
   const typingTimerRef = useRef<number | null>(null);
+  const didAutoAskRef = useRef(false);
 
   // 滚动到底部 + 根据固定输入框高度留白
   const listRef = useRef<HTMLDivElement>(null);
@@ -138,13 +147,46 @@ export default function AskAIPage() {
     setShowScrollDown(!nb);
   };
 
-  // 读取本地保存的会话ID
+  // 读取本地保存的线程ID（如有）
   useEffect(() => {
     try {
-      const cid = window.localStorage.getItem("vp_conversation_id") || undefined;
-      if (cid) setConversationId(cid);
+      const raw = typeof window !== 'undefined' ? window.localStorage.getItem("ai_thread_id") : null;
+      if (raw) {
+        const n = Number(raw);
+        if (Number.isFinite(n) && n > 0) setThreadId(n);
+      }
     } catch {}
   }, []);
+
+  // 读取本地封禁信息（429 后存入 localStorage）
+  useEffect(() => {
+    try {
+      const s = typeof window !== 'undefined' ? window.localStorage.getItem('ai_block_until') : null;
+      const n = s ? Number(s) : NaN;
+      if (Number.isFinite(n) && n > Date.now()) {
+        setBlockedUntil(n);
+      } else if (s) {
+        // 过期清理
+        window.localStorage.removeItem('ai_block_until');
+      }
+    } catch {}
+  }, []);
+
+  // 倒计时定时器
+  useEffect(() => {
+    if (!blockedUntil) return;
+    const tick = () => {
+      const leftMs = Math.max(0, blockedUntil - Date.now());
+      setBlockedCountdown(Math.ceil(leftMs / 1000));
+      if (leftMs <= 0) {
+        setBlockedUntil(null);
+        try { if (typeof window !== 'undefined') window.localStorage.removeItem('ai_block_until'); } catch {}
+      }
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => { clearInterval(id); };
+  }, [blockedUntil]);
 
   const isNearBottomNow = () => {
     const el = listRef.current;
@@ -157,109 +199,66 @@ export default function AskAIPage() {
   const sendWith = async (content: string) => {
     const text = content.trim();
     if (!text || loading || sendingRef.current) return;
+    // 若处于限流封禁期，直接提示并不发起请求
+    if (blockedUntil && blockedUntil > Date.now()) {
+      const left = Math.max(0, blockedUntil - Date.now());
+      const sec = Math.ceil(left / 1000);
+      const mins = Math.floor(sec / 60);
+      const rem = sec % 60;
+      const hint = mins > 0 ? `${mins}分${rem}秒` : `${rem}秒`;
+      setMessages((m) => [...m, { role: "ai", text: `⚠️ 今日次数已用尽，${hint} 后可再试。`, streaming: false }]);
+      return;
+    }
     sendingRef.current = true;
   setMessages((m) => [...m, { role: "user", text, streaming: false }]);
     setInput("");
-    const nbNow = isNearBottomNow();
-    if (nbNow) {
-      requestAnimationFrame(() => scrollToBottom("smooth"));
-    } else {
-      setShowScrollDown(true);
-    }
+    // 发送后强制滚到底部（产品期望：发出与回复完成都自动贴底）
+    requestAnimationFrame(() => scrollToBottom("smooth"));
+    setShowScrollDown(false);
     setLoading(true);
   // 不使用伪流式，直接等待完整答案，避免排版错乱
     try {
-      // 使用真正的 SSE 流式
+      // 使用真正的 POST SSE 流式
+      // 确保线程存在
+      let tid = threadId;
+      if (!tid) {
+        tid = await ensureThreadId(appLocale);
+        setThreadId(tid);
+      }
       // 先插入空的 AI 消息作为占位
-  setMessages((m) => [...m, { role: "ai", text: "", streaming: true }]);
-      const nbStart = isNearBottomNow();
-      await streamChat(text, {
-        conversationId,
-  onMessage: (data: unknown) => {
-          // 后端 message 事件发送的是 ChatResponse 或字符串
-          let patch = "";
-          let cid: string | undefined;
-          if (data && typeof data === "object") {
-            const obj = data as Record<string, unknown>;
-            if (typeof obj.reply === "string") patch = obj.reply;
-            if (typeof obj.conversationId === "string") cid = obj.conversationId;
-          } else if (typeof data === "string") {
-            patch = data;
-          }
-          if (cid) {
-            setConversationId(cid);
-            try { window.localStorage.setItem("vp_conversation_id", cid); } catch {}
-          }
-          const doAppend = (slice: string) => {
-            setMessages((m) => {
-              if (m.length === 0) return m;
-              const n = [...m];
-              for (let k = n.length - 1; k >= 0; k--) {
-                if (n[k].role === "ai") {
-                  // 仅追加文本，不改变 streaming 状态（避免 onDone 后被重新置为 true）
-                  n[k] = { ...n[k], text: String(n[k].text || "") + slice };
-                  break;
-                }
-              }
-              return n;
-            });
-            if (nbStart) requestAnimationFrame(() => scrollToBottom("smooth"));
-          };
-          if (patch && patch.length > 0) {
-            // 若后端一次性返回整段文本，这里做增量揭示
-            const total = patch.length;
-            let i = 0;
-            const baseChunk = total > 3000 ? 40 : total > 1500 ? 28 : total > 600 ? 18 : 12;
-            const baseDelay = total > 3000 ? 10 : total > 1500 ? 12 : total > 600 ? 14 : 16;
-            const nextBreak = (s: string, start: number) => {
-              const rest = s.slice(start);
-              const punct = rest.search(/[\n\r]{2,}|[。！？.!?]\s/);
-              if (punct >= 0 && punct < baseChunk * 2) return start + punct + 1;
-              return Math.min(start + baseChunk, s.length);
-            };
-            (async () => {
-              while (i < total) {
-                const j = nextBreak(patch, i);
-                const slice = patch.slice(i, j);
-                i = j;
-                doAppend(slice);
-                await new Promise((r) => setTimeout(r, baseDelay));
-              }
-              // 若后端未明确发送 done，主动将当前条目标记为完成
-              setMessages((m) => {
-                if (m.length === 0) return m;
-                const n = [...m];
-                for (let k = n.length - 1; k >= 0; k--) {
-                  if (n[k].role === "ai" && n[k].streaming) {
-                    n[k] = { ...n[k], streaming: false };
-                    break;
-                  }
-                }
-                return n;
-              });
-              if (!isNearBottomNow()) setShowScrollDown(true);
-            })();
-          }
-        },
-  onError: (msg: string) => {
-          // 结束当前流并附加错误提示
+      setMessages((m) => [...m, { role: "ai", text: "", streaming: true }]);
+  const nbStart = isNearBottomNow();
+      const handle = streamGenerate(tid!, { content: text }, {
+        onDelta: (slice: string) => {
+          // 逐段追加
           setMessages((m) => {
-            if (m.length === 0) return [{ role: "ai", text: `⚠️ ${/BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic')}` , streaming: false }];
+            if (m.length === 0) return m;
             const n = [...m];
             for (let k = n.length - 1; k >= 0; k--) {
-              if (n[k].role === "ai" && n[k].streaming) {
-                const hint = /BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic');
-                n[k] = { ...n[k], text: `${n[k].text}\n⚠️ ${hint}`.trim(), streaming: false };
-                return n;
+              if (n[k].role === "ai") {
+                n[k] = { ...n[k], text: String(n[k].text || "") + slice };
+                break;
               }
             }
-            const hint = /BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic');
-            n.push({ role: "ai", text: `⚠️ ${hint}`, streaming: false });
+            return n;
+          });
+          if (nbStart) requestAnimationFrame(() => scrollToBottom("smooth"));
+        },
+        onMessage: (item) => {
+          // 记录后端返回的最终消息ID，便于后续反馈
+          setMessages((m) => {
+            if (m.length === 0) return m;
+            const n = [...m];
+            for (let k = n.length - 1; k >= 0; k--) {
+              if (n[k].role === "ai") {
+                n[k] = { ...n[k], id: item.id };
+                break;
+              }
+            }
             return n;
           });
         },
         onDone: () => {
-          // 将最后一个 AI 消息标记为完成
           setMessages((m) => {
             if (m.length === 0) return m;
             const n = [...m];
@@ -271,9 +270,74 @@ export default function AskAIPage() {
             }
             return n;
           });
-          if (!isNearBottomNow()) setShowScrollDown(true);
+          streamAbortRef.current = null;
+          // 回复完成后强制滚到底部（贴合预期行为）
+          requestAnimationFrame(() => scrollToBottom("smooth"));
+          setShowScrollDown(false);
+        },
+        onError: (msg: string) => {
+          // 特判限流：RATE_LIMIT:{ retryAfterSec, resetAt }
+          if (typeof msg === 'string' && msg.startsWith('RATE_LIMIT:')) {
+            try {
+              const raw = msg.slice('RATE_LIMIT:'.length);
+              const info = JSON.parse(raw) as { code?: string; retryAfterSec?: number; resetAt?: string };
+              let until = Date.now();
+              if (typeof info.retryAfterSec === 'number' && info.retryAfterSec >= 0) {
+                until = Date.now() + info.retryAfterSec * 1000;
+              } else if (typeof info.resetAt === 'string') {
+                const t = Date.parse(info.resetAt);
+                if (!Number.isNaN(t)) until = t;
+              }
+              if (until > Date.now()) {
+                setBlockedUntil(until);
+                try { if (typeof window !== 'undefined') window.localStorage.setItem('ai_block_until', String(until)); } catch {}
+              }
+              const leftMs = Math.max(0, until - Date.now());
+              const sec = Math.ceil(leftMs / 1000);
+              const mins = Math.floor(sec / 60);
+              const rem = sec % 60;
+              const hint = mins > 0 ? `${mins}分${rem}秒` : `${rem}秒`;
+              setMessages((m) => {
+                if (m.length === 0) return [{ role: 'ai', text: `⚠️ 今日次数已用尽，${hint} 后可再试。`, streaming: false }];
+                const n = [...m];
+                for (let k = n.length - 1; k >= 0; k--) {
+                  if (n[k].role === 'ai' && n[k].streaming) {
+                    n[k] = { ...n[k], text: `${(n[k].text || '').trim()}\n⚠️ 今日次数已用尽，${hint} 后可再试。`.trim(), streaming: false };
+                    return n;
+                  }
+                }
+                n.push({ role: 'ai', text: `⚠️ 今日次数已用尽，${hint} 后可再试。`, streaming: false });
+                return n;
+              });
+              streamAbortRef.current = null;
+              return;
+            } catch {
+              // fallthrough to generic
+            }
+          }
+
+          // 结束当前流并附加错误提示（通用）
+          setMessages((m) => {
+            if (m.length === 0) return [{ role: "ai", text: `⚠️ ${/BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic')}` , streaming: false }];
+            const n = [...m];
+            for (let k = n.length - 1; k >= 0; k--) {
+              if (n[k].role === "ai" && n[k].streaming) {
+                const hint = msg === 'AUTH_REQUIRED' ? te('serverBusy') : (/BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic'));
+                n[k] = { ...n[k], text: `${n[k].text}\n⚠️ ${hint}`.trim(), streaming: false };
+                return n;
+              }
+            }
+            const hint = msg === 'AUTH_REQUIRED' ? te('serverBusy') : (/BACKEND_UNREACHABLE|fetch failed|NetworkError/i.test(msg) ? te('serverBusy') : te('generic'));
+            n.push({ role: "ai", text: `⚠️ ${hint}`, streaming: false });
+            return n;
+          });
+          streamAbortRef.current = null;
+          // 错误也视为一次回复结束，滚到底部方便用户查看
+          requestAnimationFrame(() => scrollToBottom("smooth"));
+          setShowScrollDown(false);
         },
       });
+      streamAbortRef.current = handle;
     } catch (err: unknown) {
       const getErrorMessage = (e: unknown): string => {
         if (typeof e === 'string') return e;
@@ -337,8 +401,20 @@ export default function AskAIPage() {
 
     const q = searchParams.get("q");
     if (q && q.trim()) {
-      setInput(q);
-      setTimeout(() => { void sendWith(q); }, 0);
+      if (!didAutoAskRef.current) {
+        didAutoAskRef.current = true;
+        setInput(q);
+        // 先滚到底再发，避免首条消息在视口外
+        requestAnimationFrame(() => scrollToBottom("auto"));
+        // 触发一次发送
+        void sendWith(q);
+        // 清理 URL 中的 q，避免某些情况下再次触发（如开发模式下严格模式副作用重复）
+        try {
+          const params = new URLSearchParams(searchParams.toString());
+          params.delete("q");
+          router.replace(`${pathname}${params.toString() ? `?${params}` : ""}`);
+        } catch {}
+      }
     } else if (didRestore) {
       // 首次进入并恢复了历史消息：默认滚到底部，仿 ChatGPT
       setTimeout(() => scrollToBottom("auto"), 0);
@@ -414,12 +490,35 @@ export default function AskAIPage() {
                     <Markdown className="prose prose-slate max-w-none">{normalizeAiMarkdown(m.text)}</Markdown>
                     {/* 流式中：显示省略号和光标效果 */}
                     {m.streaming && (
-                      <div className="inline-flex items-baseline text-slate-500 text-sm select-none">
-                        <span className="ml-1 font-mono">{".".repeat(typingTick + 1)}</span>
-                        <span className="ml-1 inline-block h-[1em] w-[0.6ch] bg-slate-500/70 animate-pulse align-baseline" />
+                      <div className="inline-flex items-center gap-3 text-slate-500 text-sm select-none">
+                        <div className="inline-flex items-baseline">
+                          <span className="ml-1 font-mono">{".".repeat(typingTick + 1)}</span>
+                          <span className="ml-1 inline-block h-[1em] w-[0.6ch] bg-slate-500/70 animate-pulse align-baseline" />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            try { streamAbortRef.current?.abort(); } catch {}
+                            setMessages((ms) => {
+                              const n = [...ms];
+                              for (let k = n.length - 1; k >= 0; k--) {
+                                if (n[k].role === "ai" && n[k].streaming) { n[k] = { ...n[k], streaming: false }; break; }
+                              }
+                              return n;
+                            });
+                          }}
+                          className="p-1 rounded hover:bg-slate-100 active:scale-95 transition"
+                          title="Stop"
+                          aria-label="Stop"
+                          style={{boxShadow: "none", background: "none"}}
+                        >
+                          <svg width="18" height="18" viewBox="0 0 24 24" className="fill-slate-500">
+                            <path d="M8 8h8v8H8z" />
+                          </svg>
+                        </button>
                       </div>
                     )}
-                    <div className="flex items-end">
+                    <div className="flex items-end gap-1">
                       {!m.streaming && (
                         <button
                           type="button"
@@ -478,6 +577,53 @@ export default function AskAIPage() {
                           )}
                         </button>
                       )}
+                      {!m.streaming && typeof m.id === 'number' && (
+                        <>
+                          <button
+                            type="button"
+                            onClick={async () => {
+                              if (!threadId || !m.id) return;
+                              try {
+                                await sendFeedback({ threadId, messageId: m.id, scoreText: 'helpful', commentText: '', source: 'user' });
+                                setMessages((ms) => { const n = [...ms]; n[i] = { ...n[i], feedback: 'up' }; return n; });
+                              } catch (e) {
+                                // 反馈失败静默/可选提示
+                                console.warn('feedback failed', e);
+                              }
+                            }}
+                            className="mt-2 p-1 rounded hover:bg-slate-100 active:scale-95 transition"
+                            title="Helpful"
+                            aria-label="Helpful"
+                            disabled={m.feedback === 'up' || m.feedback === 'down'}
+                            style={{boxShadow: "none", background: "none", opacity: (m.feedback ? 0.6 : 1) }}
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" className={m.feedback === 'up' ? 'fill-teal-600' : 'fill-slate-400'}>
+                              <path d="M2 21h4V9H2v12zM22 9h-8l1-5-5 6v11h9l3-10z" />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={async () => {
+                              if (!threadId || !m.id) return;
+                              try {
+                                await sendFeedback({ threadId, messageId: m.id, scoreText: 'not-helpful', commentText: '', source: 'user' });
+                                setMessages((ms) => { const n = [...ms]; n[i] = { ...n[i], feedback: 'down' }; return n; });
+                              } catch (e) {
+                                console.warn('feedback failed', e);
+                              }
+                            }}
+                            className="mt-2 p-1 rounded hover:bg-slate-100 active:scale-95 transition"
+                            title="Not helpful"
+                            aria-label="Not helpful"
+                            disabled={m.feedback === 'up' || m.feedback === 'down'}
+                            style={{boxShadow: "none", background: "none", opacity: (m.feedback ? 0.6 : 1) }}
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" className={m.feedback === 'down' ? 'fill-pink-600' : 'fill-slate-400'}>
+                              <path d="M2 3h4v12H2V3zm20 0h-9v11l5 6-1-5h5V3z" />
+                            </svg>
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -535,10 +681,10 @@ export default function AskAIPage() {
               {/* 右侧发送：主色、扩大点击区域 */}
               <button
                 type="submit"
-                disabled={loading || !input.trim()}
+                disabled={loading || !input.trim() || (blockedUntil !== null && blockedUntil > Date.now())}
                 className="shrink-0 h-11 w-11 rounded-full text-white shadow-md ring-1 ring-teal-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 transition grid place-items-center btn-primary"
                 aria-label="Send"
-                title={t("actions.sendTitle")}
+                title={(blockedUntil && blockedUntil > Date.now()) ? `限流中，${blockedCountdown}s 后可再试` : t("actions.sendTitle")}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" className="fill-current">
                   <path d="M2 21l21-9L2 3v7l15 2-15 2z" />
@@ -546,7 +692,12 @@ export default function AskAIPage() {
               </button>
             </form>
           </div>
-          <p className="px-2 pt-2 pb-2 text-center text-[12px] leading-5 text-slate-500/90">{t("helperLine")}</p>
+          <p className="px-2 pt-2 pb-2 text-center text-[12px] leading-5 text-slate-500/90">
+            {t("helperLine")}
+            {(blockedUntil && blockedUntil > Date.now()) && (
+              <span className="ml-2 text-pink-600">已达当日上限，{blockedCountdown}s 后可再试</span>
+            )}
+          </p>
         </div>
       </div>
     </div>

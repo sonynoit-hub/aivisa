@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { getChatLimits, sendChatWithRate } from "@/lib/api/services/chat.service";
 
 type Msg = { role: "user" | "ai" | "error"; content: string };
@@ -19,11 +19,74 @@ export default function ChatPanel() {
   const [conversationId, setConversationId] = useState<string | undefined>(undefined);
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const listRef = useRef<HTMLDivElement | null>(null);
   const params = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const didAutoAskRef = useRef(false);
+
+  const scrollToBottom = useCallback((opts?: { smooth?: boolean }) => {
+    const el = listRef.current;
+    if (!el) return;
+    try {
+      const behavior = opts?.smooth === false ? "auto" : "smooth";
+      el.scrollTo({ top: el.scrollHeight, behavior });
+    } catch {
+      // 兜底：部分浏览器不支持 scrollTo options
+      el.scrollTop = el.scrollHeight;
+    }
+  }, []);
+
+  const ensureWindowSeesBottom = useCallback(() => {
+    // 确保卡片底部也进入视口（如果外层窗口有滚动条）
+    const anchor = bottomRef.current;
+    if (!anchor) return;
+    try {
+      const rect = anchor.getBoundingClientRect();
+      const gap = 16; // 预留 16px 余量
+      if (rect.bottom > window.innerHeight - gap) {
+        anchor.scrollIntoView({ block: "end", behavior: "smooth" });
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    // 在布局阶段尽早贴底，随后再用 RAF 确认一次
+    scrollToBottom({ smooth: false });
+    let raf1 = 0, raf2 = 0;
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        scrollToBottom();
+        ensureWindowSeesBottom();
+      });
+    });
+    return () => {
+      if (raf1) cancelAnimationFrame(raf1);
+      if (raf2) cancelAnimationFrame(raf2);
+    };
+  }, [msgs, scrollToBottom, ensureWindowSeesBottom]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [msgs]);
+    // 监听列表尺寸变化（例如字体或图片导致高度变化），保持贴底
+    const el = listRef.current;
+    if (!el || !(globalThis as any).ResizeObserver) return;
+    let raf = 0;
+    const ro = new ResizeObserver(() => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        scrollToBottom();
+        ensureWindowSeesBottom();
+      });
+    });
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [scrollToBottom, ensureWindowSeesBottom]);
 
   useEffect(() => {
     // 初始化获取额度
@@ -51,9 +114,11 @@ export default function ChatPanel() {
     if (retryAfter > 0) return; // 限流倒计时中，阻止发送
     setLoading(true);
     setMsgs(m => [...m, { role: "user", content: text }]);
+    // 发送后立即尝试贴底，避免用户消息被顶出视口
+  requestAnimationFrame(() => { scrollToBottom(); ensureWindowSeesBottom(); });
     try {
-      const r = await sendChatWithRate(text, { conversationId });
-  const ans = r?.data?.answer ?? "";
+    const r = await sendChatWithRate(text, { conversationId });
+    const ans = r?.data?.answer ?? "";
       if (typeof r?.data?.conversationId === "string") {
         setConversationId(r.data.conversationId);
         try { window.localStorage.setItem("vp_conversation_id", r.data.conversationId); } catch {}
@@ -104,9 +169,17 @@ export default function ChatPanel() {
   // 页面初次加载，如果 URL 上有 ?q=...，自动发起一次
   useEffect(() => {
     const initial = params.get("q");
-    if (initial && initial.trim()) {
+    if (initial && initial.trim() && !didAutoAskRef.current) {
+      didAutoAskRef.current = true;
       setQ(initial);
+      requestAnimationFrame(() => scrollToBottom());
       void sendWith(initial);
+      // 清理 URL 的 q，避免开发模式下副作用重复
+      try {
+        const p = new URLSearchParams(params.toString());
+        p.delete("q");
+        router.replace(`${pathname}${p.toString() ? `?${p}` : ""}`);
+      } catch {}
     }
     // 仅首次装载时读取
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,7 +197,7 @@ export default function ChatPanel() {
   return (
     <div className="mx-auto max-w-2xl py-6 px-4">
       <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="p-4 h-[420px] overflow-y-auto space-y-3">
+        <div ref={listRef} className="p-4 h-[420px] overflow-y-auto space-y-3">
           {msgs.length === 0 && (
             <div className="text-sm text-slate-500">
               开始对话吧：在下方输入问题并回车发送（Shift+Enter 换行）。支持从 URL 读取 <code>?q=</code> 自动发问。

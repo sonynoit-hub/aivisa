@@ -20,7 +20,6 @@ type Props = { params: Promise<Record<string, string>> | undefined; children: Re
 export default async function LocaleLayout({children, params}: Props) {
   // 解析动态路由里的 locale
   const resolvedParams = (params ? await params : undefined) as Record<string, string> | undefined;
-
   const candidate = resolvedParams?.locale as string | undefined;
   const locale: Locale =
     candidate && (locales as readonly string[]).includes(candidate)
