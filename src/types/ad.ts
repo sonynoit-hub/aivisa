@@ -18,7 +18,7 @@ export type AdCardContent = {
 };
 
 export type AdPlacementQuery = {
-  page: 'top' | 'category';
+  page: 'top' | 'detail';
   slot: 'top_card' | 'detail_bottom';
   categorySlug?: string | null;
   locale: string;

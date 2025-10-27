@@ -27,7 +27,7 @@ export default function EngineerDocs({ locale, studyDocs, studyDocsMeta }: Props
         studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="engineer" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="engineer" locale={locale} />
     </div>
   );
 }

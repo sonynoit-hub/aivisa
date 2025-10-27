@@ -28,7 +28,7 @@ export default function DaDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="da" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="da" locale={locale} />
     </div>
   );
 }

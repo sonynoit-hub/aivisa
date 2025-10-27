@@ -1,7 +1,8 @@
 export const EP = {
   ads: {
-    // 建议的后端路由（可选）：GET /ads?page=top&slot=top_card&locale=ja&category=&limit=2
-    // 目前前端先走 mock，后端准备好后可直接切换
+    // 约定：
+    // 首页：GET /ads?page=top&slot=top_card&locale=ja&limit=2
+    // 详情：GET /ads?page=detail&slot=detail_bottom&locale=ja&category=:slug&limit=20
     byPlacement: "/api/ads",
     byPlacementList: "/api/ads",
   },

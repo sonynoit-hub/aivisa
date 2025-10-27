@@ -28,7 +28,7 @@ export default function StudyDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         meta={studyDocsMeta}
       />
   {/* 分类详情底部广告：留学（返回几条显示几条） */}
-  <AdSection page="category" slot="detail_bottom" categorySlug="study" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="study" locale={locale} />
     </div>
   );
 }

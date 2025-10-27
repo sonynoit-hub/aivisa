@@ -29,7 +29,7 @@ export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="pr" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="pr" locale={locale} />
     </div>
   );
 }

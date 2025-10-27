@@ -124,49 +124,28 @@ export async function getAdByPlacement(q: AdPlacementQuery): Promise<AdPlacement
   if (useMock) {
     dlog('getAdByPlacement:mock', q);
     if (q.page === 'top') return mockTopAd(q.locale);
-    if (q.page === 'category') return mockCategoryAd(q.locale, q.categorySlug);
+    if (q.page === 'detail') return mockCategoryAd(q.locale, q.categorySlug);
   }
-  const tryCombos: Array<{ page: string; slot: string }> = [];
-  // 1) 原始值
-  tryCombos.push({ page: q.page, slot: q.slot });
-  // 2) 兼容后端命名：top -> home
-  if (q.page === 'top') tryCombos.push({ page: 'home', slot: q.slot });
-  // 3) 兼容后端命名：category -> detail（有些后端用 detail 表示详情页）
-  if (q.page === 'category') tryCombos.push({ page: 'detail', slot: q.slot });
-  // 3) 常见 slot 备选：top_card -> hero / sidebar
-  if (q.slot === 'top_card') {
-    tryCombos.push({ page: q.page, slot: 'hero' });
-    if (q.page === 'top') tryCombos.push({ page: 'home', slot: 'hero' });
-    tryCombos.push({ page: q.page, slot: 'sidebar' });
-    if (q.page === 'top') tryCombos.push({ page: 'home', slot: 'sidebar' });
-  }
-  dlog('getAdByPlacement:tryCombos', tryCombos);
-  const paramsBase: Record<string, string> = { locale: q.locale };
-  if (q.categorySlug) paramsBase.category = q.categorySlug;
-  for (const c of tryCombos) {
-    const params = { ...paramsBase, page: c.page, slot: c.slot };
-    try {
-      dlog('getAdByPlacement:request', params);
-  const res = await apiGet<unknown>(EP.ads.byPlacement, params);
-      dlog('getAdByPlacement:response', { params, has: !!res });
-      // 兼容 DTO 外层包装：{ items: AdCardContent[] }
-      if (res && typeof res === 'object') {
-        const resObj = res as Record<string, unknown>;
-        if (Array.isArray(resObj.items)) {
-          const first = (resObj.items[0] as unknown) || null;
-          if (first) return toAd(first);
-          continue;
-        }
-        return toAd(res);
+  const params: Record<string, string> = { page: q.page, slot: q.slot, locale: q.locale };
+  if (q.categorySlug) params.category = q.categorySlug;
+  try {
+    dlog('getAdByPlacement:request', params);
+    const res = await apiGet<unknown>(EP.ads.byPlacement, params);
+    dlog('getAdByPlacement:response', { has: !!res });
+    // 兼容 DTO 外层包装：{ items: AdCardContent[] }
+    if (res && typeof res === 'object') {
+      const resObj = res as Record<string, unknown>;
+      if (Array.isArray(resObj.items)) {
+        const first = (resObj.items[0] as unknown) || null;
+        return first ? toAd(first) : null;
       }
-      if (res === null) continue;
-    } catch {
-      // 忽略错误，继续尝试下一个组合
-      dlog('getAdByPlacement:error, continue next combo');
+      return toAd(res);
     }
+    return res === null ? null : toAd(res as unknown);
+  } catch {
+    dlog('getAdByPlacement:error');
+    return null;
   }
-  dlog('getAdByPlacement:fallback-null');
-  return null;
 }
 
 export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResponse> {
@@ -181,7 +160,7 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
       const arr = [first, second];
       return (typeof q.limit === 'number') ? arr.slice(0, q.limit) : arr;
     }
-    if (q.page === 'category') {
+    if (q.page === 'detail') {
       const a = mockCategoryAd(q.locale, q.categorySlug);
       const b = { ...a, id: (a.id as string) + '-b' };
       const arr = [a, b];
@@ -189,55 +168,34 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
     }
     return [];
   }
-  const tryCombos: Array<{ page: string; slot: string }> = [];
-  tryCombos.push({ page: q.page, slot: q.slot });
-  if (q.page === 'top') tryCombos.push({ page: 'home', slot: q.slot });
-  if (q.page === 'category') tryCombos.push({ page: 'detail', slot: q.slot });
-  if (q.slot === 'top_card') {
-    tryCombos.push({ page: q.page, slot: 'hero' });
-    if (q.page === 'top') tryCombos.push({ page: 'home', slot: 'hero' });
-    tryCombos.push({ page: q.page, slot: 'sidebar' });
-    if (q.page === 'top') tryCombos.push({ page: 'home', slot: 'sidebar' });
-  }
-  dlog('getAdsByPlacement:tryCombos', tryCombos);
   const DEFAULT_LIST_LIMIT = Number(process.env.NEXT_PUBLIC_ADS_DEFAULT_LIST_LIMIT || '20');
-  const paramsBase: Record<string, string> = { locale: q.locale };
-  if (q.categorySlug) paramsBase.category = q.categorySlug;
-  // 若未显式传入 limit，则使用一个较大的默认值，确保后端返回数组（而非单对象）
+  const params: Record<string, string> = { page: q.page, slot: q.slot, locale: q.locale };
+  if (q.categorySlug) params.category = q.categorySlug;
   if (typeof q.limit === 'number') {
-    paramsBase.limit = String(q.limit);
+    params.limit = String(q.limit);
   } else if (Number.isFinite(DEFAULT_LIST_LIMIT) && DEFAULT_LIST_LIMIT > 0) {
-    paramsBase.limit = String(DEFAULT_LIST_LIMIT);
+    params.limit = String(DEFAULT_LIST_LIMIT);
   }
-  for (const c of tryCombos) {
-    const params = { ...paramsBase, page: c.page, slot: c.slot };
-    try {
-      dlog('getAdsByPlacement:request', params);
-      const list = await apiGet<unknown>(EP.ads.byPlacementList, params);
-      // 后端可能永远返回数组，也可能在 limit 的情况下才返回数组，这里做兼容
-      if (Array.isArray(list)) {
-        dlog('getAdsByPlacement:response-array', { params, length: list.length });
-        if (list.length > 0) return (list as unknown[]).map(toAd) as AdListResponse;
-        // 空数组则尝试下一组合
-        continue;
-      }
-      // 兼容 DTO 外层包装：{ items: AdCardContent[] }
-      if (list && typeof list === 'object' && Array.isArray((list as Record<string, unknown>).items as unknown[])) {
-        const items = (list as Record<string, unknown>).items as unknown[];
-        dlog('getAdsByPlacement:response-dto-items', { params, length: items.length });
-        if (items.length > 0) return items.map(toAd) as AdListResponse;
-        continue;
-      }
-      if (list && typeof list === 'object') {
-        dlog('getAdsByPlacement:response-single', { params });
-        // 单对象也兼容为列表返回
-        return [toAd(list) as AdCardContent];
-      }
-    } catch {
-      // 忽略错误，继续尝试下一个组合
-      dlog('getAdsByPlacement:error, continue next combo');
+  try {
+    dlog('getAdsByPlacement:request', params);
+    const list = await apiGet<unknown>(EP.ads.byPlacementList, params);
+    // 后端可能永远返回数组，也可能在 limit 的情况下才返回数组，这里做兼容
+    if (Array.isArray(list)) {
+      dlog('getAdsByPlacement:response-array', { length: list.length });
+      return (list as unknown[]).map(toAd) as AdListResponse;
     }
+    if (list && typeof list === 'object' && Array.isArray((list as Record<string, unknown>).items as unknown[])) {
+      const items = (list as Record<string, unknown>).items as unknown[];
+      dlog('getAdsByPlacement:response-dto-items', { length: items.length });
+      return items.map(toAd) as AdListResponse;
+    }
+    if (list && typeof list === 'object') {
+      dlog('getAdsByPlacement:response-single');
+      return [toAd(list) as AdCardContent];
+    }
+    return [];
+  } catch {
+    dlog('getAdsByPlacement:error');
+    return [];
   }
-  dlog('getAdsByPlacement:fallback-empty');
-  return [];
 }

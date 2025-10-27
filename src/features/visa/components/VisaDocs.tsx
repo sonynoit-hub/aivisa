@@ -366,7 +366,6 @@ export default function VisaDocs<C extends string>({
                               className={"cursor-pointer leading-6 block flex-1 " + (parentChecked ? "text-slate-700" : "text-slate-700")}
                             >
                               {group.group}
-                              {pick === "one" && <span className="ml-2 text-[14px] text-slate-600 align-baseline">（以下いずれか1点）</span>}
                             </label>
                           </div>
                           <div className="ml-7 space-y-1">

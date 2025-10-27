@@ -27,7 +27,7 @@ export default function HspIIDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="hsp-ii" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="hsp-ii" locale={locale} />
     </div>
   );
 }

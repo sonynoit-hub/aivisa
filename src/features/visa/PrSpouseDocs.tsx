@@ -26,7 +26,7 @@ export default function PrSpouseDocs({ locale, studyDocs, studyDocsMeta }: Props
         studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="pr-spouse" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="pr-spouse" locale={locale} />
     </div>
   );
 }

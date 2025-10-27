@@ -28,7 +28,7 @@ export default function HspIDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         meta={studyDocsMeta}
       />
   {/* 分类详情底部广告：高度人材1号（返回几条显示几条） */}
-  <AdSection page="category" slot="detail_bottom" categorySlug="hsp-i" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="hsp-i" locale={locale} />
     </div>
   );
 }

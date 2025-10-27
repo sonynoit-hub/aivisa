@@ -27,7 +27,7 @@ export default function DepDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="dep" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="dep" locale={locale} />
     </div>
   );
 }

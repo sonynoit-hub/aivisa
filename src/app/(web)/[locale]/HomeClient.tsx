@@ -254,7 +254,7 @@ export default function HomeClient() {
           <div className="hero-fade" aria-hidden />
 
           <div className="relative z-10">
-            <h1 className="text-[30px] sm:text-[34px] font-extrabold leading-tight tracking-tight text-slate-900 text-center">
+            <h1 className="text-[30px] sm:text-[34px] font-extrabold leading-tight tracking-tight text-slate-900 text-center whitespace-pre-line">
               {t("hero.title")}
             </h1>
 

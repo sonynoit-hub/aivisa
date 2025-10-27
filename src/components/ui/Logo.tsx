@@ -4,6 +4,10 @@ interface LogoProps {
   className?: string;
   variant?: "icon" | "text"; // default: icon
   size?: number; // only for icon variant, px
+  // Scale of the inner letter relative to the icon box (0.5 - 0.9 recommended)
+  letterScale?: number;
+  // Corner radius percentage for the icon box; if not provided, uses CSS default (22%)
+  radiusPct?: number;
 }
 
 // Playful display face as requested: Happy Monkey (single weight)
@@ -13,15 +17,19 @@ const LogoFont = Happy_Monkey({
   display: "swap",
 });
 
-export function Logo({ className, variant = "icon", size }: LogoProps) {
+export function Logo({ className, variant = "icon", size, letterScale, radiusPct }: LogoProps) {
   if (variant === "icon") {
-    const px = Math.max(24, Math.min(128, Math.round(size ?? 40))); // sane bounds
-    const letterSize = Math.round(px * 0.75);
+    // Overall icon size (background). Default slightly smaller for a lighter header look.
+    const px = Math.max(20, Math.min(128, Math.round(size ?? 36))); // sane bounds
+    // Inner "A" size as a ratio of the box size; default tuned for better breathing room.
+    const ratio = Math.max(0.5, Math.min(0.9, letterScale ?? 0.66));
+    const letterSize = Math.round(px * ratio);
+    const styleBorderRadius = typeof radiusPct === "number" ? `${Math.max(0, Math.min(50, radiusPct))}%` : undefined;
     return (
       <span
         className={`${LogoFont.className} app-icon inline-flex select-none ${className ?? ""}`}
         aria-label="AIVisa logo"
-        style={{ width: px, height: px, fontSize: letterSize }}
+        style={{ width: px, height: px, fontSize: letterSize, borderRadius: styleBorderRadius }}
         suppressHydrationWarning
       >
         <span className="app-icon__letter">A</span>

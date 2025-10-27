@@ -27,7 +27,7 @@ export default function TitDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="tit" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="tit" locale={locale} />
     </div>
   );
 }

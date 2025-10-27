@@ -305,7 +305,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
         ) : null;
       })()}
       {/* 分类详情底部广告：亲属访问 */}
-  <AdSection page="category" slot="detail_bottom" categorySlug="vr" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="vr" locale={locale} />
     </section>
   );
 }

@@ -28,7 +28,7 @@ export default function LtrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         studyDocs={studyDocs as any}
         meta={studyDocsMeta}
       />
-  <AdSection page="category" slot="detail_bottom" categorySlug="ltr" locale={locale} />
+  <AdSection page="detail" slot="detail_bottom" categorySlug="ltr" locale={locale} />
     </div>
   );
 }
