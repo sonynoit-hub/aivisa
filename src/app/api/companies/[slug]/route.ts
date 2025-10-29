@@ -14,6 +14,9 @@ export async function GET(req: NextRequest, ctx: any) {
     );
   }
   const search = new URLSearchParams(req.nextUrl.searchParams);
+  const loc = (search.get("locale") || "").toLowerCase();
+  const normalize = (s: string) => s.replace(/_/g, "-").toLowerCase();
+  const al = loc ? normalize(loc) : undefined;
   const candidates = [
     `${base.replace(/\/$/, "")}/api/companies/${encodeURIComponent(slug)}`,
     `${base.replace(/\/$/, "")}/companies/${encodeURIComponent(slug)}`,
@@ -26,7 +29,11 @@ export async function GET(req: NextRequest, ctx: any) {
       // Add a short timeout to avoid hanging the SSR rendering
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(new Error("companies upstream timeout")), 5000);
-      const r = await fetch(url.toString(), { method: "GET", headers: buildBackendHeaders(req), signal: ctrl.signal });
+      const r = await fetch(url.toString(), {
+        method: "GET",
+        headers: buildBackendHeaders(req, { extra: al ? { "accept-language": al } : undefined }),
+        signal: ctrl.signal,
+      });
       clearTimeout(timer);
       if (r.ok) return passthrough(r, { forceJson: true });
       // if upstream returns 404/500, try next candidate

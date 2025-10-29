@@ -10,8 +10,10 @@ export type OfficeDetail = {
   websiteUrl?: string;
   email?: string; // 规范化自 emailPublic
   phone?: string; // 规范化自 phonePublic
-  // 直连咨询渠道（来自 partner_office.contact_channels_json），后端可能返回为 JSON 字符串
-  contactChannelsJson?: string | ContactChannelsMap;
+  // 直连咨询渠道（来自 partner_office_i18n.contact_channels_json），按语言返回 JSON 字符串；缺省为 "{}"
+  contactChannelsJson: string;
+  // 多语言地址字符串（来自 i18n），用于直接展示；若无则留空
+  addressI18n?: string;
   // SEO / OG / 发布时间等
   seoTitle?: string;
   seoDesc?: string;

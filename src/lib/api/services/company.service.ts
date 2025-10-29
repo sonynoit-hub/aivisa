@@ -5,6 +5,9 @@ import type { OfficeDetail, OfficeCard } from "@/types/company";
 // 选取 locale 对应的 i18n 记录，兼容数组/对象/直接平铺
 function pickI18n(raw: unknown, locale: string): Record<string, unknown> {
   const loc = (locale || '').toLowerCase();
+  const normalize = (s: string) => String(s || '').toLowerCase().replace(/_/g, '-');
+  const nloc = normalize(loc);
+  const base = nloc.split('-')[0];
   // 兼容多层嵌套：out.i18n / out.office.i18n / 直接挂载
   const r = raw as Record<string, unknown> | undefined;
   const out = (r?.["out"] as Record<string, unknown> | undefined) ?? undefined;
@@ -18,10 +21,21 @@ function pickI18n(raw: unknown, locale: string): Record<string, unknown> {
   // 1) { ja: {...}, en: {...} } 这种 map 结构
   if (!Array.isArray(i18n) && typeof i18n === 'object') {
     const map = i18n as Record<string, unknown>;
-    const direct = map[loc] || map[loc.split('-')[0]];
-    if (direct && typeof direct === 'object') return direct as Record<string, unknown>;
+    const keys = Object.keys(map);
+    // 1) 精确匹配（包含带地区）
+    let key = keys.find((k) => normalize(k) === nloc);
+    // 2) loc 或 key 前缀匹配（en 与 en-US / en_US 互通）
+    if (!key) key = keys.find((k) => normalize(k).startsWith(nloc) || nloc.startsWith(normalize(k)));
+    // 3) 仅语言部分匹配（如 en），尝试等于或前缀
+    if (!key) key = keys.find((k) => normalize(k) === base || normalize(k).startsWith(base));
+    // 4) 旧逻辑的直取（防御）
+    if (!key && (map[loc] || map[base])) key = (map[loc] ? loc : base);
+    if (key) {
+      const val = map[key];
+      if (val && typeof val === 'object') return val as Record<string, unknown>;
+    }
     // 退回任意一个
-    const anyKey = Object.keys(map)[0];
+    const anyKey = keys[0];
     const anyVal = map[anyKey];
     return (anyVal && typeof anyVal === 'object') ? (anyVal as Record<string, unknown>) : {};
   }
@@ -55,7 +69,18 @@ export function normalizeOfficeDetail(raw: unknown, locale: string): OfficeDetai
   const addrBuilt = (flatZip || flatPref || flatCity || flatLine1 || flatLine2 || flatCountry)
     ? { zip: flatZip, pref: flatPref, city: flatCity, line1: flatLine1, line2: flatLine2, country: flatCountry }
     : undefined;
-  const i18nAddressString = (i18n?.["address"] ?? i18n?.["address_text"] ?? i18n?.["addressStr"]) as string | undefined;
+  // 从 i18n 提取地址字符串：首选 addressI18n；兼容一次性 address_text 与 snake_case
+  const pickI18nAddress = (src: Record<string, unknown> | undefined): string | undefined => {
+    if (!src) return undefined;
+    const s = src as Record<string, unknown>;
+    const v = (s["addressI18n"] ?? s["address_i18n"] ?? s["address_text"]) as unknown;
+    return typeof v === 'string' && v.trim().length > 0 ? (v as string) : undefined;
+  };
+  // 优先使用后端 DTO 已赋值在 office 上的 addressI18n（已按 locale 处理），否则再从 i18n map 中提取
+  const baseAddressI18n = (b["addressI18n"] ?? b["address_i18n"]) as string | undefined;
+  const i18nAddressString = (typeof baseAddressI18n === 'string' && baseAddressI18n.trim().length > 0)
+    ? baseAddressI18n
+    : pickI18nAddress(i18n as Record<string, unknown> | undefined);
   // 地址选择策略：
   // 1) 如果是对象，直接用对象
   // 2) 如果是字符串：
@@ -95,6 +120,21 @@ export function normalizeOfficeDetail(raw: unknown, locale: string): OfficeDetai
         }
       : undefined
   );
+
+  // 供前端直接展示的多语言地址文本：优先使用 i18n 提供的字符串，否则拼接结构字段（不含 zip）
+  const addressI18n = (typeof i18nAddressString === 'string' && i18nAddressString.trim().length > 0)
+    ? i18nAddressString
+    : (typeof address === 'string'
+        ? address
+        : (address && typeof address === 'object'
+            ? [
+                (address as Record<string, unknown>)["pref"],
+                (address as Record<string, unknown>)["city"],
+                (address as Record<string, unknown>)["line1"],
+                (address as Record<string, unknown>)["line2"],
+                (address as Record<string, unknown>)["country"],
+              ].filter(Boolean).join(' ')
+            : undefined));
 
   const name = (i18n?.["display_name"] ?? i18n?.["displayName"] ?? b["display_name"] ?? b["displayName"] ?? i18n?.["name"] ?? b["name"] ?? b["office_name"] ?? b["slug"] ?? '') as string;
   const shortDesc = (i18n?.["short_desc"] ?? i18n?.["shortDesc"] ?? b["shortDesc"] ?? b["short_desc"] ?? b["intro"] ?? i18n?.["summary"] ?? b["summary"] ?? i18n?.["tagline"] ?? b["tagline"] ?? undefined) as string | undefined;
@@ -159,11 +199,17 @@ export function normalizeOfficeDetail(raw: unknown, locale: string): OfficeDetai
   const sns = b["sns"] ?? parseJson(b["snsJson"] ?? b["sns_json"]) ?? parseJson(i18n?.["snsJson"] ?? i18n?.["sns_json"]) ?? undefined;
   const media = parseJson(b["mediaJson"] ?? b["media_json"]) ?? undefined;
   const listings = parseJson(b["listingsJson"] ?? b["listings_json"]) ?? undefined;
-  // 直连咨询渠道
-  const contactChannels =
-    parseJson(b["contact_channels_json"] ?? b["contactChannelsJson"]) ??
-    parseJson(i18n?.["contact_channels_json"] ?? i18n?.["contactChannelsJson"]) ??
-    undefined;
+  // 直连咨询渠道：按新契约返回 JSON 字符串（语言相关；缺省为 "{}"）
+  const rawContact = (i18n?.["contact_channels_json"]
+    ?? i18n?.["contactChannelsJson"]
+    ?? b["contact_channels_json"]
+    ?? b["contactChannelsJson"]) as unknown;
+  let contactChannelsJson = "{}";
+  if (typeof rawContact === 'string' && rawContact.trim().length > 0) {
+    contactChannelsJson = rawContact;
+  } else if (rawContact && typeof rawContact === 'object') {
+    try { contactChannelsJson = JSON.stringify(rawContact); } catch { contactChannelsJson = "{}"; }
+  }
   
   // 解析办公室图片
   const imagesRaw = parseJson(b["officeImagesJson"] ?? b["office_images_json"] ?? b["imagesJson"] ?? b["images_json"]) ?? undefined;
@@ -178,7 +224,8 @@ export function normalizeOfficeDetail(raw: unknown, locale: string): OfficeDetai
         }))
     : undefined;
   
-  const tags = Array.isArray(b["tags"]) ? (b["tags"] as string[]) : (Array.isArray(i18n?.["tags"]) ? (i18n?.["tags"] as string[]) : undefined);
+  // 标签：来自 i18n 按语言返回；若无则返回空数组
+  const tags = Array.isArray(i18n?.["tags"]) ? (i18n?.["tags"] as string[]) : [];
   const isActive = (b["isActive"] ?? b["active"]) as boolean | undefined;
   const ogImageUrl = (b["ogImageUrl"] ?? b["og_image_url"]) as string | undefined;
   const publishedAt = (b["publishedAt"] ?? b["published_at"]) as string | undefined;
@@ -197,14 +244,15 @@ export function normalizeOfficeDetail(raw: unknown, locale: string): OfficeDetai
     websiteUrl,
     email,
     phone,
-    address,
+  address,
+  addressI18n: addressI18n || undefined,
     cards,
     languages: (b["languages"] ?? i18n?.["languages"] ?? undefined) as string[] | undefined,
     services: (b["services"] ?? i18n?.["services"] ?? b["tags"] ?? undefined) as string[] | undefined,
     badgeText: (r?.["badgeText"] ?? r?.["badge_text"] ?? undefined) as string | undefined,
     badgeVariant: (r?.["badgeVariant"] ?? r?.["badge_variant"] ?? undefined) as string | undefined,
     sns,
-    contactChannelsJson: contactChannels,
+  contactChannelsJson,
     tags,
     media,
     listings,
@@ -238,6 +286,8 @@ export async function getOfficeDetail(slug: string, locale: string, opts?: Offic
         slug,
         name: slug.replace(/[-_]/g, ' '),
         shortDesc: undefined,
+        contactChannelsJson: "{}",
+        tags: [],
       } as OfficeDetail;
       return fallback;
     }

@@ -61,11 +61,13 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
 
   const channelItems = useMemo(() => {
     if (!office) return [] as Array<{ platform: string; url?: string; id?: string; label?: string; qrUrl?: string }>;
-    const raw = office.contactChannelsJson as Record<string, ContactChannel | ContactChannel[]> | string | undefined;
+    const raw = office.contactChannelsJson as string;
     let parsed: Record<string, ContactChannel | ContactChannel[]> | undefined;
-    if (typeof raw === 'string') {
-      try { parsed = JSON.parse(raw) as Record<string, ContactChannel | ContactChannel[]>; } catch { parsed = undefined; }
-    } else parsed = raw as Record<string, ContactChannel | ContactChannel[]> | undefined;
+    try {
+      parsed = raw ? (JSON.parse(raw) as Record<string, ContactChannel | ContactChannel[]>) : undefined;
+    } catch {
+      parsed = undefined;
+    }
     const entries = parsed ? Object.entries(parsed) : [];
     return entries.flatMap(([platform, value]) => {
       const arr: ContactChannel[] = Array.isArray(value) ? value : (value ? [value] : []);
@@ -164,11 +166,13 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
 
   const snsEntries: [string, string][] = office.sns ? (Object.entries(office.sns) as [string, string][]) : [];
   const addressZip = typeof office.address === 'object' ? office.address?.zip : undefined;
-  const addressLineNoZip = typeof office.address === 'string'
-    ? office.address
-    : office.address
-    ? [office.address.pref, office.address.city, office.address.line1, office.address.line2, office.address.country].filter(Boolean).join(' ')
-    : '';
+  const addressLineNoZip = (office.addressI18n && office.addressI18n.trim().length > 0)
+    ? office.addressI18n
+    : (typeof office.address === 'string'
+        ? office.address
+        : office.address
+        ? [office.address.pref, office.address.city, office.address.line1, office.address.line2, office.address.country].filter(Boolean).join(' ')
+        : '');
 
   const imagesSorted = (office.images && office.images.length > 0)
     ? [...office.images].sort((a, b) => {
@@ -490,6 +494,8 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
             )}
 
             {/* Office Images moved here in original server version – keep gallery above, so skip duplication */}
+
+            {/* Dev-only panel removed */}
 
           </aside>
         </div>
