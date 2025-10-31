@@ -3,11 +3,11 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Tạm trú ngắn hạn",
+  "docsTitle": "Hồ sơ cần thiết cho visa Tạm trú ngắn hạn",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
-  "stageLabels": { "inJapan": "Nộp tại Nhật Bản", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "stageLabels": { "inJapan": "Nộp tại Nhật", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
   "tips": "- Theo nguyên tắc, Tạm trú ngắn hạn cho phép lưu trú tối đa 90 ngày.\n\nLưu ý: Ví dụ, nếu vì mục đích điều trị y tế, vui lòng nộp giấy chứng nhận của bác sĩ.\n\nLưu ý: Ví dụ, vui lòng nộp giấy xác nhận số dư ngân hàng và vé máy bay khứ hồi.",
   "studyDocs": {
     "inJapan": {

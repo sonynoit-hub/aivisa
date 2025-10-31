@@ -3,11 +3,11 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Lao động có tay nghề",
+  "docsTitle": "Hồ sơ cần thiết cho visa Lao động kỹ năng",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
   "tips": "- Yêu cầu có ít nhất 10 năm kinh nghiệm thực tế (ví dụ: đầu bếp) hoặc có chứng chỉ/bằng cấp quốc gia.",
   "studyDocs": {
     "abroad": {

@@ -3,11 +3,11 @@
   "summary": "",
   "html": "",
   "sections": [],
-  "docsTitle": "Hồ sơ cần nộp - Thực tập sinh kỹ năng",
+  "docsTitle": "Hồ sơ cần thiết cho visa Thực tập sinh kỹ năng",
   "actions": { "pdf": "PDF", "pdfAria": "Xuất PDF" },
   "ui": { "expand": "Mở rộng", "collapse": "Thu gọn", "progress": "Tiến độ", "none": "Không có nội dung", "hint": "Gợi ý" },
   "stageLabels": { "abroad": "Nộp từ nước ngoài", "change": "Thay đổi tư cách lưu trú", "extend": "Gia hạn thời gian lưu trú" },
-  "categoryLabels": { "applicant": "Đương đơn", "company": "Công ty", "optional": "Tùy chọn" },
+  "categoryLabels": { "applicant": "Người nộp đơn", "company": "Công ty", "optional": "Tùy chọn" },
   "tips": "Khi chuyển từ Thực tập sinh kỹ năng i sang ii, hoặc ii sang iii, cần nộp hồ sơ Thay đổi tư cách lưu trú.",
   "studyDocs": {
     "abroad": {

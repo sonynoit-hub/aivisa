@@ -44,7 +44,7 @@ export const visaCatalog: readonly VisaCatalogItem[] = [
       ja: "技能実習",
       en: "Technical Intern Training",
       zh: "技能实习",
-      vi: "Thực tập kỹ năng",
+      vi: "Thực tập sinh kỹ năng",
       ko: "기능실습",
     },
   },
@@ -168,7 +168,7 @@ export const visaCatalog: readonly VisaCatalogItem[] = [
     slug: "student",
     names: {
       ja: "留学",
-      en: "Stuudy Abroad",
+      en: "Study Abroad",
       zh: "留学",
       vi: "Du học",
       ko: "유학",
