@@ -11,6 +11,7 @@ export default function ChatDockClient() {
 	if (
 		pathname && (
 			/\/ask-ai(\/.*)?$/.test(pathname) ||
+			/\/about\/faq\/?$/.test(pathname) ||
 			/\/questionnaire\/contact\/?$/.test(pathname) ||
 			/\/tools\/(hsp-calculator|hsp-points)\/?$/.test(pathname) ||
 			/\/legal\/(privacy|terms)\/?$/.test(pathname) ||

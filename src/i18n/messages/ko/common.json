@@ -1,0 +1,20 @@
+{
+  "company": {
+    "contact": {
+      "title": "문의",
+      "send": "보내기",
+      "call": "전화",
+      "open": "열기"
+    },
+    "sns": {
+      "title": "SNS · 채팅"
+    }
+  },
+  "qr": {
+    "open": "QR 코드 보기",
+    "title": "{platform} QR 코드",
+    "scanHint": "휴대폰으로 스캔하세요",
+    "close": "닫기",
+    "alt": "QR 코드"
+  }
+}

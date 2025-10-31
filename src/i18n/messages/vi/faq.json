@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Câu hỏi thường gặp về visa",
+    "items": [
+      {"q":"Khi nào tôi có thể gia hạn visa?","a":"Bạn có thể nộp hồ sơ từ 3 tháng trước khi thời hạn lưu trú hết hạn. Hãy chuẩn bị sớm để tránh gấp gáp."},
+      {"q":"Nếu visa hết hạn trong khi đang chờ gia hạn thì sao?","a":"Nếu đã nộp hồ sơ gia hạn, bạn có thể ở lại Nhật Bản cho đến khi có kết quả (ngoại lệ đặc biệt). Hãy mang theo hộ chiếu có dấu tiếp nhận hồ sơ."},
+      {"q":"Đổi công việc có cần đổi tư cách lưu trú không?","a":"Nếu công việc mới vẫn trong phạm vi hoạt động/tư cách cũ, thường không cần đổi. Nếu nghề nghiệp thay đổi, cần làm thủ tục \"Chuyển đổi tư cách lưu trú\"."},
+      {"q":"Nếu tôi nghỉ việc thì sao?","a":"Với tư cách lao động, nếu không tham gia hoạt động được phép quá 3 tháng, bạn có thể mất tư cách. Nếu chưa có công việc tiếp theo, hãy tham khảo Cục Xuất nhập cảnh."},
+      {"q":"Tôi bị mất thẻ lưu trú. Tôi phải làm gì?","a":"Trước hết hãy khai báo mất đồ tại đồn cảnh sát gần nhất, sau đó xin \"Cấp lại thẻ lưu trú\" tại Cục Xuất nhập cảnh trong vòng 14 ngày."},
+      {"q":"Tôi lỡ ở quá hạn. Tôi phải làm gì?","a":"Hãy đến Cục Xuất nhập cảnh ngay và trình bày tình hình. Tùy trường hợp có thể được \"Cho phép lưu trú đặc biệt\". Để nguyên có thể trở thành cư trú bất hợp pháp."},
+      {"q":"Kết hôn có cần đổi tư cách không?","a":"Nếu kết hôn với người Nhật hoặc thường trú nhân, bạn có thể đổi sang \"Vợ/chồng của người Nhật\" hoặc \"Vợ/chồng của thường trú nhân\". Chuẩn bị hồ sơ cần thiết và nộp."},
+      {"q":"Sau ly hôn thì visa vợ/chồng thế nào?","a":"Khi hôn nhân chấm dứt, không thể duy trì tư cách vợ/chồng. Nếu muốn tiếp tục ở Nhật, hãy cân nhắc chuyển sang tư cách khác (ví dụ: lao động hoặc cư trú dài hạn)."},
+      {"q":"Sinh con cần thủ tục gì?","a":"Trong vòng 30 ngày sau khi sinh, hãy xin \"Cho phép nhận tư cách lưu trú\" cho trẻ. Tư cách của trẻ dựa trên tư cách của cha mẹ."},
+      {"q":"Thời gian xét duyệt mất bao lâu?","a":"Tùy loại và thời điểm nộp, thường khoảng 2 tuần đến 1 tháng. Mùa cao điểm có thể lâu hơn."},
+      {"q":"Hồ sơ xin visa gồm những gì?","a":"Tùy trường hợp, thường gồm đơn, ảnh, hộ chiếu, thẻ lưu trú và hợp đồng lao động hoặc giấy xác nhận nhập học, v.v."},
+      {"q":"Điều kiện để xin thường trú là gì?","a":"Nguyên tắc cần cư trú tại Nhật từ 10 năm trở lên, thu nhập ổn định và lịch sử nộp thuế. Xem chi tiết trên trang chính thức của Cục Xuất nhập cảnh."},
+      {"q":"Nộp hồ sơ ở đâu?","a":"Tại Nhật, nộp tại Cục Quản lý Xuất nhập cảnh phụ trách địa chỉ cư trú. Ở nước ngoài, nộp tại Đại sứ quán hoặc Lãnh sự quán Nhật Bản."},
+      {"q":"Câu trả lời của AI có đáng tin không?","a":"Câu trả lời của AIVisa chỉ mang tính tham khảo. Chính sách và thực tiễn có thể thay đổi. Hãy kiểm tra thông tin chính thức mới nhất và tham khảo chuyên gia khi cần."},
+      {"q":"Thay đổi địa chỉ trên thẻ lưu trú như thế nào?","a":"Khai báo thay đổi tại cơ quan hành chính địa phương trong vòng 14 ngày. Địa chỉ mới sẽ được in ở mặt sau thẻ."},
+      {"q":"Có thể làm thêm với visa tạm trú ngắn hạn không?","a":"Không. Visa tạm trú ngắn hạn không được phép hoạt động có trả thù lao (làm thêm, làm việc)."},
+      {"q":"Du học sinh làm thêm hợp pháp thế nào?","a":"Với \"Cho phép hoạt động ngoài tư cách\", du học sinh có thể làm tối đa 28 giờ/tuần. Hãy tuân thủ quy định."},
+      {"q":"Tôi muốn ra khỏi Nhật và quay lại, cần làm gì?","a":"Sử dụng giấy phép tái nhập cảnh (hoặc tái nhập cảnh mặc nhiên) để không mất tư cách. Hãy kiểm tra trước khi xuất cảnh."},
+      {"q":"Chờ lâu chưa có kết quả, kiểm tra thế nào?","a":"Cục Xuất nhập cảnh thường không cung cấp tình trạng hồ sơ qua điện thoại. Hãy chờ kết quả hoặc kiểm tra trực tiếp tại quầy nộp hồ sơ."},
+      {"q":"Tôi không tự tin tự làm thủ tục.","a":"Nếu thủ tục phức tạp hoặc khó chuẩn bị hồ sơ, hãy cân nhắc thuê luật sư hành chính (gyoseishoshi) có ủy quyền nộp hồ sơ thay."}
+    ]
+  }
+}

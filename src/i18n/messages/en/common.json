@@ -1,1 +1,20 @@
-{}
+{
+	"company": {
+		"contact": {
+			"title": "Contact",
+			"send": "Send",
+			"call": "Call",
+			"open": "Open"
+		},
+		"sns": {
+			"title": "Social & Chat"
+		}
+		},
+		"qr": {
+			"open": "Show QR code",
+			"title": "{platform} QR code",
+			"scanHint": "Scan with your phone",
+			"close": "Close",
+			"alt": "QR code"
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "company": {
+    "contact": {
+      "title": "联系方式",
+      "send": "发送",
+      "call": "拨打",
+      "open": "打开"
+    },
+    "sns": {
+      "title": "社交与聊天"
+    }
+  },
+  "qr": {
+    "open": "显示二维码",
+    "title": "{platform} 二维码",
+    "scanHint": "请用手机扫描",
+    "close": "关闭",
+    "alt": "二维码"
+  }
+}

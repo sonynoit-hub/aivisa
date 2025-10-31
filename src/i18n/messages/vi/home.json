@@ -31,6 +31,16 @@
     "advisors": {
       "title": "Hỗ trợ cuộc sống tại Nhật",
       "note": "Quảng cáo (PR)"
+    },
+    "generalFaq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        { "q": "Có cần đăng nhập để dùng AIVisa không?", "a": "Không. Bạn có thể dùng ngay mà không cần đăng nhập." },
+        { "q": "Tư vấn AI có mất phí không?", "a": "Hiện tại hoàn toàn miễn phí." },
+        { "q": "Hỗ trợ những ngôn ngữ nào?", "a": "Nhật, Anh, Trung, Hàn, Việt; sẽ mở rộng dần trong thời gian tới." },
+        { "q": "Có thể lưu hoặc in trang dưới dạng PDF không?", "a": "Có. Ở các trang được hỗ trợ, bấm nút \"PDF\" ở góc trên bên phải để lưu hoặc in chỉ với một lần bấm." },
+        { "q": "Có thể hoàn toàn tin cậy thông tin visa và câu trả lời của AI trên trang không?", "a": "Mọi nội dung và câu trả lời của AI chỉ mang tính tham khảo, không phải tư vấn pháp lý hay quyết định cuối cùng. Quy định/vận hành có thể thay đổi và việc áp dụng phụ thuộc vào từng trường hợp. Hãy kiểm tra nguồn thông tin chính thức mới nhất trước khi thực hiện; khi cần, hãy cân nhắc tham vấn chuyên gia (ví dụ: gyoseishoshi)." }
+      ]
     }
   }
 }

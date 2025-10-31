@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 export function cacheIds(_: unknown) {}
 
-// Push a GTM-compatible pageview event on SPA route changes.
+// Push a GTM-compatible page_view event on SPA route changes.
 export function usePageView(route: string) {
 	const didMountRef = useRef(false);
 	useEffect(() => {
@@ -15,7 +15,7 @@ export function usePageView(route: string) {
 		try {
 			const w = window as unknown as { dataLayer?: Array<Record<string, unknown>> };
 			w.dataLayer = w.dataLayer || [];
-			w.dataLayer.push({ event: "pageview", page: route });
+			w.dataLayer.push({ event: "page_view" });
 		} catch {}
 	}, [route]);
 }

@@ -31,6 +31,16 @@
     "advisors": {
       "title": "Living in Japan Support",
       "note": "Advertisement (PR)"
+    },
+    "generalFaq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        { "q": "Do I need to log in to use AIVisa?", "a": "No. You can use it right away without logging in." },
+        { "q": "Is AI consultation paid?", "a": "Currently, everything is free to use." },
+        { "q": "What languages are supported?", "a": "Japanese, English, Chinese, Korean, and Vietnamese. We plan to expand progressively." },
+        { "q": "Can I save or print a page as PDF?", "a": "Yes. On supported pages, click the \"PDF\" button in the top-right to save or print with one click." },
+        { "q": "Can I fully rely on the visa information and AI answers on this site?", "a": "All content and AI answers are provided for reference only and do not constitute legal advice or a final determination. Policies and practices may change, and applicability varies by individual circumstances. Always verify with the latest official sources before proceeding, and consider consulting a professional (e.g., gyoseishoshi) when necessary." }
+      ]
     }
   }
 }

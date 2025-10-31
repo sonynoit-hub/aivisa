@@ -38,7 +38,12 @@ export async function loadMessages(locale: Locale): Promise<AbstractIntlMessages
       : await import(`./messages/${defaultLocale}/forms.json`).then(m => m.default as AbstractIntlMessages).catch(() => ({} as AbstractIntlMessages));
     const mergedForms = deepMerge(fallbackForms, forms);
     // Flatten domains at top-level; spread tools so keys under `tools` are accessible directly
-    return { ...home, layout, common, visa, 'ask-ai': askAi, faq, forms: mergedForms, ...errors, ...tools, ...footer, legal } as AbstractIntlMessages;
+    // Normalize faq domain: allow either {faq: {...}} or flat {...}
+    const faqNs: AbstractIntlMessages = isPlainObject((faq as Record<string, unknown>).faq)
+      ? ((faq as Record<string, unknown>).faq as unknown as AbstractIntlMessages)
+      : faq;
+
+    return { ...home, layout, common, visa, 'ask-ai': askAi, faq: faqNs, forms: mergedForms, ...errors, ...tools, ...footer, legal } as AbstractIntlMessages;
   } catch {
     return {} as AbstractIntlMessages;
   }

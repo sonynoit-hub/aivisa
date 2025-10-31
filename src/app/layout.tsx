@@ -12,7 +12,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PQ5W93R5";
+  // 固定写死 GTM 容器 ID（不再依赖环境变量）
+  const gtmId = "GTM-PQ5W93R5";
   return (
   <html lang={defaultLocale} suppressHydrationWarning>
       <head>
@@ -30,14 +31,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col">
         {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>`
+          }}
+        />
         {/* End Google Tag Manager (noscript) */}
 
         {/* SPA route change -> pageview (GTM dataLayer) wrapped in Suspense for searchParams */}

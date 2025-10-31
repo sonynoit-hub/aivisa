@@ -75,7 +75,9 @@ export async function streamChat(
         const event = line.slice(6).trim();
         opts.onEvent?.({ event });
       } else if (line.startsWith("data:")) {
-        const dataStr = line.slice(5).trim();
+        // Do NOT trim. Some providers stream tokens prefixed with a space.
+        // Trimming would remove these and glue words together.
+        const dataStr = line.slice(5);
         let data: any = dataStr;
         try { data = JSON.parse(dataStr); } catch {}
         opts.onMessage?.(data);

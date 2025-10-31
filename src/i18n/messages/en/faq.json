@@ -1,1 +1,27 @@
-{}
+{
+	"faq": {
+		"title": "Visa Frequently Asked Questions",
+		"items": [
+			{"q":"When can I renew my visa?","a":"You can apply from three months before your period of stay expires. Prepare early to avoid last-minute rush."},
+			{"q":"What if my visa expires while renewal is pending?","a":"If you have filed a renewal, you may remain in Japan until a decision is made (special exception). Carry your passport with the application receipt stamp."},
+			{"q":"Do I need to change my status if I change jobs?","a":"If the new job is within the same activity scope/status, a change is usually unnecessary. If the occupation changes, you need a \"Change of Status of Residence\"."},
+			{"q":"What happens if I quit my job?","a":"For work statuses, if you do not engage in the permitted activities for over three months, you may lose your status. Consult Immigration if you have no next job yet."},
+			{"q":"I lost my residence card. What should I do?","a":"First file a lost-property report at the nearest police station, then apply for \"Reissuance of Residence Card\" at Immigration within 14 days."},
+			{"q":"I accidentally overstayed. What should I do?","a":"Go to Immigration immediately and explain your situation. Depending on circumstances, \"Special Permission to Stay\" may be granted. Leaving it as is may result in illegal overstay."},
+			{"q":"Do I need to change status if I get married?","a":"If you marry a Japanese national or a permanent resident, you may change to \"Spouse or Child of Japanese National\" or \"Spouse or Child of Permanent Resident\". Prepare the required documents and apply."},
+			{"q":"What happens to a spouse visa after divorce?","a":"Once the marriage ends, you cannot maintain a spouse status. If you wish to continue living in Japan, consider changing to another status (e.g., work or long-term resident)."},
+			{"q":"What procedures are required when a child is born?","a":"Within 30 days after birth, apply for \"Permission to Acquire Status of Residence\". The child's status will be based on the parents' status."},
+			{"q":"How long does screening take?","a":"It depends on type and timing, but typically about 2 weeks to 1 month. It may take longer during busy seasons."},
+			{"q":"What documents are required for a visa application?","a":"It varies by case, but typically include an application form, photo, passport, residence card, and an employment contract or enrollment certificate, etc."},
+			{"q":"How can I obtain permanent residency?","a":"In principle, you need 10+ years of residence in Japan, stable income and a tax record. See the official Immigration website for details."},
+			{"q":"Where can I apply for a visa?","a":"In Japan, apply at the Immigration Services Bureau with jurisdiction over your address. From overseas, apply at a Japanese embassy or consulate."},
+			{"q":"How reliable are AI answers?","a":"AIVisa's answers are for reference only. Policies and practices may change. Always check the latest official information and consult a professional (e.g., gyoseishoshi) if needed."},
+			{"q":"How do I change the address on my residence card?","a":"Report the change at your municipal office within 14 days. The new address will be printed on the back of the card."},
+			{"q":"Can I work part-time on a Temporary Visitor visa?","a":"No. Paid activities (part-time jobs, work) are not permitted on a Temporary Visitor visa."},
+			{"q":"How can students work part-time legally?","a":"With \"Permission to Engage in Activity Other Than That Permitted\", students may work up to 28 hours per week. Please follow the rules."},
+			{"q":"I plan to leave Japan but wish to return. What should I do?","a":"Use a re-entry permit (or deemed re-entry permit) to avoid losing your status. Check this before departure."},
+			{"q":"My result hasn't come yet. How can I check the status?","a":"Immigration generally does not provide case status by phone. Please wait for the result or check directly at the submitting counter."},
+			{"q":"I'm not confident handling the procedures myself.","a":"If you are unsure about complex procedures and document preparation, consider hiring a gyoseishoshi (administrative scrivener) with proxy filing authorization."}
+		]
+	}
+}

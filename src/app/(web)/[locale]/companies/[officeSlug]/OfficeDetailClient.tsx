@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import type { OfficeDetail, ContactChannel, OfficeCard } from "@/types/company";
 import { getOfficeDetail } from "@/lib/api/services/company.service";
 import Markdown from "@/components/common/Markdown";
@@ -22,6 +23,7 @@ import {
   Youtube,
   Github,
 } from "lucide-react";
+import { SiLine, SiWechat, SiFacebook, SiTelegram, SiWhatsapp, SiX, SiLinkedin } from "react-icons/si";
 
 type Props = { locale: string; officeSlug: string };
 
@@ -39,6 +41,8 @@ function Badge({ text, variant }: { text?: string; variant?: string }) {
 }
 
 export default function OfficeDetailClient({ locale, officeSlug }: Props) {
+  const tContact = useTranslations('common.company.contact');
+  const tSns = useTranslations('common.company.sns');
   const [office, setOffice] = useState<OfficeDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -351,10 +355,10 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
 
           {/* Right */}
           <aside className="space-y-8">
-            {/* お問い合わせ */}
+            {/* お問い合わせ (i18n) */}
             {(office.websiteUrl || office.email || office.phone || addressZip || addressLineNoZip) && (
               <section className="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-6">
-                <h2 className="text-xl font-bold text-slate-900 mb-5">お問い合わせ</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-5">{tContact('title')}</h2>
 
                 <div className="space-y-4">
                   {office.websiteUrl && (
@@ -370,13 +374,7 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                     <div className="flex items-center gap-3">
                       <Mail className="w-5 h-5 text-[#04c4b6] flex-shrink-0" strokeWidth={2} />
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <CopyableText text={office.email} className="text-slate-800 font-medium text-sm" />
-                          <a href={`mailto:${office.email}`} className="inline-flex items-center gap-1 rounded-md bg-[#04c4b6] px-2.5 py-1 text-xs text-white hover:opacity-90 transition-opacity flex-shrink-0">
-                            <Mail className="w-3.5 h-3.5" />
-                            送信
-                          </a>
-                        </div>
+                        <CopyableText text={office.email} className="text-slate-800 font-medium text-sm" />
                       </div>
                     </div>
                   )}
@@ -385,13 +383,7 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                     <div className="flex items-center gap-3">
                       <Phone className="w-5 h-5 text-[#04c4b6] flex-shrink-0" strokeWidth={2} />
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <CopyableText text={office.phone} className="text-slate-800 font-medium text-sm" />
-                          <a href={`tel:${office.phone}`} className="inline-flex items-center gap-1 rounded-md bg-[#04c4b6] px-2.5 py-1 text-xs text-white hover:opacity-90 transition-opacity flex-shrink-0">
-                            <Phone className="w-3.5 h-3.5" />
-                            発信
-                          </a>
-                        </div>
+                        <CopyableText text={office.phone} className="text-slate-800 font-medium text-sm" />
                       </div>
                     </div>
                   )}
@@ -414,49 +406,88 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
               </section>
             )}
 
-            {/* SNS・チャット */}
+            {/* SNS・チャット (i18n) */}
             {(channelItems.length > 0 || snsEntries.length > 0) && (
               <section className="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-6">
-                <h2 className="text-xl font-bold text-slate-900 mb-5">SNS・チャット</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-5">{tSns('title')}</h2>
 
                 {channelItems.length > 0 && (
                   <ul className="space-y-4">
                     {channelItems.map((ch, i) => {
                       const platform = (ch.platform || '').toLowerCase();
-                      const isLine = platform.includes('line');
-                      const isWechat = platform.includes('wechat');
-                      const isFacebook = platform.includes('facebook');
-                      
-                      const tile = isLine
-                        ? 'bg-gradient-to-br from-[#06C755] to-[#05B04B] text-white shadow-lg shadow-[#06C755]/30'
-                        : isWechat
-                        ? 'bg-gradient-to-br from-[#1AAD19] to-[#159914] text-white shadow-lg shadow-[#1AAD19]/30'
-                        : isFacebook
-                        ? 'bg-gradient-to-br from-[#1877F2] to-[#1366D9] text-white shadow-lg shadow-[#1877F2]/30'
-                        : 'bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 shadow-md';
-                      
-                      const PlatformIcon = isFacebook ? Facebook : MessageCircle;
-                      const platformLabel = isLine ? 'LINE' : isWechat ? 'WeChat' : isFacebook ? 'Facebook' : ch.platform;
-                      const title = ch.label || (isLine ? 'LINE公式アカウント' : ch.platform);
+
+                      const brand = (() => {
+                        if (platform.includes('line')) {
+                          return {
+                            label: 'LINE',
+                            Icon: SiLine,
+                            tile: 'bg-gradient-to-br from-[#06C755] to-[#05B04B] text-white shadow-lg shadow-[#06C755]/25',
+                          };
+                        }
+                        if (platform.includes('wechat') || platform.includes('weixin')) {
+                          return {
+                            label: 'WeChat',
+                            Icon: SiWechat,
+                            tile: 'bg-gradient-to-br from-[#1AAD19] to-[#159914] text-white shadow-lg shadow-[#1AAD19]/25',
+                          };
+                        }
+                        if (platform.includes('facebook') || platform === 'fb') {
+                          return {
+                            label: 'Facebook',
+                            Icon: SiFacebook,
+                            tile: 'bg-gradient-to-br from-[#1877F2] to-[#1366D9] text-white shadow-lg shadow-[#1877F2]/25',
+                          };
+                        }
+                        if (platform.includes('whatsapp')) {
+                          return {
+                            label: 'WhatsApp',
+                            Icon: SiWhatsapp,
+                            tile: 'bg-gradient-to-br from-[#25D366] to-[#1EBE57] text-white shadow-lg shadow-[#25D366]/25',
+                          };
+                        }
+                        if (platform.includes('telegram')) {
+                          return {
+                            label: 'Telegram',
+                            Icon: SiTelegram,
+                            tile: 'bg-gradient-to-br from-[#229ED9] to-[#1D91C5] text-white shadow-lg shadow-[#229ED9]/25',
+                          };
+                        }
+                        return {
+                          label: ch.platform,
+                          Icon: MessageCircle,
+                          tile: 'bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 shadow-md',
+                        };
+                      })();
+
+                      const PlatformIcon = brand.Icon as any;
+                      const platformLabel = brand.label;
+                      const tile = brand.tile;
+                      const title = ch.label || (platform.includes('line') ? 'LINE公式アカウント' : ch.platform);
                       const subtitle = ch.id || '';
                       
                       return (
                         <li key={i} className="rounded-2xl border border-slate-200 bg-white p-4 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
                           <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${tile}`}>
-                              <PlatformIcon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${tile} ring-1 ring-white/30 ring-offset-2 ring-offset-white`}>
+                              {PlatformIcon === MessageCircle ? (
+                                <PlatformIcon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                              ) : (
+                                <PlatformIcon size={20} className="drop-shadow-sm" />
+                              )}
                             </div>
                             <div className="text-xs font-medium text-slate-600">{platformLabel}</div>
                           </div>
                           <div className="min-w-0 flex-1 pt-1">
                             <div className="text-slate-900 font-bold text-lg leading-tight mb-1.5 truncate">{title}</div>
-                            {subtitle && <div className="text-slate-600 text-base mb-2.5 truncate">{subtitle}</div>}
+                            {subtitle && (
+                              <CopyableText text={subtitle} className="text-slate-600 mb-2.5" />
+                            )}
                             <div className="flex items-center gap-3 flex-wrap">
                               {ch.qrUrl && <QrCodeModal qrUrl={ch.qrUrl} platformLabel={ch.label || ch.platform} />}
                               {ch.url && (
                                 <a href={ch.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#04c4b6] hover:text-[#039991] text-sm font-semibold transition-colors">
                                   <ExternalLink className="w-4 h-4" />
-                                  開く
+                                  {tContact('open')}
                                 </a>
                               )}
                             </div>
@@ -481,10 +512,14 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                         : isLinkedIn 
                         ? 'bg-gradient-to-br from-[#0A66C2] to-[#084F99] shadow-lg shadow-[#0A66C2]/30'
                         : 'bg-gradient-to-br from-slate-900 to-slate-700 shadow-lg shadow-slate-900/30';
-                      const Icon = isX ? Twitter : isLinkedIn ? Linkedin : LinkIcon;
+                      const Icon = isX ? SiX : isLinkedIn ? SiLinkedin : LinkIcon;
                       return (
                         <a key={k} href={v} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-xl flex items-center justify-center ${bgGradient} text-white hover:shadow-xl transition-shadow`}>
-                          <Icon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                          {Icon === LinkIcon ? (
+                            <Icon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                          ) : (
+                            <Icon size={20} className="drop-shadow-sm" />
+                          )}
                         </a>
                       );
                     })}

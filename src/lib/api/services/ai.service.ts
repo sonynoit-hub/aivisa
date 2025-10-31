@@ -273,7 +273,10 @@ export function streamGenerate(
           if (line.startsWith("event:")) {
             event = line.slice(6).trim();
           } else if (line.startsWith("data:")) {
-            dataLines.push(line.slice(5).trimStart());
+            // Preserve leading spaces in SSE data payloads. Many LLM token streams
+            // send chunks that begin with a leading space; trimming here will glue
+            // words together (e.g., "hello" + " world" -> "helloworld").
+            dataLines.push(line.slice(5));
           }
         }
         if (event || dataLines.length) dispatch();

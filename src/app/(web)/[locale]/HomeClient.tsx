@@ -15,6 +15,15 @@ export default function HomeClient() {
   const [q, setQ] = useState("");
   const [focused, setFocused] = useState(false);
   const [ph, setPh] = useState("");
+  // FAQ 折叠状态（索引集合）
+  const [faqOpenSet, setFaqOpenSet] = useState<Set<number>>(new Set());
+  const toggleFaq = (idx: number) => {
+    setFaqOpenSet((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx); else next.add(idx);
+      return next;
+    });
+  };
   const router = useRouter();
   const params = useParams<{ locale: string }>();
   const locale = (params?.locale as Locale) || "ja";
@@ -390,6 +399,53 @@ export default function HomeClient() {
           {/* 在此展示来自数据库的广告卡片（2 条） */}
           <div className="mt-4">
             <AdSlots page="top" slot="top_card" locale={locale} limit={2} />
+          </div>
+        </section>
+
+        {/* 一般性（非签证）FAQ：显示在广告区块下方（可折叠） */}
+        <section className="mt-10">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            {t("generalFaq.title")}
+          </h2>
+          <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-soft">
+            <dl className="divide-y divide-slate-200">
+              {(() => {
+                const items = (t.raw('generalFaq.items') as Array<{ q: string; a?: string }>) ?? [];
+                if (!Array.isArray(items) || items.length === 0) return null;
+                return items.map((item, i) => {
+                  if (!item || typeof item.q !== 'string' || !item.q.trim()) return null;
+                  const open = faqOpenSet.has(i);
+                  const regionId = `faq-${i}`;
+                  return (
+                    <div key={i} className="py-3 sm:py-4">
+                      <button
+                        type="button"
+                        aria-expanded={open}
+                        aria-controls={regionId}
+                        onClick={() => toggleFaq(i)}
+                        className="w-full text-left flex items-start justify-between gap-3 group"
+                      >
+                        <span className="text-[15px] font-semibold text-slate-900">{item.q}</span>
+                        <span className={`mt-0.5 shrink-0 text-slate-400 transition-transform group-hover:text-slate-600 ${open ? 'rotate-180' : ''}`} aria-hidden>
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </span>
+                      </button>
+                      {item.a && (
+                        <dd
+                          id={regionId}
+                          role="region"
+                          className={`pl-0 sm:pl-0 ${open ? 'mt-2' : 'hidden'}`}
+                        >
+                          <p className="text-[14px] leading-6 text-slate-700">{item.a}</p>
+                        </dd>
+                      )}
+                    </div>
+                  );
+                });
+              })()}
+            </dl>
           </div>
         </section>
       </div>

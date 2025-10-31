@@ -630,7 +630,7 @@ export default function AskAIPage() {
               ) : (
                 <div className="flex-1 flex justify-end">
                   <div
-                    className="bg-[#f7f7f8] text-slate-800 rounded-2xl px-5 py-3 max-w-full sm:max-w-[80%] text-[15px] leading-7 shadow border border-slate-100"
+                    className="bg-[#f7f7f8] text-slate-800 rounded-2xl px-5 py-3 max-w-full sm:max-w-[80%] text-[15px] leading-7 shadow border border-slate-100 whitespace-pre-wrap"
                     style={{ wordBreak: "break-word" }}
                   >
                     {m.text}

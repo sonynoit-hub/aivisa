@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       seoDescription = typeof data.seoDescription === "string" ? data.seoDescription : undefined;
       seoKeywords = Array.isArray(data.seoKeywords)
         ? (data.seoKeywords.filter((v) => typeof v === "string") as string[])
-        : undefined;
+        : [];
     }
   } catch {}
   const t = await getTranslations({ locale, namespace: "home" });
   const title = seoTitle || t("hero.title");
   const description = seoDescription || t("hero.subtitle");
-  const keywords = seoKeywords;
+  const keywords = Array.isArray(seoKeywords) ? seoKeywords : [];
   const ogLocale = ogLocaleMap[locale];
 
   return {

@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
 import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
+import { getTranslations } from "next-intl/server";
+import dynamic from "next/dynamic";
+const FaqClient = dynamic(() => import("./FaqClient"), { ssr: true });
 import { site } from "@/config/site";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
-export default function FAQPage() {
+export default async function FAQPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  let title = "FAQ";
+  try {
+    const t = await getTranslations({ locale, namespace: "faq" });
+    title = t("title");
+  } catch {
+    try {
+      const mod = await import(`@/i18n/messages/${locale}/faq.json`);
+      const root = (mod?.default ?? {}) as Record<string, unknown>;
+      const data = (root.faq && typeof root.faq === 'object') ? (root.faq as Record<string, unknown>) : root;
+      const maybeTitle = data.title;
+      if (typeof maybeTitle === 'string') title = maybeTitle;
+    } catch {}
+  }
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h2 className="text-2xl font-semibold mb-4">FAQ</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>よくある質問１</li>
-        <li>よくある質問２</li>
-      </ul>
+      <h1 className="text-2xl font-bold tracking-tight text-slate-900">{title}</h1>
+      <FaqClient />
     </div>
   );
 }

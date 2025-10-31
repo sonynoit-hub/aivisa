@@ -1,1 +1,20 @@
-{}
+{
+	"company": {
+		"contact": {
+			"title": "お問い合わせ",
+			"send": "送信",
+			"call": "発信",
+			"open": "開く"
+		},
+		"sns": {
+			"title": "SNS・チャット"
+		}
+		},
+		"qr": {
+			"open": "QRコード表示",
+			"title": "{platform} のQRコード",
+			"scanHint": "スマホでスキャンしてください",
+			"close": "閉じる",
+			"alt": "QRコード"
+	}
+}

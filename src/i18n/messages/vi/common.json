@@ -1,0 +1,20 @@
+{
+  "company": {
+    "contact": {
+      "title": "Liên hệ",
+      "send": "Gửi",
+      "call": "Gọi",
+      "open": "Mở"
+    },
+    "sns": {
+      "title": "Mạng xã hội & Trò chuyện"
+    }
+  },
+  "qr": {
+    "open": "Hiển thị mã QR",
+    "title": "Mã QR {platform}",
+    "scanHint": "Hãy quét bằng điện thoại của bạn",
+    "close": "Đóng",
+    "alt": "Mã QR"
+  }
+}
