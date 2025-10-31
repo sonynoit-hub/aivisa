@@ -421,41 +421,41 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                           return {
                             label: 'LINE',
                             Icon: SiLine,
-                            tile: 'bg-gradient-to-br from-[#06C755] to-[#05B04B] text-white shadow-lg shadow-[#06C755]/25',
+                            tile: 'bg-gradient-to-br from-[#06C755] to-[#05B04B] text-white',
                           };
                         }
                         if (platform.includes('wechat') || platform.includes('weixin')) {
                           return {
                             label: 'WeChat',
                             Icon: SiWechat,
-                            tile: 'bg-gradient-to-br from-[#1AAD19] to-[#159914] text-white shadow-lg shadow-[#1AAD19]/25',
+                            tile: 'bg-gradient-to-br from-[#1AAD19] to-[#159914] text-white',
                           };
                         }
                         if (platform.includes('facebook') || platform === 'fb') {
                           return {
                             label: 'Facebook',
                             Icon: SiFacebook,
-                            tile: 'bg-gradient-to-br from-[#1877F2] to-[#1366D9] text-white shadow-lg shadow-[#1877F2]/25',
+                            tile: 'bg-gradient-to-br from-[#1877F2] to-[#1366D9] text-white',
                           };
                         }
                         if (platform.includes('whatsapp')) {
                           return {
                             label: 'WhatsApp',
                             Icon: SiWhatsapp,
-                            tile: 'bg-gradient-to-br from-[#25D366] to-[#1EBE57] text-white shadow-lg shadow-[#25D366]/25',
+                            tile: 'bg-gradient-to-br from-[#25D366] to-[#1EBE57] text-white',
                           };
                         }
                         if (platform.includes('telegram')) {
                           return {
                             label: 'Telegram',
                             Icon: SiTelegram,
-                            tile: 'bg-gradient-to-br from-[#229ED9] to-[#1D91C5] text-white shadow-lg shadow-[#229ED9]/25',
+                            tile: 'bg-gradient-to-br from-[#229ED9] to-[#1D91C5] text-white',
                           };
                         }
                         return {
                           label: ch.platform,
                           Icon: MessageCircle,
-                          tile: 'bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 shadow-md',
+                          tile: 'bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700',
                         };
                       })();
 
@@ -468,11 +468,11 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                       return (
                         <li key={i} className="rounded-2xl border border-slate-200 bg-white p-4 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
                           <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${tile} ring-1 ring-white/30 ring-offset-2 ring-offset-white`}>
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${tile}`}>
                               {PlatformIcon === MessageCircle ? (
-                                <PlatformIcon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                                <PlatformIcon className="w-5 h-5" strokeWidth={2.5} />
                               ) : (
-                                <PlatformIcon size={20} className="drop-shadow-sm" />
+                                <PlatformIcon size={20} />
                               )}
                             </div>
                             <div className="text-xs font-medium text-slate-600">{platformLabel}</div>
@@ -508,17 +508,17 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                       const isX = /(^x$|twitter)/i.test(k);
                       const isLinkedIn = /linkedin/i.test(k);
                       const bgGradient = isX 
-                        ? 'bg-gradient-to-br from-black to-zinc-800 shadow-lg shadow-black/30' 
+                        ? 'bg-gradient-to-br from-black to-zinc-800' 
                         : isLinkedIn 
-                        ? 'bg-gradient-to-br from-[#0A66C2] to-[#084F99] shadow-lg shadow-[#0A66C2]/30'
-                        : 'bg-gradient-to-br from-slate-900 to-slate-700 shadow-lg shadow-slate-900/30';
+                        ? 'bg-gradient-to-br from-[#0A66C2] to-[#084F99]'
+                        : 'bg-gradient-to-br from-slate-900 to-slate-700';
                       const Icon = isX ? SiX : isLinkedIn ? SiLinkedin : LinkIcon;
                       return (
-                        <a key={k} href={v} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-xl flex items-center justify-center ${bgGradient} text-white hover:shadow-xl transition-shadow`}>
+                        <a key={k} href={v} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-xl flex items-center justify-center ${bgGradient} text-white`}>
                           {Icon === LinkIcon ? (
-                            <Icon className="w-5 h-5 drop-shadow-sm" strokeWidth={2.5} />
+                            <Icon className="w-5 h-5" strokeWidth={2.5} />
                           ) : (
-                            <Icon size={20} className="drop-shadow-sm" />
+                            <Icon size={20} />
                           )}
                         </a>
                       );
