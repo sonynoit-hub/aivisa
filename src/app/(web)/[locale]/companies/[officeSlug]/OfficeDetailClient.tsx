@@ -17,7 +17,7 @@ import {
   MessageCircle,
   Link as LinkIcon,
 } from "lucide-react";
-import { SiLine, SiWechat, SiFacebook, SiTelegram, SiWhatsapp, SiX, SiLinkedin } from "react-icons/si";
+import { SiLine, SiWechat, SiFacebook, SiTelegram, SiWhatsapp, SiX, SiLinkedin, SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
 
 type Props = { locale: string; officeSlug: string };
 
@@ -76,9 +76,10 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
           if (!isPublic) return null;
           const url = (entry as ContactChannel)?.url || (entry as Record<string, unknown>)?.["href"] as string | undefined || (entry as Record<string, unknown>)?.["link"] as string | undefined || undefined;
           const id = (entry as ContactChannel)?.id || (entry as ContactChannel)?.phone || undefined;
-          if (!url && !id) return null;
-          const label = (entry as ContactChannel)?.label || undefined;
           const qrUrl = (entry as ContactChannel)?.qr_url || (entry as ContactChannel)?.qrUrl || undefined;
+          // 展示条件：url、id、qrUrl 三者任一存在即可
+          if (!url && !id && !qrUrl) return null;
+          const label = (entry as ContactChannel)?.label || undefined;
           return { platform, url, id, label, qrUrl };
         })
         .filter(Boolean) as Array<{ platform: string; url?: string; id?: string; label?: string; qrUrl?: string }>;
@@ -155,13 +156,16 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
       })
     : [];
 
+  // 仅复制地址文本（不包含邮编）
+  const addressCopy = addressLineNoZip || '';
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-12 sm:px-6 sm:pt-9 lg:px-8 lg:pt-10">
         {/* Header */}
         <header className="mb-6 sm:mb-8">
           <div className="flex items-start gap-3 mb-3">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 break-words leading-tight">{office.name}</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 break-words leading-tight">{office.name}</h1>
             {office.badgeText && <Badge text={office.badgeText} variant={office.badgeVariant} />}
           </div>
           {office.shortDesc && (
@@ -366,7 +370,12 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                       <div className="min-w-0 flex-1">
                         <div className="text-slate-800 text-sm leading-relaxed">
                           {addressZip && <div className="font-medium">〒{addressZip}</div>}
-                          {addressLineNoZip && <div>{addressLineNoZip}</div>}
+                          {addressLineNoZip && (
+                            <div className="min-w-0 flex items-center gap-2 whitespace-nowrap">
+                              <span className="truncate">{addressLineNoZip}</span>
+                              <CopyableText text={addressCopy} className="[&>span:first-child]:sr-only text-slate-600 hover:text-[#04c4b6] shrink-0" />
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -398,6 +407,13 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                             label: 'WeChat',
                             Icon: SiWechat,
                             tile: 'bg-gradient-to-br from-[#1AAD19] to-[#159914] text-white',
+                          };
+                        }
+                        if (platform.includes('instagram') || platform === 'ig') {
+                          return {
+                            label: 'Instagram',
+                            Icon: SiInstagram,
+                            tile: 'bg-gradient-to-br from-[#F58529] to-[#DD2A7B] text-white',
                           };
                         }
                         if (platform.includes('facebook') || platform === 'fb') {
@@ -473,25 +489,52 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
 
                 {snsEntries.length > 0 && (
                   <div className="flex items-center justify-center gap-4">
-                    {snsEntries.filter(([k]) => /(\bx\b|twitter|linkedin)/i.test(k)).map(([k, v]) => {
-                      const isX = /(^x$|twitter)/i.test(k);
-                      const isLinkedIn = /linkedin/i.test(k);
-                      const bgGradient = isX 
-                        ? 'bg-gradient-to-br from-black to-zinc-800' 
-                        : isLinkedIn 
-                        ? 'bg-gradient-to-br from-[#0A66C2] to-[#084F99]'
-                        : 'bg-gradient-to-br from-slate-900 to-slate-700';
-                      const Icon = isX ? SiX : isLinkedIn ? SiLinkedin : LinkIcon;
-                      return (
-                        <a key={k} href={v} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-xl flex items-center justify-center ${bgGradient} text-white`}>
-                          {Icon === LinkIcon ? (
-                            <Icon className="w-5 h-5" strokeWidth={2.5} />
-                          ) : (
-                            <Icon size={20} />
-                          )}
-                        </a>
-                      );
-                    })}
+                    {snsEntries
+                      .filter(([k]) => /(\bx\b|twitter|linkedin|facebook|^fb$|tiktok|youtube|youtu\.be|line)/i.test(k))
+                      .map(([k, v]) => {
+                        const key = k.toLowerCase();
+                        const isX = /(^x$|twitter)/i.test(k);
+                        const isLinkedIn = /linkedin/i.test(k);
+                        const isFacebook = /(facebook|^fb$)/i.test(k);
+                        const isTikTok = /tiktok/i.test(k);
+                        const isYouTube = /(youtube|youtu\.be)/i.test(k);
+                        const isLINE = /line/i.test(k);
+                        const bgGradient = isX
+                          ? 'bg-gradient-to-br from-black to-zinc-800'
+                          : isLinkedIn
+                          ? 'bg-gradient-to-br from-[#0A66C2] to-[#084F99]'
+                          : isFacebook
+                          ? 'bg-gradient-to-br from-[#1877F2] to-[#1366D9]'
+                          : isTikTok
+                          ? 'bg-gradient-to-br from-black to-zinc-800'
+                          : isYouTube
+                          ? 'bg-gradient-to-br from-[#FF0000] to-[#CC0000]'
+                          : isLINE
+                          ? 'bg-gradient-to-br from-[#06C755] to-[#05B04B]'
+                          : 'bg-gradient-to-br from-slate-900 to-slate-700';
+                        const Icon = isX
+                          ? SiX
+                          : isLinkedIn
+                          ? SiLinkedin
+                          : isFacebook
+                          ? SiFacebook
+                          : isTikTok
+                          ? SiTiktok
+                          : isYouTube
+                          ? SiYoutube
+                          : isLINE
+                          ? SiLine
+                          : LinkIcon;
+                        return (
+                          <a key={k} href={v} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-xl flex items-center justify-center ${bgGradient} text-white`}>
+                            {Icon === LinkIcon ? (
+                              <Icon className="w-5 h-5" strokeWidth={2.5} />
+                            ) : (
+                              <Icon size={20} />
+                            )}
+                          </a>
+                        );
+                      })}
                   </div>
                 )}
               </section>

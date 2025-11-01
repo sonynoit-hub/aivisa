@@ -16,6 +16,27 @@ export default function AdCard({ ad }: AdCardProps) {
   const hasSecondary = !!(ad.secondaryCtaLabel && ad.secondaryCtaUrl);
   const hasButtons = hasPrimary || hasSecondary;
 
+  const TAG_STYLES: Record<string, string> = {
+    // semantic
+    info: "bg-sky-50 text-sky-700 ring-1 ring-inset ring-sky-200",
+    success: "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200",
+    warning: "bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-200",
+    danger: "bg-rose-50 text-rose-700 ring-1 ring-inset ring-rose-200",
+    primary: "bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-200",
+    secondary: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-300",
+    neutral: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-300",
+    // legacy categories
+    legal: "bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-200",
+    life: "bg-sky-50 text-sky-700 ring-1 ring-inset ring-sky-200",
+    career: "bg-violet-50 text-violet-700 ring-1 ring-inset ring-violet-200",
+  };
+
+  const getTagClass = (v?: string): string => {
+    if (!v) return TAG_STYLES.neutral;
+    const key = String(v).toLowerCase();
+    return TAG_STYLES[key] || TAG_STYLES.neutral;
+  };
+
   // 安全归一：
   const normalizeHref = (url?: string): string => {
     if (!url) return "#";
@@ -39,13 +60,15 @@ export default function AdCard({ ad }: AdCardProps) {
     <article className="group rounded-2xl border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md overflow-hidden">
       {/* Content Area */}
       <div className="p-5">
-        {/* Title + Badge */}
+        {/* Title + Tag */}
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-base font-semibold text-slate-900 min-w-0 leading-snug" data-card-title>
             {ad.title}
           </h3>
           {ad.badgeText && (
-            <span className="flex-none text-xs font-medium text-slate-700 whitespace-nowrap">
+            <span
+              className={`flex-none inline-flex items-center whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium ${getTagClass(ad.badgeVariant)}`}
+            >
               {ad.badgeText}
             </span>
           )}
