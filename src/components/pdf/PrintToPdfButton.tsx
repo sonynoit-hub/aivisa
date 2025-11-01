@@ -118,7 +118,6 @@ export function PrintToPdfButton({
           } else {
             // 其他浏览器可等待以确保展开等状态已渲染
             // 注意：等待可能会丢失极端环境下的手势，但主流桌面浏览器兼容良好
-            // eslint-disable-next-line @typescript-eslint/await-thenable
             return (onBeforePrint() as Promise<void>).then(() => {
               window.print();
             });

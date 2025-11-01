@@ -396,9 +396,9 @@ export default function HomeClient() {
             <div className="text-sm text-slate-500">{t("advisors.note")}</div>
           </div>
 
-          {/* 在此展示来自数据库的广告卡片（2 条） */}
+          {/* 在此展示来自数据库的广告卡片（不限制条数，由后端决定） */}
           <div className="mt-4">
-            <AdSlots page="top" slot="top_card" locale={locale} limit={2} />
+            <AdSlots page="top" slot="top_card" locale={locale} />
           </div>
         </section>
 

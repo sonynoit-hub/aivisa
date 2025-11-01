@@ -173,8 +173,12 @@ export async function getAdsByPlacement(q: AdPlacementQuery): Promise<AdListResp
   if (q.categorySlug) params.category = q.categorySlug;
   if (typeof q.limit === 'number') {
     params.limit = String(q.limit);
-  } else if (Number.isFinite(DEFAULT_LIST_LIMIT) && DEFAULT_LIST_LIMIT > 0) {
-    params.limit = String(DEFAULT_LIST_LIMIT);
+  } else {
+    // 对首页 top/top_card 不设置默认 limit，交给后端无限制返回
+    const isHomeTop = q.page === 'top' && q.slot === 'top_card';
+    if (!isHomeTop && Number.isFinite(DEFAULT_LIST_LIMIT) && DEFAULT_LIST_LIMIT > 0) {
+      params.limit = String(DEFAULT_LIST_LIMIT);
+    }
   }
   try {
     dlog('getAdsByPlacement:request', params);

@@ -1,4 +1,4 @@
-import { apiGet, apiGetWithMeta, apiPost, apiPostWithMeta, type ApiResponse } from "../client";
+import { apiGet, apiPost, apiPostWithMeta, type ApiResponse } from "../client";
 
 export type ChatLimits = { limit: number; remaining: number };
 export type ChatAnswer = { answer: string; conversationId?: string };

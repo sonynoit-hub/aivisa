@@ -15,9 +15,8 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
   useEffect(() => {
     let mounted = true;
     setLoading(true);
-    const defaultLimit = (typeof limit === 'number') ? limit : (page === 'top' && slot === 'top_card' ? 2 : undefined);
     const params: AdPlacementQuery = { page, slot, categorySlug, locale: locale || "ja" } as AdPlacementQuery;
-    if (typeof defaultLimit === 'number') params.limit = defaultLimit;
+    if (typeof limit === 'number') params.limit = limit; // 仅在明确传入时才限制
     if (DEBUG_ADS && typeof window !== 'undefined') console.debug('[ads] AdSlots:fetch', params);
     getAdsByPlacement(params)
       .then((res) => {
@@ -31,7 +30,7 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
   if (loading) {
     return (
       <div className="flex flex-col gap-5">
-        {Array.from({ length: typeof limit === 'number' ? limit : 2 }).map((_, i) => (
+        {Array.from({ length: typeof limit === 'number' ? limit : 1 }).map((_, i) => (
           <div key={i} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft animate-pulse">
             <div className="h-4 w-40 bg-slate-200 rounded" />
             <div className="mt-2 h-3 w-3/4 bg-slate-200 rounded" />

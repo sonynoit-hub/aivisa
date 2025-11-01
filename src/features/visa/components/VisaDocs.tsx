@@ -174,7 +174,7 @@ export default function VisaDocs<C extends string>({
     if (!(stage in ACTIVE_DOCS) && first && first !== stage) {
       setStage(first);
     }
-  }, [ACTIVE_DOCS]);
+  }, [ACTIVE_DOCS, stage]);
 
   if (!ACTIVE_DOCS) {
     return (

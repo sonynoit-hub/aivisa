@@ -1,5 +1,5 @@
 import { EP } from "../endpoints";
-import { apiGetWithMeta, apiPost, apiPostWithMeta } from "../client";
+import { apiPost, apiPostWithMeta } from "../client";
 
 export type EnsureAnonResponse = { anonId: string };
 export async function ensureAnon() {

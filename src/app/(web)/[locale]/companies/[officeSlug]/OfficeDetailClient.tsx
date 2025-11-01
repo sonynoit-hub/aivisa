@@ -16,12 +16,6 @@ import {
   ExternalLink,
   MessageCircle,
   Link as LinkIcon,
-  Instagram,
-  Twitter,
-  Facebook,
-  Linkedin,
-  Youtube,
-  Github,
 } from "lucide-react";
 import { SiLine, SiWechat, SiFacebook, SiTelegram, SiWhatsapp, SiX, SiLinkedin } from "react-icons/si";
 
@@ -91,32 +85,7 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
     });
   }, [office]);
 
-  // Helpers for channel/platform presentation
-  const channelIconFor = (platform: string) => {
-    const p = (platform || "").toLowerCase();
-    if (p.includes("line")) return LinkIcon;
-    if (p.includes("wechat") || p.includes("weixin")) return LinkIcon;
-    if (p.includes("whatsapp")) return Phone;
-    if (p.includes("telegram")) return LinkIcon;
-    if (p.includes("facebook")) return Facebook;
-    if (p.includes("twitter") || p === "x") return Twitter;
-    if (p.includes("instagram")) return Instagram;
-    if (p.includes("linkedin")) return Linkedin;
-    if (p.includes("youtube")) return Youtube;
-    if (p.includes("github")) return Github;
-    return LinkIcon;
-  };
-
-  const snsIconBg = (keyOrUrl: string) => {
-    const s = (keyOrUrl || "").toLowerCase();
-    if (s.includes("instagram")) return "bg-pink-100 text-pink-600";
-    if (s.includes("x.com") || s.includes("twitter")) return "bg-slate-100 text-slate-700";
-    if (s.includes("facebook")) return "bg-blue-100 text-blue-600";
-    if (s.includes("linkedin")) return "bg-sky-100 text-sky-700";
-    if (s.includes("youtube")) return "bg-red-100 text-red-600";
-    if (s.includes("github")) return "bg-slate-100 text-slate-700";
-    return "bg-slate-100 text-slate-600";
-  };
+  // Removed unused helpers `channelIconFor` & `snsIconBg` (not referenced)
 
   const cardsSorted: OfficeCard[] = useMemo(() => {
     if (!office) return [] as OfficeCard[];
@@ -459,7 +428,7 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                         };
                       })();
 
-                      const PlatformIcon = brand.Icon as any;
+                      const PlatformIcon = brand.Icon as React.ElementType;
                       const platformLabel = brand.label;
                       const tile = brand.tile;
                       const title = ch.label || (platform.includes('line') ? 'LINE公式アカウント' : ch.platform);

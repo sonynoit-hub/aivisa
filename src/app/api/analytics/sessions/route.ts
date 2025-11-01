@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 		});
 		serverDbg('RES', url, upstream.status);
 		return passthrough(upstream, { forceJson: true });
-	} catch (e) {
+	} catch {
 		if (runtimeConfig.stage === 'dev') {
 			return NextResponse.json({ ok: true, devNoop: true }, { status: 200 });
 		}

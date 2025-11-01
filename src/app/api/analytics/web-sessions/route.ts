@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 			const txt = await upstream.clone().text().catch(() => "");
 			serverDbg('RES', url, upstream.status, txt);
 			return passthrough(upstream, { forceJson: true });
-	} catch (e) {
+	} catch {
 		if (runtimeConfig.stage === 'dev') {
 			return NextResponse.json({ ok: true, devNoop: true }, { status: 200 });
 		}

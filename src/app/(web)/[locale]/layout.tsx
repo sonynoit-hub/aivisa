@@ -15,12 +15,11 @@ const DEFAULT_TIME_ZONE = "Asia/Tokyo";
 // 避免预渲染阶段因 useSearchParams 等导致的 CSR bailout 报错
 export const dynamic = 'force-dynamic'
 
-type Props = { params: Promise<Record<string, string>> | undefined; children: ReactNode };
+type Props = { params: Promise<{ locale?: string }>; children: ReactNode };
 
 export default async function LocaleLayout({children, params}: Props) {
-  // 解析动态路由里的 locale
-  const resolvedParams = (params ? await params : undefined) as Record<string, string> | undefined;
-  const candidate = resolvedParams?.locale as string | undefined;
+  // 解析动态路由里的 locale（Next.js 15: params 需 await）
+  const { locale: candidate } = await params;
   const locale: Locale =
     candidate && (locales as readonly string[]).includes(candidate)
       ? (candidate as Locale)

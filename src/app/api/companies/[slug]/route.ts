@@ -37,7 +37,7 @@ export async function GET(req: NextRequest, ctx: any) {
       clearTimeout(timer);
       if (r.ok) return passthrough(r, { forceJson: true });
       // if upstream returns 404/500, try next candidate
-    } catch (e) {
+    } catch {
       // try next
     }
   }
