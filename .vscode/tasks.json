@@ -17,6 +17,20 @@
 			"command": "npm run lint",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "lint",
+			"type": "shell",
+			"command": "npm run lint",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "lint",
+			"type": "shell",
+			"command": "npm run lint",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

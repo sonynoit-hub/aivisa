@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { AdCardContent } from "@/types/ad";
 import React from "react";
 import { useLocale } from "@/hooks/useLocale";
+import SafeImage from "@/components/common/SafeImage";
 
 export type AdCardProps = {
   ad: AdCardContent;
@@ -58,8 +59,23 @@ export default function AdCard({ ad }: AdCardProps) {
   const showSecondary = hasSecondary && secondaryHref !== '#';
   return (
     <article className="group rounded-2xl border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md overflow-hidden">
+      {/* Image (optional): show above title when ad.imageUrl exists */}
+      {ad.imageUrl && (
+        <div className="p-5 pb-0">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-100">
+            {/* 使用 SafeImage：允许域名走 next/image，否则回退原生 img，避免 SSR 报错 */}
+            <SafeImage
+              src={ad.imageUrl}
+              alt={ad.title || ad.companyName || "Ad image"}
+              fill
+              className="object-cover"
+              priority={false}
+            />
+          </div>
+        </div>
+      )}
       {/* Content Area */}
-      <div className="p-5">
+      <div className="p-5 pt-4">
         {/* Title + Tag */}
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-base font-semibold text-slate-900 min-w-0 leading-snug" data-card-title>
