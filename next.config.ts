@@ -119,6 +119,9 @@ const nextConfig: NextConfig = {
       { source: "/:locale/visa/category/:path*",
         destination: "/:locale/visa/pr", permanent: true },
 
+      // Tools: legacy route redirect
+      { source: "/:locale/tools/hsp-calculator", destination: "/:locale/tools/hsp-points", permanent: true },
+
       { source: "/:locale/visa/permanent-resident", destination: "/:locale/visa/pr", permanent: true },
       { source: "/:locale/visa/student", destination: "/:locale/visa/study", permanent: true },
       { source: "/:locale/visa/engineer-humanities-international", destination: "/:locale/visa/engineer", permanent: true },

@@ -1,4 +1,4 @@
-import { createVisaStaticPage } from '../_common/VisaStaticPage';
+import { createVisaStaticPage, buildVisaStaticMetadata } from '../_common/VisaStaticPage';
 import JpSpouseDocs from '@/features/visa/JpSpouseDocs';
 import { staticVisaPageMessages } from '@/i18n/messages/visaPages';
 
@@ -9,3 +9,5 @@ export default createVisaStaticPage('spouse-of-japanese-national', 'jp-spouse', 
 	showHtml: false,
 	staticI18n: staticVisaPageMessages('jp-spouse'),
 });
+
+export const generateMetadata = buildVisaStaticMetadata('spouse-of-japanese-national', 'jp-spouse', { staticI18n: staticVisaPageMessages('jp-spouse') });

@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import type { Metadata } from "next";
 import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
 import { site } from "@/config/site";
+import { getSeoMeta } from "@/config/seo-tags";
 import Markdown from "@/components/common/Markdown";
 
 export default async function PrivacyPolicy(
@@ -34,7 +35,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `${base}/${l}/legal/privacy`;
 
-  let title = "Privacy Policy";
   let description = "Our commitment to protecting your privacy.";
   let keywords: string[] | undefined;
   try {
@@ -43,21 +43,26 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const def = (root.default && typeof root.default === 'object') ? (root.default as Record<string, unknown>) : undefined;
     const legal = (def?.legal && typeof def.legal === 'object') ? (def.legal as Record<string, unknown>) : undefined;
     const data = (legal?.privacy && typeof legal.privacy === 'object') ? (legal.privacy as Record<string, unknown>) : {};
-    const t = typeof data.seoTitle === 'string' ? data.seoTitle : undefined;
     const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined;
     const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string');
-    title = t || title;
     description = d || description;
     keywords = k;
   } catch {}
 
+  // 从集中配置获取标题/描述/关键词；描述/关键词若缺失则回退到上面的 i18n 结果
+  const staticMeta = getSeoMeta(locale as Locale, 'legal/privacy');
+  const finalTitle = (staticMeta as { title?: string }).title || 'Privacy Policy';
+  const finalDescription = staticMeta.description || description;
+  const finalKeywords = staticMeta.keywords || keywords;
+
   return {
-    title: `${title} | ${site.name}`,
-    description,
-    keywords,
+    // 使用 absolute 避免模板追加站点名（集中配置已包含品牌）
+    title: { absolute: finalTitle },
+    description: finalDescription,
+    keywords: finalKeywords,
     robots: { index: false, follow: false },
     alternates: { canonical: url, languages },
-    openGraph: { title: `${title} | ${site.name}`, description, url, siteName: site.name, locale: ogLocaleMap[locale], type: "article" },
-    twitter: { card: "summary", title: `${title} | ${site.name}`, description },
+    openGraph: { title: finalTitle, description: finalDescription, url, siteName: site.name, locale: ogLocaleMap[locale], type: "article" },
+    twitter: { card: "summary", title: finalTitle, description: finalDescription },
   };
 }

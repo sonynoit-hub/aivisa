@@ -5,9 +5,11 @@ import { useState } from 'react';
 interface CopyableTextProps {
   text: string;
   className?: string;
+  /** 仅显示复制图标（不渲染可见文本）。用于文本已在附近呈现但需要额外的复制按钮的场景。 */
+  iconOnly?: boolean;
 }
 
-export default function CopyableText({ text, className = '' }: CopyableTextProps) {
+export default function CopyableText({ text, className = '', iconOnly = false }: CopyableTextProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -75,32 +77,39 @@ export default function CopyableText({ text, className = '' }: CopyableTextProps
     }
   };
 
+  const baseBtnCls = iconOnly
+    ? 'group relative inline-flex items-center align-middle'
+    : 'group relative inline-flex items-center gap-1.5';
+
   return (
     <button
       onClick={handleCopy}
       type="button"
-      className={`group relative inline-flex items-center gap-1.5 ${className}`}
-      title="クリックしてコピー"
+  aria-label={iconOnly ? `Copy: ${text}` : undefined}
+  className={`${baseBtnCls} ${className}`}
+  title="Click to copy"
     >
-      <span className="text-sm text-slate-600 font-mono truncate group-hover:text-[#04c4b6] transition-colors">
-        {text}
-      </span>
-      <svg 
-        className="w-4 h-4 text-slate-400 group-hover:text-[#04c4b6] transition-colors flex-shrink-0" 
-        fill="none" 
-        stroke="currentColor" 
+      {!iconOnly && (
+        <span className="text-sm text-slate-600 font-mono truncate group-hover:text-[#04c4b6] transition-colors">
+          {text}
+        </span>
+      )}
+      <svg
+        className={`w-4 h-4 text-slate-400 group-hover:text-[#04c4b6] transition-colors flex-shrink-0`}
+        fill="none"
+        stroke="currentColor"
         viewBox="0 0 24 24"
         strokeWidth={2}
       >
         {copied ? (
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         ) : (
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
         )}
       </svg>
       {copied && (
         <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap animate-in fade-in slide-in-from-bottom-2 duration-200 z-10">
-          コピーしました！
+          Copied!
         </span>
       )}
     </button>

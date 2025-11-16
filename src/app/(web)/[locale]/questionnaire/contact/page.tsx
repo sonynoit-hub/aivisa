@@ -1,6 +1,9 @@
 import { ContactForm } from "@/features/questionnaire/ContactForm";
 import { getTranslations } from "next-intl/server";
-import { defaultLocale } from "@/i18n/locales";
+import { defaultLocale, locales, type Locale, ogLocaleMap } from "@/i18n/locales";
+import type { Metadata } from "next";
+import { site } from "@/config/site";
+import { getSeoMeta } from "@/config/seo-tags";
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -23,4 +26,22 @@ export default async function ContactPage({ params }: Params) {
       </div>
     </main>
   );
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const base = site.baseUrl.replace(/\/$/, "");
+  const url = `${base}/${locale}/questionnaire/contact`;
+  const languages: Record<string, string> = {};
+  for (const l of locales) languages[l] = `${base}/${l}/questionnaire/contact`;
+
+  const staticMeta = getSeoMeta(locale, 'questionnaire/contact');
+  const title = (staticMeta as { title?: string }).title || 'Contact Us';
+
+  return {
+    title: `${title} | ${site.name}`,
+    alternates: { canonical: url, languages },
+    openGraph: { title: `${title} | ${site.name}`, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
+    twitter: { card: "summary", title: `${title} | ${site.name}` },
+  };
 }

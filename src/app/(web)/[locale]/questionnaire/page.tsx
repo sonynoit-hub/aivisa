@@ -1,4 +1,7 @@
 import { QuestionnaireForm } from "@/features/questionnaire/QuestionnaireForm";
+import type { Metadata } from 'next';
+import { getSeoMeta } from '@/config/seo-tags';
+import { locales, defaultLocale, type Locale } from '@/i18n/locales';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -10,4 +13,11 @@ export default async function QuestionnairePage({ params }: Props) {
       <QuestionnaireForm locale={locale} />
     </div>
   );
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const { locale: candidate } = await params;
+  const locale: Locale = candidate && (locales as readonly string[]).includes(candidate) ? (candidate as Locale) : defaultLocale;
+  const m = getSeoMeta(locale, 'questionnaire');
+  return { description: m.description, keywords: m.keywords };
 }

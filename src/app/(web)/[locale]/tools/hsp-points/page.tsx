@@ -10,7 +10,7 @@ type Section = { title: string; options?: Option[]; key: string; multiple?: bool
 
 export default function HspPointsPage() {
   const t = useTranslations("tools.hspPoints");
-  const [category, setCategory] = useState<Category>("research");
+  const [category, setCategory] = useState<Category>("tech");
   const [selectedOptions, setSelectedOptions] = useState<Record<string, number | number[]>>({});
 
   const sharedAcademicOptions: Option[] = useMemo(() => ([

@@ -8,6 +8,8 @@ import FooterGateClient from "@/components/layout/FooterGateClient";
 // TrackBootstrapClient removed; using AnalyticsInitClient to connect backend
 import AnalyticsEventsClient from "@/components/analytics/AnalyticsEventsClient";
 import AnalyticsInitClient from "@/components/analytics/AnalyticsInitClient";
+import type { Metadata } from 'next';
+import { getSeoMeta } from '@/config/seo-tags';
 
 // 可提到 config 里统一管理
 const DEFAULT_TIME_ZONE = "Asia/Tokyo";
@@ -48,4 +50,18 @@ export default async function LocaleLayout({children, params}: Props) {
 // 让 Next 预生成所有本地化路径
 export function generateStaticParams() {
   return locales.map((l) => ({locale: l}));
+}
+
+// 为所有本地化页面提供默认的静态 meta（description/keywords），页面可自行覆盖
+export async function generateMetadata({ params }: { params: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const { locale: candidate } = await params;
+  const locale: Locale =
+    candidate && (locales as readonly string[]).includes(candidate)
+      ? (candidate as Locale)
+      : defaultLocale;
+  const m = getSeoMeta(locale);
+  return {
+    description: m.description,
+    keywords: m.keywords,
+  };
 }

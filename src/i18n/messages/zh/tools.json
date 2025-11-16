@@ -49,12 +49,12 @@
         "business": {"topUnis": "法务省指定大学毕业者", "investment": "从事投资管理业务相关工作", "supportedOrg": "支持机构业务", "foreignQual": "持有业务相关外国资格者", "jica": "完成法务省指定培训", "multipleDegrees": "多个学位", "innovation": "在接受创新支持的机构工作", "jlptN1": "JLPT N1 / 日语专业", "jlptN2": "JLPT N2", "japaneseGraduated": "日本大学毕业"}
       },
       "references": {
-        "agency": "Immigration Services Agency of Japan",
-        "heading": "Points calculation reference format",
-        "description": "The links below point to official reference templates. For the latest and authoritative requirements, always consult the agency's publications.",
-        "disclaimer": "The calculator is for reference only. Actual screening and points are determined by the Immigration Services Agency of Japan.",
-        "jpExcel": "Excel (Japanese)",
-        "enExcel": "Excel (English)"
+        "agency": "日本出入国在留管理厅",
+        "heading": "积分计算表参考样式",
+        "description": "以下链接为官方参考样式。请以出入国在留管理厅公开资料为准。",
+        "disclaimer": "本工具的计算结果仅供参考。实际审查与积分认定以出入国在留管理厅的判断为准。",
+        "jpExcel": "Excel（日语）",
+        "enExcel": "Excel（英语）"
       }
     }
   }

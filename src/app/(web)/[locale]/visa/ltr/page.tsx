@@ -1,4 +1,4 @@
-import { createVisaStaticPage } from '../_common/VisaStaticPage';
+import { createVisaStaticPage, buildVisaStaticMetadata } from '../_common/VisaStaticPage';
 import LtrDocs from '@/features/visa/LtrDocs';
 import { staticVisaPageMessages } from '@/i18n/messages/visaPages';
 
@@ -9,3 +9,4 @@ export default createVisaStaticPage('long-term-resident', 'ltr', LtrDocs, {
 	showHtml: false,
 	staticI18n: staticVisaPageMessages('ltr'),
 });
+export const generateMetadata = buildVisaStaticMetadata('long-term-resident', 'ltr', { staticI18n: staticVisaPageMessages('ltr') });

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import dynamic from "next/dynamic";
 const FaqClient = dynamic(() => import("./FaqClient"), { ssr: true });
 import { site } from "@/config/site";
+import { getSeoMeta } from "@/config/seo-tags";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -37,7 +38,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `${base}/${l}/about/faq`;
 
-  let title = "FAQ";
   let description = "Frequently asked questions about our platform.";
   let keywords: string[] | undefined;
   try {
@@ -46,21 +46,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const def = (root.default && typeof root.default === 'object') ? (root.default as Record<string, unknown>) : undefined;
     const about = (def?.about && typeof def.about === 'object') ? (def.about as Record<string, unknown>) : undefined;
     const data = (about?.faq && typeof about.faq === 'object') ? (about.faq as Record<string, unknown>) : {};
-    const t = typeof data.seoTitle === 'string' ? data.seoTitle : undefined;
     const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined;
     const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string');
-    title = t || title;
     description = d || description;
     keywords = k;
   } catch {}
 
+  // 优先使用静态 SEO 配置中的标题/描述/关键词（若未设置则回退到上面的 i18n 结果）
+  const staticMeta = getSeoMeta(locale as Locale, 'about/faq');
+  const finalTitle = (staticMeta as { title?: string }).title || 'FAQ';
+  const finalDescription = staticMeta.description || description;
+  const finalKeywords = staticMeta.keywords || keywords;
+
   return {
-    title: `${title} | ${site.name}`,
-    description,
-    keywords,
+    // 使用 absolute 避免再追加站点后缀（centralized 标题已含品牌）
+    title: { absolute: finalTitle },
+    description: finalDescription,
+    keywords: finalKeywords,
     robots: { index: false, follow: false },
     alternates: { canonical: url, languages },
-    openGraph: { title: `${title} | ${site.name}`, description, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
-    twitter: { card: "summary_large_image", title: `${title} | ${site.name}`, description },
+    openGraph: { title: finalTitle, description: finalDescription, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
+    twitter: { card: "summary_large_image", title: finalTitle, description: finalDescription },
   };
 }

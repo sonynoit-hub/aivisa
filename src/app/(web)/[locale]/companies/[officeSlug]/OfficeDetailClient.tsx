@@ -371,9 +371,15 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                         <div className="text-slate-800 text-sm leading-relaxed">
                           {addressZip && <div className="font-medium">〒{addressZip}</div>}
                           {addressLineNoZip && (
-                            <div className="min-w-0 flex items-center gap-2 whitespace-nowrap">
-                              <span className="truncate">{addressLineNoZip}</span>
-                              <CopyableText text={addressCopy} className="[&>span:first-child]:sr-only text-slate-600 hover:text-[#04c4b6] shrink-0" />
+                            <div className="min-w-0">
+                              <p className="text-sm leading-relaxed break-words">
+                                <span>{addressLineNoZip}</span>
+                                <CopyableText
+                                  text={addressCopy}
+                                  iconOnly
+                                  className="ml-2 text-slate-400 hover:text-[#04c4b6]"
+                                />
+                              </p>
                             </div>
                           )}
                         </div>

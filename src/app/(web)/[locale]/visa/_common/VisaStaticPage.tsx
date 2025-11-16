@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { VisaIconBySlug } from '@/features/visa/components/VisaIcon';
 import { site } from '@/config/site';
 import type { ComponentType } from 'react';
+import { getSeoMeta } from '@/config/seo-tags';
 import type { VisaPageI18n } from '@/i18n/messages/visaPages';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -18,55 +19,61 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
   extra?: ComponentType<{ locale: string; studyDocs?: TDocs; studyDocsMeta?: TMeta }>,
   opts: StaticPageOptions = {}
 ) {
-  async function loadLocalizedContent(locale: string) {
+  // 供页面与元数据共用的加载函数工厂
+  function makeLoadLocalizedContent(locale: string) {
     const tryLocales = [locale, 'en', 'ja'];
-    // 1) Prefer statically imported i18n when provided (to satisfy Turbopack HMR)
-    if (opts.staticI18n) {
-      for (const loc of tryLocales) {
-        const data = opts.staticI18n[loc];
-        if (data) {
-          return {
-            title: typeof data.title === 'string' ? data.title : undefined,
-            summary: typeof data.summary === 'string' ? data.summary : undefined,
-            html: typeof data.html === 'string' ? data.html : undefined,
-            studyDocs: data.studyDocs,
-            studyDocsMeta: {
-              stageLabels: data.stageLabels,
-              categoryLabels: data.categoryLabels,
-              title: data.docsTitle,
-              tips: data.tips,
-              stageTips: data.stageTips,
-              ui: data.ui,
-              actions: data.actions,
-            },
-          } as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
+    return {
+      async run() {
+        // 1) Prefer statically imported i18n when provided (to satisfy Turbopack HMR)
+        if (opts.staticI18n) {
+          for (const loc of tryLocales) {
+            const data = opts.staticI18n![loc as keyof typeof opts.staticI18n];
+            if (data) {
+              return {
+                title: typeof data.title === 'string' ? data.title : undefined,
+                summary: typeof data.summary === 'string' ? data.summary : undefined,
+                html: typeof data.html === 'string' ? data.html : undefined,
+                studyDocs: (data as any).studyDocs,
+                studyDocsMeta: {
+                  stageLabels: (data as any).stageLabels,
+                  categoryLabels: (data as any).categoryLabels,
+                  title: (data as any).docsTitle,
+                  tips: (data as any).tips,
+                  stageTips: (data as any).stageTips,
+                  ui: (data as any).ui,
+                  actions: (data as any).actions,
+                },
+              } as any;
+            }
+          }
         }
+        // 2) Fallback to dynamic import for other pages
+        for (const loc of tryLocales) {
+          try {
+            const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
+            const data = (mod as { default?: VisaPageI18n }).default || {};
+            return {
+              title: typeof (data as any).title === 'string' ? (data as any).title : undefined,
+              summary: typeof (data as any).summary === 'string' ? (data as any).summary : undefined,
+              html: typeof (data as any).html === 'string' ? (data as any).html : undefined,
+              studyDocs: (data as any).studyDocs,
+              studyDocsMeta: {
+                stageLabels: (data as any).stageLabels,
+                categoryLabels: (data as any).categoryLabels,
+                title: (data as any).docsTitle,
+                tips: (data as any).tips,
+                stageTips: (data as any).stageTips,
+                ui: (data as any).ui,
+                actions: (data as any).actions,
+              },
+            } as any;
+          } catch {}
+        }
+        return {} as any;
       }
-    }
-    // 2) Fallback to dynamic import for other pages
-    for (const loc of tryLocales) {
-      try {
-        const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
-        const data = (mod as { default?: VisaPageI18n }).default || {};
-        return {
-          title: typeof data.title === 'string' ? data.title : undefined,
-          summary: typeof data.summary === 'string' ? data.summary : undefined,
-          html: typeof data.html === 'string' ? data.html : undefined,
-          studyDocs: data.studyDocs,
-          studyDocsMeta: {
-            stageLabels: data.stageLabels,
-            categoryLabels: data.categoryLabels,
-            title: data.docsTitle,
-            tips: data.tips,
-            stageTips: data.stageTips,
-            ui: data.ui,
-            actions: data.actions,
-          },
-        } as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
-      } catch {}
-    }
-  return {} as Partial<{ title: string; summary: string; html: string; studyDocs: TDocs; studyDocsMeta: TMeta }>;
+    };
   }
+  async function loadLocalizedContent(locale: string) { return makeLoadLocalizedContent(locale).run(); }
   async function Page({ params }: Props) {
     const { locale } = await params;
     if (!(locales as readonly string[]).includes(locale) || !visaCatalog.some(v => v.slug === catalogSlug)) {
@@ -121,7 +128,9 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
     const currentUrl = `${base}/${locale}/visa/${shortPath}`;
     const v = visaCatalog.find(x => x.slug === catalogSlug)!;
     const local = await loadLocalizedContent(locale);
-    const title = local.title || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
+  // 优先采用集中 SEO 配置中的标题（若未设置则回退到文案/i18n/默认名）
+  const staticMeta = getSeoMeta(locale as Locale, `visa/${shortPath}`);
+  const title = (staticMeta as { title?: string }).title || local.title || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
     const description = (local.summary || '').trim();
     const keywords: string[] = [
       title,
@@ -136,14 +145,66 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
     const alternates: Record<string, string> = {};
     for (const l of locales) alternates[l] = `${base}/${l}/visa/${shortPath}`;
     return {
-      title: `${title} | ${site.name}`,
+      // 用户要求标题直接用“分类名-国家签证”等，不追加品牌名
+      title: title,
       description: description || undefined,
       keywords,
       alternates: { canonical: currentUrl, languages: alternates },
-      openGraph: { title: `${title} | ${site.name}`, description: description || undefined, url: currentUrl, type: 'article', siteName: site.name, locale: ogLocaleMap[locale as Locale] },
-      twitter: { card: 'summary_large_image', title: `${title} | ${site.name}`, description: description || undefined },
+      openGraph: { title: title, description: description || undefined, url: currentUrl, type: 'article', siteName: site.name, locale: ogLocaleMap[locale as Locale] },
+      twitter: { card: 'summary_large_image', title: title, description: description || undefined },
     };
   }
 
   return Object.assign(Page, { generateMetadata });
+}
+
+// 导出：为每个 page.tsx 单独导出 generateMetadata（Next.js 需要模块级命名导出）
+export function buildVisaStaticMetadata(
+  catalogSlug: string,
+  shortPath: string,
+  opts: StaticPageOptions = {}
+) {
+  return async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    if (!(locales as readonly string[]).includes(locale)) return {};
+    const base = site.baseUrl.replace(/\/$/, '');
+    const currentUrl = `${base}/${locale}/visa/${shortPath}`;
+    const v = visaCatalog.find(x => x.slug === catalogSlug)!;
+
+    // 与页面一致的本地化加载
+    async function loadLocalized(locale0: string) {
+      const tryLocales = [locale0, 'en', 'ja'];
+      if (opts.staticI18n) {
+        for (const loc of tryLocales) {
+          const data = (opts.staticI18n as any)[loc];
+          if (data) return data as any;
+        }
+      }
+      for (const loc of tryLocales) {
+        try {
+          const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
+          return ((mod as any).default || {}) as any;
+        } catch {}
+      }
+      return {} as any;
+    }
+
+  const data = await loadLocalized(locale);
+  const staticMeta = getSeoMeta(locale as Locale, `visa/${shortPath}`);
+  const title = (staticMeta as { title?: string }).title || (data.title as string | undefined) || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
+  // 使用集中配置的描述与关键词
+  const description = staticMeta.description;
+  const keywords = staticMeta.keywords;
+    const alternates: Record<string, string> = {};
+    for (const l of locales) alternates[l] = `${base}/${l}/visa/${shortPath}`;
+
+    return {
+      title: title,
+      description,
+      keywords,
+      alternates: { canonical: currentUrl, languages: alternates },
+      openGraph: { title: title, description, url: currentUrl, type: 'article', siteName: site.name, locale: ogLocaleMap[locale as Locale] },
+      twitter: { card: 'summary_large_image', title: title, description },
+    };
+  };
 }

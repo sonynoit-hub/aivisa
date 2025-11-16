@@ -1,4 +1,4 @@
-import { createVisaStaticPage } from '../_common/VisaStaticPage';
+import { createVisaStaticPage, buildVisaStaticMetadata } from '../_common/VisaStaticPage';
 import TitDocs from '@/features/visa/TitDocs';
 import { staticVisaPageMessages } from '@/i18n/messages/visaPages';
 
@@ -9,3 +9,4 @@ export default createVisaStaticPage('technical-intern-training', 'tit', TitDocs,
 	showHtml: false,
 	staticI18n: staticVisaPageMessages('tit'),
 });
+export const generateMetadata = buildVisaStaticMetadata('technical-intern-training', 'tit', { staticI18n: staticVisaPageMessages('tit') });

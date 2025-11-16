@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 
 type Msg = { role: "user" | "ai"; text: string; streaming?: boolean; id?: number; feedback?: "up" | "down" };
 
+
 // 将模型输出标准化为更易读的 Markdown：
 // - 合并“1.”独立一行与其后首个非空行
 // - 标准化编号标点 (1)、1、 1、 -> 1.
