@@ -21,18 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = staticMeta.description;
   const keywords = staticMeta.keywords;
   return {
-    title: `${title} | ${site.name}`,
+    title: title,
     description,
     keywords,
     alternates: { canonical: current, languages },
     openGraph: {
-      title: `${title} | ${site.name}`,
+      title: title,
       description,
       url: current,
       siteName: site.name,
       locale: ogLocaleMap[locale] || "en_US",
       type: "website",
     },
-    twitter: { card: "summary_large_image", title: `${title} | ${site.name}`, description },
+    twitter: { card: "summary_large_image", title: title, description },
   };
 }

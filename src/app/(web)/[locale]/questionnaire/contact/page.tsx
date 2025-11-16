@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const title = (staticMeta as { title?: string }).title || 'Contact Us';
 
   return {
-    title: `${title} | ${site.name}`,
+    title: title,
     alternates: { canonical: url, languages },
-    openGraph: { title: `${title} | ${site.name}`, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
-    twitter: { card: "summary", title: `${title} | ${site.name}` },
+    openGraph: { title: title, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
+    twitter: { card: "summary", title: title },
   };
 }

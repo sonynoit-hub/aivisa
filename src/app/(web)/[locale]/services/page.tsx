@@ -38,19 +38,19 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   } catch {}
 
   return {
-    title: `${title} | ${site.name}`,
+    title: title,
     description,
     keywords,
     robots: { index: false, follow: false },
     alternates: { canonical: path, languages },
     openGraph: {
-      title: `${title} | ${site.name}`,
+      title: title,
       description,
       url: path,
       siteName: site.name,
       locale: ogLocaleMap[locale],
       type: "website",
     },
-    twitter: { card: "summary_large_image", title: `${title} | ${site.name}`, description },
+    twitter: { card: "summary_large_image", title: title, description },
   };
 }

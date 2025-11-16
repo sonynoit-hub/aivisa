@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { description, keywords } = staticMeta;
 
   return {
-    title: `${title} | ${site.name}`,
+    title: title,
     description,
     keywords,
     alternates: { canonical: url, languages },
-    openGraph: { title: `${title} | ${site.name}`, description: description, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
-    twitter: { card: "summary_large_image", title: `${title} | ${site.name}`, description: description },
+    openGraph: { title: title, description: description, url, siteName: site.name, locale: ogLocaleMap[locale], type: "website" },
+    twitter: { card: "summary_large_image", title: title, description: description },
   };
 }
