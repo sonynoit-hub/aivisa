@@ -2,7 +2,7 @@ import { ContactForm } from "@/features/questionnaire/ContactForm";
 import { getTranslations } from "next-intl/server";
 import { defaultLocale, locales, type Locale, ogLocaleMap } from "@/i18n/locales";
 import type { Metadata } from "next";
-import { site } from "@/config/site";
+import { site, getPublicBaseUrl } from "@/config/site";
 import { getSeoMeta } from "@/config/seo-tags";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -30,7 +30,7 @@ export default async function ContactPage({ params }: Params) {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const base = site.baseUrl.replace(/\/$/, "");
+  const base = await getPublicBaseUrl();
   const url = `${base}/${locale}/questionnaire/contact`;
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `${base}/${l}/questionnaire/contact`;

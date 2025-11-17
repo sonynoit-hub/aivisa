@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
-import { site } from "@/config/site";
+import { locales, type Locale, ogLocaleMap, defaultLocale } from "@/i18n/locales";
+import { site, getPublicBaseUrl } from "@/config/site";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -15,14 +15,14 @@ export default function ServicesPage() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const base = site.baseUrl.replace(/\/$/, "");
+  const base = await getPublicBaseUrl();
   const path = `${base}/${locale}/services`;
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `${base}/${l}/services`;
+  languages["x-default"] = `${base}/${defaultLocale}/services`;
 
   let title = "Services";
   let description = "Our visa-related services and offerings.";
-  let keywords: string[] | undefined;
   try {
     const mod = await import(`@/i18n/messages/${locale}/services.json`);
     const root = (mod && typeof mod === 'object') ? (mod as Record<string, unknown>) : {};
@@ -31,16 +31,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const data = (services?.index && typeof services.index === 'object') ? (services.index as Record<string, unknown>) : {};
     const t = typeof data.seoTitle === 'string' ? data.seoTitle : undefined;
     const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined;
-    const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string');
     title = t || title;
     description = d || description;
-    keywords = k;
   } catch {}
 
   return {
     title: title,
     description,
-    keywords,
     robots: { index: false, follow: false },
     alternates: { canonical: path, languages },
     openGraph: {

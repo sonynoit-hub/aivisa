@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { site } from '@/config/site';
+import { getPublicBaseUrl } from '@/config/site';
 
-export default function robots(): MetadataRoute.Robots {
-  const base = site.baseUrl.replace(/\/$/, '');
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const base = await getPublicBaseUrl();
   return {
     rules: {
       userAgent: '*',

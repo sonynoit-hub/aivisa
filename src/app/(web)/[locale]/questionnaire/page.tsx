@@ -19,5 +19,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale?: 
   const { locale: candidate } = await params;
   const locale: Locale = candidate && (locales as readonly string[]).includes(candidate) ? (candidate as Locale) : defaultLocale;
   const m = getSeoMeta(locale, 'questionnaire');
-  return { description: m.description, keywords: m.keywords };
+  return { description: m.description };
 }

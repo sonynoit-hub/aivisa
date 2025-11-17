@@ -52,7 +52,7 @@ export function generateStaticParams() {
   return locales.map((l) => ({locale: l}));
 }
 
-// 为所有本地化页面提供默认的静态 meta（description/keywords），页面可自行覆盖
+// 为所有本地化页面提供默认的静态 meta（description），页面可自行覆盖
 export async function generateMetadata({ params }: { params: Promise<{ locale?: string }> }): Promise<Metadata> {
   const { locale: candidate } = await params;
   const locale: Locale =
@@ -62,6 +62,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale?: 
   const m = getSeoMeta(locale);
   return {
     description: m.description,
-    keywords: m.keywords,
   };
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { locales, type Locale, ogLocaleMap } from '@/i18n/locales'
-import { site } from '@/config/site'
+import { locales, type Locale, ogLocaleMap, defaultLocale } from '@/i18n/locales'
+import { site, getPublicBaseUrl } from '@/config/site'
 
 // 避免构建期预渲染触发 CSR bailout 的 Suspense 要求
 export const dynamic = 'force-dynamic'
@@ -24,14 +24,14 @@ export default async function ResourcesIndexPage({ params }: Params) {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const base = site.baseUrl.replace(/\/$/, '')
+  const base = await getPublicBaseUrl();
   const url = `${base}/${locale}/resources`
   const languages: Record<string, string> = {}
   for (const l of locales) languages[l] = `${base}/${l}/resources`
+  languages["x-default"] = `${base}/${defaultLocale}/resources`
 
   let title = 'Resources'
   let description = 'Guides, samples and helpful visa resources.'
-  let keywords: string[] | undefined
   try {
     const mod = await import(`@/i18n/messages/${locale}/resources.json`)
     const root = (mod && typeof mod === 'object') ? (mod as Record<string, unknown>) : {}
@@ -40,16 +40,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const data = (resources?.index && typeof resources.index === 'object') ? (resources.index as Record<string, unknown>) : {}
     const t = typeof data.seoTitle === 'string' ? data.seoTitle : undefined
     const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined
-    const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string')
     title = t || title
     description = d || description
-    keywords = k
   } catch {}
 
   return {
     title: title,
     description,
-    keywords,
     robots: { index: false, follow: false },
     alternates: { canonical: url, languages },
     openGraph: { title: title, description, url, siteName: site.name, locale: ogLocaleMap[locale], type: 'website' },

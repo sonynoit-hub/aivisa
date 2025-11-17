@@ -2,11 +2,12 @@ import type { MetadataRoute } from 'next';
 import { locales } from '@/i18n/locales';
 import { visaCatalog } from '@/data/visaCatalog';
 import { catalogToShort } from '@/features/visa/lib/pathMap';
-import { site } from '@/config/site';
+import { getPublicBaseUrl } from '@/config/site';
 
-const base = site.baseUrl.replace(/\/$/, '');
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const base = await getPublicBaseUrl();
+  // 生产环境下若仍是 localhost，尽量不抛出致命错误，改为安全回退（不包含域名的 URL 会被搜索引擎视为相对路径）
+  // 推荐仍在平台环境变量中设置 NEXT_PUBLIC_SITE_URL 来保证绝对 URL。
   const pages: MetadataRoute.Sitemap = [];
 
   // 首页

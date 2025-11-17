@@ -1,7 +1,7 @@
 import path from "node:path";
 import fs from "node:fs/promises";
 import type { Metadata } from "next";
-import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
+import { locales, type Locale, ogLocaleMap, defaultLocale } from "@/i18n/locales";
 import { site } from "@/config/site";
 import { getSeoMeta } from "@/config/seo-tags";
 import Markdown from "@/components/common/Markdown";
@@ -30,36 +30,18 @@ export default async function PrivacyPolicy(
 type Params = { params: Promise<{ locale: Locale }> };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const base = site.baseUrl.replace(/\/$/, "");
-  const url = `${base}/${locale}/legal/privacy`;
+  const url = `/${locale}/legal/privacy`;
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `${base}/${l}/legal/privacy`;
+  for (const l of locales) languages[l] = `/${l}/legal/privacy`;
+  languages["x-default"] = `/${defaultLocale}/legal/privacy`;
 
-  let description = "Our commitment to protecting your privacy.";
-  let keywords: string[] | undefined;
-  try {
-    const mod = await import(`@/i18n/messages/${locale}/legal.json`);
-    const root = (mod && typeof mod === 'object') ? (mod as Record<string, unknown>) : {};
-    const def = (root.default && typeof root.default === 'object') ? (root.default as Record<string, unknown>) : undefined;
-    const legal = (def?.legal && typeof def.legal === 'object') ? (def.legal as Record<string, unknown>) : undefined;
-    const data = (legal?.privacy && typeof legal.privacy === 'object') ? (legal.privacy as Record<string, unknown>) : {};
-    const d = typeof data.seoDescription === 'string' ? data.seoDescription : undefined;
-    const k = (Array.isArray(data.seoKeywords as unknown) ? (data.seoKeywords as unknown[]) : undefined)?.filter((x): x is string => typeof x === 'string');
-    description = d || description;
-    keywords = k;
-  } catch {}
-
-  // 从集中配置获取标题/描述/关键词；描述/关键词若缺失则回退到上面的 i18n 结果
   const staticMeta = getSeoMeta(locale as Locale, 'legal/privacy');
   const finalTitle = (staticMeta as { title?: string }).title || 'Privacy Policy';
-  const finalDescription = staticMeta.description || description;
-  const finalKeywords = staticMeta.keywords || keywords;
+  const finalDescription = staticMeta.description || 'Our policy for protecting and handling your personal data.';
 
   return {
-    // 使用 absolute 避免模板追加站点名（集中配置已包含品牌）
     title: { absolute: finalTitle },
     description: finalDescription,
-    keywords: finalKeywords,
     robots: { index: false, follow: false },
     alternates: { canonical: url, languages },
     openGraph: { title: finalTitle, description: finalDescription, url, siteName: site.name, locale: ogLocaleMap[locale], type: "article" },

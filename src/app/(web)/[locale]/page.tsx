@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
+import { locales, type Locale, ogLocaleMap, defaultLocale } from "@/i18n/locales";
 import { site } from "@/config/site";
 import dynamic from "next/dynamic";
 import { getSeoMeta } from "@/config/seo-tags";
@@ -13,21 +13,20 @@ export default function Page(_: Props) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const base = site.baseUrl.replace(/\/$/, "");
-  const current = `${base}/${locale}`;
+  const current = `/${locale}`;
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `${base}/${l}`;
-  // 使用静态配置写死 title/description/keywords（若未配置再回退到原逻辑）
+  for (const l of locales) languages[l] = `/${l}`;
+  // 为语言备用版本提供 x-default（指向站点默认语言首页）
+  languages["x-default"] = "/";
+  // 使用静态配置写死 title/description（若未配置再回退到原逻辑）
   const staticMeta = getSeoMeta(locale, 'home');
   const title = (staticMeta as { title?: string }).title || 'AIVisa';
   const description = staticMeta.description;
-  const keywords = staticMeta.keywords;
   const ogLocale = ogLocaleMap[locale];
 
   return {
     title: title,
     description,
-    keywords,
     alternates: { canonical: current, languages },
     openGraph: {
       title: title,

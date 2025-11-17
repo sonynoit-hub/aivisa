@@ -1,6 +1,6 @@
 import { getVisaDetail } from '@/lib/api/services/visa.service';
 import { visaCatalog } from '@/data/visaCatalog';
-import { locales, type Locale, ogLocaleMap } from '@/i18n/locales';
+import { locales, type Locale, ogLocaleMap, defaultLocale } from '@/i18n/locales';
 import { notFound } from 'next/navigation';
 import { sanitizeHtml } from '@/lib/utils/sanitize';
 import type { Metadata } from 'next';
@@ -110,9 +110,9 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
               '@context': 'https://schema.org',
               '@type': 'BreadcrumbList',
               itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/${locale}` },
-                { '@type': 'ListItem', position: 2, name: 'Visa', item: `${site.baseUrl}/${locale}/visa` },
-                { '@type': 'ListItem', position: 3, name: local.title || detail.title, item: `${site.baseUrl}/${locale}/visa/${shortPath}` },
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `/${locale}` },
+                { '@type': 'ListItem', position: 2, name: 'Visa', item: `/${locale}/visa` },
+                { '@type': 'ListItem', position: 3, name: local.title || detail.title, item: `/${locale}/visa/${shortPath}` },
               ]
             })
           }}
@@ -124,31 +124,22 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
   async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale } = await params;
     if (!(locales as readonly string[]).includes(locale)) return {};
-    const base = site.baseUrl.replace(/\/$/, '');
-    const currentUrl = `${base}/${locale}/visa/${shortPath}`;
+    const currentUrl = `/${locale}/visa/${shortPath}`;
     const v = visaCatalog.find(x => x.slug === catalogSlug)!;
     const local = await loadLocalizedContent(locale);
   // 优先采用集中 SEO 配置中的标题（若未设置则回退到文案/i18n/默认名）
   const staticMeta = getSeoMeta(locale as Locale, `visa/${shortPath}`);
   const title = (staticMeta as { title?: string }).title || local.title || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
     const description = (local.summary || '').trim();
-    const keywords: string[] = [
-      title,
-      'visa', 'status of residence',
-      'documents', 'requirements',
-      // localized common tokens
-      ...(locale === 'ja' ? ['在留資格', '必要書類', '要件'] : []),
-      ...(locale === 'zh' ? ['在留资格', '所需材料', '申请条件'] : []),
-      ...(locale === 'ko' ? ['재류자격', '필요서류', '요건'] : []),
-      ...(locale === 'vi' ? ['tư cách lưu trú', 'hồ sơ', 'yêu cầu'] : []),
-    ];
-    const alternates: Record<string, string> = {};
-    for (const l of locales) alternates[l] = `${base}/${l}/visa/${shortPath}`;
+    // legacy keywords removed per SEO policy
+  const alternates: Record<string, string> = {};
+  for (const l of locales) alternates[l] = `/${l}/visa/${shortPath}`;
+  // 为搜索引擎提供 x-default（指向默认语言对应页）
+  alternates['x-default'] = `/${defaultLocale}/visa/${shortPath}`;
     return {
       // 用户要求标题直接用“分类名-国家签证”等，不追加品牌名
       title: title,
       description: description || undefined,
-      keywords,
       alternates: { canonical: currentUrl, languages: alternates },
       openGraph: { title: title, description: description || undefined, url: currentUrl, type: 'article', siteName: site.name, locale: ogLocaleMap[locale as Locale] },
       twitter: { card: 'summary_large_image', title: title, description: description || undefined },
@@ -167,8 +158,7 @@ export function buildVisaStaticMetadata(
   return async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     if (!(locales as readonly string[]).includes(locale)) return {};
-    const base = site.baseUrl.replace(/\/$/, '');
-    const currentUrl = `${base}/${locale}/visa/${shortPath}`;
+    const currentUrl = `/${locale}/visa/${shortPath}`;
     const v = visaCatalog.find(x => x.slug === catalogSlug)!;
 
     // 与页面一致的本地化加载
@@ -194,14 +184,14 @@ export function buildVisaStaticMetadata(
   const title = (staticMeta as { title?: string }).title || (data.title as string | undefined) || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
   // 使用集中配置的描述与关键词
   const description = staticMeta.description;
-  const keywords = staticMeta.keywords;
-    const alternates: Record<string, string> = {};
-    for (const l of locales) alternates[l] = `${base}/${l}/visa/${shortPath}`;
+  const alternates: Record<string, string> = {};
+  for (const l of locales) alternates[l] = `/${l}/visa/${shortPath}`;
+  // 为搜索引擎提供 x-default（指向默认语言对应页）
+  alternates['x-default'] = `/${defaultLocale}/visa/${shortPath}`;
 
     return {
       title: title,
       description,
-      keywords,
       alternates: { canonical: currentUrl, languages: alternates },
       openGraph: { title: title, description, url: currentUrl, type: 'article', siteName: site.name, locale: ogLocaleMap[locale as Locale] },
       twitter: { card: 'summary_large_image', title: title, description },

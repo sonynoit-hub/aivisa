@@ -5,10 +5,13 @@ import HtmlLangSync from "@/components/layout/HtmlLangSync";
 import Script from "next/script";
 import RouteTrackerClient from "@/components/analytics/RouteTrackerClient";
 import { Suspense } from "react";
-
-export const metadata = {
+import type { Metadata } from 'next';
+import { site } from '@/config/site';
+export const metadata: Metadata = {
   title: "aivisa",
-  description: "A multilingual visa information platform"
+  description: "A multilingual visa information platform",
+  // 使用静态 metadataBase（来自配置），避免首屏等待异步计算
+  metadataBase: new URL(site.baseUrl),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
