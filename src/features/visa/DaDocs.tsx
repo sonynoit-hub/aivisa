@@ -25,7 +25,7 @@ export default function DaDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         storageKey="daDocs:checks"
         categoryOrder={categoryOrder}
         colors={CAT_COLORS}
-        studyDocs={studyDocs as any}
+        studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
   <AdSection page="detail" slot="detail_bottom" categorySlug="da" locale={locale} />

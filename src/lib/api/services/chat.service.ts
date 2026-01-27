@@ -8,13 +8,13 @@ export function getChatLimits(opts?: { timeoutMs?: number; signal?: AbortSignal 
 }
 
 export function sendChat(prompt: string, opts?: { timeoutMs?: number; signal?: AbortSignal; conversationId?: string }) {
-  const body: any = { prompt };
+  const body: Record<string, unknown> = { prompt };
   if (opts?.conversationId) body.conversationId = opts.conversationId;
   return apiPost<ChatAnswer>("/api/chat", body, opts);
 }
 
 export function sendChatWithRate(prompt: string, opts?: { timeoutMs?: number; signal?: AbortSignal; conversationId?: string }) {
-  const body: any = { prompt };
+  const body: Record<string, unknown> = { prompt };
   if (opts?.conversationId) body.conversationId = opts.conversationId;
   return apiPostWithMeta<ChatAnswer>("/api/chat", body, opts) as Promise<ApiResponse<ChatAnswer>>;
 }
@@ -24,8 +24,8 @@ export async function streamChat(
   opts: {
     conversationId?: string;
     signal?: AbortSignal;
-    onEvent?: (ev: { event: string; data?: any }) => void;
-    onMessage?: (data: any) => void;
+    onEvent?: (ev: { event: string; data?: unknown }) => void;
+    onMessage?: (data: unknown) => void;
     onDone?: () => void;
     onError?: (message: string) => void;
   } = {}
@@ -45,11 +45,12 @@ export async function streamChat(
       if (text) {
         // 尝试解析 JSON 错误响应
         try {
-          const errorData = JSON.parse(text);
-          if (errorData.code === 'BACKEND_UNREACHABLE') {
+          const errorData: unknown = JSON.parse(text);
+          const rec = (errorData && typeof errorData === 'object') ? (errorData as Record<string, unknown>) : undefined;
+          if (rec?.code === 'BACKEND_UNREACHABLE') {
             errorMessage = 'BACKEND_UNREACHABLE';
-          } else if (errorData.message) {
-            errorMessage = errorData.message;
+          } else if (typeof rec?.message === 'string' && rec.message) {
+            errorMessage = rec.message;
           }
         } catch {
           // 如果不是 JSON，直接使用文本
@@ -78,7 +79,7 @@ export async function streamChat(
         // Do NOT trim. Some providers stream tokens prefixed with a space.
         // Trimming would remove these and glue words together.
         const dataStr = line.slice(5);
-        let data: any = dataStr;
+        let data: unknown = dataStr;
         try { data = JSON.parse(dataStr); } catch {}
         opts.onMessage?.(data);
       }
@@ -93,8 +94,9 @@ export async function streamChat(
     }
     if (buffer) flush();
     opts.onDone?.();
-  } catch (e: any) {
-    opts.onError?.(e?.message || String(e));
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    opts.onError?.(msg);
     throw e;
   } finally {
     reader.releaseLock();

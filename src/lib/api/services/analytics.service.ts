@@ -8,7 +8,8 @@ export async function ensureAnon() {
 }
 
 export async function sha256Hex(input: string): Promise<string> {
-  if (typeof window === "undefined" || !(window as any).crypto?.subtle) {
+  const cryptoObj = typeof globalThis !== "undefined" ? globalThis.crypto : undefined;
+  if (typeof window === "undefined" || !cryptoObj?.subtle) {
     // 非浏览器或不支持 subtle，fallback 简易 hash（非安全，仅占位）
     let h = 0;
     for (let i = 0; i < input.length; i++) h = (h * 31 + input.charCodeAt(i)) >>> 0;
@@ -16,7 +17,7 @@ export async function sha256Hex(input: string): Promise<string> {
   }
   const enc = new TextEncoder();
   const data = enc.encode(input);
-  const buf = await ((window as any).crypto.subtle.digest("SHA-256", data) as Promise<ArrayBuffer>);
+  const buf = await cryptoObj.subtle.digest("SHA-256", data);
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
 }
 

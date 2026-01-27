@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { locales, type Locale, ogLocaleMap, defaultLocale } from "@/i18n/locales";
+import { locales, type Locale, ogLocaleMap } from "@/i18n/locales";
 import { site } from "@/config/site";
 import dynamic from "next/dynamic";
 import { getSeoMeta } from "@/config/seo-tags";

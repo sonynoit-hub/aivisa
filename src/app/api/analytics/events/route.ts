@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 	];
 	try {
 		const bodyText = await req.text();
-		let lastErr: any = null;
+		let lastErr: unknown = null;
 		for (const url of candidates) {
 			try {
 				serverDbg('POST', url, { body: bodyText });

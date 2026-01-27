@@ -14,7 +14,9 @@ export default function AdSlot({ page, slot, categorySlug, locale }: AdSlotProps
 
   useEffect(() => {
     let mounted = true;
-    setLoading(true);
+    queueMicrotask(() => {
+      if (mounted) setLoading(true);
+    });
     const params = { page, slot, categorySlug, locale: locale || "ja" } as const;
     if (DEBUG_ADS && typeof window !== 'undefined') console.debug('[ads] AdSlot:fetch', params);
     getAdByPlacement(params)

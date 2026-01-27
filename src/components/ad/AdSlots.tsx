@@ -14,7 +14,9 @@ export default function AdSlots({ page, slot, categorySlug, locale, limit }: AdS
 
   useEffect(() => {
     let mounted = true;
-    setLoading(true);
+    queueMicrotask(() => {
+      if (mounted) setLoading(true);
+    });
     const params: AdPlacementQuery = { page, slot, categorySlug, locale: locale || "ja" } as AdPlacementQuery;
     if (typeof limit === 'number') params.limit = limit; // 仅在明确传入时才限制
     if (DEBUG_ADS && typeof window !== 'undefined') console.debug('[ads] AdSlots:fetch', params);

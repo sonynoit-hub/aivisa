@@ -36,8 +36,9 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ threadId: 
       headers: buildBackendHeaders(req, { accept: "text/event-stream", contentType: "application/json" }),
       body: JSON.stringify(parsed.data),
     });
-  } catch (e: any) {
-    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: String(e?.message || e) }, { status: 502 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: msg }, { status: 502 });
   }
 
   return new NextResponse(r.body, { status: r.status, headers: pickRateHeaders(r, { sse: true }) });

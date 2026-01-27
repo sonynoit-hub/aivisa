@@ -4,8 +4,8 @@ import { runtimeConfig } from "@/config/runtime";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest, ctx: any) {
-  const slug = ctx?.params?.slug as string;
+export async function GET(req: NextRequest, ctx: { params: { slug: string } }) {
+  const slug = ctx.params.slug;
   const base = getBackendBase(false);
   if (!base) {
     return NextResponse.json(

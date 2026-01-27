@@ -17,9 +17,10 @@ export async function GET(req: NextRequest) {
     let limit = 0;
     let remaining = 0;
     try {
-      const data = (await r.json()) as any;
-      limit = Number(data?.limit ?? 0) || 0;
-      remaining = Number(data?.remaining ?? 0) || 0;
+      const data: unknown = await r.json();
+      const rec = (data && typeof data === 'object') ? (data as Record<string, unknown>) : undefined;
+      limit = Number(rec?.limit ?? 0) || 0;
+      remaining = Number(rec?.remaining ?? 0) || 0;
     } catch {
       // ignore
     }

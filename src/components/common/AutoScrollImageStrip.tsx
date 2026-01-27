@@ -24,13 +24,19 @@ export default function AutoScrollImageStrip({ images }: Props) {
   const cardsRef = useRef<HTMLElement[]>([]);
   const timerRef = useRef<number | null>(null);
   const indexRef = useRef(0);
-  const [prefersReduced, setPrefersReduced] = useState(false);
+  const [prefersReduced, setPrefersReduced] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch {
+      return false;
+    }
+  });
   const [isVisible, setIsVisible] = useState(true);
   const [isDocVisible, setIsDocVisible] = useState(true);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(mq.matches);
     const handler = () => setPrefersReduced(mq.matches);
     mq.addEventListener?.("change", handler);
     return () => mq.removeEventListener?.("change", handler);

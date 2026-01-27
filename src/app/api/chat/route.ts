@@ -37,9 +37,10 @@ export async function GET(req: NextRequest) {
       body: JSON.stringify({ message: q }),
     });
     return passthrough(r);
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
     return NextResponse.json(
-      { code: "BACKEND_UNREACHABLE", message: String(e?.message || e) },
+      { code: "BACKEND_UNREACHABLE", message: msg },
       { status: 502 }
     );
   }
@@ -65,7 +66,7 @@ export async function POST(req: NextRequest) {
   }
 
   // 后端需要 message 字段，这里做归一化
-  const payload: Record<string, any> = { message: prompt };
+  const payload: Record<string, unknown> = { message: prompt };
   if (typeof body?.conversationId === "string" && body.conversationId) {
     payload.conversationId = body.conversationId;
   }
@@ -80,9 +81,10 @@ export async function POST(req: NextRequest) {
       headers: buildBackendHeaders(req, { contentType: "application/json", extra: { "x-proxy": "next-bff-compat" } }),
       body: JSON.stringify(payload),
     });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
     return NextResponse.json(
-      { code: "BACKEND_UNREACHABLE", message: String(e?.message || e) },
+      { code: "BACKEND_UNREACHABLE", message: msg },
       { status: 502 }
     );
   }
@@ -92,10 +94,13 @@ export async function POST(req: NextRequest) {
     let answer: string | null = null;
     let conversationId: string | undefined;
     try {
-      const data = (await r.json()) as any;
+      const data: unknown = await r.json();
+      const rec = (data && typeof data === 'object') ? (data as Record<string, unknown>) : undefined;
       // 兼容后端返回字段名 reply
-      answer = typeof data?.answer === "string" ? data.answer : (typeof data?.reply === "string" ? data.reply : null);
-      if (typeof data?.conversationId === "string") conversationId = data.conversationId;
+      const a = rec?.answer;
+      const reply = rec?.reply;
+      answer = typeof a === "string" ? a : (typeof reply === "string" ? reply : null);
+      if (typeof rec?.conversationId === "string") conversationId = rec.conversationId;
     } catch {
       answer = null;
     }

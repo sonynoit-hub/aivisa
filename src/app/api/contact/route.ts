@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 		// Try multiple candidates (path + host) to maximize connectivity in dev
 		const doPost = async (url: string) => fetch(url, { method: "POST", headers, body: JSON.stringify(payload) });
 		let response: Response | null = null;
-		let lastErr: any = null;
+		let lastErr: unknown = null;
 		for (const url of candidates) {
 			try {
 				const r = await doPost(url);

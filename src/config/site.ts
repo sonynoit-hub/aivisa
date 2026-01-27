@@ -11,7 +11,6 @@ const rawBaseUrl =
 const normalizedBaseUrl = rawBaseUrl.replace(/\/$/, '');
 
 if (process.env.NODE_ENV === 'production' && /localhost|127\.0\.0\.1/.test(normalizedBaseUrl)) {
-  // eslint-disable-next-line no-console
   console.warn('[site] ⚠️ Production build detected a localhost baseUrl. Set NEXT_PUBLIC_SITE_URL=https://your-domain.example to fix canonical/hreflang/og:url/sitemap.');
 }
 

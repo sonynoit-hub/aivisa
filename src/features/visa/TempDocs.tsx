@@ -24,7 +24,7 @@ export default function TempDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         storageKey="tempDocs:checks"
         categoryOrder={categoryOrder}
         colors={CAT_COLORS}
-        studyDocs={studyDocs as any}
+        studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
   <AdSection page="detail" slot="detail_bottom" categorySlug="temp" locale={locale} />

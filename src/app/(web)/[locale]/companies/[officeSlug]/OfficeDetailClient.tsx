@@ -43,8 +43,11 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
 
   useEffect(() => {
     let mounted = true;
-    setLoading(true);
-    setError(null);
+    queueMicrotask(() => {
+      if (!mounted) return;
+      setLoading(true);
+      setError(null);
+    });
     getOfficeDetail(officeSlug, locale, { timeoutMs: 20000 })
       .then((res) => {
         if (mounted) setOffice(res);
@@ -498,7 +501,6 @@ export default function OfficeDetailClient({ locale, officeSlug }: Props) {
                     {snsEntries
                       .filter(([k]) => /(\bx\b|twitter|linkedin|facebook|^fb$|tiktok|youtube|youtu\.be|line)/i.test(k))
                       .map(([k, v]) => {
-                        const key = k.toLowerCase();
                         const isX = /(^x$|twitter)/i.test(k);
                         const isLinkedIn = /linkedin/i.test(k);
                         const isFacebook = /(facebook|^fb$)/i.test(k);

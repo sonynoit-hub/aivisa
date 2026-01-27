@@ -23,8 +23,8 @@ export async function POST(req: NextRequest) {
   const raw = await req.json().catch(() => ({}));
   const parsed = postBodySchema.safeParse(raw);
   if (!parsed.success) return NextResponse.json({ code: 'INVALID_INPUT', issues: parsed.error.flatten() }, { status: 400 });
-  const body = parsed.data as any;
-  const payload: Record<string, any> = { message: body.prompt ?? body.message ?? body.q ?? "" };
+  const body = parsed.data;
+  const payload: Record<string, unknown> = { message: body.prompt ?? body.message ?? body.q ?? "" };
   if (typeof body?.conversationId === "string" && body.conversationId) payload.conversationId = body.conversationId;
   if (typeof body?.model === "string") payload.model = body.model;
   if (typeof body?.language === "string") payload.language = body.language;
@@ -37,9 +37,10 @@ export async function POST(req: NextRequest) {
       headers: buildBackendHeaders(req, { accept: "text/event-stream", contentType: "application/json", extra: { "x-proxy": "next-bff-compat" } }),
       body: JSON.stringify(payload),
     });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
     return NextResponse.json(
-      { code: "BACKEND_UNREACHABLE", message: String(e?.message || e) },
+      { code: "BACKEND_UNREACHABLE", message: msg },
       { status: 502 }
     );
   }

@@ -22,11 +22,12 @@ export async function POST(req: NextRequest) {
 	try {
 		serverDbg('POST', url);
 		const upstream = await fetch(url, { method: "POST", headers: buildAnalyticsHeaders(req, { contentType: "application/json" }) });
-		const data = await upstream.json().catch(() => ({}));
+		const data: unknown = await upstream.json().catch(() => ({}));
 		serverDbg('RES', url, upstream.status, data);
 		// 无论上游是否返回 Set-Cookie，这里都用 Next 的 cookies API 稳定写入 aid，避免 dev 环境 http + Secure 导致丢失
 		const res = NextResponse.json(data, { status: upstream.status });
-		const anonId = (data as any)?.anonId || (data as any)?.id;
+		const rec = (data && typeof data === 'object') ? (data as Record<string, unknown>) : undefined;
+		const anonId = (typeof rec?.anonId === 'string' ? rec.anonId : undefined) || (typeof rec?.id === 'string' ? rec.id : undefined);
 		if (anonId) {
 			res.cookies.set("aid", anonId, {
 				path: "/",

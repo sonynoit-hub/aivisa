@@ -76,8 +76,13 @@ export function ContactForm() {
 							setOk({ id: String(res?.id ?? ""), status: "created" });
 			// reset minimal
 							setForm((p) => ({ ...p, subject: "", message: "", phone: "" }));
-		} catch (e: any) {
-			setErr(e?.payload?.message || e?.message || te("generic"));
+		} catch (e: unknown) {
+			const rec = (e && typeof e === 'object') ? (e as Record<string, unknown>) : undefined;
+			const payload = (rec?.payload && typeof rec.payload === 'object') ? (rec.payload as Record<string, unknown>) : undefined;
+			const msg =
+				(typeof payload?.message === 'string' && payload.message) ? payload.message :
+				(e instanceof Error ? e.message : undefined);
+			setErr(msg || te("generic"));
 		} finally {
 			setLoading(false);
 		}

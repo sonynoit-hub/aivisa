@@ -24,7 +24,7 @@ export default function HspIDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         storageKey="hspIDocs:checks"
         categoryOrder={categoryOrder}
         colors={CAT_COLORS}
-        studyDocs={studyDocs as any}
+        studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
   {/* 分类详情底部广告：高度人材1号（返回几条显示几条） */}

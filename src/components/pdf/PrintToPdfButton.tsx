@@ -89,17 +89,17 @@ export function PrintToPdfButton({
 
     // afterprint 触发判定与超时回退
     let afterPrintFired = false;
-    const onAfterPrintEvent = () => {
+    const onAfterPrintEvent: (this: Window, ev: Event) => void = () => {
       afterPrintFired = true;
       // 给浏览器一拍还原 DOM
       setTimeout(() => {
         cleanup();
       }, 0);
       try {
-        window.removeEventListener("afterprint", onAfterPrintEvent as any);
+        window.removeEventListener("afterprint", onAfterPrintEvent);
       } catch {}
     };
-    window.addEventListener("afterprint", onAfterPrintEvent as any, { once: true });
+    window.addEventListener("afterprint", onAfterPrintEvent, { once: true });
 
     // 尝试原生打印；在 iOS WebKit 或 bfcache 恢复后，避免等待异步以防丢失用户手势
     const tryNativePrint = () => {
@@ -114,7 +114,7 @@ export function PrintToPdfButton({
         if (onBeforePrint) {
           if (isIOSWebKit || restoredFromBFCacheRef.current) {
             // 不等待，尽量保持在同一用户手势内
-            try { (onBeforePrint() as any); } catch {}
+            try { void onBeforePrint(); } catch {}
           } else {
             // 其他浏览器可等待以确保展开等状态已渲染
             // 注意：等待可能会丢失极端环境下的手势，但主流桌面浏览器兼容良好
@@ -140,7 +140,7 @@ export function PrintToPdfButton({
         console.error("PDF 导出回退失败:", err);
       } finally {
         await cleanup();
-        try { window.removeEventListener("afterprint", onAfterPrintEvent as any); } catch {}
+        try { window.removeEventListener("afterprint", onAfterPrintEvent); } catch {}
       }
     };
 

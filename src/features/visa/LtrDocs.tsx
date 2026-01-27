@@ -25,7 +25,7 @@ export default function LtrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         storageKey="ltrDocs:checks"
         categoryOrder={categoryOrder}
         colors={CAT_COLORS}
-        studyDocs={studyDocs as any}
+        studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
   <AdSection page="detail" slot="detail_bottom" categorySlug="ltr" locale={locale} />

@@ -1,5 +1,9 @@
 import { http, getClientIdHeader } from "../client";
 
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return !!v && typeof v === "object";
+}
+
 // AI Chat API types based on backend contract
 export type ThreadItem = {
   id: number;
@@ -201,10 +205,13 @@ export function streamGenerate(
         try {
           const text = await res.text();
           try {
-            const obj = JSON.parse(text);
-            if (obj && typeof obj === 'object') {
-              if (typeof (obj as any).resetAt === 'string') resetAt = (obj as any).resetAt;
-              if (retryAfterSec == null && typeof (obj as any).retryAfter === 'number') retryAfterSec = (obj as any).retryAfter;
+            const obj: unknown = JSON.parse(text);
+            if (isRecord(obj)) {
+              const resetAtVal = obj["resetAt"];
+              if (typeof resetAtVal === "string") resetAt = resetAtVal;
+
+              const retryAfterVal = obj["retryAfter"];
+              if (retryAfterSec == null && typeof retryAfterVal === "number") retryAfterSec = retryAfterVal;
             }
           } catch {
             // ignore non-JSON body
@@ -347,9 +354,11 @@ export async function ensureThreadId(locale?: string): Promise<number> {
     const id = await tryCreate();
     try { if (typeof window !== 'undefined') window.localStorage.setItem("ai_thread_id", String(id)); } catch {}
     return id;
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const err = isRecord(e) ? e : undefined;
+    const status = typeof err?.status === "number" ? (err.status as number) : undefined;
     // 如果由于历史上存了非 UUID 导致 400，则清理并重试一次
-    if (e?.status === 400) {
+    if (status === 400) {
       try { if (typeof window !== 'undefined') window.localStorage.removeItem(keyUser); } catch {}
       const id = await tryCreate();
       try { if (typeof window !== 'undefined') window.localStorage.setItem("ai_thread_id", String(id)); } catch {}

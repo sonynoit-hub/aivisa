@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { locales, defaultLocale, type Locale } from "@/i18n/locales";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { getVisaName } from "@/data/visaCatalog";
 import { visaCategories as CATEGORY_DATA, type VisaCategoryKey } from "@/data/visaCategories";
@@ -128,6 +128,17 @@ export function SiteHeader() {
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
+  // 带动画的关闭（需要在 useEffect 中引用，避免“先使用后声明”）
+  const closeDrawer = useCallback(() => {
+    setClosing(true);
+    // 等待关闭动画完成后再隐藏
+    setTimeout(() => {
+      setOpen(false);
+      setClosing(false);
+      setDrawerWidth(null);
+    }, 250); // 与关闭动画时长一致
+  }, []);
+
   // 语言切换
   const onLocaleChange = (next: Locale) => {
     const nextPath = `/${[next, ...segs.slice(1)].join("/")}`;
@@ -150,7 +161,7 @@ export function SiteHeader() {
       window.removeEventListener("keydown", onKey);
       overlayEl?.removeEventListener("pointerdown", onDown);
     };
-  }, [open]);
+  }, [open, closeDrawer]);
 
   // 计算滚动条宽度，设置 CSS 变量以预留内边距，避免滚动条出现引发布局变化
   useEffect(() => {
@@ -186,12 +197,12 @@ export function SiteHeader() {
     } else {
       body.style.overflow = prevOverflow;
       body.style.paddingRight = prevPaddingRight;
-      setDrawerWidth(null);
+      queueMicrotask(() => setDrawerWidth(null));
     }
     return () => {
       body.style.overflow = prevOverflow;
       body.style.paddingRight = prevPaddingRight;
-      setDrawerWidth(null);
+      queueMicrotask(() => setDrawerWidth(null));
     };
   }, [open]);
 
@@ -204,17 +215,6 @@ export function SiteHeader() {
     setDrawerWidth(Math.floor(safeWidth));
     setClosing(false);
     setOpen(true);
-  };
-
-  // 带动画的关闭
-  const closeDrawer = () => {
-    setClosing(true);
-    // 等待关闭动画完成后再隐藏
-    setTimeout(() => {
-      setOpen(false);
-      setClosing(false);
-      setDrawerWidth(null);
-    }, 250); // 与关闭动画时长一致
   };
 
   // 抽屉列表改为与首页相同顺序的扁平列表（不再分组）

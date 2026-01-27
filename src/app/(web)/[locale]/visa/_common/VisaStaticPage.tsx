@@ -19,31 +19,40 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
   extra?: ComponentType<{ locale: string; studyDocs?: TDocs; studyDocsMeta?: TMeta }>,
   opts: StaticPageOptions = {}
 ) {
+  type LoadedLocalizedContent = {
+    title?: string;
+    summary?: string;
+    html?: string;
+    studyDocs?: TDocs;
+    studyDocsMeta?: TMeta;
+  };
+
   // 供页面与元数据共用的加载函数工厂
   function makeLoadLocalizedContent(locale: string) {
     const tryLocales = [locale, 'en', 'ja'];
     return {
-      async run() {
+      async run(): Promise<LoadedLocalizedContent> {
         // 1) Prefer statically imported i18n when provided (to satisfy Turbopack HMR)
         if (opts.staticI18n) {
           for (const loc of tryLocales) {
-            const data = opts.staticI18n![loc as keyof typeof opts.staticI18n];
+            const data = opts.staticI18n[loc];
             if (data) {
+              const ext = (data as unknown) as Record<string, unknown>;
               return {
                 title: typeof data.title === 'string' ? data.title : undefined,
                 summary: typeof data.summary === 'string' ? data.summary : undefined,
                 html: typeof data.html === 'string' ? data.html : undefined,
-                studyDocs: (data as any).studyDocs,
+                studyDocs: (ext['studyDocs'] as unknown) as TDocs,
                 studyDocsMeta: {
-                  stageLabels: (data as any).stageLabels,
-                  categoryLabels: (data as any).categoryLabels,
-                  title: (data as any).docsTitle,
-                  tips: (data as any).tips,
-                  stageTips: (data as any).stageTips,
-                  ui: (data as any).ui,
-                  actions: (data as any).actions,
-                },
-              } as any;
+                  stageLabels: ext['stageLabels'],
+                  categoryLabels: ext['categoryLabels'],
+                  title: ext['docsTitle'],
+                  tips: ext['tips'],
+                  stageTips: ext['stageTips'],
+                  ui: ext['ui'],
+                  actions: ext['actions'],
+                } as unknown as TMeta,
+              };
             }
           }
         }
@@ -52,24 +61,25 @@ export function createVisaStaticPage<TDocs = unknown, TMeta = unknown>(
           try {
             const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
             const data = (mod as { default?: VisaPageI18n }).default || {};
+            const ext = (data as unknown) as Record<string, unknown>;
             return {
-              title: typeof (data as any).title === 'string' ? (data as any).title : undefined,
-              summary: typeof (data as any).summary === 'string' ? (data as any).summary : undefined,
-              html: typeof (data as any).html === 'string' ? (data as any).html : undefined,
-              studyDocs: (data as any).studyDocs,
+              title: typeof data.title === 'string' ? data.title : undefined,
+              summary: typeof data.summary === 'string' ? data.summary : undefined,
+              html: typeof data.html === 'string' ? data.html : undefined,
+              studyDocs: (ext['studyDocs'] as unknown) as TDocs,
               studyDocsMeta: {
-                stageLabels: (data as any).stageLabels,
-                categoryLabels: (data as any).categoryLabels,
-                title: (data as any).docsTitle,
-                tips: (data as any).tips,
-                stageTips: (data as any).stageTips,
-                ui: (data as any).ui,
-                actions: (data as any).actions,
-              },
-            } as any;
+                stageLabels: ext['stageLabels'],
+                categoryLabels: ext['categoryLabels'],
+                title: ext['docsTitle'],
+                tips: ext['tips'],
+                stageTips: ext['stageTips'],
+                ui: ext['ui'],
+                actions: ext['actions'],
+              } as unknown as TMeta,
+            };
           } catch {}
         }
-        return {} as any;
+        return {};
       }
     };
   }
@@ -162,26 +172,26 @@ export function buildVisaStaticMetadata(
     const v = visaCatalog.find(x => x.slug === catalogSlug)!;
 
     // 与页面一致的本地化加载
-    async function loadLocalized(locale0: string) {
+    async function loadLocalized(locale0: string): Promise<VisaPageI18n> {
       const tryLocales = [locale0, 'en', 'ja'];
       if (opts.staticI18n) {
         for (const loc of tryLocales) {
-          const data = (opts.staticI18n as any)[loc];
-          if (data) return data as any;
+          const data = opts.staticI18n[loc];
+          if (data) return data;
         }
       }
       for (const loc of tryLocales) {
         try {
           const mod = await import(`@/i18n/messages/${loc}/visa-pages/${shortPath}.json`);
-          return ((mod as any).default || {}) as any;
+          return (mod as { default?: VisaPageI18n }).default || {};
         } catch {}
       }
-      return {} as any;
+      return {};
     }
 
   const data = await loadLocalized(locale);
   const staticMeta = getSeoMeta(locale as Locale, `visa/${shortPath}`);
-  const title = (staticMeta as { title?: string }).title || (data.title as string | undefined) || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
+  const title = (staticMeta as { title?: string }).title || (typeof data.title === 'string' ? data.title : undefined) || (v.names[locale as Locale] ?? v.names.ja ?? catalogSlug);
   // 使用集中配置的描述与关键词
   const description = staticMeta.description;
   const alternates: Record<string, string> = {};

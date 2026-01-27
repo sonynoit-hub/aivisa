@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
       { sessionId: rec.sessionId, aid: rec.aid, startedAt: rec.startedAt, isBot: rec.isBot },
       { status: 200 }
     );
-  } catch (e: any) {
-    return NextResponse.json({ error: "INTERNAL_ERROR", message: e?.message ?? "unknown", timestamp: new Date().toISOString() }, { status: 500 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: "INTERNAL_ERROR", message: msg || "unknown", timestamp: new Date().toISOString() }, { status: 500 });
   }
 }

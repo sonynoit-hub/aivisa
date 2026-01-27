@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { PrintToPdfButton } from "@/components/pdf/PrintToPdfButton";
 import Markdown from "@/components/common/Markdown";
 
-type StageKey = "abroad" | "inJapan" | "change" | "extend";
+type StageKey = string;
 
 type UIStrings = {
   expand?: string;
@@ -18,7 +18,7 @@ type UIStrings = {
 type ActionsStrings = { pdf?: string; pdfAria?: string };
 
 export type VisaDocsMeta<C extends string> = {
-  stageLabels: Record<StageKey, string>;
+  stageLabels: Record<string, string>;
   categoryLabels: Record<C, string>;
   title?: string;
   tips?: string;
@@ -42,11 +42,17 @@ function getLocaleFromPath(): string {
 }
 
 // Support group items inside studyDocs arrays: { group: string; options: string[]; pick?: 'one' | 'any' }
-type GroupItem = { group: string; options: string[]; pick?: 'one' | 'any' };
-type DocItem = string | GroupItem;
+export type GroupItem = { group: string; options: string[]; pick?: 'one' | 'any' };
+export type DocItem = string | GroupItem;
+
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return !!v && typeof v === "object";
+}
 
 function isGroupItem(v: unknown): v is GroupItem {
-  return !!v && typeof v === "object" && "group" in (v as any) && Array.isArray((v as any).options);
+  if (!isRecord(v)) return false;
+  if (typeof v.group !== "string") return false;
+  return Array.isArray(v.options) && v.options.every((x) => typeof x === "string");
 }
 
 export type VisaDocsProps<C extends string> = {
@@ -54,7 +60,7 @@ export type VisaDocsProps<C extends string> = {
   storageKey: string;
   categoryOrder?: readonly C[];
   colors?: Partial<Record<C, ColorConfig>>;
-  studyDocs?: Record<StageKey, Record<C, DocItem[]>>;
+  studyDocs?: Record<string, Record<C, DocItem[]>>;
   meta?: VisaDocsMeta<C>;
 };
 
@@ -83,7 +89,6 @@ export default function VisaDocs<C extends string>({
   };
   // Default to 'abroad' for backward compatibility; we'll set to the first available stage once docs load
   const [stage, setStage] = useState<StageKey>("abroad");
-  const initializedDefaultStage = useRef(false);
   const [mounted, setMounted] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -94,12 +99,19 @@ export default function VisaDocs<C extends string>({
   const [collapsed, setCollapsed] = useState<Record<C, boolean>>({} as Record<C, boolean>);
 
   useEffect(() => {
-    setMounted(true);
+    // 避免在 effect 中同步 setState（react-hooks/set-state-in-effect）
+    queueMicrotask(() => setMounted(true));
     try {
       const raw = window.localStorage.getItem(storageKey);
-      if (raw) setChecks(JSON.parse(raw) as CheckMap);
+      if (raw) {
+        const parsed = JSON.parse(raw) as CheckMap;
+        queueMicrotask(() => setChecks(parsed));
+      }
       const rawChoices = window.localStorage.getItem(storageKey + ":choices");
-      if (rawChoices) setChoices(JSON.parse(rawChoices) as ChoiceMap);
+      if (rawChoices) {
+        const parsed = JSON.parse(rawChoices) as ChoiceMap;
+        queueMicrotask(() => setChoices(parsed));
+      }
     } catch {}
   }, [storageKey]);
 
@@ -118,13 +130,17 @@ export default function VisaDocs<C extends string>({
   const ACTIVE_DOCS = studyDocs;
   const META = meta;
 
+  const stageKeys = useMemo(() => (ACTIVE_DOCS ? Object.keys(ACTIVE_DOCS) : []), [ACTIVE_DOCS]);
+  const firstStage = stageKeys[0] ?? "abroad";
+  const effectiveStage: StageKey = ACTIVE_DOCS && stage in ACTIVE_DOCS ? stage : firstStage;
+
   const categories = useMemo(() => {
     // ACTIVE_DOCS 可能存在但当前 stage 尚未提供（如组件默认 stage 为 'abroad'，而数据仅含 'change'/'extend'）
     // 初次渲染会在下面的 useEffect 中修正 stage，这里需保证有安全的空对象回退以避免读取 undefined 抛错。
     if (!ACTIVE_DOCS) return {} as Record<C, DocItem[]>;
-    const byStage = (ACTIVE_DOCS as any)[stage] as Record<C, DocItem[]> | undefined;
+    const byStage = ACTIVE_DOCS[effectiveStage] as Record<C, DocItem[]> | undefined;
     return (byStage ?? ({} as Record<C, DocItem[]>));
-  }, [stage, ACTIVE_DOCS]);
+  }, [effectiveStage, ACTIVE_DOCS]);
 
   // Prefer provided categoryOrder, but hide categories with no items
   const visibleCatOrder = useMemo(() => {
@@ -148,11 +164,9 @@ export default function VisaDocs<C extends string>({
   };
 
   const stageTabs: { key: StageKey; label: string; count: number }[] = ACTIVE_DOCS
-    ? (Object.keys(ACTIVE_DOCS) as StageKey[]).map((k) => {
-        const groups = Object.values(
-          ACTIVE_DOCS[k] as unknown as Record<string, string[]>
-        );
-        const count = groups.reduce((acc: number, arr: string[]) => acc + arr.length, 0);
+    ? Object.keys(ACTIVE_DOCS).map((k) => {
+        const groups = Object.values(ACTIVE_DOCS[k] as Record<string, DocItem[]>);
+        const count = groups.reduce((acc: number, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
         return {
           key: k,
           label: META?.stageLabels?.[k] ?? k,
@@ -160,21 +174,6 @@ export default function VisaDocs<C extends string>({
         };
       })
     : [];
-
-  // On first load of docs, set default to the first available stage (so the first tab is active by default).
-  // Afterwards, if the current stage becomes unavailable (data shape changes), fall back to the first.
-  useEffect(() => {
-    if (!ACTIVE_DOCS) return;
-    const first = (Object.keys(ACTIVE_DOCS) as StageKey[])[0];
-    if (!initializedDefaultStage.current) {
-      if (first && first !== stage) setStage(first);
-      initializedDefaultStage.current = true;
-      return;
-    }
-    if (!(stage in ACTIVE_DOCS) && first && first !== stage) {
-      setStage(first);
-    }
-  }, [ACTIVE_DOCS, stage]);
 
   if (!ACTIVE_DOCS) {
     return (
@@ -198,21 +197,21 @@ export default function VisaDocs<C extends string>({
             <div className="flex items-center gap-2" data-hide-print>
               <PrintToPdfButton
                 targetRef={sectionRef as React.RefObject<HTMLElement>}
-                filename={`${META?.title ?? "VisaDocs"}-${META?.stageLabels?.[stage] ?? stage}`}
+                filename={`${META?.title ?? "VisaDocs"}-${META?.stageLabels?.[effectiveStage] ?? effectiveStage}`}
                 onBeforePrint={async () => {
                   const prev = collapsed;
                   const expandedAll = visibleCatOrder.reduce((acc, k) => {
-                    (acc as any)[k] = false;
+                    acc[k] = false;
                     return acc;
                   }, {} as Record<C, boolean>);
                   setCollapsed(expandedAll);
                   await new Promise((r) => requestAnimationFrame(() => r(null)));
-                  (window as any).__visaDocsPrevCollapsed = prev;
+                  (window as unknown as { __visaDocsPrevCollapsed?: Record<C, boolean> }).__visaDocsPrevCollapsed = prev;
                 }}
                 onAfterPrint={async () => {
-                  const prev = (window as any).__visaDocsPrevCollapsed as Record<C, boolean> | undefined;
+                  const prev = (window as unknown as { __visaDocsPrevCollapsed?: Record<C, boolean> }).__visaDocsPrevCollapsed;
                   if (prev) setCollapsed(prev);
-                  (window as any).__visaDocsPrevCollapsed = undefined;
+                  (window as unknown as { __visaDocsPrevCollapsed?: Record<C, boolean> }).__visaDocsPrevCollapsed = undefined;
                 }}
                 className={"inline-flex h-9 items-center rounded-xl px-3 text-sm transition border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 shadow-sm"}
               >
@@ -224,7 +223,7 @@ export default function VisaDocs<C extends string>({
           <div aria-hidden className="mb-2 mt-1 hidden print:block">
             <h1 className="text-[18px] font-semibold text-slate-900">
               {META.title}
-              <span className="ml-2 text-slate-500">— {META?.stageLabels?.[stage] ?? stage}</span>
+              <span className="ml-2 text-slate-500">— {META?.stageLabels?.[effectiveStage] ?? effectiveStage}</span>
             </h1>
           </div>
         </>
@@ -237,7 +236,7 @@ export default function VisaDocs<C extends string>({
           aria-label="stages"
         >
           {stageTabs.map((tab) => {
-            const active = tab.key === stage;
+            const active = tab.key === effectiveStage;
             return (
               <button
                 key={tab.key}

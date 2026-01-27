@@ -46,8 +46,9 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ threadId: s
       headers: buildBackendHeaders(req),
     });
     return passthrough(r);
-  } catch (e: any) {
-    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: String(e?.message || e) }, { status: 502 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: msg }, { status: 502 });
   }
 }
 
@@ -70,7 +71,8 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ threadId: 
       body: JSON.stringify(parsed.data),
     });
     return passthrough(r);
-  } catch (e: any) {
-    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: String(e?.message || e) }, { status: 502 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: msg }, { status: 502 });
   }
 }

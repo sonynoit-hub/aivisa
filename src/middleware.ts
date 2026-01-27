@@ -3,6 +3,11 @@ import type { NextRequest } from "next/server";
 import { locales, defaultLocale } from "@/i18n/locales";
 
 
+function isSupportedLocale(locale: string): locale is typeof locales[number] {
+  return (locales as readonly string[]).includes(locale);
+}
+
+
 function pickLocaleFromAcceptLanguage(header: string | null): typeof locales[number] | null {
   if (!header) return null;
   // Parse: en-US,en;q=0.9,ja;q=0.8
@@ -54,7 +59,7 @@ export function middleware(req: NextRequest) {
   if (!isLocalePrefixed) {
     // First-time or non-prefixed: detect preferred locale
     const cookieLocale = req.cookies.get("preferred_locale")?.value;
-    const hasCookie = cookieLocale && (locales as readonly string[]).includes(cookieLocale as any);
+    const hasCookie = !!cookieLocale && isSupportedLocale(cookieLocale);
     const detected = hasCookie
       ? (cookieLocale as typeof locales[number])
       : pickLocaleFromAcceptLanguage(req.headers.get("accept-language")) || defaultLocale;
@@ -69,8 +74,8 @@ export function middleware(req: NextRequest) {
   // When visiting a locale-prefixed path, keep cookie in sync
   const res = NextResponse.next();
   const currentLocale = seg;
-  if ((locales as readonly string[]).includes(currentLocale as any)) {
-    res.cookies.set("preferred_locale", currentLocale!, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+  if (currentLocale && isSupportedLocale(currentLocale)) {
+    res.cookies.set("preferred_locale", currentLocale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
   }
   return res;
 }

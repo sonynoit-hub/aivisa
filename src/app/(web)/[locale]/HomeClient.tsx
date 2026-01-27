@@ -59,7 +59,7 @@ export default function HomeClient() {
     idxRef.current = 0;
     chrRef.current = 0;
     dirRef.current = "typing";
-    setPh("");
+    queueMicrotask(() => setPh(""));
   }, [hintKey]);
 
   
@@ -70,7 +70,7 @@ export default function HomeClient() {
       timerRef.current = null;
     }
     if (focused || q || hintRef.current.length === 0) {
-      setPh("");
+      queueMicrotask(() => setPh(""));
       return;
     }
     const run = () => {

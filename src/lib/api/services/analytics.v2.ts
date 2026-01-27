@@ -8,7 +8,7 @@ type EventInput = {
   category?: string;
   label?: string;
   value?: number;
-  props?: Record<string, any>;
+  props?: Record<string, unknown>;
   ts?: string; // ISO UTC
 };
 
@@ -20,8 +20,13 @@ function baseHeaders() {
   } as const;
 }
 
-function getWindowVal<T = any>(key: string): T | undefined {
-  try { return (window as any)[key] as T; } catch { return undefined; }
+function getWindowVal<T = unknown>(key: string): T | undefined {
+  try {
+    const w = window as unknown as Record<string, unknown>;
+    return w[key] as T;
+  } catch {
+    return undefined;
+  }
 }
 
 function getAnalyticsSessionId(): number | undefined {
@@ -59,7 +64,7 @@ export async function logEventV2(input: EventInput) {
     path: typeof window !== "undefined" ? window.location.pathname : undefined,
     title: typeof document !== "undefined" ? document.title : undefined,
   };
-  const body: any = {
+  const body: Record<string, unknown> = {
     eventType,
     payload: JSON.stringify(payloadObj),
     anonUserId,

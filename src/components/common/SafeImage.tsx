@@ -52,6 +52,7 @@ export default function SafeImage(props: Props) {
   // 注意：当 fill 为 true 时，父容器需为 position: relative；此处使用绝对定位填充
   if (fill) {
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={src}
         alt={alt}
@@ -63,6 +64,7 @@ export default function SafeImage(props: Props) {
   }
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}

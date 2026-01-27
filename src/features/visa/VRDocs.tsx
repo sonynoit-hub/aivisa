@@ -76,10 +76,14 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
   const [checks, setChecks] = useState<CheckMap>({});
 
   useEffect(() => {
-    setMounted(true);
+    // 避免在 effect 中同步 setState（react-hooks/set-state-in-effect）
+    queueMicrotask(() => setMounted(true));
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setChecks(JSON.parse(raw) as CheckMap);
+      if (raw) {
+        const parsed = JSON.parse(raw) as CheckMap;
+        queueMicrotask(() => setChecks(parsed));
+      }
     } catch {}
   }, []);
   useEffect(() => {
@@ -103,13 +107,10 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
   }, [locale, studyDocs, studyDocsMeta]);
 
   const ACTIVE_DOCS: StudyDocsData | undefined = META?.studyDocs;
-  useEffect(() => {
-    if (ACTIVE_DOCS && !ACTIVE_DOCS[stage]) {
-      const first = Object.keys(ACTIVE_DOCS)[0];
-      if (first) setStage(first);
-    }
-  }, [ACTIVE_DOCS, stage]);
-  const categories = useMemo(() => (ACTIVE_DOCS ? ACTIVE_DOCS[stage] || {} : {}), [ACTIVE_DOCS, stage]);
+  const stageKeys = useMemo(() => (ACTIVE_DOCS ? Object.keys(ACTIVE_DOCS) : []), [ACTIVE_DOCS]);
+  const firstStage = stageKeys[0] ?? stage;
+  const effectiveStage = ACTIVE_DOCS && ACTIVE_DOCS[stage] ? stage : firstStage;
+  const categories = useMemo(() => (ACTIVE_DOCS ? ACTIVE_DOCS[effectiveStage] || {} : {}), [ACTIVE_DOCS, effectiveStage]);
   const stageTabs = ACTIVE_DOCS
     ? Object.keys(ACTIVE_DOCS).map((k) => ({
         key: k,
@@ -131,7 +132,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
             <div className="flex items-center gap-2" data-hide-print>
               <PrintToPdfButton
                 targetRef={sectionRef as React.RefObject<HTMLElement>}
-                filename={`${META?.title ?? "VRDocs"}-${META?.stageLabels?.[stage] ?? stage}`}
+                filename={`${META?.title ?? "VRDocs"}-${META?.stageLabels?.[effectiveStage] ?? effectiveStage}`}
                 onBeforePrint={async () => {
                   const prev = collapsed;
                   setCollapsed({ applicant: false, sponsor: false });
@@ -155,7 +156,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
           <div aria-hidden className="mb-2 mt-1 hidden print:block">
             <h1 className="text-[18px] font-semibold text-slate-900">
               {META.title}
-              <span className="ml-2 text-slate-500">— {META?.stageLabels?.[stage] ?? stage}</span>
+              <span className="ml-2 text-slate-500">— {META?.stageLabels?.[effectiveStage] ?? effectiveStage}</span>
             </h1>
           </div>
         </>
@@ -168,7 +169,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
           aria-label="stages"
         >
           {stageTabs.map((tab) => {
-            const active = tab.key === stage;
+            const active = tab.key === effectiveStage;
             return (
               <button
                 key={tab.key}
@@ -205,7 +206,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
           const title = META?.categoryLabels?.[cat] ?? cat;
           const color = CAT_COLORS[cat];
 
-          const itemKey = (idx: number) => `${locale}:${stage}:${cat}:${idx}`;
+          const itemKey = (idx: number) => `${locale}:${effectiveStage}:${cat}:${idx}`;
           const completedCount = mounted ? items.reduce((acc, _, idx) => (checks[itemKey(idx)] ? acc + 1 : acc), 0) : 0;
           const totalCount = items.length || 1;
           const progress = mounted ? Math.round((completedCount / totalCount) * 100) : 0;
@@ -293,7 +294,7 @@ export default function VRDocs({ locale: propLocale, studyDocs, studyDocsMeta }:
       })()}
 
       {(() => {
-  const tipsText = (META?.stageTips && META.stageTips[stage]) || META?.tips;
+  const tipsText = (META?.stageTips && META.stageTips[effectiveStage]) || META?.tips;
         return tipsText ? (
         <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
           <div className="mb-2 flex items-center gap-2 text-slate-700">

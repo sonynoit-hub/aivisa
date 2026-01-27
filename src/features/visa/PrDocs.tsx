@@ -1,6 +1,6 @@
 "use client";
 
-import VisaDocs, { type VisaDocsMeta, type ColorConfig } from "./components/VisaDocs";
+import VisaDocs, { type VisaDocsMeta, type ColorConfig, type DocItem } from "./components/VisaDocs";
 import AdSection from "@/components/ad/AdSection";
 import { useMemo } from "react";
 
@@ -14,7 +14,8 @@ const CAT_COLORS: Record<CategoryKey, ColorConfig> = {
 };
 
 // 入力データの stage キーは pr.json に合わせて多様なため、厳格な型付けは避ける
-type Props = { locale?: string; studyDocs?: any; studyDocsMeta?: VisaDocsMeta<CategoryKey> };
+type StudyDocsData = Record<string, Record<CategoryKey, DocItem[]>>;
+type Props = { locale?: string; studyDocs?: StudyDocsData; studyDocsMeta?: VisaDocsMeta<CategoryKey> };
 
 export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
   // PR（永住）ページは "扶養者" セクションを表示する
@@ -26,7 +27,7 @@ export default function PrDocs({ locale, studyDocs, studyDocsMeta }: Props) {
         storageKey="prDocs:checks"
         categoryOrder={categoryOrder}
         colors={CAT_COLORS}
-        studyDocs={studyDocs as any}
+        studyDocs={studyDocs}
         meta={studyDocsMeta}
       />
   <AdSection page="detail" slot="detail_bottom" categorySlug="pr" locale={locale} />

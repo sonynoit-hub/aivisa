@@ -15,7 +15,8 @@ export async function GET(req: NextRequest) {
       headers: buildBackendHeaders(req),
     });
     return passthrough(r);
-  } catch (e: any) {
-    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: String(e?.message || e) }, { status: 502 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ code: "BACKEND_UNREACHABLE", message: msg }, { status: 502 });
   }
 }

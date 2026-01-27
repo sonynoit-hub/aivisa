@@ -13,6 +13,22 @@ export type ApiResponse<T> = {
   contentType?: string | null;
 };
 
+export type ApiError = Error & {
+  status?: number;
+  payload?: unknown;
+  meta?: RateMeta;
+};
+
+function getRuntimeOrigin(): string | undefined {
+  try {
+    const g = globalThis as unknown as { location?: { origin?: unknown } };
+    const origin = g.location?.origin;
+    return typeof origin === "string" ? origin : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function parseRateMeta(res: Response): RateMeta {
   const limit = Number(res.headers.get("x-ratelimit-limit") ?? "");
   const remaining = Number(res.headers.get("x-ratelimit-remaining") ?? "");
@@ -65,7 +81,7 @@ export async function apiGet<T>(path: string, params?: Record<string, string>, o
           || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
           || 'http://localhost:3000'
         )
-      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+      : (getRuntimeOrigin() ?? 'http://localhost:3000');
     const url = new URL(path, base);
     if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
     urlStr = url.toString();
@@ -82,7 +98,7 @@ export async function apiGet<T>(path: string, params?: Record<string, string>, o
   }
 }
 
-export async function apiPost<T>(path: string, body?: any, opts?: { timeoutMs?: number; signal?: AbortSignal }) {
+export async function apiPost<T>(path: string, body?: unknown, opts?: { timeoutMs?: number; signal?: AbortSignal }) {
   const isServer = typeof window === 'undefined';
   const isAbsolute = /^https?:\/\//i.test(path);
   let urlStr: string;
@@ -96,7 +112,7 @@ export async function apiPost<T>(path: string, body?: any, opts?: { timeoutMs?: 
           || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
           || 'http://localhost:3000'
         )
-      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+      : (getRuntimeOrigin() ?? 'http://localhost:3000');
     const url = new URL(path, base);
     urlStr = url.toString();
   }
@@ -133,7 +149,7 @@ export async function apiGetWithMeta<T>(path: string, params?: Record<string, st
           || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
           || 'http://localhost:3000'
         )
-      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+      : (getRuntimeOrigin() ?? 'http://localhost:3000');
     const url = new URL(path, base);
     if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
     urlStr = url.toString();
@@ -145,17 +161,17 @@ export async function apiGetWithMeta<T>(path: string, params?: Record<string, st
   const res = await fetch(urlStr, { method: "GET", signal, headers: { ...getClientIdHeader() }, credentials: "include" });
     const meta = parseRateMeta(res);
     const contentType = res.headers.get("content-type");
-    let data: any;
+    let data: unknown;
     if (contentType && contentType.includes("application/json")) data = await res.json();
-    else data = (await res.text()) as any;
+    else data = await res.text();
     if (!res.ok) throw buildPlainError(res.status, data, meta);
-    return { data, meta, status: res.status, contentType } as ApiResponse<T>;
+    return { data: data as T, meta, status: res.status, contentType };
   } finally {
     helper.clear();
   }
 }
 
-export async function apiPostWithMeta<T>(path: string, body?: any, opts?: { timeoutMs?: number; signal?: AbortSignal }): Promise<ApiResponse<T>> {
+export async function apiPostWithMeta<T>(path: string, body?: unknown, opts?: { timeoutMs?: number; signal?: AbortSignal }): Promise<ApiResponse<T>> {
   const isServer = typeof window === 'undefined';
   const isAbsolute = /^https?:\/\//i.test(path);
   let urlStr: string;
@@ -169,7 +185,7 @@ export async function apiPostWithMeta<T>(path: string, body?: any, opts?: { time
           || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
           || 'http://localhost:3000'
         )
-      : (globalThis as any).location?.origin ?? 'http://localhost:3000';
+      : (getRuntimeOrigin() ?? 'http://localhost:3000');
     const url = new URL(path, base);
     urlStr = url.toString();
   }
@@ -186,11 +202,11 @@ export async function apiPostWithMeta<T>(path: string, body?: any, opts?: { time
     });
     const meta = parseRateMeta(res);
     const contentType = res.headers.get("content-type");
-    let data: any;
+    let data: unknown;
     if (contentType && contentType.includes("application/json")) data = await res.json();
-    else data = (await res.text()) as any;
+    else data = await res.text();
     if (!res.ok) throw buildPlainError(res.status, data, meta);
-    return { data, meta, status: res.status, contentType } as ApiResponse<T>;
+    return { data: data as T, meta, status: res.status, contentType };
   } finally {
     helper.clear();
   }
@@ -199,22 +215,22 @@ export async function apiPostWithMeta<T>(path: string, body?: any, opts?: { time
 async function buildError(res: Response) {
   const meta = parseRateMeta(res);
   const contentType = res.headers.get("content-type");
-  let payload: any = undefined;
+  let payload: unknown = undefined;
   try {
     if (contentType && contentType.includes("application/json")) payload = await res.json();
     else payload = await res.text();
   } catch {
     // ignore
   }
-  const err: any = new Error(`HTTP ${res.status}`);
+  const err = new Error(`HTTP ${res.status}`) as ApiError;
   err.status = res.status;
   err.payload = payload;
   err.meta = meta;
   return err;
 }
 
-function buildPlainError(status: number, payload: any, meta: RateMeta) {
-  const err: any = new Error(`HTTP ${status}`);
+function buildPlainError(status: number, payload: unknown, meta: RateMeta) {
+  const err = new Error(`HTTP ${status}`) as ApiError;
   err.status = status;
   err.payload = payload;
   err.meta = meta;
@@ -223,7 +239,7 @@ function buildPlainError(status: number, payload: any, meta: RateMeta) {
 
 // 使用提供的 schema 验证响应数据（schema 需有 .parse 方法，如 zod）
 export function createHttpWithSchema<S>(schema: { parse: (data: unknown) => S }) {
-  return async function <T = S>(path: string, init?: RequestInit & { next?: any }): Promise<T> {
+  return async function <T = S>(path: string, init?: RequestInit & { next?: unknown }): Promise<T> {
     const isServer = typeof window === 'undefined';
     const isAbsolute = /^https?:\/\//i.test(path);
     const urlStr = (isServer && !isAbsolute && path.startsWith('/'))
@@ -237,19 +253,19 @@ export function createHttpWithSchema<S>(schema: { parse: (data: unknown) => S })
                 || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
                 || 'http://localhost:3000'
               )
-            : ((globalThis as any).location?.origin ?? 'http://localhost:3000')
+              : (getRuntimeOrigin() ?? 'http://localhost:3000')
         ).toString();
     const res = await fetch(urlStr, {
-      method: (init?.method as any) ?? "GET",
+        method: init?.method ?? "GET",
       ...init,
       headers: { Accept: "application/json", ...(init?.headers || {}), ...getClientIdHeader() },
       credentials: "include",
     });
     if (!res.ok) throw await buildError(res);
     const contentType = res.headers.get("content-type");
-    let data: any;
-    if (contentType && contentType.includes("application/json")) data = await res.json();
-    else data = await res.text();
+      let data: unknown;
+      if (contentType && contentType.includes("application/json")) data = await res.json();
+      else data = await res.text();
     const parsed = schema.parse(data);
     return parsed as unknown as T;
   };
@@ -257,7 +273,7 @@ export function createHttpWithSchema<S>(schema: { parse: (data: unknown) => S })
 
 // A lightweight helper mirroring the shape used by services: accepts a RequestInit,
 // auto-JSON stringifies plain object bodies, adds common headers, and returns parsed JSON/text.
-type HttpInit = Omit<RequestInit, 'body'> & { body?: any; next?: any };
+type HttpInit = Omit<RequestInit, 'body'> & { body?: unknown; next?: unknown };
 
 export async function http<T = unknown>(path: string, init?: HttpInit): Promise<T> {
   const isServer = typeof window === 'undefined';
@@ -273,11 +289,11 @@ export async function http<T = unknown>(path: string, init?: HttpInit): Promise<
               || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
               || 'http://localhost:3000'
             )
-          : ((globalThis as any).location?.origin ?? 'http://localhost:3000')
+          : (getRuntimeOrigin() ?? 'http://localhost:3000')
       ).toString();
   const hasJsonBody = typeof init?.body === "object" && init?.body !== null && !(init?.body instanceof FormData) && !(init?.body instanceof Blob);
   const res = await fetch(urlStr, {
-    method: (init?.method as any) ?? "GET",
+    method: init?.method ?? "GET",
     ...init,
     headers: {
       Accept: "application/json",
@@ -285,7 +301,7 @@ export async function http<T = unknown>(path: string, init?: HttpInit): Promise<
       ...(init?.headers || {}),
       ...getClientIdHeader(),
     },
-    body: hasJsonBody ? JSON.stringify(init?.body) : (init?.body as any),
+    body: hasJsonBody ? JSON.stringify(init?.body) : (init?.body as BodyInit | null | undefined),
     credentials: "include",
   });
   if (!res.ok) throw await buildError(res);

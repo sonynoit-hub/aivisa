@@ -23,7 +23,7 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
   } = opts;
 
   // 逐卡片截图拼接，避免大画布黑屏
-  const pdf = new jsPDF({ orientation, unit: "pt", format: pageFormat as any });
+  const pdf = new jsPDF({ orientation, unit: "pt", format: pageFormat });
   const pageWidth = pdf.internal.pageSize.getWidth();
   const pageHeight = pdf.internal.pageSize.getHeight();
   const contentWidth = pageWidth - margin * 2;
@@ -69,8 +69,8 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
       }
       // 过滤与混合
       elem.style.filter = "none";
-      (elem.style as any)["backdropFilter"] = "none";
-      (elem.style as any)["mixBlendMode"] = "normal";
+      elem.style.setProperty("backdrop-filter", "none");
+      elem.style.setProperty("mix-blend-mode", "normal");
       // 变换
       elem.style.transform = "none";
       elem.style.transformOrigin = "top left";
@@ -102,9 +102,7 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
 
     // 等待字体
     try {
-      if ((document as any).fonts && typeof (document as any).fonts.ready?.then === "function") {
-        await (document as any).fonts.ready;
-      }
+      if (document.fonts) await document.fonts.ready;
     } catch {}
 
     // Safari 先尝试非 foreignObject，其他浏览器优先 foreignObject
@@ -114,7 +112,8 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
     let canvas: HTMLCanvasElement | null = null;
     for (const opt of attempts) {
       try {
-        canvas = await html2canvas(clone, { ...(baseOpts as any), ...(opt as any) });
+        const options = { ...baseOpts, ...opt } as unknown as Parameters<typeof html2canvas>[1];
+        canvas = await html2canvas(clone, options);
         if (canvas && canvas.width > 0 && canvas.height > 0) break;
       } catch {
         // 尝试下一个配置
@@ -122,7 +121,8 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
     }
     if (!canvas) {
       // 最后兜底再试一次
-      canvas = await html2canvas(clone, { ...(baseOpts as any), foreignObjectRendering: false } as any);
+      const options = { ...baseOpts, foreignObjectRendering: false } as unknown as Parameters<typeof html2canvas>[1];
+      canvas = await html2canvas(clone, options);
     }
     return canvas!;
   };
@@ -170,8 +170,9 @@ export async function exportElementToPdf(el: HTMLElement, opts: ExportPdfOptions
   try { document.body.removeChild(overlay); } catch {}
 
   // 如果没有任何一页被绘制，使用 html() 兜底渲染
-  if (firstPage && (pdf as any).html) {
-    await (pdf as any).html(el, {
+  const pdfHtml = (pdf as unknown as { html?: (node: HTMLElement, options: unknown) => Promise<unknown> }).html;
+  if (firstPage && pdfHtml) {
+    await pdfHtml(el, {
       x: margin,
       y: margin,
       width: contentWidth,
