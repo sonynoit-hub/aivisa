@@ -72,7 +72,7 @@ const hoverShadeUp = (cls: string): string => {
 	return `text-${hue}-${next}`;
 };
 
-const colorIconBySlug: Partial<Record<string, ComponentType<SvgProps>>> = {
+const colorIconBySlug: Partial<Record<string, ComponentType<Omit<SvgProps, "size" | "variant">>>> = {
 	'engineer-humanities-international': EngineerIntlColorIcon,
 	'business-manager': BusinessManagerColorIcon,
 	'skilled-labor': SkilledLaborColorIcon,

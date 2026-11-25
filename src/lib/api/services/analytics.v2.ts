@@ -30,7 +30,8 @@ function getWindowVal<T = unknown>(key: string): T | undefined {
 }
 
 function getAnalyticsSessionId(): number | undefined {
-  const raw = getWindowVal("__ANALYTICS_SESSION_ID__") ?? getWindowVal("__ANALYTICS_IDS__")?.sessionId;
+  const raw = getWindowVal("__ANALYTICS_SESSION_ID__")
+    ?? getWindowVal<{ sessionId?: unknown }>("__ANALYTICS_IDS__")?.sessionId;
   if (typeof raw === "number") return raw;
   if (typeof raw === "string") {
     const n = Number(raw);
